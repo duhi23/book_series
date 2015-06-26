@@ -1,0 +1,146 @@
+\documentclass[10pt,spanish,cmatematica]{pubciencias-libro}
+\usepackage{amsmath,amssymb,amsthm}
+    \allowdisplaybreaks
+
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{systeme}
+\usepackage{mathpazo}
+\linespread{1.1}
+
+\usepackage{makeidx}
+\makeindex
+
+\autor{Holger Capa Santos}
+\titulo{Series Temporales}
+\subtitulo{La ciencia y el arte de los pronósticos}
+\numero{10}
+\editor{?}
+\revision{?}
+\asistente{Andrés Merino}
+\portada{Andrés Merino}
+\fechapub{2015}
+\edicion{Primera}{2015}
+\impresion{Primera}{2015}
+\registroautoral{}
+\ISBN{}
+
+\includeonly{
+    Capitulos/Cap1,
+    Capitulos/Cap2,
+    Capitulos/Cap3,
+    Capitulos/Cap4,
+    Capitulos/Cap5,
+}
+
+\newtheoremstyle{estiloteorema}%
+    {9pt}{9pt}%
+    {\slshape}%
+    {0pt}%
+    {\bfseries}{.}%
+    { }%
+    {}
+
+\theoremstyle{estiloteorema}
+    \newtheorem{definicion}{Definición}[chapter]
+    \newtheorem{teorema}{Teorema}[chapter]
+    \newtheorem{corolario}[teorema]{Corolario}
+    \newtheorem{proposicion}[teorema]{Proposición}
+    \newtheorem{lema}[teorema]{Lema}
+
+\newtheoremstyle{estiloejemplo}%
+    {9pt}{9pt}%
+    {}%
+    {0pt}%
+    {\bfseries}{.}%
+    { }%
+    {}
+
+\theoremstyle{estiloejemplo}
+    \newtheorem{ejemplo}{Ejemplo}[chapter]
+    \newtheorem{ejercicio}{Ejercicio}
+    \newtheorem{observacion}{Observación}[chapter]
+
+\setcounter{secnumdepth}{3}
+    
+\DeclareMathOperator{\E}{E}
+\DeclareMathOperator{\V}{V}    
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\Ley}{Ley}
+\DeclareMathOperator{\Pro}{Pr}
+\DeclareMathOperator{\Dist}{Dist}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+%\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\peq}{\phantom{{}={}}}
+
+\newcommand{\funcion}[5]{%
+{\setlength{\arraycolsep}{2pt}
+\begin{array}{r@{}ccl}
+#1\colon & #2 & \longrightarrow & #3\\
+& #4 & \longmapsto & #5
+\end{array}}}
+
+\newcommand{\func}[3]{%
+#1\colon  #2  \to  #3
+}
+
+\begin{document}
+
+\portadilla
+\tabladecontenidos
+\listadefiguras
+\listadetablas
+\mainmatter
+
+\chapter*{Notaciones}
+
+\begin{center}
+\begin{tabular}{c@{\hspace{1mm}:\hspace{5mm}}p{12cm}}
+$\E(.)$ & Esperanza matem\'{a}tica de una variable aleatoria. \\[5pt]
+$\V(.)$ & Varianza de una variable aleatoria. \\[5pt]
+$\Cov(.,.)$ & Covarianza de dos variables aleatorias. \\[5pt]
+$N(\mu, \sigma^{2})$ & Distribuci\'{o}n normal con media $\mu $ y varianza $\sigma^{2}$. \\[5pt]
+$\widehat{\cdot}$ & Denota un estimador del par\'{a}metro estad\'{\i}stico que se encuentra bajo el s\'{\i}mbolo. \\[5pt]
+$c$ & De manera general, representa a una constante num\'{e}rica. \\[5pt]
+i.i.d & Representa a la frase: independientes e id\'{e}nticamente distribuidas. \\[5pt]
+i.i.d (0,1) & Variables aleatorias independientes e id\'{e}nticamente distribuidas con esperanza matem\'{a}tica 0 y varianza 1. \\[5pt]
+$\gamma (l)$ & Funci\'{o}n de autocovarianza de orden $l$. \\[5pt]
+$\rho (l)$ & Funci\'{o}n de autocorrelaci\'{o}n de orden $l$. \\[5pt]
+$r(l)$ & Funci\'{o}n de autocorrelaci\'{o}n parcial de orden $l$. \\[5pt]
+$1_{A}$ & Funci\'{o}n indicatriz sobre el conjunto $A$. \\[5pt]
+$L_{c}^{2}(\Omega)$ & Espacio de variables aleatorias de $\Omega$ en $C$, de cuadrado integrable. \\[5pt]
+$L_{c}^{2}(E)$ & Espacio de funciones medibles de $E$ en $C$, de cuadrado integrable. \\[5pt]
+$\Sigma $ & Matriz de varianzas - covarianzas \\[5pt]
+$\Sigma_{u}$ & Matriz de varianzas -- covarianzas residuales \\[5pt]
+$\therefore$ & Significa: por tanto 
+\end{tabular}
+\end{center}
+
+\cleartooddpage[\thispagestyle{empty}]
+
+%\include{Capitulos/Cap1}
+%	\cleartooddpage[\thispagestyle{empty}]
+%\include{Capitulos/Cap2}
+%	\cleartooddpage[\thispagestyle{empty}]
+%\include{Capitulos/Cap3}
+%	\cleartooddpage[\thispagestyle{empty}]
+\include{Capitulos/Cap4}
+	\cleartooddpage[\thispagestyle{empty}]
+\include{Capitulos/Cap5}
+	\cleartooddpage[\thispagestyle{empty}]
+
+%\begin{thebibliography}
+%\bibitem
+%\end{thebibliography}
+
+
+\addcontentsline{toc}{chapter}{\'{I}ndice Alfabético}
+\printindex
+
+\end{document} 
