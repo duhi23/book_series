@@ -90,6 +90,9 @@
 #1\colon  #2  \to  #3
 }
 
+% Control Sangria Parrafos
+\parindent=0mm
+
 \begin{document}
 
 \portadilla
