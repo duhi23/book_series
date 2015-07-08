@@ -1548,679 +1548,285 @@ X_{1t}=a_{1}^{0}+\sum_{i=1}^p {a_{1i}^{1}X_{1t-i}} +\sum_{i=1}^p {a_{1i}^{2}X_{2
 \[
 X_{2t}=a_{2}^{0}+\sum_{i=1}^p {a_{2i}^{1}X_{1t-i}} +\sum_{i=1}^p {a_{2i}^{2}X_{2t-i}} +\sum_{i=1}^p {b_{i}^{1}X_{1t+i}} +u_{2t}
 \]
-%\begin{itemize}
-%\item $X_{1t}$ no causa $X_{2t}$ , si se aceptan la siguiente hip\'{o}tesis:
-%\end{itemize}
-%\[
-%H_{0}:b_{1}^{2}=b_{2}^{2}=\mathellipsis =b_{p}^{2}=0
-%\]
-%\begin{itemize}
-%\item $X_{2t}$ no causa $X_{1t}$ , si se aceptan la siguiente hip\'{o}tesis:
-%\end{itemize}
-%\[
-%H_{0}:b_{1}^{1}=b_{2}^{1}=\mathellipsis =b_{p}^{1}=0
-%\]
-%Se sigue utilizando la prueba cl\'{a}sica de Fisher de nulidad de 
-%coeficientes.
-%
-%\textbf{Observaci\'{o}n 5.8: }La prueba de Sims, se deja de como referencia 
-%dado que no se puede estimar directamente en EViews. Se puede crear un 
-%c\'{o}digo de programaci\'{o}n dentro del programa para poder realizar la 
-%estimaci\'{o}n, pero esto est\'{a} fuera del alcance de este documento. 
-%
-%\textbf{Ejemplo 5.6}
-%
-%A partir de la representaci\'{o}n VAR (1) estimada en el ejemplo 5.5, se va 
-%a proceder a realizar las pruebas de Granger.
-%
-%\textbf{Resoluci\'{o}n.}
-%
-%Se procede con una prueba de Fisher, ecuaci\'{o}n por ecuaci\'{o}n.
-%
-%\textbf{Prueba de Granger}
-%
-%\begin{itemize}
-%\item Ho\textbf{: }$Y_{2t}$ y $Y_{3t}$ no causan $Y_{1t}$
-%\end{itemize}
-%
-%Se han estimado los siguientes modelos:
-%\[
-%Y_{1t}=-0,1168Y_{1t-1}+0,7168Y_{2t-1}-0,0198Y_{3t-1}+
-%0,0115+\hat{u}_{1t}
-%\]
-%$R^{2}=\quad 0,09;$ n $=$ 48; SCRU$=$0,010381 (sin restricciones)
-%\[
-%Y_{1t}=-0,0197Y_{1t-1}+0,025+\hat{u}_{1t}
-%\]
-%$R^{2}=\quad 0,0004;$ n $=$ 48; SCRR$=$0,011474 (restringido)
-%
-%donde,
-%
-%SRCU: es la suma de cuadrados de los residuos del modelo sin restricciones.
-%
-%SRRR: es la suma de cuadrados de los residuos del modelo restringido. 
-%\[
-%F^{\ast 
-%}=\frac{\frac{SCRR-SCRU}{c}}{\frac{SCRU}{n-k-1}}=\frac{\frac{\mathrm{0,011474-0,010381}}{1}}{\frac{\mathrm{0,010381}}{48-3-1}}=4,6326
-%\]
-%c$=$ n\'{u}mero de restricciones (n\'{u}mero de coeficientes que pone a 
-%prueba la hip\'{o}tesis nula); en este caso c$=$1, dado que se elimina un 
-%coeficiente de cada ecuaci\'{o}n.
-%
-%$F^{\ast }>F_{1;48}^{0,05}\approx 4,05;$ por tanto, se rechaza la 
-%hip\'{o}tesis nula; $Y_{2t}$ y $Y_{3t}$ explica significativamente la 
-%variable $Y_{1t}$; existe causalidad seg\'{u}n Granger.
-%
-%\begin{itemize}
-%\item Ho\textbf{: }$Y_{1t}$ y $Y_{3t}$ no causan $Y_{2t}$
-%\end{itemize}
-%
-%Se han estimado los siguientes modelos: 
-%\[
-%Y_{2t}=-0,0575Y_{1t-1}+0,0674Y_{2t-1}+0,0900Y_{3t-1}+
-%0,0197+\hat{u}_{2t}
-%\]
-%$R^{2}=\quad 0,0026;$ n $=$ 48; SCRU$=$0,002594 (sin restricciones)
-%\[
-%Y_{2t}=0,1014Y_{2t-1}+0,0199+\hat{u}_{2t}
-%\]
-%$R^{2}\quad =\quad 0,011;$ n $=$ 48; SCRR$=$0,002638 (restringido)
-%\[
-%F^{\ast 
-%}=\frac{\frac{SCRR-SCRU}{c}}{\frac{SCRU}{n-k-1}}=\frac{\frac{0,002638-\mathrm{0,002594}}{1}}{\frac{\mathrm{0,002594}}{48-3-1}}=0,7463
-%\]
-%$F^{\ast }<F_{1;104}^{0,05}\approx 4,05;$ por tanto, se acepta la 
-%hip\'{o}tesis nula; $Y_{1t}$y $Y_{3t}$ no explican significativamente la 
-%variable $Y_{2t}$; no existe causalidad seg\'{u}n Granger.
-%
-%\begin{itemize}
-%\item Ho\textbf{: }$Y_{1t}$ y $Y_{2t}$ no causan $Y_{3t}$
-%\end{itemize}
-%
-%Se han estimado los siguientes modelos:
-%\[
-%Y_{3t}=0,1972Y_{1t-1}+0,4192Y_{2t-1}-0,3462Y_{3t-1}+
-%0,0185+\hat{u}_{3t}
-%\]
-%$R^{2}=\quad 0,0110;$ n $=$ 48; SCRU$=$0,011036 (sin restricciones)
-%\[
-%Y_{3t}=-0,1394Y_{3t-1}+0,0285+\hat{u}_{3t}
-%\]
-%$R^{2}\quad =\quad 0,011;$ n $=$ 48; SCRR$=$0,011487 (restringido)
-%\[
-%F^{\ast 
-%}=\frac{\frac{SCRR-SCRU}{c}}{\frac{SCRU}{n-k-1}}=\frac{\frac{\mathrm{0,011487}-\mathrm{0,011036
-%}}{1}}{\frac{\mathrm{0,011036}}{48-3-1}}=1,7981
-%\]
-%$F^{\ast }<F_{1;104}^{0,05}\approx 4,05;$ por tanto, se acepta la 
-%hip\'{o}tesis nula; $Y_{1t}$y $Y_{2t}$ no explican significativamente la 
-%variable $Y_{3t}$; no existe causalidad seg\'{u}n Granger.
-%
-%El siguiente gr\'{a}fico muestra la salida del paquete EViews para la Prueba 
-%de Granger. Hay que considerar que el paquete considera la prueba de Wald y 
-%compara el valor obtenido con el estad\'{\i}stico Chi-cuadrado.
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|p{64pt}|l|p{65pt}|l|}
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\multicolumn{3}{|p{195pt}|}{Dependent variable: $Y_{1t}$} & 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%Excluded& 
-%Chi-sq& 
-%df& 
-%Prob. \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%$Y_{2t}$ & 
-%~3.972118& 
-%1& 
-%~0.0463 \\
-%\hline
-%$Y_{3t}$& 
-%~0.007279& 
-%1& 
-%~0.9320 \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%All& 
-%~4.631706& 
-%2& 
-%~0.0987 \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\multicolumn{3}{|p{195pt}|}{Dependent variable: $Y_{2t}$} & 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%Excluded& 
-%Chi-sq& 
-%df& 
-%Prob. \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%$Y_{1t}$& 
-%~0.557515& 
-%1& 
-%~0.4553 \\
-%\hline
-%$Y_{3t}$& 
-%~0.661477& 
-%1& 
-%~0.4160 \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%All& 
-%~0.746494& 
-%2& 
-%~0.6885 \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\multicolumn{3}{|p{195pt}|}{Dependent variable: $Y_{3t}$} & 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%Excluded& 
-%Chi-sq& 
-%df& 
-%Prob. \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%$Y_{1t}$& 
-%~0.236725& 
-%1& 
-%~0.6266 \\
-%\hline
-%$Y_{2t}$ & 
-%~1.415327& 
-%1& 
-%~0.2342 \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%All& 
-%~1.799419& 
-%2& 
-%~0.4067 \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\end{tabular}
-%\label{tab23}
-%\end{center}
-%\end{table}
-%
-%\begin{center}
-%Tabla 5.10: Prueba de causalidad de Granger \newline
-%
-%\end{center}
-%
-%Como se puede ver, el p-valor (Prob.) es mayor que 0,05 en todos los casos, 
-%esto implica que no existe causalidad entre las variables. Sin embargo, al 
-%realizar el c\'{a}lculo inicial se concluy\'{o} que si existe causalidad de 
-%$Y_{3t}$ y $Y_{2t}$ hacia $Y_{1t}$. La diferencia se origina en los 
-%algoritmos de c\'{a}lculo que tienen los paquetes implementados.
-%
-%\section{5.8 AN\'{A}LISIS DE LOS ``CHOQUES''}
+
+\begin{itemize}
+      \item $X_{1t}$ no causa $X_{2t}$ , si se aceptan la siguiente hip\'{o}tesis:
+\[
+H_{0}:b_{1}^{2}=b_{2}^{2}=\mathellipsis =b_{p}^{2}=0
+\]
+      \item $X_{2t}$ no causa $X_{1t}$ , si se aceptan la siguiente hip\'{o}tesis:
+\[
+H_{0}:b_{1}^{1}=b_{2}^{1}=\mathellipsis =b_{p}^{1}=0
+\]
+\end{itemize}
+
+Se sigue utilizando la prueba cl\'{a}sica de Fisher de nulidad de coeficientes.
+
+\begin{observacion}
+La prueba de Sims, se deja de como referencia dado que no se puede estimar directamente en EViews. Se puede crear un c\'{o}digo de programaci\'{o}n dentro del programa para poder realizar la estimaci\'{o}n, pero esto est\'{a} fuera del alcance de este documento. 
+\end{observacion}
+
+\begin{ejemplo}
+A partir de la representaci\'{o}n VAR (1) estimada en el ejemplo 5.5, se va a proceder a realizar las pruebas de Granger.
+\end{ejemplo}
+
+\textbf{Resoluci\'{o}n.}\newline
+
+Se procede con una prueba de Fisher, ecuaci\'{o}n por ecuaci\'{o}n.\newline
+
+\textbf{Prueba de Granger}\newline
+
+\begin{itemize}
+      \item Ho\textbf{: }$Y_{2t}$ y $Y_{3t}$ no causan $Y_{1t}$
+
+Se han estimado los siguientes modelos:
+\[
+Y_{1t}=-0,1168Y_{1t-1}+0,7168Y_{2t-1}-0,0198Y_{3t-1}+0,0115+\hat{u}_{1t}
+\]
+$R^{2}=0,09$;\quad $n=48$; $SCRU=0,010381$ (sin restricciones)
+\[
+Y_{1t}=-0,0197Y_{1t-1}+0,025+\hat{u}_{1t}
+\]
+$R^{2}=0,0004$;\quad $n=48$; \quad $SCRR=0,011474$ (restringido)
+
+donde,
+
+SRCU: es la suma de cuadrados de los residuos del modelo sin restricciones.\newline
+SRRR: es la suma de cuadrados de los residuos del modelo restringido.
+\[
+F^{\ast }=\frac{\frac{SCRR-SCRU}{c}}{\frac{SCRU}{n-k-1}}=\frac{\frac{\mathrm{0,011474-0,010381}}{1}}{\frac{\mathrm{0,010381}}{48-3-1}}=4,6326
+\]
+c$=$ n\'{u}mero de restricciones (n\'{u}mero de coeficientes que pone a prueba la hip\'{o}tesis nula); en este caso c$=$1, dado que se elimina un coeficiente de cada ecuaci\'{o}n.\newline
+
+$F^{\ast }>F_{1;48}^{0,05}\approx 4,05;$ por tanto, se rechaza la hip\'{o}tesis nula; $Y_{2t}$ y $Y_{3t}$ explica significativamente la variable $Y_{1t}$; existe causalidad seg\'{u}n Granger.
+
+      \item Ho\textbf{: }$Y_{1t}$ y $Y_{3t}$ no causan $Y_{2t}$
+
+Se han estimado los siguientes modelos: 
+\[
+Y_{2t}=-0,0575Y_{1t-1}+0,0674Y_{2t-1}+0,0900Y_{3t-1}+0,0197+\hat{u}_{2t}
+\]
+$R^{2}=0,0026$;\quad $n=48$;\quad $SCRU=0,002594$ (sin restricciones)
+\[
+Y_{2t}=0,1014Y_{2t-1}+0,0199+\hat{u}_{2t}
+\]
+$R^{2}=0,011$;\quad $n=48$;\quad $SCRR=0,002638$ (restringido)
+\[
+F^{\ast }=\frac{\frac{SCRR-SCRU}{c}}{\frac{SCRU}{n-k-1}}=\frac{\frac{0,002638-\mathrm{0,002594}}{1}}{\frac{\mathrm{0,002594}}{48-3-1}}=0,7463
+\]
+$F^{\ast }<F_{1;104}^{0,05}\approx 4,05;$ por tanto, se acepta la hip\'{o}tesis nula; $Y_{1t}$y $Y_{3t}$ no explican significativamente la variable $Y_{2t}$; no existe causalidad seg\'{u}n Granger.
+
+      \item Ho\textbf{: }$Y_{1t}$ y $Y_{2t}$ no causan $Y_{3t}$
+
+Se han estimado los siguientes modelos:
+\[
+Y_{3t}=0,1972Y_{1t-1}+0,4192Y_{2t-1}-0,3462Y_{3t-1}+
+0,0185+\hat{u}_{3t}
+\]
+$R^{2}=0,0110$;\quad $n=48$;\quad $SCRU=0,011036$ (sin restricciones)
+\[
+Y_{3t}=-0,1394Y_{3t-1}+0,0285+\hat{u}_{3t}
+\]
+$R^{2}=0,011$;\quad $n=48$;\quad $SCRR=0,011487$ (restringido)
+\[
+F^{\ast }=\frac{\frac{SCRR-SCRU}{c}}{\frac{SCRU}{n-k-1}}=\frac{\frac{\mathrm{0,011487}-\mathrm{0,011036}}{1}}{\frac{\mathrm{0,011036}}{48-3-1}}=1,7981
+\]
+$F^{\ast }<F_{1;104}^{0,05}\approx 4,05;$ por tanto, se acepta la hip\'{o}tesis nula; $Y_{1t}$y $Y_{2t}$ no explican significativamente la variable $Y_{3t}$; no existe causalidad seg\'{u}n Granger.
+\end{itemize}
+
+El siguiente gr\'{a}fico muestra la salida del paquete EViews para la Prueba de Granger. Hay que considerar que el paquete considera la prueba de Wald y compara el valor obtenido con el estad\'{i}stico Chi-cuadrado.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\multicolumn{4}{l}{~Dependent variable: $Y_{1t}$} \\ \hline\hline
+~Excluded~ & ~Chi-sq~ & ~df~ & ~Prob.~ \\ \hline\hline
+$Y_{2t}$ & ~3.972118 & 1 & ~0.0463 \\ 
+$Y_{3t}$ & ~0.007279 & 1 & ~0.9320 \\ \hline\hline
+All & ~4.631706 & 2 & ~0.0987 \\ \hline\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\multicolumn{4}{l}{~Dependent variable: $Y_{2t}$} \\ \hline\hline
+~Excluded~ & ~Chi-sq~ & ~df~ & ~Prob.~ \\ \hline\hline
+$Y_{2t}$ & ~0.557515 & 1 & ~0.4553 \\ 
+$Y_{3t}$ & ~0.661477 & 1 & ~0.4160 \\ \hline\hline
+All & ~0.746494 & 2 & ~0.6885 \\ \hline\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\multicolumn{4}{l}{~Dependent variable: $Y_{3t}$} \\ \hline\hline
+~Excluded~ & ~Chi-sq~ & ~df~ & ~Prob.~ \\ \hline\hline
+$Y_{2t}$ & ~0.236725 & 1 & ~0.6266 \\ 
+$Y_{3t}$ & ~1.415327 & 1 & ~0.2342 \\ \hline\hline
+All & ~1.799419 & 2 & ~0.4067 \\ \hline\hline
+\end{tabular}
+\caption{Prueba de causalidad de Granger}
+\end{table}
+
+Como se puede ver, el p-valor (Prob.) es mayor que 0,05 en todos los casos, esto implica que no existe causalidad entre las variables. Sin embargo, al realizar el c\'{a}lculo inicial se concluy\'{o} que si existe causalidad de $Y_{3t}$ y $Y_{2t}$ hacia $Y_{1t}$. La diferencia se origina en los algoritmos de c\'{a}lculo que tienen los paquetes implementados.
+
+\section{An\'{a}lisis de los ``choques''}
 %\label{subsec:mylabel10}
-%El an\'{a}lisis de los choques consiste en medir el impacto de la 
-%variaci\'{o}n de una innovaci\'{o}n sobre las variables. 
-%
-%Consid\'{e}rese el modelo estimado del ejemplo 5.5:
-%\[
-%Y_{1t}=-0,1168Y_{1t-1}+0,7168Y_{2t-1}-0,0198Y_{3t-1}+
-%0,0115+\hat{u}_{1t}
-%\]
-%\[
-%Y_{2t}=-0,0575Y_{1t-1}
-%+0,0674Y_{2t-1}+0,0900Y_{3t-1}+0,0197+\hat{u}_{2t}
-%\]
-%\[
-%Y_{3t}=0,1972Y_{1t-1}+0,4192Y_{2t-1}-0,3462Y_{3t-1}+
-%0,0185+\hat{u}_{3t}
-%\]
-%Una variaci\'{o}n en un instante dado de $\hat{u}_{1t}$ tiene una 
-%consecuencia inmediata sobre $Y_{1t}$, y entonces sobre $Y_{1,t+1}$ y 
-%$Y_{2,t+1}$ ; por ejemplo, si se produce en \textbf{\textit{t}} un choque 
-%sobre $\hat{u}_{1t}$ igual a 1 y de orden 0 sobre $\hat{u}_{2t}$ (las otras 
-%variables permanecen iguales que en el tiempo ($t-1)$; para los valores 
-%subsiguientes, $u_{t+i}$ retorna a su valor $u_{t-1})$, se tiene los 
-%impactos siguientes:
-%
-%En el per\'{\i}odo \textbf{\textit{t}}: $\left[ {\begin{array}{*{20}c}
-%\mathrm{\Delta }Y_{1t}\\
-%\mathrm{\Delta }Y_{2t}\\
-%\mathrm{\Delta }Y_{3t}\\
-%\end{array} } \right]=\left[ {\begin{array}{*{20}c}
-%1\\
-%0\\
-%0\\
-%\end{array} } \right]$
-%
-%En el per\'{\i}odo \textbf{\textit{t}}$+$\textbf{\textit{1}}:
-%\[
-%\left[ {\begin{array}{*{20}c}
-%\mathrm{\Delta }\hat{Y}_{1,t+1}\\
-%\mathrm{\Delta }\hat{Y}_{2,t+1}\\
-%\mathrm{\Delta }\hat{Y}_{3,t+1}\\
-%\end{array} } \right]=\left[ {\begin{array}{*{20}c}
-%-0,1170 & 0,7168 & -0,0198\\
-%-0,0575 & 0,0674 & 0,0900\\
-%0,1972 & 0,04192 & -0,3462\\
-%\end{array} } \right]\left[ {\begin{array}{*{20}c}
-%1\\
-%0\\
-%0\\
-%\end{array} } \right]=\left[ {\begin{array}{*{20}c}
-%-0,1170\\
-%-0,0575\\
-%0,1972\\
-%\end{array} } \right]
-%\]
-%En el per\'{\i}odo \textbf{\textit{t}}$+$\textbf{\textit{2}}:
-%\[
-%\left[ {\begin{array}{*{20}c}
-%\mathrm{\Delta }\hat{Y}_{1,t+2}\\
-%\mathrm{\Delta }\hat{Y}_{2,t+2}\\
-%\mathrm{\Delta }\hat{Y}_{3,t+2}\\
-%\end{array} } \right]=\left[ {\begin{array}{*{20}c}
-%-0,1170 & 0,7168 & -0,0198\\
-%-0,0575 & 0,0674 & 0,0900\\
-%0,1972 & 0,04192 & -0,3462\\
-%\end{array} } \right]\left[ {\begin{array}{*{20}c}
-%-0,1170\\
-%-0,0575\\
-%0,1972\\
-%\end{array} } \right]=\left[ {\begin{array}{*{20}c}
-%-0,0315\\
-%0,0206\\
-%-0,1154\\
-%\end{array} } \right]
-%\]
+El an\'{a}lisis de los choques consiste en medir el impacto de la variaci\'{o}n de una innovaci\'{o}n sobre las variables.\newline
+
+Consid\'{e}rese el modelo estimado del ejemplo 5.5:
+\[
+Y_{1t}=-0,1168Y_{1t-1}+0,7168Y_{2t-1}-0,0198Y_{3t-1}+0,0115+\hat{u}_{1t}
+\]
+\[
+Y_{2t}=-0,0575Y_{1t-1}+0,0674Y_{2t-1}+0,0900Y_{3t-1}+0,0197+\hat{u}_{2t}
+\]
+\[
+Y_{3t}=0,1972Y_{1t-1}+0,4192Y_{2t-1}-0,3462Y_{3t-1}+0,0185+\hat{u}_{3t}
+\]
+
+Una variaci\'{o}n en un instante dado de $\hat{u}_{1t}$ tiene una consecuencia inmediata sobre $Y_{1t}$, y entonces sobre $Y_{1,t+1}$ y $Y_{2,t+1}$ ; por ejemplo, si se produce en \textit{t} un choque sobre $\hat{u}_{1t}$ igual a 1 y de orden 0 sobre $\hat{u}_{2t}$ (las otras variables permanecen iguales que en el tiempo ($t-1)$; para los valores subsiguientes, $u_{t+i}$ retorna a su valor $u_{t-1})$, se tiene los impactos siguientes:\newline
+
+En el per\'{i}odo \textit{t}: 
+\[
+\left[ {\begin{array}{*{20}c}
+\Delta Y_{1t}\\
+\Delta Y_{2t}\\
+\Delta Y_{3t}\\
+\end{array} } \right]=\left[ {\begin{array}{*{20}c}
+1\\
+0\\
+0\\
+\end{array} } \right]
+\]
+
+En el per\'{i}odo \textit{t}$+$\textit{1}:
+\[
+\left[ {\begin{array}{*{20}c}
+\Delta \hat{Y}_{1,t+1}\\
+\Delta \hat{Y}_{2,t+1}\\
+\Delta \hat{Y}_{3,t+1}\\
+\end{array} } \right]=\left[ {\begin{array}{*{20}c}
+-0,1170 & 0,7168 & -0,0198\\
+-0,0575 & 0,0674 & 0,0900\\
+0,1972 & 0,04192 & -0,3462\\
+\end{array} } \right]\left[ {\begin{array}{*{20}c}
+1\\
+0\\
+0\\
+\end{array} } \right]=\left[ {\begin{array}{*{20}c}
+-0,1170\\
+-0,0575\\
+0,1972\\
+\end{array} } \right]
+\]
+
+En el per\'{i}odo \textit{t}$+$\textit{2}:
+\[
+\left[ {\begin{array}{*{20}c}
+\Delta \hat{Y}_{1,t+2}\\
+\Delta \hat{Y}_{2,t+2}\\
+\Delta \hat{Y}_{3,t+2}\\
+\end{array} } \right]=\left[ {\begin{array}{*{20}c}
+-0,1170 & 0,7168 & -0,0198\\
+-0,0575 & 0,0674 & 0,0900\\
+0,1972 & 0,04192 & -0,3462\\
+\end{array} } \right]\left[ {\begin{array}{*{20}c}
+-0,1170\\
+-0,0575\\
+0,1972\\
+\end{array} } \right]=\left[ {\begin{array}{*{20}c}
+-0,0315\\
+0,0206\\
+-0,1154\\
+\end{array} } \right]
+\]
 %\[
 %\vdots 
 %\]
-%Por otro lado, utilizando la representaci\'{o}n lineal del VAR, se logra 
-%realizar el an\'{a}lisis de las funciones de impulso-respuesta, ya que un 
-%choque en $Y_{1t}$ se reflejar\'{a} como la primera columna de 
-%$M_{i}=A_{1}^{i}$ (recuerde que $M_{0}=I)$; de forma similar, un impacto 
-%sobre $Y_{2t}$ se reflejar\'{\i}a en la segunda columna de la matriz 
-%$M_{i}$. La generalizaci\'{o}n a un $VAR$ con $k$ variables, es inmediata.
-%
-%Considere el modelo estimado en el ejemplo 5.5:
-%\[
-%\hat{A}_{1}=\left[ {\begin{array}{*{20}c}
-%-0,1170 & 0,7168 & -0,0198\\
-%-0,0575 & 0,0674 & 0,0900\\
-%0,1972 & 0,04192 & -0,3462\\
-%\end{array} } \right]
-%\]
-%\[
-%\hat{A}_{1}^{2}=\left[ {\begin{array}{*{20}c}
-%-0,0315 & -0,0437 & 0,0737\\
-%0,0206 & 0,0011 & -0,0240\\
-%-0,1154 & 0,0245 & 0,1567\\
-%\end{array} } \right]
-%\]
+Por otro lado, utilizando la representaci\'{o}n lineal del VAR, se logra realizar el an\'{a}lisis de las funciones de impulso-respuesta, ya que un choque en $Y_{1t}$ se reflejar\'{a} como la primera columna de $M_{i}=A_{1}^{i}$ (recuerde que $M_{0}=I)$; de forma similar, un impacto sobre $Y_{2t}$ se reflejar\'{i}a en la segunda columna de la matriz 
+$M_{i}$. La generalizaci\'{o}n a un $VAR$ con $k$ variables, es inmediata.\newline
+
+Considere el modelo estimado en el ejemplo 5.5:
+\[
+\hat{A}_{1}=\left[ {\begin{array}{*{20}c}
+-0,1170 & 0,7168 & -0,0198\\
+-0,0575 & 0,0674 & 0,0900\\
+0,1972 & 0,04192 & -0,3462\\
+\end{array} } \right]
+\]
+\[
+\hat{A}_{1}^{2}=\left[ {\begin{array}{*{20}c}
+-0,0315 & -0,0437 & 0,0737\\
+0,0206 & 0,0011 & -0,0240\\
+-0,1154 & 0,0245 & 0,1567\\
+\end{array} } \right]
+\]
 %\[
 %\vdots 
 %\]
-%As\'{\i}, los elementos de $\hat{A}_{1}^{i}$ representan los efectos de los 
-%choques unitarios de las variables del sistema luego de $i$ per\'{\i}odos. 
-%Es por esta raz\'{o}n que, se les conoce como 
-%\textbf{\textit{multiplicadores 
-%din\'{a}micos}}\index{Multiplicadores!Din\'{a}micos}\textbf{\textit{ o 
-%respuestas al impulso.}}
-%
-%En las tablas siguientes se muestran los resultados de las funciones de 
-%impulso-respuesta que presenta el paquete EViews para las variables 
-%$Y_{1t}$, $Y_{2t}$ y $Y_{3t}$, que son los c\'{a}lculos hechos manualmente 
-%al inicio de esta secci\'{o}n. Esto tambi\'{e}n se muestra en los 
-%gr\'{a}ficos siguientes:
-%
-%\begin{center}
-%Tabla 5.11: Respuesta de las variables $Y_{1t}$, $Y_{2t}$ y $Y_{3t}$ ante un 
-%choque unitario de $Y_{1t}$
-%\end{center}
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|l|p{49pt}|p{60pt}|p{60pt}|}
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%~Per\'{\i}odo& 
-%$Y_{1t}$& 
-%$Y_{2t}$& 
-%$Y_{3t}$ \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%~1& 
-%~1,000000& 
-%~0,000000& 
-%~0,000000 \\
-%\hline
-%~2& 
-%-0,193069& 
-%-0,080383& 
-%~0,108038 \\
-%\hline
-%~3& 
-%-0,016093& 
-%~0,019189& 
-%-0,090439 \\
-%\hline
-%~4& 
-%~0,014628& 
-%-0,005392& 
-%~0,036103 \\
-%\hline
-%~5& 
-%-0,005860& 
-%~0,001663& 
-%-0,012563 \\
-%\hline
-%~6& 
-%~0,002041& 
-%-0,000533& 
-%~0,004198 \\
-%\hline
-%~7& 
-%-0,000682& 
-%~0,000173& 
-%-0,001384 \\
-%\hline
-%~8& 
-%~0,000225& 
-%-5,66E-05& 
-%~0,000454 \\
-%\hline
-%~9& 
-%-7,38E-05& 
-%~1,85E-05& 
-%-0,000149 \\
-%\hline
-%~10& 
-%~2,42E-05& 
-%-6,06E-06& 
-%~4,88E-05 \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\end{tabular}
-%\label{tab24}
-%\end{center}
-%\end{table}
-%
-%\begin{center}
-%Figura 5.10: Respuesta de las variables $Y_{1t}$, $Y_{2t}$ y $Y_{3t}$ ante 
-%un choque unitario de $Y_{1t}$
-%\end{center}
-%\[
-%RespuestadeY_{2t}paraY_{1t}
-%RespuestadeY_{3t}paraY_{1t}
-%RespuestadeY_{1t}paraY_{1t}
-%\]
-%\begin{figure}[H]
-%\includegraphics[width=3.31in,height=7.36in]{STcap428.eps}
-%\label{fig28}
-%\end{figure}
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|p{43pt}|p{49pt}|p{60pt}|p{60pt}|}
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%~Per\'{\i}odo& 
-%$Y_{1t}$& 
-%$Y_{2t}$& 
-%$Y_{3t}$ \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%~1& 
-%~0.000000& 
-%~1.000000& 
-%~0.000000 \\
-%\hline
-%~2& 
-%~0.689275& 
-%~0.075128& 
-%~0.424214 \\
-%\hline
-%~3& 
-%-0.073293& 
-%-0.011642& 
-%-0.032978 \\
-%\hline
-%~4& 
-%~0.005504& 
-%~0.002053& 
-%-0.002027 \\
-%\hline
-%~5& 
-%~0.000315& 
-%-0.000470& 
-%~0.002131 \\
-%\hline
-%~6& 
-%-0.000345& 
-%~0.000131& 
-%-0.000865 \\
-%\hline
-%~7& 
-%~0.000140& 
-%-4.02E-05& 
-%~0.000303 \\
-%\hline
-%~8& 
-%-4.91E-05& 
-%~1.29E-05& 
-%-0.000101 \\
-%\hline
-%~9& 
-%~1.65E-05& 
-%-4.18E-06& 
-%~3.34E-05 \\
-%\hline
-%~10& 
-%-5.43E-06& 
-%~1.36E-06& 
-%-1.10E-05 \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\end{tabular}
-%\label{tab25}
-%\end{center}
-%\end{table}
-%
-%\begin{center}
-%Tabla 5.12: Respuesta de las variables $Y_{1t}$, $Y_{2t}$ y $Y_{3t}$ ante un 
-%choque unitario de $Y_{2t}$
-%\end{center}
+As\'{i}, los elementos de $\hat{A}_{1}^{i}$ representan los efectos de los choques unitarios de las variables del sistema luego de $i$ per\'{i}odos. Es por esta raz\'{o}n que, se les conoce como \textbf{\textit{multiplicadores din\'{a}micos}}\index{Multiplicadores!Din\'{a}micos}\textbf{\textit{ o respuestas al impulso.}}\newline
+
+En las tablas siguientes se muestran los resultados de las funciones de impulso-respuesta que presenta el paquete EViews para las variables $Y_{1t}$, $Y_{2t}$ y $Y_{3t}$, que son los c\'{a}lculos hechos manualmente al inicio de esta secci\'{o}n. Esto tambi\'{e}n se muestra en los gr\'{a}ficos siguientes:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}\hline\hline
+~Per\'{i}odo & $Y_{1t}$ & $Y_{2t}$ & $Y_{3t}$\\ \hline\hline
+~1 & ~1,000000 & ~0,000000 & ~0,000000 \\
+~2 & -0,193069 & -0,080383 & ~0,108038 \\
+~3 & -0,016093 & ~0,019189 & -0,090439 \\
+~4 & ~0,014628 & -0,005392 & ~0,036103 \\
+~5 & -0,005860 & ~0,001663 & -0,012563 \\
+~6 & ~0,002041 & -0,000533 & ~0,004198 \\
+~7 & -0,000682 & ~0,000173 & -0,001384 \\
+~8 & ~0,000225 & -5,66E-05 & ~0,000454 \\
+~9 & -7,38E-05 & ~1,85E-05 & -0,000149 \\
+~10& ~2,42E-05 & -6,06E-06 & ~4,88E-05 \\ \hline\hline
+\end{tabular}
+\caption{Respuesta de las variables $Y_{1t}$, $Y_{2t}$ y $Y_{3t}$ ante un choque unitario de $Y_{1t}$}
+\label{tab24}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=3.11in,height=6.36in]{Graficos/Cap4-5/STcap428.eps}
+\caption{Respuesta de las variables $Y_{1t}$, $Y_{2t}$ y $Y_{3t}$ ante un choque unitario de $Y_{1t}$}
+\label{fig28}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}\hline\hline
+~Per\'{i}odo & $Y_{1t}$ & $Y_{2t}$ & $Y_{3t}$\\ \hline\hline
+~1 & ~0.000000 & ~1.000000 & ~0.000000 \\
+~2 & ~0.689275 & ~0.075128 & ~0.424214 \\
+~3 & -0.073293 & -0.011642 & -0.032978 \\
+~4 & ~0.005504 & ~0.002053 & -0.002027 \\
+~5 & ~0.000315 & -0.000470 & ~0.002131 \\
+~6 & -0.000345 & ~0.000131 & -0.000865 \\
+~7 & ~0.000140 & -4.02E-05 & ~0.000303 \\
+~8 & -4.91E-05 & ~1.29E-05 & -0.000101 \\
+~9 & ~1.65E-05 & -4.18E-06 & ~3.34E-05 \\
+~10& -5.43E-06 & ~1.36E-06 & -1.10E-05 \\ \hline\hline
+\end{tabular}
+\caption{Respuesta de las variables $Y_{1t}$, $Y_{2t}$ y $Y_{3t}$ ante un choque unitario de $Y_{2t}$}
+\label{tab25}
+\end{table}
+
 %\[
 %RespuestadeY_{2t}paraY_{2t}
 %RespuestadeY_{3t}paraY_{2t}
 %RespuestadeY_{1t}paraY_{2t}
 %\]
-%\begin{figure}[H]
-%\includegraphics[width=3.76in,height=7.54in]{STcap429.eps}
-%\label{fig29}
-%\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=3.76in,height=7.54in]{Graficos/Cap4-5/STcap429.eps}
+\label{fig29}
+\end{figure}
 %
 %\begin{center}
 %Figura 5.11: Respuesta de las variables $Y_{1t}$, $Y_{2t}$ y $Y_{3t}$ ante 
