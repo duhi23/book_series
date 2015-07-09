@@ -1932,249 +1932,94 @@ N\'{o}tese que el problema de la correlaci\'{o}n contempor\'{a}nea de los errore
 
 %\textbf{Ejemplo 5.7:} 
 \begin{ejemplo}
-Consid\'{e}rese un modelo VAR con 4 variables $X_{1},X_{2}X_{3}yX_{4}$ .
-%
-%Sup\'{o}ngase que se elige el siguiente orden para la descomposici\'{o}n de 
-%Cholesky: $X_{2}X_{3}
-%X_{1}X_{4}$ y esto lleva a obtener la 
-%siguiente tabla hipot\'{e}tica:
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|p{49pt}|p{62pt}|p{62pt}|p{62pt}|p{62pt}|}
-%\hline
-%\multicolumn{5}{|p{300pt}|}{Ordenaci\'{o}n de Cholesky: $X_{2}X_{3}X_{1}X_{4}$} \\
-%\hline
-%\multicolumn{5}{|p{300pt}|}{Respuesta de $X_{2}$} \\
-%\hline
-%Per\'{\i}odo& 
-%$X_{1}$& 
-%$X_{2}$& 
-%$X_{3}$& 
-%$X_{4}$ \\
-%\hline
-%1& 
-%0,000000& 
-%4, 583291& 
-%0,000000& 
-%0,000000 \\
-%\hline
-%2& 
-%0,775767& 
-%-0,251545& 
-%0,815017& 
-%-0,905811 \\
-%\hline
-%\multicolumn{5}{|p{300pt}|}{Respuesta de $X_{3}$} \\
-%\hline
-%Per\'{\i}odo& 
-%$X_{1}$& 
-%$X_{2}$& 
-%$X_{3}$& 
-%$X_{4}$ \\
-%\hline
-%1& 
-%0,000000& 
-%2,439203& 
-%4,54469& 
-%0,000000 \\
-%\hline
-%2& 
-%-0,441257& 
-%-0,754324& 
-%-3,564595& 
-%-0,566602 \\
-%\hline
-%\multicolumn{5}{|p{300pt}|}{Respuesta de $X_{1}$} \\
-%\hline
-%Per\'{\i}odo& 
-%$X_{1}$& 
-%$X_{2}$& 
-%$X_{3}$& 
-%$X_{4}$ \\
-%\hline
-%1& 
-%4,603662& 
-%3,022459& 
-%1,802923& 
-%0,000000 \\
-%\hline
-%2& 
-%-0,795786& 
-%-0,101091& 
-%0,388095& 
-%-0,255476 \\
-%\hline
-%\multicolumn{5}{|p{300pt}|}{Respuesta de $X_{4}$} \\
-%\hline
-%Per\'{\i}odo& 
-%$X_{1}$& 
-%$X_{2}$& 
-%$X_{3}$& 
-%$X_{4}$ \\
-%\hline
-%1& 
-%1,568803& 
-%0,486351& 
-%1,415711& 
-%3,191513 \\
-%\hline
-%2& 
-%-0,329818& 
-%-4,104756& 
-%-0,527459& 
-%-3,186928 \\
-%\hline
-%\end{tabular}
-%\label{tab27}
-%\end{center}
-%\end{table}
-%
-%\begin{center}
-%Tabla 5.14: Descomposici\'{o}n hipot\'{e}tica de choques
-%\end{center}
-%
-%La interpretaci\'{o}n de la tabla 5.14 se har\'{\i}a de la siguiente manera:
-%
-%\begin{itemize}
-%\item Un choque para el per\'{\i}odo 1 sobre $X_{2}$ tiene un impacto solamente sobre $X_{2}$ y ausencia de correlaci\'{o}n contempor\'{a}nea con $X_{3}X_{1}yX_{4}$ .
-%\item Un choque para el per\'{\i}odo 1 sobre $X_{3}$ tiene un impacto sobre $X_{2}$ y $X_{3}$ y ausencia de correlaci\'{o}n contempor\'{a}nea con $X_{1}yX_{4}$ .
-%\item Un choque para el per\'{\i}odo 1 sobre $X_{1}$ tiene un impacto sobre $X_{2},X_{3}$ y $X_{1}$ y ausencia de correlaci\'{o}n contempor\'{a}nea con $X_{4}$ .
-%\item Finalmente, un choque para el per\'{\i}odo 1 sobre $X_{4}$ tiene un impacto sobre todas las variables.
-%\end{itemize}
-%Ahora, si se realiza el an\'{a}lisis considerando un orden diferente de las 
-%variables para la descomposici\'{o}n, se tendr\'{a}:
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|p{49pt}|p{62pt}|p{62pt}|p{62pt}|p{62pt}|}
-%\hline
-%\multicolumn{5}{|p{300pt}|}{Ordenaci\'{o}n de Cholesky: $X_{3}X_{4}X_{2}X_{1}$} \\
-%\hline
-%\multicolumn{5}{|p{300pt}|}{Respuesta de $X_{3}$} \\
-%\hline
-%Per\'{\i}odo& 
-%$X_{1}$& 
-%$X_{2}$& 
-%$X_{3}$& 
-%$X_{4}$ \\
-%\hline
-%1& 
-%0,000000& 
-%0,000000& 
-%2,805461& 
-%0,000000 \\
-%\hline
-%2& 
-%-0,527459& 
-%-3,186928& 
-%0,815017& 
-%-0,905811 \\
-%\hline
-%\multicolumn{5}{|p{300pt}|}{Respuesta de $X_{4}$} \\
-%\hline
-%Per\'{\i}odo& 
-%$X_{1}$& 
-%$X_{2}$& 
-%$X_{3}$& 
-%$X_{4}$ \\
-%\hline
-%1& 
-%0,000000& 
-%0,000000& 
-%-2,231567& 
-%1,256043 \\
-%\hline
-%2& 
-%-0,441257& 
-%-0,754324& 
-%0,388095& 
-%-0,255476 \\
-%\hline
-%\multicolumn{5}{|p{300pt}|}{Respuesta de $X_{2}$} \\
-%\hline
-%Per\'{\i}odo& 
-%$X_{1}$& 
-%$X_{2}$& 
-%$X_{3}$& 
-%$X_{4}$ \\
-%\hline
-%1& 
-%0,000000& 
-%-0,022459& 
-%1,256923& 
-%-2,256123 \\
-%\hline
-%2& 
-%0,815017& 
-%-0,905811& 
-%0,388095& 
-%-0,255476 \\
-%\hline
-%\multicolumn{5}{|p{300pt}|}{Respuesta de $X_{1}$} \\
-%\hline
-%Per\'{\i}odo& 
-%$X_{1}$& 
-%$X_{2}$& 
-%$X_{3}$& 
-%$X_{4}$ \\
-%\hline
-%1& 
-%1,457895& 
-%-2,145627& 
-%1,711415& 
-%3,564281 \\
-%\hline
-%2& 
-%-0,441257& 
-%-0,754324& 
-%-0,524784& 
-%-3,968741 \\
-%\hline
-%\end{tabular}
-%\label{tab28}
-%\end{center}
-%\end{table}
-%
-%\begin{center}
-%Tabla 5.15: Otra descomposici\'{o}n hipot\'{e}tica de choques
-%\end{center}
-%
-%La interpretaci\'{o}n de la tabla 5.15, se realiza de manera similar a la 
-%tabla 5.10.
-%
-%El orden de descomposici\'{o}n se deber\'{\i}a efectuar desde la variable 
-%que se supone es m\'{a}s ex\'{o}gena hasta la variable menos ex\'{o}gena. En 
-%caso de duda, es necesario realizar diferentes combinaciones del orden de 
-%descomposici\'{o}n y analizar la robustez de los resultados.
-%
-%\textbf{Ejemplo 5.8: }A partir de la representaci\'{o}n $VAR(1)$ estimada en 
-%el ejemplo 5.5, calcular e interpretar las funciones de impulso-respuesta 
-%ortogonales, y la descomposici\'{o}n de la varianza.
-%
-%\textbf{Resoluci\'{o}n.}
-%
-%Dado que las variables del ejemplo son variaciones del PIB, el CI y el DFI, 
-%es l\'{o}gico pensar que un choque sobre la variable variaci\'{o}n del PIB 
-%influencie la variaci\'{o}n del CI y el DFI, m\'{a}s que si el choque fuera 
-%al rev\'{e}s. Esto ser\'{\i}a: una innovaci\'{o}n sobre $Y_{1t}$ 
-%(variaci\'{o}n del PIB) influencia de manera instant\'{a}nea a $Y_{2t}$ 
-%(variaci\'{o}n del CI) y a $Y_{3t}$ (variaci\'{o}n del DFI); por otro lado, 
-%una innovaci\'{o}n sobre $Y_{2t}$ o $Y_{3t}$ no influencia de manera 
-%contempor\'{a}nea a $Y_{1t}$.
-%
-%La matriz de varianza-covarianza estimada de los residuos es igual (ejemplo 
-%5.5) a:
-%\[
-%\hat{\Sigma }_{u}=\left[ {\begin{array}{*{20}c}
-%0,0002 & 0,0001 & 0,0002\\
-%0,0001 & 0,0001 & 0,0001\\
-%0,0002 & 0,0001 & 0,0002\\
-%\end{array} } \right]
-%\]
-%Con el programa EViews, las salidas de las funciones de impulso-respuesta y 
-%la descomposici\'{o}n de varianza ser\'{\i}an:
-%
+Consid\'{e}rese un modelo VAR con 4 variables $X_{1}, X_{2}, X_{3}$ y $X_{4}$.
+\end{ejemplo}
+
+Sup\'{o}ngase que se elige el siguiente orden para la descomposici\'{o}n de Cholesky: $X_{2} X_{3} X_{1} X_{4}$ y esto lleva a obtener la siguiente tabla hipot\'{e}tica:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|}\hline
+\multicolumn{5}{|c|}{Ordenaci\'{o}n de Cholesky: $X_{2} X_{3} X_{1} X_{4}$}\\ \hline
+\multicolumn{5}{|c|}{Respuesta de $X_{2}$}\\ \hline
+Per\'{i}odo & $X_{1}$ & $X_{2}$ & $X_{3}$ & $X_{4}$\\ \hline
+1 & 0,000000 & 4, 583291 & 0,000000 & 0,000000\\ \hline
+2 & 0,775767 & -0,251545 & 0,815017 & -0,905811\\ \hline
+\multicolumn{5}{|c|}{Respuesta de $X_{3}$}\\ \hline
+Per\'{i}odo & $X_{1}$ & $X_{2}$ & $X_{3}$ & $X_{4}$\\ \hline
+1 & 0,000000 & 2,439203 & 4,54469 & 0,000000\\ \hline
+2 & -0,441257 & -0,754324 & -3,564595 & -0,566602 \\ \hline
+\multicolumn{5}{|c|}{Respuesta de $X_{1}$}\\ \hline
+Per\'{i}odo & $X_{1}$ & $X_{2}$ & $X_{3}$ & $X_{4}$\\ \hline
+1 & 4,603662 & 3,022459 & 1,802923 & 0,000000\\ \hline
+2 & -0,795786 & -0,101091 & 0,388095 & -0,255476\\ \hline
+\multicolumn{5}{|c|}{Respuesta de $X_{4}$}\\ \hline
+Per\'{i}odo & $X_{1}$ & $X_{2}$ & $X_{3}$ & $X_{4}$\\ \hline
+1 & 1,568803 & 0,486351 & 1,415711 & 3,191513\\ \hline
+2 & -0,329818 & -4,104756 & -0,527459 & -3,186928 \\\hline
+\end{tabular}
+\caption{Descomposici\'{o}n hipot\'{e}tica de choques}
+\label{tab27}
+\end{table}
+
+La interpretaci\'{o}n de la tabla 5.14 se har\'{i}a de la siguiente manera:
+\begin{itemize}
+      \item Un choque para el per\'{i}odo 1 sobre $X_{2}$ tiene un impacto solamente sobre $X_{2}$ y ausencia de correlaci\'{o}n contempor\'{a}nea con $X_{3}, X_{1}$ y $X_{4}$ .
+      \item Un choque para el per\'{i}odo 1 sobre $X_{3}$ tiene un impacto sobre $X_{2}$ y $X_{3}$ y ausencia de correlaci\'{o}n contempor\'{a}nea con $X_{1}$ y $X_{4}$ .
+      \item Un choque para el per\'{i}odo 1 sobre $X_{1}$ tiene un impacto sobre $X_{2}, X_{3}$ y $X_{1}$ y ausencia de correlaci\'{o}n contempor\'{a}nea con $X_{4}$ .
+      \item Finalmente, un choque para el per\'{i}odo 1 sobre $X_{4}$ tiene un impacto sobre todas las variables.
+\end{itemize}
+
+Ahora, si se realiza el an\'{a}lisis considerando un orden diferente de las variables para la descomposici\'{o}n, se tendr\'{a}:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|}\hline
+\multicolumn{5}{|c|}{Ordenaci\'{o}n de Cholesky: $X_{3} X_{4} X_{2} X_{1}$} \\ \hline
+\multicolumn{5}{|c|}{Respuesta de $X_{3}$} \\ \hline
+Per\'{i}odo & $X_{1}$ & $X_{2}$ & $X_{3}$ & $X_{4}$ \\ \hline
+1 & 0,000000 & 0,000000 & 2,805461 & 0,000000 \\ \hline
+2 & -0,527459 & -3,186928 & 0,815017 & -0,905811 \\ \hline
+\multicolumn{5}{|c|}{Respuesta de $X_{4}$} \\ \hline
+Per\'{i}odo & $X_{1}$ & $X_{2}$ & $X_{3}$ & $X_{4}$ \\ \hline
+1 & 0,000000 & 0,000000 & -2,231567 & 1,256043 \\ \hline
+2 & -0,441257 & -0,754324 & 0,388095 & -0,255476 \\ \hline
+\multicolumn{5}{|c|}{Respuesta de $X_{2}$} \\ \hline
+Per\'{i}odo & $X_{1}$ & $X_{2}$ & $X_{3}$ & $X_{4}$ \\ \hline
+1 & 0,000000 & -0,022459 & 1,256923 & -2,256123 \\ \hline
+2 & 0,815017 & -0,905811 & 0,388095 & -0,255476 \\ \hline
+\multicolumn{5}{|c|}{Respuesta de $X_{1}$} \\ \hline
+Per\'{i}odo & $X_{1}$ & $X_{2}$ & $X_{3}$ & $X_{4}$ \\ \hline
+1 & 1,457895 & -2,145627 & 1,711415 & 3,564281 \\ \hline
+2 & -0,441257 & -0,754324 & -0,524784 & -3,968741 \\ \hline
+\end{tabular}
+\caption{Otra descomposici\'{o}n hipot\'{e}tica de choques}
+\label{tab28}
+\end{table}
+
+La interpretaci\'{o}n de la tabla 5.15, se realiza de manera similar a la tabla 5.10.\newline
+
+El orden de descomposici\'{o}n se deber\'{i}a efectuar desde la variable que se supone es m\'{a}s ex\'{o}gena hasta la variable menos ex\'{o}gena. En caso de duda, es necesario realizar diferentes combinaciones del orden de descomposici\'{o}n y analizar la robustez de los resultados.
+
+\begin{ejemplo}
+A partir de la representaci\'{o}n $VAR(1)$ estimada en el ejemplo 5.5, calcular e interpretar las funciones de impulso-respuesta ortogonales, y la descomposici\'{o}n de la varianza.
+\end{ejemplo}
+
+\textbf{Resoluci\'{o}n.}\newline
+
+Dado que las variables del ejemplo son variaciones del PIB, el CI y el DFI, es l\'{o}gico pensar que un choque sobre la variable variaci\'{o}n del PIB influencie la variaci\'{o}n del CI y el DFI, m\'{a}s que si el choque fuera al rev\'{e}s. Esto ser\'{i}a: una innovaci\'{o}n sobre $Y_{1t}$ (variaci\'{o}n del PIB) influencia de manera instant\'{a}nea a $Y_{2t}$ (variaci\'{o}n del CI) y a $Y_{3t}$ (variaci\'{o}n del DFI); por otro lado, una innovaci\'{o}n sobre $Y_{2t}$ o $Y_{3t}$ no influencia de manera contempor\'{a}nea a $Y_{1t}$.
+
+La matriz de varianza-covarianza estimada de los residuos es igual (ejemplo 5.5) a:
+\[
+\hat{\Sigma }_{u}=\left[ {\begin{array}{*{20}c}
+0,0002 & 0,0001 & 0,0002\\
+0,0001 & 0,0001 & 0,0001\\
+0,0002 & 0,0001 & 0,0002\\
+\end{array} } \right]
+\]
+
+Con el programa EViews, las salidas de las funciones de impulso-respuesta y la descomposici\'{o}n de varianza ser\'{i}an:
+
 %\begin{center}
 %Tabla 5.16: Descomposici\'{o}n de la Varianza (Orden de Cholesky $Y_{3}$ 
 %$Y_{2} \quad Y_{1})$
