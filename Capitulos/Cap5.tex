@@ -2020,559 +2020,158 @@ La matriz de varianza-covarianza estimada de los residuos es igual (ejemplo 5.5)
 
 Con el programa EViews, las salidas de las funciones de impulso-respuesta y la descomposici\'{o}n de varianza ser\'{i}an:
 
-%\begin{center}
-%Tabla 5.16: Descomposici\'{o}n de la Varianza (Orden de Cholesky $Y_{3}$ 
-%$Y_{2} \quad Y_{1})$
-%\end{center}
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|l|l|p{51pt}|p{60pt}|p{60pt}|}
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\multicolumn{5}{|p{274pt}|}{~Variance Decomposition of $Y_{1}$:} \\
-%\hline
-%~Per\'{\i}odo& 
-%S.E.& 
-%$Y_{1}$& 
-%$Y_{2}$& 
-%$Y_{3}$ \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%~1& 
-%~0,015360& 
-%~43,03994& 
-%~21,09375& 
-%~35,86631 \\
-%\hline
-%~2& 
-%~0,016092& 
-%~40,67934& 
-%~25,73053& 
-%~33,59013 \\
-%\hline
-%~3& 
-%~0,016102& 
-%~40,63720& 
-%~25,71162& 
-%~33,65118 \\
-%\hline
-%~4& 
-%~0,016104& 
-%~40,63653& 
-%~25,70823& 
-%~33,65524 \\
-%\hline
-%~5& 
-%~0,016104& 
-%~40,63654& 
-%~25,70806& 
-%~33,65540 \\
-%\hline
-%~6& 
-%~0,016104& 
-%~40,63655& 
-%~25,70805& 
-%~33,65540 \\
-%\hline
-%~7& 
-%~0,016104& 
-%~40,63655& 
-%~25,70805& 
-%~33,65540 \\
-%\hline
-%~8& 
-%~0,016104& 
-%~40,63655& 
-%~25,70805& 
-%~33,65540 \\
-%\hline
-%~9& 
-%~0,016104& 
-%~40,63655& 
-%~25,70805& 
-%~33,65540 \\
-%\hline
-%~10& 
-%~0,016104& 
-%~40,63655& 
-%~25,70805& 
-%~33,65540 \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\multicolumn{5}{|p{274pt}|}{~Variance Decomposition of $Y_{2}$:} \\
-%\hline
-%~Per\'{\i}odo& 
-%S.E.& 
-%$Y_{1}$& 
-%$Y_{2}$& 
-%$Y_{3}$ \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%~1& 
-%~0,007678& 
-%~0,000000& 
-%~100,0000& 
-%~0,000000 \\
-%\hline
-%~2& 
-%~0,007778& 
-%~1,084622& 
-%~98,63426& 
-%~0,281119 \\
-%\hline
-%~3& 
-%~0,007784& 
-%~1,144767& 
-%~98,54459& 
-%~0,310640 \\
-%\hline
-%~4& 
-%~0,007784& 
-%~1,149508& 
-%~98,53672& 
-%~0,313774 \\
-%\hline
-%~5& 
-%~0,007784& 
-%~1,149959& 
-%~98,53593& 
-%~0,314109 \\
-%\hline
-%~6& 
-%~0,007784& 
-%~1,150005& 
-%~98,53585& 
-%~0,314145 \\
-%\hline
-%~7& 
-%~0,007784& 
-%~1,150010& 
-%~98,53584& 
-%~0,314149 \\
-%\hline
-%~8& 
-%~0,007784& 
-%~1,150010& 
-%~98,53584& 
-%~0,314149 \\
-%\hline
-%~9& 
-%~0,007784& 
-%~1,150011& 
-%~98,53584& 
-%~0,314149 \\
-%\hline
-%~10& 
-%~0,007784& 
-%~1,150011& 
-%~98,53584& 
-%~0,314149 \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\multicolumn{5}{|p{274pt}|}{~Variance Decomposition of $Y_{3}$:} \\
-%\hline
-%~Per\'{\i}odo& 
-%S.E.& 
-%$Y_{1}$& 
-%$Y_{2}$& 
-%$Y_{3}$ \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%~1& 
-%~0,015837& 
-%~0,000000& 
-%~34,49091& 
-%~65,50909 \\
-%\hline
-%~2& 
-%~0,016226& 
-%~0,450218& 
-%~33,21246& 
-%~66,33733 \\
-%\hline
-%~3& 
-%~0,016293& 
-%~0,759358& 
-%~33,02585& 
-%~66,21479 \\
-%\hline
-%~4& 
-%~0,016303& 
-%~0,808238& 
-%~33,01068& 
-%~66,18109 \\
-%\hline
-%~5& 
-%~0,016304& 
-%~0,814151& 
-%~33,00932& 
-%~66,17653 \\
-%\hline
-%~6& 
-%~0,016305& 
-%~0,814812& 
-%~33,00919& 
-%~66,17600 \\
-%\hline
-%~7& 
-%~0,016305& 
-%~0,814883& 
-%~33,00917& 
-%~66,17594 \\
-%\hline
-%~8& 
-%~0,016305& 
-%~0,814891& 
-%~33,00917& 
-%~66,17594 \\
-%\hline
-%~9& 
-%~0,016305& 
-%~0,814892& 
-%~33,00917& 
-%~66,17594 \\
-%\hline
-%~10& 
-%~0,016305& 
-%~0,814892& 
-%~33,00917& 
-%~66,17594 \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\multicolumn{5}{|p{274pt}|}{~Cholesky Ordering: $Y_{2} \quad Y_{2} \quad Y_{1}$} \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\end{tabular}
-%\label{tab29}
-%\end{center}
-%\end{table}
-%
-%La descomposici\'{o}n de la varianza indica que la varianza del error de 
-%predicci\'{o}n de $Y_{1t}$ representa un 40,64{\%} con sus propias 
-%innovaciones, un 25,71{\%} con las de $Y_{2t}$ y un 33,66{\%} con las de 
-%$Y_{3t}$. La varianza del error de predicci\'{o}n de $Y_{2t}$ es de un 
-%1,15{\%} con $Y_{1t}$, un 98,54{\%} con $Y_{2t}$ y un 0,31{\%} con $Y_{3t}$. 
-%Finalmente, la varianza del error de predicci\'{o}n de $Y_{3t}$ es de 
-%0,81{\%} con $Y_{1t}$, un 33,01{\%} con $Y_{2t}$ y un 66,18{\%} con sus 
-%propias innovaciones. Este efecto de asimetr\'{\i}a se estudi\'{o} en la 
-%pate de la causalidad (ejemplo 5.5); lo que tambi\'{e}n se corrobora ahora.
-%
-%Por \'{u}ltimo, cabe se\~{n}alar que la tabla anterior muestra la 
-%desviaci\'{o}n est\'{a}ndar del error de previsi\'{o}n para $Y_{1t}$, 
-%$Y_{2t}$ y $Y_{3t}$, que se calcul\'{o} de manera tediosa en el ejemplo 5.5.
-%
-%\textbf{Observaci\'{o}n 5.10: }La modelizaci\'{o}n VAR se realiza \underline 
-%{siempre} sobre series estacionarias; sin embargo, el m\'{e}todo se puede 
-%aplicar a series que se las vuelve estacionarias a trav\'{e}s de 
-%diferenciaci\'{o}n, con la idea de que se debe recuperar la serie original 
-%una vez calculadas las predicciones (esto se puede hacer dado que la 
-%diferenciaci\'{o}n es una transformaci\'{o}n lineal). En algunos paquetes 
-%econom\'{e}tricos como EViews o Stata, entre otros, el programa da la 
-%opci\'{o}n autom\'{a}tica de recuperar la serie original de los datos. 
-%
-%\section{5.10 EJEMPLO PR\'{A}CTICO}
+\begin{table}[H]
+\centering
+\begin{tabular}{ccccc}\hline\hline
+\multicolumn{5}{c}{Variance Decomposition of $Y_{1}$:} \\ 
+Per\'{i}odo & S.E. & $Y_{1}$ & $Y_{2}$ & $Y_{3}$ \\ \hline\hline
+~1 & ~0,015360 & ~43,03994 & ~21,09375 & ~35,86631 \\
+~2 & ~0,016092 & ~40,67934 & ~25,73053 & ~33,59013 \\
+~3 & ~0,016102 & ~40,63720 & ~25,71162 & ~33,65118 \\
+~4 & ~0,016104 & ~40,63653 & ~25,70823 & ~33,65524 \\
+~5 & ~0,016104 & ~40,63654 & ~25,70806 & ~33,65540 \\
+~6 & ~0,016104 & ~40,63655 & ~25,70805 & ~33,65540 \\
+~7 & ~0,016104 & ~40,63655 & ~25,70805 & ~33,65540 \\
+~8 & ~0,016104 & ~40,63655 & ~25,70805 & ~33,65540 \\ 
+~9 & ~0,016104 & ~40,63655 & ~25,70805 & ~33,65540 \\
+~10& ~0,016104 & ~40,63655 & ~25,70805 & ~33,65540 \\ \hline\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccccc}\hline\hline
+\multicolumn{5}{c}{Variance Decomposition of $Y_{2}$:} \\ 
+~Per\'{i}odo & S.E. & $Y_{1}$ & $Y_{2}$ & $Y_{3}$ \\ \hline\hline
+~1 & ~0,007678 & ~0,000000 & ~100,0000 & ~0,000000 \\
+~2 & ~0,007778 & ~1,084622 & ~98,63426 & ~0,281119 \\
+~3 & ~0,007784 & ~1,144767 & ~98,54459 & ~0,310640 \\
+~4 & ~0,007784 & ~1,149508 & ~98,53672 & ~0,313774 \\
+~5 & ~0,007784 & ~1,149959 & ~98,53593 & ~0,314109 \\
+~6 & ~0,007784 & ~1,150005 & ~98,53585 & ~0,314145 \\
+~7 & ~0,007784 & ~1,150010 & ~98,53584 & ~0,314149 \\
+~8 & ~0,007784 & ~1,150010 & ~98,53584 & ~0,314149 \\
+~9 & ~0,007784 & ~1,150011 & ~98,53584 & ~0,314149 \\
+~10& ~0,007784 & ~1,150011 & ~98,53584 & ~0,314149 \\ \hline\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccccc}\hline\hline
+\multicolumn{5}{c}{Variance Decomposition of $Y_{3}$:} \\ 
+~Per\'{i}odo & S.E. & $Y_{1}$ & $Y_{2}$ & $Y_{3}$ \\ \hline\hline
+~1 & ~0,015837 & ~0,000000 & ~34,49091 & ~65,50909 \\
+~2 & ~0,016226 & ~0,450218 & ~33,21246 & ~66,33733 \\
+~3 & ~0,016293 & ~0,759358 & ~33,02585 & ~66,21479 \\
+~4 & ~0,016303 & ~0,808238 & ~33,01068 & ~66,18109 \\
+~5 & ~0,016304 & ~0,814151 & ~33,00932 & ~66,17653 \\
+~6 & ~0,016305 & ~0,814812 & ~33,00919 & ~66,17600 \\
+~7 & ~0,016305 & ~0,814883 & ~33,00917 & ~66,17594 \\
+~8 & ~0,016305 & ~0,814891 & ~33,00917 & ~66,17594 \\ 
+~9 & ~0,016305 & ~0,814892 & ~33,00917 & ~66,17594 \\
+~10& ~0,016305 & ~0,814892 & ~33,00917 & ~66,17594 \\ \hline\hline
+\multicolumn{5}{c}{Cholesky Ordering: $Y_{2} \quad Y_{2} \quad Y_{1}$} \\ \hline\hline
+\end{tabular}
+\caption{Descomposici\'{o}n de la Varianza (Orden de Cholesky $Y_{3}$ $Y_{2}$ $Y_{1}$)}
+\label{tab29}
+\end{table}
+
+La descomposici\'{o}n de la varianza indica que la varianza del error de predicci\'{o}n de $Y_{1t}$ representa un 40,64{\%} con sus propias innovaciones, un 25,71{\%} con las de $Y_{2t}$ y un 33,66{\%} con las de $Y_{3t}$. La varianza del error de predicci\'{o}n de $Y_{2t}$ es de un 1,15{\%} con $Y_{1t}$, un 98,54{\%} con $Y_{2t}$ y un 0,31{\%} con $Y_{3t}$.  Finalmente, la varianza del error de predicci\'{o}n de $Y_{3t}$ es de 0,81{\%} con $Y_{1t}$, un 33,01{\%} con $Y_{2t}$ y un 66,18{\%} con sus propias innovaciones. Este efecto de asimetr\'{i}a se estudi\'{o} en la parte de la causalidad (ejemplo 5.5); lo que tambi\'{e}n se corrobora ahora.\newline
+
+Por \'{u}ltimo, cabe se\~{n}alar que la tabla anterior muestra la desviaci\'{o}n est\'{a}ndar del error de previsi\'{o}n para $Y_{1t}$, $Y_{2t}$ y $Y_{3t}$, que se calcul\'{o} de manera tediosa en el ejemplo 5.5.\newline
+
+\begin{observacion}
+La modelizaci\'{o}n VAR se realiza \underline{siempre} sobre series estacionarias; sin embargo, el m\'{e}todo se puede aplicar a series que se las vuelve estacionarias a trav\'{e}s de diferenciaci\'{o}n, con la idea de que se debe recuperar la serie original una vez calculadas las predicciones (esto se puede hacer dado que la diferenciaci\'{o}n es una transformaci\'{o}n lineal). En algunos paquetes econom\'{e}tricos como EViews o Stata, entre otros, el programa da la opci\'{o}n autom\'{a}tica de recuperar la serie original de los datos. 
+\end{observacion}
+
+\section{Ejemplo Pr\'{a}ctico}
 %\label{subsec:mylabel12}
-%Se consideran dos series de datos del Ecuador: las variaciones del 
-%\'{\i}ndice de precios al productor (IPP), denotada por $\left( X_{1t} 
-%\right)$ y del \'{\i}ndice de actividad econ\'{o}mica (IAE), denotada por 
-%$\left( X_{2t} \right)$. Se dispone de 132 datos mensuales desde enero de 
-%2004 hasta junio de 2015 (Ver Anexo D.2). Para efectos de comparaciones se 
-%trabajar\'{a} \'{u}nicamente con los datos hasta diciembre de 2014 y se 
-%guardar\'{a}n los del a\~{n}o 2015. Los datos se tomaron de la p\'{a}gina 
-%oficial del INEC. Se desea estimar un modelo para realizar las predicciones 
-%de ambas series.
-%
-%\textbf{Resoluci\'{o}n.}
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|p{24pt}|p{39pt}|p{51pt}|p{49pt}|p{47pt}|p{39pt}|p{57pt}|p{55pt}|}
-%\hline
-%\multicolumn{8}{|p{365pt}|}{\begin{enumerate}
-%\item \textbf{Matrices de correlaci\'{o}n cruzada}
-%\item Estad\'{\i}sticos descriptivos de $X_{1t}$ y $X_{2t}$ 
-%\end{enumerate}
-% \par \begin{enumerate}
-%\item Resumen de estad\'{\i}sticas para $X_{1t}$ y $X_{2t}$
-%\item 
-%\end{enumerate}
-%} \\
-%\hline
-%~& 
-%Media& 
-%Mediana& 
-%M\'{a}ximo& 
-%M\'{\i}nimo& 
-%Desv. Est.& 
-%Asimetr\'{\i}a& 
-%~Curtosis \\
-%\hline
-%$X_{1t}$& 
-%~0,64& 
-%~1,16& 
-%15,17& 
-%-14,86& 
-%~5,02& 
-%-0,40& 
-%3,74 \\
-%\hline
-%$X_{2t}$& 
-%0,07& 
-%-0,30& 
-%15,18& 
-%-11,45& 
-%4,42& 
-%0,51& 
-%3,70 \\
-%\hline
-%\end{tabular}
-%\label{tab30}
-%\end{center}
-%\end{table}
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|p{24pt}|p{39pt}|p{35pt}|p{10pt}|p{33pt}|p{37pt}|p{10pt}|p{33pt}|p{29pt}|p{10pt}|p{33pt}|p{34pt}|p{10pt}|p{37pt}|p{37pt}|}
-%\hline
-%\multicolumn{15}{|p{417pt}|}{\begin{enumerate}
-%\item Matrices de correlaci\'{o}n cruzada 
-%\end{enumerate}
-%} \\
-%\hline
-%~& 
-%\multicolumn{2}{|p{75pt}|}{retardo 1} & 
-%~& 
-%\multicolumn{2}{|p{71pt}|}{retardo 2} & 
-%~& 
-%\multicolumn{2}{|p{63pt}|}{retardo 3} & 
-%~& 
-%\multicolumn{2}{|p{67pt}|}{retardo 4} & 
-%~& 
-%\multicolumn{2}{|p{75pt}|}{retardo 5} \\
-%\hline
-%$X_{1t}$& 
-%0,17& 
-%0,12& 
-%~& 
-%0,08& 
-%-0,02& 
-%~& 
-%0,01& 
-%0,08& 
-%~& 
-%-0,12& 
-%-0,03& 
-%~& 
-%-0,03& 
-%-0,09 \\
-%\hline
-%$X_{2t}$& 
-%0,21& 
-%-0,20& 
-%~& 
-%0,05& 
-%0,08& 
-%~& 
-%0,14& 
-%0,02& 
-%~& 
-%0,13& 
-%-0,09& 
-%~& 
-%0,01& 
-%0,08 \\
-%\hline
-%\end{tabular}
-%\label{tab31}
-%\end{center}
-%\end{table}
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|p{28pt}|p{43pt}|p{10pt}|p{44pt}|p{28pt}|p{10pt}|p{28pt}|p{28pt}|p{10pt}|p{28pt}|p{28pt}|p{10pt}|p{28pt}|p{28pt}|}
-%\hline
-%\multicolumn{14}{|p{360pt}|}{\begin{enumerate}
-%\item Representaci\'{o}n simplificada
-%\end{enumerate}
-%} \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-%& 
-%& 
-%& 
-%& 
-%& 
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\textbf{.}& 
-%\textbf{.}& 
-% & 
-%\textbf{.}& 
-%\textbf{\textbullet }& 
-% & 
-%\textbf{\textbullet }& 
-%\textbf{\textbullet }& 
-% & 
-%\textbf{\textbullet }& 
-%\textbf{\textbullet }& 
-% & 
-%\textbf{\textbullet }& 
-%\textbf{\textbullet } \\
-%\hline
-% $+$ & 
-%\textbf{-}& 
-% & 
-%\textbf{\textbullet }& 
-%\textbf{\textbullet }& 
-% & 
-%\textbf{\textbullet }& 
-%\textbf{\textbullet }& 
-% & 
-%\textbf{\textbullet }& 
-%\textbf{\textbullet }& 
-% & 
-%\textbf{\textbullet }& 
-%\textbf{\textbullet } \\
-%\hline
-%\end{tabular}
-%\label{tab32}
-%\end{center}
-%\end{table}
-%
-%\begin{center}
-%Tabla 5.17: Resumen de estad\'{\i}sticas y matrices de correlaci\'{o}n 
-%cruzada para $X_{1t}$ y $X_{2t}$.
-%\end{center}
-%
-%Es f\'{a}cil ver que las correlaciones cruzadas son significativas al 5{\%} 
-%en el retardo 1 ($2/\sqrt T =$ 0,1747 en este caso). As\'{\i}, $X_{2t}$ 
-%depende de los valores en el primer retardo de $X_{1t}$ en el primer retardo 
-%y del suyo propio. En EViews, se presenta la siguiente salida:
-%
-%\begin{figure}[H]
-%\includegraphics[width=4.54in,height=4.47in]{STcap431.eps}
-%\label{fig31}
-%\end{figure}
-%
-%\begin{center}
-%Figura 5.12: Correlaciones cruzadas entre $X_{1t}$ y $X_{2t}$ 
-%\end{center}
-%
-%\begin{enumerate}
-%\item \textbf{Estimaci\'{o}n y validaci\'{o}n del VAR}
-%\end{enumerate}
-%Se inicia presentando el gr\'{a}fico de las series:
-%
-%\begin{figure}[H]
-%\includegraphics[width=5.23in,height=3.76in]{STcap432.eps}
-%\label{fig32}
-%\end{figure}
-%
-%\begin{center}
-%Figura 5.13: Gr\'{a}fico de secuencia de las series
-%\end{center}
-%
-%Antes de realizar los procedimientos para estimar los modelos, se debe 
-%verificar si las series a ser analizadas son estacionarias; para ello se 
-%realiza la prueba de ra\'{\i}ces unitarias para cada serie utilizando el 
-%programa EViews:
-%
+Se consideran dos series de datos del Ecuador: las variaciones del \'{i}ndice de precios al productor (IPP), denotada por $\left( X_{1t} \right)$ y del \'{i}ndice de actividad econ\'{o}mica (IAE), denotada por $\left( X_{2t} \right)$. Se dispone de 132 datos mensuales desde enero de 2004 hasta junio de 2015 (Ver Anexo D.2). Para efectos de comparaciones se trabajar\'{a} \'{u}nicamente con los datos hasta diciembre de 2014 y se guardar\'{a}n los del a\~{n}o 2015. Los datos se tomaron de la p\'{a}gina oficial del INEC. Se desea estimar un modelo para realizar las predicciones de ambas series.\newline
+
+\textbf{Resoluci\'{o}n.}
+
+\begin{enumerate}
+      \item[1.] {\bf Matrices de correlación cruzada} 
+\end{enumerate}
+
+\begin{itemize}
+      \item[a)] Estad\'{i}sticos descriptivos de $X_{1t}$ y $X_{2t}$
+\begin{table}[H]
+\centering
+\begin{tabular}{cccccccc}\hline
+~& Media & Mediana & M\'{a}ximo & M\'{i}nimo & Desv. Est. & Asimetr\'{i}a & ~Curtosis \\ \hline
+$X_{1t}$ & 0,64 & ~1,16 & 15,17 & -14,86 & 5,02 & -0,40 & 3,74 \\
+$X_{2t}$ & 0,07 & -0,30 & 15,18 & -11,45 & 4,42 & 0,51 & 3,70 \\ \hline
+\end{tabular}
+\label{tab30}
+\end{table}
+
+      \item[b)] Matrices de correlaci\'{o}n cruzada
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccccccccccc}\hline
+& \multicolumn{2}{c}{retardo 1} & \multicolumn{2}{c}{retardo 2} & \multicolumn{2}{c}{retardo 3} & 
+\multicolumn{2}{c}{retardo 4} & \multicolumn{2}{c}{retardo 5} \\ \hline
+$X_{1t}$ & 0,17 & 0,12 & 0,08 & -0,02 & 0,01 & 0,08 & -0,12 & -0,03 & -0,03 & -0,09 \\
+$X_{2t}$ & 0,21 & -0,20 & 0,05 & 0,08 & 0,14 & 0,02 & 0,13 & -0,09 & 0,01 & 0,08 \\ \hline
+\end{tabular}
+\label{tab31}
+\end{table}
+
+      \item[c)] Representación simplificada
+
+\begin{table}[H]
+\centering
+\left|\begin{tabular}{cc}
+. & . \\
++ & - \\
+\end{tabular} \right| \quad \left|
+\begin{tabular}{cc}
+. & . \\
+. & . \\
+\end{tabular} \right| \quad \left|
+\begin{tabular}{cc}
+. & . \\
+. & . \\
+\end{tabular} \right| \quad \left|
+\begin{tabular}{cc}
+. & . \\
+. & . \\
+\end{tabular} \right| \quad \left|
+\begin{tabular}{cc}
+. & . \\
+. & . \\
+\end{tabular} \right|
+\caption{Resumen de estadísticas y matrices de correlación cruzada para $X_{1t}$ y $X_{2t}$.}
+\label{tab32}
+\end{table}
+\end{itemize}
+
+Es f\'{a}cil ver que las correlaciones cruzadas son significativas al 5{\%} en el retardo 1 ($2/\sqrt T =$ 0,1747 en este caso). As\'{i}, $X_{2t}$ depende de los valores en el primer retardo de $X_{1t}$ en el primer retardo y del suyo propio. En EViews, se presenta la siguiente salida:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.54in,height=4.47in]{Graficos/Cap4-5/STcap431.eps}
+\caption{Correlaciones cruzadas entre $X_{1t}$ y $X_{2t}$}
+\label{fig31}
+\end{figure}
+
+\begin{enumerate}
+\item[2.] {\bf Estimaci\'{o}n y validaci\'{o}n del VAR}
+\end{enumerate}
+Se inicia presentando el gr\'{a}fico de las series:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.23in,height=3.76in]{Graficos/Cap4-5/STcap432.eps}
+\caption{Gr\'{a}fico de secuencia de las series}
+\label{fig32}
+\end{figure}
+
+Antes de realizar los procedimientos para estimar los modelos, se debe verificar si las series a ser analizadas son estacionarias; para ello se realiza la prueba de ra\'{i}ces unitarias para cada serie utilizando el programa EViews:
+
 %\begin{table}[H]
 %\begin{center}
 %\begin{tabular}{|p{100pt}|l|p{60pt}|p{60pt}|l|}
