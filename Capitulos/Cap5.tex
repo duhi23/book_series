@@ -2172,650 +2172,175 @@ Se inicia presentando el gr\'{a}fico de las series:
 
 Antes de realizar los procedimientos para estimar los modelos, se debe verificar si las series a ser analizadas son estacionarias; para ello se realiza la prueba de ra\'{i}ces unitarias para cada serie utilizando el programa EViews:
 
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|p{100pt}|l|p{60pt}|p{60pt}|l|}
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%t-Statistic& 
-%~~Prob.* \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\multicolumn{3}{|p{216pt}|}{Augmented Dickey-Fuller test statistic} & 
-%-9.001098& 
-%~0.0000 \\
-%\hline
-%Test critical values:& 
-%1{\%} level& 
-%& 
-%-4.037668& 
-% \\
-%\hline
-%& 
-%5{\%} level& 
-%& 
-%-3.448348& 
-% \\
-%\hline
-%& 
-%10{\%} level& 
-%& 
-%-3.149326& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\multicolumn{4}{|p{276pt}|}{*MacKinnon (1996) one-sided p-values.} & 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\end{tabular}
-%\label{tab33}
-%\end{center}
-%\end{table}
+\begin{table}[H]
+\centering
+\begin{tabular}{p{120pt}p{60pt}p{50pt}l} \hline \hline
+& & t-Statistic & Prob.* \\ \hline \hline
+\multicolumn{2}{p{180pt}}{Augmented Dickey-Fuller test statistic} & -9.001098 & 0.0000 \\ \hline
+Test critical values: & 1{\%} level & -4.037668 & \\ 
+ & 5{\%} level & -3.448348 & \\ 
+ & 10{\%} level & -3.149326 & \\ \hline \hline
+\multicolumn{4}{l}{*MacKinnon (1996) one-sided p-values.} \\
+\end{tabular}
+\caption{Prueba DFA para $X_{1t}$}
+\label{tab33}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{120pt}p{60pt}p{50pt}l} \hline \hline
+& & t-Statistic & Prob.* \\ \hline \hline
+\multicolumn{2}{p{180pt}}{Augmented Dickey-Fuller test statistic} & -13.00154 & 0.0000 \\ \hline
+Test critical values: & 1{\%} level & -4.037668 & \\ 
+ & 5{\%} level & -3.448348 & \\ 
+ & 10{\%} level & -3.149326 & \\ \hline \hline
+\multicolumn{4}{l}{*MacKinnon (1996) one-sided p-values.} \\
+\end{tabular}
+\caption{Prueba DFA para $X_{2t}$}
+\label{tab34}
+\end{table}
+
+Como se puede ver en las figuras 5.18 y 5.19, las dos series son estacionarias.
+\begin{enumerate}
+      \item[a)] Se utilizar\'{a}n los criterios de Akaike, Schwarz y el logaritmo de m\'{a}xima verosimilutid para determinar el retardo $p$ entre 1 y 4. Se deben estimar cuatro modelos diferentes y retener aquel que satisfaga la mayor cantidad de criterios \'{o}ptimos.
+\end{enumerate}
+
+Se obtiene lo siguiente:
+\[
+\hat{X}_{1t}=0,1479X_{1t-1}+0,2268X_{2t-1}+0,4928
+\]
+\[
+\hat{X}_{2t}=0,1274X_{1t-1}-0,2187X_{2t-1}-0,0772
+\]
+Con la ayuda del paquete EViews 7, se realiza la estimaci\'{o}n de los 4 modelos. As\'{i}, se obtuvieron los siguientes resultados:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|p{35pt}|p{35pt}|p{35pt}|p{35pt}|}\hline
+Criterio / Retardo &\quad 1 &\quad 2 &\quad 3 &\quad 4 \\ \hline
+Log likelihood & -761,42 & -756,05 & -746,56 & -736,01 \\ \hline
+Akaike & ~11,81 & ~11,87 & ~11,88 & ~11,87 \\ \hline
+Schwarz & ~11,93 & ~12,10 & ~12,20 & ~12,28 \\ \hline
+\end{tabular}
+\caption{Criterios para escoger el retardo del VAR}
+\label{tab35}
+\end{table}
+
+Como se puede observar en la tabla 5.18, es en el retardo 1 ($p=1)$ donde los criterios de Akaike y Schwarz se minimizan aunque el valor del log de versoimilitud es m\'{i}nimo (en la pr\'{a}ctica, muy pocas veces se utiliza este criterio como decisivo para escoger el retardo del VAR). Por lo tanto se realiza la estimaci\'{o}n del $VAR(1)$.
+
+\begin{enumerate}
+      \item[i.] El modelo VAR estimado se escribe:
+      \[
+      X_{1t}=0,1479X_{1t-1}+0,2268X_{2t-1}+0,4928+\hat{u}_{1t}
+      \]
+      \[
+      \quad (1,71)\qquad\quad (2,28)\qquad\quad (1,14)
+      \]
+      $R^{2} = 0,07$; \quad $n=130$;\quad (.) $=$ estad\'{i}stico correspondiente a la distribuci\'{o}n t de Student.
+      \[
+      X_{2t}=0,1274X_{1t-1}-0,2187X_{2t-1}-0,0772+\hat{u}_{2t}
+      \]
+      \[
+      \quad (1,67)\qquad\quad (-2,49)\qquad\quad (-0,20)
+      \]
+      $R^{2} = 0,06$; \quad $n=130$;\quad (.) $=$ estad\'{i}stico correspondiente a la distribuci\'{o}n t de Student.\newline
+      
+      Antes de realizar las predicciones, se debe verificar si el modelo cumple con el criterio de estabilidad. Con ayuda del programa EViews se obtiene:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{120pt}l}\hline\hline
+Ra\'{i}ces & M\'{o}dulo \\ \hline\hline
+-0,285373 & ~0,285373 \\
+~0,214590 & ~0,214590 \\ \hline\hline
+\end{tabular}
+\label{tab36}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=2.53in,height=2.67in]{Graficos/Cap4-5/STcap433.eps}
+\caption{Criterio de estabilidad para el VAR(1) estimado}
+\label{fig33}
+\end{figure}
+
+Anal\'{i}tica y gr\'{a}ficamente, se concluye que las inversas de las ra\'{i}ces del polinomio caracter\'{i}stico se encuentran dentro del c\'{i}rculo unidad; por lo tanto, se concluye que el modelo es estable y, por tanto, es estacionario.
+
+      \item[ii.] Ahora, se necesita verificar que los residuos del modelo sean ruidos blancos; en general, se prueba la independencia. Para ello, se utilizar\'{a} el paquete EViews para obtener las pruebas sobre los residuos que se describieron anteriormente. As\'{i} se obtiene:
+
+\end{enumerate}
+
+
+
+\textbf{Prueba Portmanteau}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccccc}\hline\hline
+Lags & Q-Stat & Prob & Adj Q-Stat & Prob & df \\ \hline \hline
+1 & ~0,050722 & NA* & ~0,051115 & NA* & NA* \\
+2 & ~1,429068 & ~0,9641 & ~1,450997 & ~0,9627 & 6 \\
+3 & ~6,825196 & ~0,7418 & ~6,974593 & ~0,7278 & 10 \\
+4 & ~14,04034 & ~0,4467 & ~14,41879 & ~0,4190 & 14 \\
+5 & ~15,45813 & ~0,6303 & ~15,89329 & ~0,6000 & 18 \\
+6 & ~24,47227 & ~0,3230 & ~25,34360 & ~0,2809 & 22 \\
+7 & ~26,60556 & ~0,4302 & ~27,59829 & ~0,3785 & 26 \\
+8 & ~34,51039 & ~0,2609 & ~36,02148 & ~0,2074 & 30 \\
+9 & ~37,10211 & ~0,3279 & ~38,80597 & ~0,2619 & 34 \\
+10& ~51,10065 & ~0,0760 & ~53,97106 & ~0,0447 & 38 \\
+11& ~53,74575 & ~0,1057 & ~56,86065 & ~0,0627 & 42 \\
+12& ~68,78477 & ~0,0164 & ~73,42907 & ~0,0062 & 46 \\
+13& ~72,41862 & ~0,0207 & ~77,46668 & ~0,0076 & 50 \\
+14& ~76,83463 & ~0,0223 & ~82,41566 & ~0,0077 & 54 \\
+15& ~77,52667 & ~0,0443 & ~83,19797 & ~0,0167 & 58 \\
+16& ~80,19277 & ~0,0599 & ~86,23825 & ~0,0226 & 62 \\
+17& ~82,43977 & ~0,0832 & ~88,82330 & ~0,0321 & 66 \\
+18& ~86,47531 & ~0,0883 & ~93,50741 & ~0,0318 & 70 \\
+19& ~90,20916 & ~0,0968 & ~97,88039 & ~0,0330 & 74 \\
+20& ~93,29485 & ~0,1141 & ~101,5271 & ~0,0380 & 78 \\ \hline\hline
+\end{tabular}
+\caption{Prueba de autocorrelaci\'{o}n Pormanteau}
+\label{tab37}
+\end{table}
+
+En la tabla 5.21 se observa que los p-valores (Prob.) para los retardos de 1 al 9 son no significativos; sin embargo, a partir del retardo 10 se vuelven significativos, esto sugiere que los residuos est\'{a}n autocorrelacionados.\newline
+
+\textbf{Prueba LM}
 %
 %\begin{center}
-%Figura 5.13: Prueba DFA para $X_{1t}$
+%Tabla 5.20: 
 %\end{center}
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|p{100pt}|l|p{60pt}|p{60pt}|l|}
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%t-Statistic& 
-%~~Prob.* \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\multicolumn{3}{|p{216pt}|}{Augmented Dickey-Fuller test statistic} & 
-%-13.00154& 
-%~0.0000 \\
-%\hline
-%Test critical values:& 
-%1{\%} level& 
-%& 
-%-4.037668& 
-% \\
-%\hline
-%& 
-%5{\%} level& 
-%& 
-%-3.448348& 
-% \\
-%\hline
-%& 
-%10{\%} level& 
-%& 
-%-3.149326& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\multicolumn{4}{|p{276pt}|}{*MacKinnon (1996) one-sided p-values.} & 
-% \\
-%\hline
-%\end{tabular}
-%\label{tab34}
-%\end{center}
-%\end{table}
-%
-%\begin{center}
-%Figura 5.14: Prueba DFA para $X_{2t}$
-%\end{center}
-%
-%Como se puede ver en las figuras 5.13 y 5.14, las dos series son 
-%estacionarias.
-%
-%\begin{enumerate}
-%\item Se utilizar\'{a}n los criterios de Akaike, Schwarz y el logaritmo de m\'{a}xima verosimilutid para determinar el retardo $p$ entre 1 y 4. Se deben estimar cuatro modelos diferentes y retener aquel que satisfaga la mayor cantidad de criterios \'{o}ptimos.
-%\end{enumerate}
-%Se obtiene lo siguiente:
-%\[
-%\hat{X}_{1t}=0,1479X_{1t-1}+0,2268X_{2t-1}+
-%0,4928
-%\]
-%\[
-%\hat{X}_{2t}=0,1274X_{1t-1}-0,2187X_{2t-1}-0,0772
-%\]
-%Con la ayuda del paquete EViews 7, se realiza la estimaci\'{o}n de los 4 
-%modelos. As\'{\i}, se obtuvieron los siguientes resultados:
-%
-%\begin{center}
-%Tabla 5.18: Criterios para escoger el retardo del VAR
-%\end{center}
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|l|p{64pt}|p{60pt}|p{60pt}|p{60pt}|p{60pt}|}
-%\hline
-%~& 
-%Retardo l& 
-%\raisebox{-1.50ex}[0cm][0cm]{1}& 
-%\raisebox{-1.50ex}[0cm][0cm]{2}& 
-%\raisebox{-1.50ex}[0cm][0cm]{3}& 
-%\raisebox{-1.50ex}[0cm][0cm]{4} \\
-%\cline{1-2} 
-%Criterio& 
-%~& 
-% & 
-% & 
-% & 
-% \\
-%\hline
-%\multicolumn{2}{|p{129pt}|}{~Log likelihood} & 
-%-761,42& 
-%-756,05& 
-%-746,56& 
-%-736,01 \\
-%\hline
-%\multicolumn{2}{|p{129pt}|}{Akaike } & 
-%11,81& 
-%11,87& 
-%11,88& 
-%11,87 \\
-%\hline
-%\multicolumn{2}{|p{129pt}|}{~Schwarz } & 
-%11,93& 
-%12,10& 
-%12,20& 
-%12,28 \\
-%\hline
-%\end{tabular}
-%\label{tab35}
-%\end{center}
-%\end{table}
-%
-%Como se puede observar en la tabla 5.18, es en el retardo 1 ($p=1)$ donde 
-%los criterios de Akaike y Schwarz se minimizan aunque el valor del log de 
-%versoimilitud es m\'{\i}nimo (en la pr\'{a}ctica, muy pocas veces se utiliza 
-%este criterio como decisivo para escoger el retardo del VAR). Por lo tanto 
-%se realiza la estimaci\'{o}n del $VAR(1)$.
-%
-%\begin{enumerate}
-%\item El modelo VAR estimado se escribe: 
-%\end{enumerate}
-%\[
-%X_{1t}=0,1479X_{1t-1}+0,2268X_{2t-1}+
-%0,4928+\hat{u}_{1t}
-%\]
-%(1,71) (2,28) (1,14)
-%
-%$R^{2}\quad =\quad 0,07;$ n $=$ 130; (.) $=$ estad\'{\i}stico correspondiente 
-%a la distribuci\'{o}n t de Student.
-%\[
-%X_{2t}=0,1274X_{1t-1}-0,2187X_{2t-1}-0,0772+\hat{u}_{2t}
-%\]
-%(1,67) (-2,49) (-0,20)
-%
-%$R^{2}\quad =\quad 0,06;$ n $=$ 130; (.) $=$ estad\'{\i}stico correspondiente 
-%a la distribuci\'{o}n t de Student.
-%
-%Antes de realizar las predicciones, se debe verificar si el modelo cumple 
-%con el criterio de estabilidad. Con ayuda del programa EViews se obtiene:
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|p{132pt}|l|}
-%\hline
-%& 
-% \\
-%\hline
-%& 
-% \\
-%\hline
-%~~~~~Ra\'{\i}ces& 
-%M\'{o}dulo \\
-%\hline
-%& 
-% \\
-%\hline
-%& 
-% \\
-%\hline
-%-0,285373& 
-%~0,285373 \\
-%\hline
-%~0,214590& 
-%~0,214590 \\
-%\hline
-%& 
-% \\
-%\hline
-%& 
-% \\
-%\hline
-%\end{tabular}
-%\label{tab36}
-%\end{center}
-%\end{table}
-%
-%\begin{figure}[H]
-%\includegraphics[width=2.53in,height=2.67in]{STcap433.eps}
-%\label{fig33}
-%\end{figure}
-%
-%\begin{center}
-%Figura 5.14: Criterio de estabilidad para el VAR(1) estimado
-%\end{center}
-%
-%Anal\'{\i}tica y gr\'{a}ficamente, se concluye que las inversas de las 
-%ra\'{\i}ces del polinomio caracter\'{\i}stico se encuentran dentro del 
-%c\'{\i}rculo unidad; por lo tanto, se concluye que el modelo es estable y, 
-%por tanto, es estacionario.
-%
-%\begin{enumerate}
-%\item Ahora, se necesita verificar que los residuos del modelo sean ruidos blancos; en general, se prueba la independencia. Para ello, se utilizar\'{a} el paquete EViews para obtener las pruebas sobre los residuos que se describieron anteriormente. As\'{\i} se obtiene:
-%\end{enumerate}
-%
-%\textbf{Prueba }\textbf{\textit{Portmanteau}}
-%
-%\begin{center}
-%Tabla 5.19: Prueba de autocorrelaci\'{o}n \textit{Pormanteau}
-%\end{center}
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|l|l|l|l|l|l|}
-%\hline
-%& 
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%Lags& 
-%Q-Stat& 
-%Prob,& 
-%Adj Q-Stat& 
-%Prob,& 
-%df \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%1& 
-%~0,050722& 
-%NA*& 
-%~0,051115& 
-%NA*& 
-%NA* \\
-%\hline
-%2& 
-%~1,429068& 
-%~0,9641& 
-%~1,450997& 
-%~0,9627& 
-%6 \\
-%\hline
-%3& 
-%~6,825196& 
-%~0,7418& 
-%~6,974593& 
-%~0,7278& 
-%10 \\
-%\hline
-%4& 
-%~14,04034& 
-%~0,4467& 
-%~14,41879& 
-%~0,4190& 
-%14 \\
-%\hline
-%5& 
-%~15,45813& 
-%~0,6303& 
-%~15,89329& 
-%~0,6000& 
-%18 \\
-%\hline
-%6& 
-%~24,47227& 
-%~0,3230& 
-%~25,34360& 
-%~0,2809& 
-%22 \\
-%\hline
-%7& 
-%~26,60556& 
-%~0,4302& 
-%~27,59829& 
-%~0,3785& 
-%26 \\
-%\hline
-%8& 
-%~34,51039& 
-%~0,2609& 
-%~36,02148& 
-%~0,2074& 
-%30 \\
-%\hline
-%9& 
-%~37,10211& 
-%~0,3279& 
-%~38,80597& 
-%~0,2619& 
-%34 \\
-%\hline
-%10& 
-%~51,10065& 
-%~0,0760& 
-%~53,97106& 
-%~0,0447& 
-%38 \\
-%\hline
-%11& 
-%~53,74575& 
-%~0,1057& 
-%~56,86065& 
-%~0,0627& 
-%42 \\
-%\hline
-%12& 
-%~68,78477& 
-%~0,0164& 
-%~73,42907& 
-%~0,0062& 
-%46 \\
-%\hline
-%13& 
-%~72,41862& 
-%~0,0207& 
-%~77,46668& 
-%~0,0076& 
-%50 \\
-%\hline
-%14& 
-%~76,83463& 
-%~0,0223& 
-%~82,41566& 
-%~0,0077& 
-%54 \\
-%\hline
-%15& 
-%~77,52667& 
-%~0,0443& 
-%~83,19797& 
-%~0,0167& 
-%58 \\
-%\hline
-%16& 
-%~80,19277& 
-%~0,0599& 
-%~86,23825& 
-%~0,0226& 
-%62 \\
-%\hline
-%17& 
-%~82,43977& 
-%~0,0832& 
-%~88,82330& 
-%~0,0321& 
-%66 \\
-%\hline
-%18& 
-%~86,47531& 
-%~0,0883& 
-%~93,50741& 
-%~0,0318& 
-%70 \\
-%\hline
-%19& 
-%~90,20916& 
-%~0,0968& 
-%~97,88039& 
-%~0,0330& 
-%74 \\
-%\hline
-%20& 
-%~93,29485& 
-%~0,1141& 
-%~101,5271& 
-%~0,0380& 
-%78 \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\end{tabular}
-%\label{tab37}
-%\end{center}
-%\end{table}
-%
-%En la tabla 5.19 se observa que los p-valores (Prob.) para los retardos de 1 
-%al 9 son no significativos; sin embargo, a partir del retardo 10 se vuelven 
-%significativos, esto sugiere que los residuos est\'{a}n autocorrelacionados.
-%
-%\textbf{\textit{Prueba LM}}
-%
-%\begin{center}
-%Tabla 5.20: Prueba LM
-%\end{center}
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|l|l|l|}
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%Lags& 
-%LM-Stat& 
-%Prob \\
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%1& 
-%~0,600602& 
-%~0,9630 \\
-%\hline
-%2& 
-%~1,492304& 
-%~0,8280 \\
-%\hline
-%3& 
-%~5,496276& 
-%~0,2401 \\
-%\hline
-%4& 
-%~7,679129& 
-%~0,1041 \\
-%\hline
-%5& 
-%~1,468612& 
-%~0,8322 \\
-%\hline
-%6& 
-%~9,278191& 
-%~0,0545 \\
-%\hline
-%7& 
-%~2,213578& 
-%~0,6965 \\
-%\hline
-%8& 
-%~8,222604& 
-%~0,0838 \\
-%\hline
-%9& 
-%~2,633746& 
-%~0,6209 \\
-%\hline
-%10& 
-%~14,83753& 
-%~0,0051 \\
-%\hline
-%11& 
-%~2,909367& 
-%~0,5731 \\
-%\hline
-%12& 
-%~16,83962& 
-%~0,0021 \\
-%\hline
-%13& 
-%~4,069454& 
-%~0,3967 \\
-%\hline
-%14& 
-%~4,565627& 
-%~0,3348 \\
-%\hline
-%15& 
-%~0,731412& 
-%~0,9474 \\
-%\hline
-%16& 
-%~2,790990& 
-%~0,5934 \\
-%\hline
-%17& 
-%~2,346395& 
-%~0,6723 \\
-%\hline
-%18& 
-%~4,123520& 
-%~0,3895 \\
-%\hline
-%19& 
-%~3,978227& 
-%~0,4090 \\
-%\hline
-%20& 
-%~3,335910& 
-%~0,5033 \\
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%\end{tabular}
-%\label{tab38}
-%\end{center}
-%\end{table}
-%
-%Por los valores en la columna Prob. (ver tabla 5.20), se puede concluir que 
-%existe autocorrelaci\'{o}n entre los residuos (retardos 10 y 12). Esto 
-%confirma que se hay que reformular el modelo planteado.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccc}\hline\hline
+Lags & LM-Stat & Prob \\ \hline\hline
+1 & ~0,600602 & ~0,9630 \\
+2 & ~1,492304 & ~0,8280 \\
+3 & ~5,496276 & ~0,2401 \\
+4 & ~7,679129 & ~0,1041 \\
+5 & ~1,468612 & ~0,8322 \\
+6 & ~9,278191 & ~0,0545 \\
+7 & ~2,213578 & ~0,6965 \\
+8 & ~8,222604 & ~0,0838 \\
+9 & ~2,633746 & ~0,6209 \\
+10& ~14,83753 & ~0,0051 \\
+11& ~2,909367 & ~0,5731 \\
+12& ~16,83962 & ~0,0021 \\
+13& ~4,069454 & ~0,3967 \\
+14& ~4,565627 & ~0,3348 \\
+15& ~0,731412 & ~0,9474 \\
+16& ~2,790990 & ~0,5934 \\
+17& ~2,346395 & ~0,6723 \\
+18& ~4,123520 & ~0,3895 \\
+19& ~3,978227 & ~0,4090 \\
+20& ~3,335910 & ~0,5033 \\\hline\hline
+\end{tabular}
+\caption{Prueba LM}
+\label{tab38}
+\end{table}
+
+Por los valores en la columna Prob. (ver tabla 5.20), se puede concluir que existe autocorrelaci\'{o}n entre los residuos (retardos 10 y 12). Esto confirma que se hay que reformular el modelo planteado.
 %
 %\textbf{\textit{Reformulaci\'{o}n del modelo}}
 %
