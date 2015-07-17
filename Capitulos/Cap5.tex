@@ -2267,10 +2267,7 @@ Ra\'{i}ces & M\'{o}dulo \\ \hline\hline
 Anal\'{i}tica y gr\'{a}ficamente, se concluye que las inversas de las ra\'{i}ces del polinomio caracter\'{i}stico se encuentran dentro del c\'{i}rculo unidad; por lo tanto, se concluye que el modelo es estable y, por tanto, es estacionario.
 
       \item[ii.] Ahora, se necesita verificar que los residuos del modelo sean ruidos blancos; en general, se prueba la independencia. Para ello, se utilizar\'{a} el paquete EViews para obtener las pruebas sobre los residuos que se describieron anteriormente. As\'{i} se obtiene:
-
 \end{enumerate}
-
-
 
 \textbf{Prueba Portmanteau}
 
@@ -2340,49 +2337,41 @@ Por los valores en la columna Prob. (ver tabla 5.20), se puede concluir que exis
 
 \textbf{Reformulaci\'{o}n del modelo}
 
-Se puede ver en las figuras 5.3 y 5.4 que a partir del retardo 10 existe autocorrelaci\'{o}n de los residuos, por lo que se prueba un nuevo modelo VAR (10) para corregir este inconveniente.
-%
-%Se estim\'{o} un VAR(10); sin embargo, al retardo 12 y 6 se ten\'{\i}a 
-%autocorrelaci\'{o}n de residuos. Luego, se agregaron los retardos de orden 6 
-%al VAR pero se encontr\'{o} autocorrelaci\'{o}n al retardo 12. Finalmente, 
-%se agreg\'{o} el retardo 12 y se consigui\'{o} que los residuos no est\'{e}n 
-%correlacionados, pero el problema era que no segu\'{\i}an una 
-%distribuci\'{o}n normal multivariante. 
-%
-%Luego, se procedi\'{o} a agregar un retardo de orden 14 y a quitar el 
-%retardo 12; con esto se consigui\'{o} que los residuos sean ruidos blancos, 
-%aunque presenta algo de correlaci\'{o}n en el retardo 12, se decidi\'{o} 
-%conservar este modelo ya que es el que cumple con m\'{a}s pruebas de 
-%independencia de residuos. Se debe mencionar que solamente se retienen los 
-%coeficientes significativos. As\'{\i}, se obtuvo el siguiente modelo:
-%\[
-%X_{1t}=0,1416X_{1t-1}-0,2403X_{1t-6}+0,0889
-%X_{1t-10}-0,1047X_{1t-14}+0,2241X_{2t-1}+0,0326
-%X_{2t-6}-0,1393X_{2t-10}+0,1082X_{2t-14}+0,7716+\hat{u}_{1t}
-%\]
-%\[
-%X_{2t}=0,0703X_{1t-1}-0,1787X_{1t-6}-0,1133
-%X_{1t-10}-0,1893X_{1t-14}-0,2875X_{2t-1}-0,0605
-%X_{2t-6}-0,2330X_{2t-10}-0,0422X_{2t-14}+0,3525+\hat{u}_{2t}
-%\]
-%\begin{enumerate}
-%\item La predicci\'{o}n calculada por el modelo, de manera recurrente es:
-%\end{enumerate}
-%\[
-%\hat{X}_{1t}=0,1416X_{1t-1}-0,2403
-%X_{1t-6}+0,0889X_{1t-10}-0,1047X_{1t-14}+0,2241
-%X_{2t-1}+0,0326X_{2t-6}-0,1393
-%X_{2t-10}+0,1082X_{2t-14}+0,7716
-%\]
-%\[
-%\hat{X}_{1,15:1}=0,1416\ast 4,15-0,2403\ast \left( 3,26 \right)+0,0889\ast 
-%(-1,34)-0,1047\ast \left( -3,37 \right)+0,2241\ast \left( -9,23 
-%\right)+0,0326\ast 4,71-0,1393\ast (-3,12)+0,1082\ast \left( 4,03 
-%\right)+0,7716
-%\]
-%\[
-%\hat{X}_{1,15:1}=-0,235
-%\]
+Se puede ver en las figuras 5.3 y 5.4 que a partir del retardo 10 existe autocorrelaci\'{o}n de los residuos, por lo que se prueba un nuevo modelo VAR (10) para corregir este inconveniente.\newline
+
+Se estim\'{o} un VAR(10); sin embargo, al retardo 12 y 6 se ten\'{i}a autocorrelaci\'{o}n de residuos. Luego, se agregaron los retardos de orden 6 al VAR pero se encontr\'{o} autocorrelaci\'{o}n al retardo 12. Finalmente, se agreg\'{o} el retardo 12 y se consigui\'{o} que los residuos no est\'{e}n correlacionados, pero el problema era que no segu\'{i}an una distribuci\'{o}n normal multivariante. \newline
+
+Luego, se procedi\'{o} a agregar un retardo de orden 14 y a quitar el retardo 12; con esto se consigui\'{o} que los residuos sean ruidos blancos, aunque presenta algo de correlaci\'{o}n en el retardo 12, se decidi\'{o} conservar este modelo ya que es el que cumple con m\'{a}s pruebas de independencia de residuos. Se debe mencionar que solamente se retienen los coeficientes significativos. As\'{i}, se obtuvo el siguiente modelo:
+
+\begin{align*}
+X_{1t} &= 0,1416X_{1t-1}-0,2403X_{1t-6}+0,0889X_{1t-10}-0,1047X_{1t-14}+0,2241X_{2t-1}\\
+       & +0,0326X_{2t-6}-0,1393X_{2t-10}+0,1082X_{2t-14}+0,7716+\hat{u}_{1t}
+\end{align*}
+
+\begin{align*}
+X_{2t} &= 0,0703X_{1t-1}-0,1787X_{1t-6}-0,1133X_{1t-10}-0,1893X_{1t-14}-0,2875X_{2t-1}\\
+       & -0,0605X_{2t-6}-0,2330X_{2t-10}-0,0422X_{2t-14}+0,3525+\hat{u}_{2t}
+\end{align*}
+
+\begin{enumerate}
+      \item[iii.] La predicci\'{o}n calculada por el modelo, de manera recurrente es:
+      
+\begin{align*}
+\hat{X}_{1t} &= 0,1416X_{1t-1}-0,2403X_{1t-6}+0,0889X_{1t-10}-0,1047X_{1t-14}+0,2241X_{2t-1}\\
+             & +0,0326X_{2t-6}-0,1393X_{2t-10}+0,1082X_{2t-14}+0,7716
+\end{align*}
+
+\begin{align*}
+\hat{X}_{1,15:1} &= 0,1416\ast 4,15-0,2403\ast(3,26)+0,0889\ast(-1,34)-0,1047\ast(-3,37)\\
+                 & +0,2241\ast(-9,23)+0,0326\ast 4,71-0,1393\ast(-3,12)+0,1082\ast(4,03)\\
+                 & +0,7716
+\end{align*}
+\[
+\hat{X}_{1,15:1}=-0,235
+\]
+\end{enumerate}
+
+
 %\[
 %\hat{X}_{2t}=0,0703X_{1t-1}-0,1787
 %X_{1t-6}-0,1133X_{1t-10}-0,1893X_{1t-14}-0,2875
