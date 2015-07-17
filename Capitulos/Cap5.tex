@@ -2360,63 +2360,50 @@ X_{2t} &= 0,0703X_{1t-1}-0,1787X_{1t-6}-0,1133X_{1t-10}-0,1893X_{1t-14}-0,2875X_
 \hat{X}_{1t} &= 0,1416X_{1t-1}-0,2403X_{1t-6}+0,0889X_{1t-10}-0,1047X_{1t-14}+0,2241X_{2t-1}\\
              & +0,0326X_{2t-6}-0,1393X_{2t-10}+0,1082X_{2t-14}+0,7716
 \end{align*}
-
 \begin{align*}
 \hat{X}_{1,15:1} &= 0,1416\ast 4,15-0,2403\ast(3,26)+0,0889\ast(-1,34)-0,1047\ast(-3,37)\\
-                 & +0,2241\ast(-9,23)+0,0326\ast 4,71-0,1393\ast(-3,12)+0,1082\ast(4,03)\\
+                 & +0,2241\ast(-9,23)+0,0326\ast(4,71)-0,1393\ast(-3,12)+0,1082\ast(4,03)\\
                  & +0,7716
 \end{align*}
 \[
 \hat{X}_{1,15:1}=-0,235
 \]
+\begin{align*}
+\hat{X}_{2t} &= 0,0703X_{1t-1}-0,1787X_{1t-6}-0,1133X_{1t-10}-0,1893X_{1t-14}-0,2875X_{2t-1}\\
+             &  -0,0605X_{2t-6}-0,2330X_{2t-10}-0,0422X_{2t-14}+0,3525
+\end{align*}
+\begin{align*}
+\hat{X}_{2,15:1} &= 0,0703\ast 4,15-0,1787\ast(-3,26)-0,1133\ast(-1,34)-0,1893\ast(-3,37)\\
+                 & -0,2875\ast(-9,23)-0,0605\ast(4,71)-0,2330\ast(-3,12)-0,0422\ast(4,03)\\
+                 & +0,3525
+\end{align*}
+\[
+\hat{X}_{2,15:1}=3,777
+\]
 \end{enumerate}
 
+donde, $\hat{X}_{i,15:j}$ significa, la previsi\'{o}n de la variable $X_{i}$ para el mes j del a\~{n}o 2015 (15:j).\newline
 
-%\[
-%\hat{X}_{2t}=0,0703X_{1t-1}-0,1787
-%X_{1t-6}-0,1133X_{1t-10}-0,1893X_{1t-14}-0,2875
-%X_{2t-1}-0,0605X_{2t-6}-0,2330
-%X_{2t-10}-0,0422X_{2t-14}+0,3525
-%\]
-%\[
-%\hat{X}_{2,15:1}=0,0703\ast 4,15-0,1787\ast \left( -3,26 \right)-0,1133\ast 
-%\left( -1,34 \right)-0,1893\ast \left( -3,37 \right)-0,2875
-%\mathrm{\ast }\left( -9,23 \right)-0,0605\ast 4,71-0,2330\ast \left( -3,12 
-%\right)-0,0422\ast (4,03)+0,3525
-%\]
-%\[
-%\hat{X}_{2,15:1}=3,777
-%\]
-%donde, $\hat{X}_{i,15:j}$ significa, la previsi\'{o}n de la variable $X_{i}$ 
-%para el mes j del a\~{n}o 2015 (15:j).
-%
-%De la misma manera se obtiene:
-%\[
-%\hat{X}_{1,15:2}=0,400
-%\]
-%\[
-%\hat{X}_{2,15:2}=-1,281
-%\]
-%\[
-%\hat{X}_{1,15:3}=-0,221
-%\]
-%\[
-%\hat{X}_{2,15:3}=-0,536
-%\]
-%\[
-%\vdots 
-%\]
-%Para calcular la varianza del error de predicci\'{o}n, si fuera un VAR (1) 
-%se tiene:
-%\[
-%M_{1}=\hat{A}_{1};
-%M_{2}=\hat{A}_{1}M_{1}=\hat{A}_{1}^{2};etc\mathellipsis 
-%.
-%\]
-%Dado que el modelo es un VAR (14) con coeficientes 1, 6, 10 y 14, se 
-%tendr\'{a}n las matrices $\hat{A}_{1}$, $\hat{A}_{6}$, $\hat{A}_{10}$, 
-%$\hat{A}_{14}$ y estar\'{a}n compuestas por los coeficientes de los retardos 
-%de las variables analizadas; as\'{\i}, se obtiene:
+De la misma manera se obtiene:
+\[
+\hat{X}_{1,15:2}=0,400
+\]
+\[
+\hat{X}_{2,15:2}=-1,281
+\]
+\[
+\hat{X}_{1,15:3}=-0,221
+\]
+\[
+\hat{X}_{2,15:3}=-0,536
+\]
+
+Para calcular la varianza del error de predicci\'{o}n, si fuera un VAR (1) se tiene:
+\[
+M_{1}=\hat{A}_{1};\quad M_{2}=\hat{A}_{1}M_{1}=\hat{A}_{1}^{2};\quad \mbox{etc}\mathellipsis.
+\]
+
+Dado que el modelo es un VAR (14) con coeficientes 1, 6, 10 y 14, se tendr\'{a}n las matrices $\hat{A}_{1}$, $\hat{A}_{6}$, $\hat{A}_{10}$, $\hat{A}_{14}$ y estar\'{a}n compuestas por los coeficientes de los retardos de las variables analizadas; as\'{i}, se obtiene:
 %\[
 %\hat{A}_{1}=\left[ {\begin{array}{*{20}c}
 %0,1416 & 0,2241\\
