@@ -2404,687 +2404,246 @@ M_{1}=\hat{A}_{1};\quad M_{2}=\hat{A}_{1}M_{1}=\hat{A}_{1}^{2};\quad \mbox{etc}\
 \]
 
 Dado que el modelo es un VAR (14) con coeficientes 1, 6, 10 y 14, se tendr\'{a}n las matrices $\hat{A}_{1}$, $\hat{A}_{6}$, $\hat{A}_{10}$, $\hat{A}_{14}$ y estar\'{a}n compuestas por los coeficientes de los retardos de las variables analizadas; as\'{i}, se obtiene:
-%\[
-%\hat{A}_{1}=\left[ {\begin{array}{*{20}c}
-%0,1416 & 0,2241\\
-%0,0703 & -0,2871\\
-%\end{array} } \right];\hat{A}_{6}=\left[ {\begin{array}{*{20}c}
-%-0,2403 & 0,0326\\
-%-0,1787 & -0,0605\\
-%\end{array} } \right]
-%\]
-%\[
-%\begin{array}{l}
-% \\ 
-% \hat{A}_{10}=\left[ {\begin{array}{*{20}c}
-%0,0889 & -0,1393\\
-%-0,1133 & -0,2330\\
-%\end{array} } \right];\hat{A}_{12}=\left[ {\begin{array}{*{20}c}
-%-0,1047 & 0,1082\\
-%-0,1893 & -0,0422\\
-%\end{array} } \right] \\ 
-% \end{array}
-%\]
-%La matriz de varianza covarianza estimada de la predicci\'{o}n, para el 
-%horizonte $h=$\textit{1,} es: 
-%\[
-%\hat{\Sigma }_{T}\left( 1 \right)=\hat{\Sigma }_{u}=\left[ 
-%{\begin{array}{*{20}c}
-%23,821 & 0,422\\
-%0,422 & 16,602\\
-%\end{array} } \right]
-%\]
-%As\'{\i}, la varianza del error de predicci\'{o}n para $\hat{X}_{1,15:1}$ es 
-%igual a 23,821 y la varianza del error de predicci\'{o}n para 
-%$\hat{X}_{2,15:1}$ es igual a 16,602. 
-%
-%Los intervalos de confianza para $X_{1,15:1}$ y $X_{2,15:1}$ vienen dados, 
-%respectivamente, por:
-%\[
-%-0,235\pm 1,96\ast \sqrt {23,821} =\left[ -9,80;9,33 \right]
-%\]
-%\[
-%3,777\pm 1,96\ast 
-%\sqrt {16,602} =\left[ -4,21;11,76 \right]
-%\]
-%Para los horizontes $h=$\textit{2, h}$=$\textit{3, }se utilizan las siguientes f\'{o}rmulas:
-%\[
-%\hat{\sum }_{T}\left( 2 \right)=\hat{\sum }_{u}+\hat{A}_{1}\hat{\sum 
-%}_{u}\hat{A}_{1}^{'}+\hat{A}_{6}\hat{\sum 
-%}_{u}\hat{A}_{6}^{'}+\hat{A}_{10}\hat{\sum 
-%}_{u}\hat{A}_{10}^{'}+\hat{A}_{14}\hat{\sum }_{u}\hat{A}_{14}^{'}=\left[ 
-%{\begin{array}{*{20}c}
-%27,78 & 1,51\\
-%0,93 & 20,44\\
-%\end{array} } \right]
-%\]
-%\[
-%\hat{\sum }_{T}\left( 3 \right)=\hat{\sum }_{u}+\hat{A}_{1}\hat{\sum 
-%}_{u}\hat{A}_{1}^{'}+\mathellipsis +\hat{A}_{12}\hat{\sum 
-%}_{u}\hat{A}_{12}^{'}+\hat{A}_{1}^{2}\hat{\sum 
-%}_{u}\hat{A}_{1}^{2'}+\mathellipsis +\hat{A}_{14}^{2}\hat{\sum 
-%}_{u}\hat{A}_{14}^{2'}=\left[ {\begin{array}{*{20}c}
-%27,92 & 1,25\\
-%0,96 & 20,72\\
-%\end{array} } \right]
-%\]
-%Entonces los intervalos de confianza son:
-%\[
-%IC\left( X_{1,15:2} \right)=-1,394\pm 1,96\ast 5,43=\left[ 
-%-9,93;10,73 \right]
-%\]
-%\[
-%IC\left( X_{2,15:2} \right)=0,268\pm 1,96\ast 4,59=\left[ 
-%-10,14;7,58 \right]
-%\]
-%\[
-%IC\left( X_{1,15:3} \right)=-0,645\pm 1,96\ast 5,45=\left[ 
-%-10,58;20,51 \right]
-%\]
-%\[
-%IC\left( X_{2,15:3} \right)=-0,832\pm 1,96\ast 4,62=\left[ 
-%-9,46;17,99 \right]
-%\]
-%\[
-%\vdots 
-%\]
-%\textbf{Comparaci\'{o}n con modelos univariantes}
-%
-%La teor\'{\i}a VAR sugiere que las predicciones logradas son de mejor 
-%calidad que si se realiza la modelaci\'{o}n de las series de manera 
-%univariante. Para comprobar esto, se realiz\'{o} un modelo univariante para 
-%cada una de las series analizadas en este ejemplo. As\'{\i}, se encontr\'{o} 
-%que para el IPP el modelo univariante es 
-%$X_{1t}=0,18X_{1t-1}-0,24X_{1t-6}+\hat{u}_{t}$; mientras que, para el IAE es 
-%$X_{2t}=-0,25X_{2t-1}-0,27X_{2t-10}+\hat{u}_{t}-0,32\hat{u}_{t-8}$. Con 
-%estos modelos se realizaron las predicciones para el a\~{n}o 2014 y se 
-%obtiene lo siguiente: 
-%
-%\begin{figure}[H]
-%\includegraphics[width=4.36in,height=3.66in]{STcap434.eps}
-%\label{fig34}
-%\end{figure}
-%
+
+\[
+\hat{A}_{1}=\left[ {\begin{array}{*{20}c}
+0,1416 & 0,2241\\
+0,0703 & -0,2871\\
+\end{array} } \right];\quad 
+\hat{A}_{6}=\left[ {\begin{array}{*{20}c}
+-0,2403 & 0,0326\\
+-0,1787 & -0,0605\\
+\end{array} } \right]
+\]
+
+\[
+\hat{A}_{10}=\left[ {\begin{array}{*{20}c}
+0,0889 & -0,1393\\
+-0,1133 & -0,2330\\
+\end{array} } \right];\quad 
+\hat{A}_{12}=\left[ {\begin{array}{*{20}c}
+-0,1047 & 0,1082\\
+-0,1893 & -0,0422\\
+\end{array} } \right] 
+\]
+
+La matriz de varianza covarianza estimada de la predicci\'{o}n, para el horizonte $h=1$, es: 
+\[
+\hat{\Sigma}_{T}\left( 1 \right)=\hat{\Sigma}_{u}=\left[ 
+{\begin{array}{*{20}c}
+23,821 & 0,422\\
+0,422 & 16,602\\
+\end{array} } \right]
+\]
+
+As\'{i}, la varianza del error de predicci\'{o}n para $\hat{X}_{1,15:1}$ es igual a 23,821 y la varianza del error de predicci\'{o}n para $\hat{X}_{2,15:1}$ es igual a 16,602.\newline
+
+Los intervalos de confianza para $X_{1,15:1}$ y $X_{2,15:1}$ vienen dados, respectivamente, por:
+
+\[
+-0,235\pm 1,96\ast \sqrt {23,821} =\left[ -9,80;9,33 \right]
+\]
+\[
+3,777\pm 1,96\ast \sqrt {16,602} =\left[ -4,21;11,76 \right]
+\]
+
+Para los horizontes $h=2$, $h=3$, se utilizan las siguientes f\'{o}rmulas:
+\begin{align*}
+\hat{\sum}_{T}(2) &= \hat{\sum}_{u}+\hat{A}_{1}\hat{\sum}_{u}\hat{A}_{1}^{'}+\hat{A}_{6}\hat{\sum }_{u}\hat{A}_{6}^{'}+\hat{A}_{10}\hat{\sum}_{u}\hat{A}_{10}^{'}+\hat{A}_{14}\hat{\sum }_{u}\hat{A}_{14}^{'}\\
+                  &= \left[ 
+{\begin{array}{*{20}c}
+27,78 & 1,51\\
+0,93 & 20,44\\
+\end{array} } \right]
+\end{align*}
+
+\begin{align*}
+\hat{\sum}_{T}(3) &= \hat{\sum }_{u}+\hat{A}_{1}\hat{\sum}_{u}\hat{A}_{1}^{'}+\mathellipsis +\hat{A}_{12}\hat{\sum}_{u}\hat{A}_{12}^{'}+\hat{A}_{1}^{2}\hat{\sum}_{u}\hat{A}_{1}^{2'}+\mathellipsis +\hat{A}_{14}^{2}\hat{\sum}_{u}\hat{A}_{14}^{2'}\\
+                  &= \left[ 
+{\begin{array}{*{20}c}
+27,92 & 1,25\\
+0,96 & 20,72\\
+\end{array} } \right]
+\end{align*}
+
+Entonces los intervalos de confianza son:
+\[
+IC\left( X_{1,15:2} \right)=-1,394\pm 1,96\ast 5,43=\left[ -9,93 ; 10,73 \right]
+\]
+\[
+IC\left( X_{2,15:2} \right)=0,268\pm 1,96\ast 4,59=\left[ -10,14 ; 7,58 \right]
+\]
+\[
+IC\left( X_{1,15:3} \right)=-0,645\pm 1,96\ast 5,45=\left[ -10,58 ; 20,51 \right]
+\]
+\[
+IC\left( X_{2,15:3} \right)=-0,832\pm 1,96\ast 4,62=\left[ -9,46 ; 17,99 \right]
+\]
+
+\textbf{Comparaci\'{o}n con modelos univariantes}\newline
+
+La teor\'{i}a VAR sugiere que las predicciones logradas son de mejor calidad que si se realiza la modelaci\'{o}n de las series de manera univariante. Para comprobar esto, se realiz\'{o} un modelo univariante para cada una de las series analizadas en este ejemplo. As\'{i}, se encontr\'{o} que para el IPP el modelo univariante es $X_{1t}=0,18X_{1t-1}-0,24X_{1t-6}+\hat{u}_{t}$; mientras que, para el IAE es $X_{2t}=-0,25X_{2t-1}-0,27X_{2t-10}+\hat{u}_{t}-0,32\hat{u}_{t-8}$. Con estos modelos se realizaron las predicciones para el a\~{n}o 2014 y se obtiene lo siguiente: 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.36in,height=3.66in]{Graficos/Cap4-5/STcap434.eps}
+\caption{Comparaci\'{o}n de las predicciones VAR y UNIVARIANTE para $X_{1t}$ (IPP)}
+\label{fig34}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.34in,height=3.68in]{Graficos/Cap4-5/STcap435.eps}
+\caption{Comparaci\'{o}n de las predicciones VAR y UNIVARIANTE para $X_{2t}$ (IAE)}
+\label{fig35}
+\end{figure}
+
+Se puede observar que el ajuste que tienen las predicciones del modelo VAR para el IPP es un tanto mejor que las del modelo univariante. Por otro lado, en el caso del IAE, las predicciones parecen bastante similares entre los 
+dos modelos. Para poder determinar esto, se realiza el c\'{a}lculo del error cuadr\'{a}tico medio para determinar el mejor ajuste. As\'{i} se tiene:
+
 %\begin{center}
-%Figura 5.15: Comparaci\'{o}n de las predicciones VAR y UNIVARIANTE para 
-%$X_{1t}$ (IPP)
+%:
 %\end{center}
 %
-%\begin{figure}[H]
-%\includegraphics[width=4.34in,height=3.68in]{STcap435.eps}
-%\label{fig35}
-%\end{figure}
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|} \hline
+~ & ~IPP~ & ~IAE~ \\ \hline
+VAR & 0,95 & 6,29 \\ \hline
+UNIVARIANTE & 0,95 & 7,41 \\ \hline
+\end{tabular}
+\caption{Error Medio Cuadr\'{a}tico estimado para los modelos VAR y UNIVARIANTE}
+\label{tab39}
+\end{table}
+
+Como se puede observar el modelo VAR es mejor en el caso del IAE; sin embargo, no lo es para el IPP. Se realiz\'{o} una prueba t de medias para determinar si existe diferencia estad\'{i}stica entre las medias de los errores cuadr\'{a}ticos generados por los modelos y se comprob\'{o} que en el caso del IAE el error medio cuadr\'{a}tico es diferente estad\'{i}sticamente entre los modelos (el modelo VAR ajusta mejor los datos); en el caso del IPP se determin\'{o} que no existe diferencia significativa entre los errores cuadr\'{a}ticos. Como conclusi\'{o}n, el modelo VAR predice de mejor manera que el modelo univariante.
+
+\begin{enumerate}
+      \item[3.] \textbf{La causalidad}
+\end{enumerate}
+
+El siguiente gr\'{a}fico muestra la salida del paquete EViews para la Prueba de Granger. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}\hline
+\multicolumn{3}{l}{Dependent variable: IPP} & \\ \hline
+~Excluded~ & ~Chi-Square~ & ~df~ & ~Prob.~ \\ \hline\hline
+IAE & 6.971411 & 4 & 0.1374 \\ \hline\hline
+All & 6.971411 & 4 & 0.1374 \\ \hline\hline
+\multicolumn{3}{l}{ } & \\ \hline
+\multicolumn{3}{l}{Dependent variable: IAE} & \\ \hline
+~Excluded~ & ~Chi-Square~ & ~df~ & ~Prob.~ \\ \hline\hline
+IPP & 11.44772 & 4 & 0.0220 \\ \hline\hline
+All & 11.44772 & 4 & 0.0220 \\ \hline\hline
+\end{tabular}
+\caption{Prueba de causalidad de Granger}
+\label{tab40}
+\end{table}
+
+Como se puede ver, el p-valor (Prob.) es menor que 0,05 en el segundo caso y mayor que 0,05 en el primero; por lo que se concluye que $X_{1t}$ (IPP) explica significativamente la variable $X_{2t}$(IAE), pero $X_{2t}$ no explica significativamente la variable $X_{1t}$.
+
+\begin{enumerate}
+      \item[4.] \textbf{An\'{a}lisis de los ``choques''}
+\end{enumerate}
+
+En las tablas siguientes se muestran los resultados de las funciones de impulso-respuesta que presenta el paquete EViews para las variables $X_{1t}$ y $X_{2t}$; tambi\'{e}n se muestra los gr\'{a}ficos correspondientes:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccc}\hline
+~Per\'{i}odo & IPP & IAE \\ \hline \hline
+~1 & ~1,000000 & ~0,000000 \\
+~2 & ~0,144733 & ~0,078893 \\
+~3 & ~0,042822 & -0,010459 \\
+~4 & ~0,003298 & ~0,006279 \\
+~5 & ~0,002218 & -0,001481 \\
+~6 & -8,96E-05 & ~0,000586 \\
+~7 & -0,198874 & -0,156816 \\
+~8 & -0,100462 & ~0,001894 \\
+~9 & -0,022618 & -0,014730 \\
+~10& -0,007966 & ~0,001527 \\ \hline \hline
+\end{tabular}
+\caption{Respuesta de las variables $X_{1t}$ y $X_{2t}$ ante un choque unitario de $X_{1t}$}
+\label{tab41}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=3.04in,height=4.52in]{Graficos/Cap4-5/STcap436.eps}
+\caption{Respuesta de las variables $X_{1t}$ y $X_{2t}$ ante un choque unitario de $X_{1t}$}
+\label{fig36}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccc}\hline
+~Per\'{i}odo & IPP & IAE \\ \hline \hline
+~1 & ~0.000000 & ~1.000000 \\
+~2 & ~0.224126 & -0.287467 \\
+~3 & -0.032697 & ~0.098387 \\
+~4 & ~0.017422 & -0.030581 \\
+~5 & -0.004387 & ~0.010015 \\
+~6 & ~0.001624 & -0.003187 \\
+~7 & ~0.032155 & -0.059519 \\
+~8 & -0.072018 & -0.003284 \\
+~9 & ~0.000135 & -0.004230 \\
+~10& -0.006113& -3.68E-05 \\ \hline\hline
+\end{tabular}
+\caption{Respuesta de las variables $X_{1t}$ y $X_{2t}$ ante un choque unitario de $X_{2t}$}
+\label{tab42}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=2.64in,height=3.99in]{Graficos/Cap4-5/STcap437.eps}
+\caption{Respuesta de las variables $X_{1t}$ y $X_{2t}$ ante un choque unitario de $X_{2t}$}
+\label{fig37}
+\end{figure}
+
+La elecci\'{o}n de la direcci\'{o}n del impacto es muy importante y determina los valores obtenidos. Se puede observar que el efecto de la innovaci\'{o}n se desvanece con el tiempo; esto caracteriza a un proceso VAR estacionario.
+
+\begin{enumerate}
+\item[5.] \textbf{Descomposici\'{o}n de la varianza}
+\end{enumerate}
+
+A partir de la representaci\'{o}n $VAR(14)$ estimada se calcula la descomposici\'{o}n de la varianza.\newline
+
+Dado que las variables del ejemplo son variaciones del IPP y el IAE, es l\'{o}gico pensar que un choque sobre la variable variaci\'{o}n del IPP influencie la variaci\'{o}n del IAE m\'{a}s que si el choque fuera al rev\'{e}s. Esto ser\'{\i}a: una innovaci\'{o}n sobre $X_{1t}$ (variaci\'{o}n del IPP) influencia de manera instant\'{a}nea a $X_{2t}$ (variaci\'{o}n del IAE); por otro lado, una innovaci\'{o}n sobre $X_{2t}$ no influencia de manera contempor\'{a}nea a $X_{1t}$.\newline
+
+La matriz de varianza-covarianza estimada de los residuos es igual (ejemplo 5.5) a:
+\[
+\hat{\Sigma}_{u}=\left[ {\begin{array}{*{20}c}
+23,82 & 0,42\\
+0,42 & 16,60\\
+\end{array} } \right]
+\]
+
+Con el programa EViews, las salidas de las funciones de impulso-respuesta y la descomposici\'{o}n de varianza ser\'{i}an:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccccccccc}\hline\hline
+\multicolumn{4}{c}{ Descomposici\'{o}n de la varianza de X1:} & 
+ & 
+\multicolumn{4}{c}{Descomposici\'{o}n de la varianza de X2:} \\ \hline\hline
+ Periodo & S.E. & X1 & X2 &  &  Periodo & S.E. & X1 & X2 \\ \hline
+ 1 &  4,880657 &  100,0000 &  0,000000 &  &  1 &  4,074543 &  0,045030 &  99,95497 \\
+ 2 &  5,015877 &  96,68675 &  3,313246 &  &  2 &  4,251402 &  0,601299 &  99,39870 \\
+ 3 &  5,020588 &  96,62258 &  3,377415 &  &  3 &  4,270454 &  0,605403 &  99,39460 \\
+ 4 &  5,021112 &  96,60331 &  3,396688 &  &  4 &  4,272338 &  0,608029 &  99,39197 \\
+ 5 &  5,021150 &  96,60210 &  3,397905 &  &  5 &  4,272537 &  0,608160 &  99,39184 \\
+ 6 &  5,021154 &  96,60193 &  3,398072 &  &  6 &  4,272558 &  0,608181 &  99,39182 \\
+ 7 &  5,157177 &  96,71430 &  3,285697 &  &  7 &  4,368618 &  4,623096 &  95,37690 \\
+ 8 &  5,191890 &  96,43880 &  3,561199 &  &  8 &  4,368704 &  4,625945 &  95,37406 \\
+ 9 &  5,193082 &  96,44043 &  3,559566 &  &  9 &  4,369329 &  4,651664 &  95,34834 \\
+ 10 &  5,193258 &  96,43838 &  3,561625 &  &  10 &  4,369338 &  4,652042 &  95,34796 \\ \hline\hline
+\multicolumn{9}{c}{Orden de Cholesky: X2 X1} \\ \hline\hline
+\end{tabular}
+\caption{Descomposici\'{o}n de la Varianza (Orden de Cholesky X1 X2)}
+\label{tab43}
+\end{table}
 %
-%\begin{center}
-%Figura 5.16: Comparaci\'{o}n de las predicciones VAR y UNIVARIANTE para 
-%$X_{2t}$ (IAE) 
-%\end{center}
-%
-%Se puede observar que el ajuste que tienen las predicciones del modelo VAR 
-%para el IPP es un tanto mejor que las del modelo univariante. Por otro lado, 
-%en el caso del IAE, las predicciones parecen bastante similares entre los 
-%dos modelos. Para poder determinar esto, se realiza el c\'{a}lculo del error 
-%cuadr\'{a}tico medio para determinar el mejor ajuste. As\'{\i} se tiene:
-%
-%\begin{center}
-%Error Medio Cuadr\'{a}tico estimado para los modelos VAR y univariante:
-%\end{center}
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|l|l|l|}
-%\hline
-%~& 
-%IPP& 
-%IAE \\
-%\hline
-%VAR& 
-%0,95& 
-%6,29 \\
-%\hline
-%UNIVARIANTE& 
-%0,95& 
-%7,41 \\
-%\hline
-%\end{tabular}
-%\label{tab39}
-%\end{center}
-%\end{table}
-%
-%Como se puede observar el modelo VAR es mejor en el caso del IAE; sin 
-%embargo, no lo es para el IPP. Se realiz\'{o} una prueba t de medias para 
-%determinar si existe diferencia estad\'{\i}stica entre las medias de los 
-%errores cuadr\'{a}ticos generados por los modelos y se comprob\'{o} que en 
-%el caso del IAE el error medio cuadr\'{a}tico es diferente 
-%estad\'{\i}sticamente entre los modelos (el modelo VAR ajusta mejor los 
-%datos); en el caso del IPP se determin\'{o} que no existe diferencia 
-%significativa entre los errores cuadr\'{a}ticos. Como conclusi\'{o}n, el 
-%modelo VAR predice de mejor manera que el modelo univariante.
-%
-%\begin{enumerate}
-%\item \textbf{La causalidad}
-%\end{enumerate}
-%El siguiente gr\'{a}fico muestra la salida del paquete EViews para la Prueba 
-%de Granger. 
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|p{64pt}|p{65pt}|p{65pt}|l|}
-%\hline
-%\multicolumn{3}{|p{195pt}|}{Dependent variable: IPP} & 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%Excluded& 
-%Chi-sq& 
-%df& 
-%Prob. \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%IAE& 
-%~6.971411& 
-%4& 
-%~0.1374 \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%All& 
-%~6.971411& 
-%4& 
-%~0.1374 \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\multicolumn{3}{|p{195pt}|}{Dependent variable: IAE} & 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%Excluded& 
-%Chi-sq& 
-%df& 
-%Prob. \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%IPP& 
-%~11.44772& 
-%4& 
-%~0.0220 \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%All& 
-%~11.44772& 
-%4& 
-%~0.0220 \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-%& 
-% \\
-%\hline
-%\end{tabular}
-%\label{tab40}
-%\end{center}
-%\end{table}
-%
-%\begin{center}
-%Tabla 5.21: Prueba de causalidad de Granger \newline
-%
-%\end{center}
-%
-%Como se puede ver, el p-valor (Prob.) es menor que 0,05 en el segundo caso y 
-%mayor que 0,05 en el primero; por lo que se concluye que $X_{1t}$ (IPP) 
-%explica significativamente la variable $X_{2t}$(IAE), pero $X_{2t}$ no 
-%explica significativamente la variable $X_{1t}$.
-%
-%\begin{enumerate}
-%\item \textbf{An\'{a}lisis de los ``choques''}
-%\end{enumerate}
-%En las tablas siguientes se muestran los resultados de las funciones de 
-%impulso-respuesta que presenta el paquete EViews para las variables $X_{1t}$ 
-%y $X_{2t}$; tambi\'{e}n se muestra los gr\'{a}ficos correspondientes:
-%
-%\begin{center}
-%Tabla 5.22: Respuesta de las variables $X_{1t}$ y $X_{2t}$ ante un choque 
-%unitario de $X_{1t}$
-%\end{center}
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|l|l|l|}
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%~Per\'{\i}odo& 
-%IPP& 
-%IAE \\
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%~1& 
-%~1,000000& 
-%~0,000000 \\
-%\hline
-%~2& 
-%~0,144733& 
-%~0,078893 \\
-%\hline
-%~3& 
-%~0,042822& 
-%-0,010459 \\
-%\hline
-%~4& 
-%~0,003298& 
-%~0,006279 \\
-%\hline
-%~5& 
-%~0,002218& 
-%-0,001481 \\
-%\hline
-%~6& 
-%-8,96E-05& 
-%~0,000586 \\
-%\hline
-%~7& 
-%-0,198874& 
-%-0,156816 \\
-%\hline
-%~8& 
-%-0,100462& 
-%~0,001894 \\
-%\hline
-%~9& 
-%-0,022618& 
-%-0,014730 \\
-%\hline
-%~10& 
-%-0,007966& 
-%~0,001527 \\
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%\end{tabular}
-%\label{tab41}
-%\end{center}
-%\end{table}
-%
-%\begin{center}
-%Figura 5.17: Respuesta de las variables $X_{1t}$ y $X_{2t}$ ante un choque 
-%unitario de $X_{1t}$
-%\end{center}
-%
-%\begin{figure}[H]
-%\includegraphics[width=3.04in,height=4.52in]{STcap436.eps}
-%\label{fig36}
-%\end{figure}
-%
-%\begin{center}
-%Tabla 5.23: Respuesta de las variables $X_{1t}$ y $X_{2t}$ ante un choque 
-%unitario de $X_{2t}$
-%\end{center}
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|p{44pt}|l|l|}
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%~Per\'{\i}odo& 
-%IPP& 
-%IAE \\
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%~1& 
-%~0.000000& 
-%~1.000000 \\
-%\hline
-%~2& 
-%~0.224126& 
-%-0.287467 \\
-%\hline
-%~3& 
-%-0.032697& 
-%~0.098387 \\
-%\hline
-%~4& 
-%~0.017422& 
-%-0.030581 \\
-%\hline
-%~5& 
-%-0.004387& 
-%~0.010015 \\
-%\hline
-%~6& 
-%~0.001624& 
-%-0.003187 \\
-%\hline
-%~7& 
-%~0.032155& 
-%-0.059519 \\
-%\hline
-%~8& 
-%-0.072018& 
-%-0.003284 \\
-%\hline
-%~9& 
-%~0.000135& 
-%-0.004230 \\
-%\hline
-%~10& 
-%-0.006113& 
-%-3.68E-05 \\
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%& 
-%& 
-% \\
-%\hline
-%\end{tabular}
-%\label{tab42}
-%\end{center}
-%\end{table}
-%
-%\begin{center}
-%Figura 5.18: Respuesta de las variables $X_{1t}$ y $X_{2t}$ ante un choque 
-%unitario de $X_{2t}$.
-%\end{center}
-%
-%\begin{figure}[H]
-%\includegraphics[width=2.64in,height=3.99in]{STcap437.eps}
-%\label{fig37}
-%\end{figure}
-%
-%La elecci\'{o}n de la direcci\'{o}n del impacto es muy importante y 
-%determina los valores obtenidos. Se puede observar que el efecto de la 
-%innovaci\'{o}n se desvanece con el tiempo; esto caracteriza a un proceso VAR 
-%estacionario.
-%
-%\begin{enumerate}
-%\item \textbf{Descomposici\'{o}n de la varianza}
-%\end{enumerate}
-%
-%A partir de la representaci\'{o}n $VAR(14)$ estimada se calcula la 
-%descomposici\'{o}n de la varianza.
-%
-%Dado que las variables del ejemplo son variaciones del IPP y el IAE, es 
-%l\'{o}gico pensar que un choque sobre la variable variaci\'{o}n del IPP 
-%influencie la variaci\'{o}n del IAE m\'{a}s que si el choque fuera al 
-%rev\'{e}s. Esto ser\'{\i}a: una innovaci\'{o}n sobre $X_{1t}$ (variaci\'{o}n 
-%del IPP) influencia de manera instant\'{a}nea a $X_{2t}$ (variaci\'{o}n del 
-%IAE); por otro lado, una innovaci\'{o}n sobre $X_{2t}$ no influencia de 
-%manera contempor\'{a}nea a $X_{1t}$.
-%
-%La matriz de varianza-covarianza estimada de los residuos es igual (ejemplo 
-%5.5) a:
-%\[
-%\hat{\Sigma }_{u}=\left[ {\begin{array}{*{20}c}
-%23,82 & 0,42\\
-%0,42 & 16,60\\
-%\end{array} } \right]
-%\]
-%Con el programa EViews, las salidas de las funciones de impulso-respuesta y 
-%la descomposici\'{o}n de varianza ser\'{\i}an:
-%
-%\begin{center}
-%Tabla 5.24: Descomposici\'{o}n de la Varianza (Orden de Cholesky X1 X2)
-%\end{center}
-%
-%\begin{table}[H]
-%\begin{center}
-%\begin{tabular}{|p{59pt}|p{59pt}|p{59pt}|p{59pt}|l|p{45pt}|p{56pt}|p{49pt}|p{79pt}|}
-%\hline
-%\multicolumn{4}{|p{239pt}|}{~Descomposici\'{o}n de la varianza de X1:} & 
-%~& 
-%\multicolumn{4}{|p{231pt}|}{Descomposici\'{o}n de la varianza de X2:} \\
-%\hline
-%~Periodo& 
-%S.E.& 
-%X1& 
-%X2& 
-%~& 
-%~Periodo& 
-%S.E.& 
-%X1& 
-%X2 \\
-%\hline
-%& 
-%& 
-%& 
-%& 
-%~& 
-%& 
-%& 
-%& 
-% \\
-%\hline
-%~1& 
-%~4,880657& 
-%~100,0000& 
-%~0,000000& 
-%~& 
-%~1& 
-%~4,074543& 
-%~0,045030& 
-%~99,95497 \\
-%\hline
-%~2& 
-%~5,015877& 
-%~96,68675& 
-%~3,313246& 
-%~& 
-%~2& 
-%~4,251402& 
-%~0,601299& 
-%~99,39870 \\
-%\hline
-%~3& 
-%~5,020588& 
-%~96,62258& 
-%~3,377415& 
-%~& 
-%~3& 
-%~4,270454& 
-%~0,605403& 
-%~99,39460 \\
-%\hline
-%~4& 
-%~5,021112& 
-%~96,60331& 
-%~3,396688& 
-%~& 
-%~4& 
-%~4,272338& 
-%~0,608029& 
-%~99,39197 \\
-%\hline
-%~5& 
-%~5,021150& 
-%~96,60210& 
-%~3,397905& 
-%~& 
-%~5& 
-%~4,272537& 
-%~0,608160& 
-%~99,39184 \\
-%\hline
-%~6& 
-%~5,021154& 
-%~96,60193& 
-%~3,398072& 
-%~& 
-%~6& 
-%~4,272558& 
-%~0,608181& 
-%~99,39182 \\
-%\hline
-%~7& 
-%~5,157177& 
-%~96,71430& 
-%~3,285697& 
-%~& 
-%~7& 
-%~4,368618& 
-%~4,623096& 
-%~95,37690 \\
-%\hline
-%~8& 
-%~5,191890& 
-%~96,43880& 
-%~3,561199& 
-%~& 
-%~8& 
-%~4,368704& 
-%~4,625945& 
-%~95,37406 \\
-%\hline
-%~9& 
-%~5,193082& 
-%~96,44043& 
-%~3,559566& 
-%~& 
-%~9& 
-%~4,369329& 
-%~4,651664& 
-%~95,34834 \\
-%\hline
-%~10& 
-%~5,193258& 
-%~96,43838& 
-%~3,561625& 
-%~& 
-%~10& 
-%~4,369338& 
-%~4,652042& 
-%~95,34796 \\
-%\hline
-%~& 
-%~& 
-%~& 
-%~& 
-%~& 
-%~& 
-%~& 
-%~& 
-%~ \\
-%\hline
-%\multicolumn{9}{|p{480pt}|}{~Orden de Cholesky: X2 X1} \\
-%\hline
-%\end{tabular}
-%\label{tab43}
-%\end{center}
-%\end{table}
-%
-%La descomposici\'{o}n de la varianza indica que la varianza del error de 
-%predicci\'{o}n de $X_{1t}$ representa un 96,63{\%} con sus propias 
-%innovaciones y un 3,56{\%} con las de $X_{2t}$. La varianza del error de 
-%predicci\'{o}n de $X_{2t}$ es de un 4,65{\%} con $X_{1t}$ y un 95,34{\%} con 
-%$X_{2t}$. Este efecto de asimetr\'{\i}a se estudi\'{o} en la pate de la 
-%causalidad; lo que tambi\'{e}n se corrobora ahora.
-%
-%Por \'{u}ltimo, cabe se\~{n}alar que la tabla anterior muestra la 
-%desviaci\'{o}n est\'{a}ndar del error de previsi\'{o}n para $X_{1t}$ y 
-%$X_{2t}$.
+La descomposici\'{o}n de la varianza indica que la varianza del error de predicci\'{o}n de $X_{1t}$ representa un 96,63{\%} con sus propias innovaciones y un 3,56{\%} con las de $X_{2t}$. La varianza del error de predicci\'{o}n de $X_{2t}$ es de un 4,65{\%} con $X_{1t}$ y un 95,34{\%} con $X_{2t}$. Este efecto de asimetr\'{i}a se estudi\'{o} en la pate de la causalidad; lo que tambi\'{e}n se corrobora ahora.\newline
+
+Por \'{u}ltimo, cabe se\~{n}alar que la tabla anterior muestra la desviaci\'{o}n est\'{a}ndar del error de previsi\'{o}n para $X_{1t}$ y $X_{2t}$.
