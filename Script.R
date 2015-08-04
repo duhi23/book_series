@@ -17,6 +17,7 @@ file.create("Cap7.tex")
 file.edit("Cap7.tex")
 
 #### Execution ####
+setwd(dir.main)
 system("xelatex -interaction=batchmode book_series ")
 system("makeindex book_series")
 system("xelatex -interaction=batchmode book_series ")
