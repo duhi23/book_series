@@ -34,6 +34,7 @@
     Capitulos/Cap4,
     Capitulos/Cap5,
     Capitulos/Cap6,
+    Capitulos/Cap7,
 }
 
 \newtheoremstyle{estiloteorema}%
@@ -128,17 +129,19 @@ $\therefore$ & Significa: por tanto
 
 \cleartooddpage[\thispagestyle{empty}]
 
-%\include{Capitulos/Cap1}
-%	\cleartooddpage[\thispagestyle{empty}]
-%\include{Capitulos/Cap2}
-%	\cleartooddpage[\thispagestyle{empty}]
-%\include{Capitulos/Cap3}
-%	\cleartooddpage[\thispagestyle{empty}]
+\include{Capitulos/Cap1}
+	\cleartooddpage[\thispagestyle{empty}]
+\include{Capitulos/Cap2}
+	\cleartooddpage[\thispagestyle{empty}]
+\include{Capitulos/Cap3}
+	\cleartooddpage[\thispagestyle{empty}]
 \include{Capitulos/Cap4}
 	\cleartooddpage[\thispagestyle{empty}]
 \include{Capitulos/Cap5}
 	\cleartooddpage[\thispagestyle{empty}]
 \include{Capitulos/Cap6}
+	\cleartooddpage[\thispagestyle{empty}]
+\include{Capitulos/Cap7}
 	\cleartooddpage[\thispagestyle{empty}]
 
 %\begin{thebibliography}
