@@ -83,780 +83,248 @@ En la pr\'{a}ctica, el procedimiento de aplicaci\'{o}n de la prueba de Johansen\
 
 Se definen dos estad\'{i}sticos alternativos, basados en los valores propios $\lambda_{i}$ de la matriz $\hat{\Omega }$ y formulados como:
 
-%
-%
-%
-%
-%
-
 
 \begin{enumerate}
-\item \textbf{Traza}
-\end{enumerate}
+\item[a.] {\bf Traza}
 \[
-\lambda_{traza}\left( r \right)=-T\sum\limits_{i=r+1}^k {ln(1-\lambda 
-_{i})} 
+\lambda_{\text{traza}}( r )=-T\sum_{i=r+1}^k \ln(1-\lambda_{i})
 \]
-donde,
+donde:\newline
 
-$\lambda_{i}\quad =$ es el i-\'{e}simo valor propio de la matriz $\hat{\Omega 
-}$ (en orden creciente),
+$\lambda_{i}=$ es el i-\'{e}simo valor propio de la matriz $\hat{\Omega}$ (en orden creciente),\newline
+$r=$ rango de la matriz $\hat{\Omega }$,\newline
+$k=$ n\'{u}mero de variables,\newline
+$T=$ n\'{u}mero de observaciones.
+\end{enumerate}
 
-r $=$ rango de la matriz $\hat{\Omega }$,
-
-k $=$ n\'{u}mero de variables,
-
-T $=$ n\'{u}mero de observaciones.
-
-Con este estad\'{\i}stico se contrasta la hip\'{o}tesis nula de existencia 
-de un n\'{u}mero de vectores de cointegraci\'{o}n menor o igual a $r$ frente a 
-la hip\'{o}tesis alternativa de existencia de m\'{a}s de $r$ relaciones de 
-cointegraci\'{o}n.
+Con este estad\'{i}stico se contrasta la hip\'{o}tesis nula de existencia de un n\'{u}mero de vectores de cointegraci\'{o}n menor o igual a $r$ frente a la hip\'{o}tesis alternativa de existencia de m\'{a}s de $r$ relaciones de cointegraci\'{o}n.
 
 \begin{enumerate}
-\item \textbf{M\'{a}ximo valor propio.}
-\end{enumerate}
+\item[b.] {\bf M\'{a}ximo valor propio}
 \[
-\lambda_{max}\left( r,\thinspace r+1 \right)=-T\thinspace 
-\mathrm{ln?}(1-\lambda_{r+1})
+\lambda_{max}(r, r+1)=-T \ln(1-\lambda_{r+1})
 \]
-donde,
-
-$\lambda_{i}\quad =$ es el i-\'{e}simo valor propio de la matriz $\hat{\Omega 
-}$ (en orden creciente),
-
-r $=$ rango de la matriz $\hat{\Omega }$,
-
-k $=$ n\'{u}mero de variables,
-
-T $=$ n\'{u}mero de observaciones.
-
-Este estad\'{\i}stico contrasta la hip\'{o}tesis nula de existencia de $r$ 
-vectores de cointegraci\'{o}n frente a la hip\'{o}tesis alternativa de 
-existencia de $r +$\textit{ 1} vectores de cointegraci\'{o}n.
-
-Estos estad\'{\i}sticos tienen una ley de probabilidad (similar a una $\chi 
-^{2})$ tabulada mediante simulaciones por Johansen y Juselius (1990).
-
-\textbf{Ejemplo 7.1:} A partir del ejemplo 6.1, se pide analizar una 
-eventual cointegraci\'{o}n entre las variables y estimar un modelo VAR o un 
-modelo VEC si fuese el caso.
-
-\textbf{Resoluci\'{o}n}
-
-\begin{enumerate}
-\item \textbf{Primera etapa: }Determinar el n\'{u}mero de retardos de la representaci\'{o}n VAR.
+donde:\newline
+$\lambda_{i}=$ es el i-\'{e}simo valor propio de la matriz $\hat{\Omega}$ (en orden creciente),\newline
+$r=$ rango de la matriz $\hat{\Omega }$,\newline
+$k=$ n\'{u}mero de variables,\newline
+$T=$ n\'{u}mero de observaciones.
 \end{enumerate}
 
-Para iniciar, se presentan los gr\'{a}ficos de las series temporales a 
-analizarse:
+Este estad\'{i}stico contrasta la hip\'{o}tesis nula de existencia de $r$ vectores de cointegraci\'{o}n frente a la hip\'{o}tesis alternativa de existencia de $r + 1$ vectores de cointegraci\'{o}n.\newline
+
+Estos estad\'{i}sticos tienen una ley de probabilidad (similar a una $\chi^{2})$ tabulada mediante simulaciones por Johansen y Juselius (1990).
+
+\begin{ejemplo}
+A partir del ejemplo 6.1, se pide analizar una eventual cointegraci\'{o}n entre las variables y estimar un modelo VAR o un modelo VEC si fuese el caso.
+\end{ejemplo}
+
+\textbf{Resoluci\'{o}n}\newline
+
+\begin{enumerate}
+\item[a.] \textbf{Primera etapa:} Determinar el n\'{u}mero de retardos de la representaci\'{o}n VAR.
+\end{enumerate}
+
+Para iniciar, se presentan los gr\'{a}ficos de las series temporales a analizarse:
 
 \begin{figure}[H]
-\includegraphics[width=3.99in,height=2.81in]{STcap64.eps}
+\centering
+\includegraphics[width=3.99in,height=2.81in]{Graficos/Cap6-7/STcap64.eps}
+\caption{Series consideradas en el ejemplo}
 \label{fig4}
 \end{figure}
 
-\begin{center}
-Figura 7.1: Series consideradas en el ejemplo
-\end{center}
-
-Como se vio en el ejemplo 6.1, las series son cointegradas de orden 1. 
-Ahora, se determina el mejor retardo para el modelo VAR (considerando 
-diferentes criterios):
+Como se vio en el ejemplo 6.1, las series son cointegradas de orden 1. Ahora, se determina el mejor retardo para el modelo VAR (considerando diferentes criterios):
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{|p{43pt}|l|l|l|l|l|l|}
-\hline
-& 
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
-~Lag& 
-LogL& 
-LR& 
-FPE& 
-AIC& 
-SC& 
-HQ \\
-\hline
-& 
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
-0& 
--170.1455& 
-NA~& 
-~1.441464& 
-~8.879257& 
-~~9.007223*& 
-~~8.925170* \\
-\hline
-1& 
--158.4805& 
-~20.93714& 
-~~1.260025*& 
-~8.742591& 
-~9.254456& 
-~8.926244 \\
-\hline
-2& 
--150.7736& 
-~12.64724& 
-~1.359430& 
-~8.808904& 
-~9.704668& 
-~9.130296 \\
-\hline
-3& 
--146.6524& 
-~6.129033& 
-~1.787069& 
-~9.059096& 
-~10.33876& 
-~9.518228 \\
-\hline
-4& 
--143.2875& 
-~4.486496& 
-~2.493999& 
-~9.348077& 
-~11.01164& 
-~9.944949 \\
-\hline
-5& 
--124.5157& 
-~~22.14106*& 
-~1.627928& 
-~8.846961& 
-~10.89442& 
-~9.581572 \\
-\hline
-6& 
--119.0699& 
-~5.585502& 
-~2.196024& 
-~9.029224& 
-~11.46058& 
-~9.901575 \\
-\hline
-7& 
--116.5909& 
-~2.161115& 
-~3.663332& 
-~9.363638& 
-~12.17890& 
-~10.37373 \\
-\hline
-8& 
--98.07554& 
-~13.29311& 
-~2.931050& 
-~8.875669& 
-~12.07483& 
-~10.02350 \\
-\hline
-9& 
--88.11999& 
-~5.615947& 
-~4.160914& 
-~8.826666& 
-~12.40972& 
-~10.11224 \\
-\hline
-10& 
--76.43760& 
-~4.792776& 
-~6.776135& 
-~~8.689108*& 
-~12.65606& 
-~10.11242 \\
-\hline
-& 
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
+\centering
+\begin{tabular}{ccccccc}\hline\hline
+~Lag & LogL & LR & FPE & AIC & SC & HQ \\ \hline\hline
+0 & -170.1455 & NA & 1.441464 & 8.879257 & 9.007223* & 8.925170* \\
+1 & -158.4805 & 20.93714 & 1.260025* & 8.742591 & 9.254456 & 8.926244 \\
+2 & -150.7736 & 12.64724 & 1.359430 & 8.808904 & 9.704668 & 9.130296 \\
+3 & -146.6524 & 6.129033 & 1.787069 & 9.059096 & 10.33876 & 9.518228 \\
+4 & -143.2875 & 4.486496 & 2.493999 & 9.348077 & 11.01164 & 9.944949 \\
+5 & -124.5157 & 22.14106* & 1.627928 & 8.846961 & 10.89442 & 9.581572 \\
+6 & -119.0699 & 5.585502 & 2.196024 & 9.029224 & 11.46058 & 9.901575 \\
+7 & -116.5909 & 2.161115 & 3.663332 & 9.363638 & 12.17890 & 10.37373 \\
+8 & -98.07554 & 13.29311 & 2.931050 & 8.875669 & 12.07483 & 10.02350 \\
+9 & -88.11999 & 5.615947 & 4.160914 & 8.826666 & 12.40972 & 10.11224 \\
+10& -76.43760 & 4.792776 & 6.776135 & 8.689108* & 12.65606 & 10.11242 \\ \hline\hline
 \end{tabular}
+\caption{Elecci\'{o}n del retardo del VAR}
 \label{tab7}
-\end{center}
 \end{table}
 
-\begin{center}
-Tabla 7.1: Elecci\'{o}n del retardo del VAR
-\end{center}
-
-Como se puede observar, los criterios difieren de cu\'{a}l es el mejor 
-retardo del VAR a estimar (cabe considerar que en este caso se consideran 
-las series en primeras diferencias). Los valores dados en la tabla se pueden 
-considerar como cotas superiores del retardo del VAR. Debido a que se tienen 
-pocos datos se desechar\'{a} el retardo 10, por lo que, se puede estimar un 
-VAR(5). 
+Como se puede observar, los criterios difieren de cu\'{a}l es el mejor retardo del VAR a estimar (cabe considerar que en este caso se consideran las series en primeras diferencias). Los valores dados en la tabla se pueden considerar como cotas superiores del retardo del VAR. Debido a que se tienen pocos datos se desechar\'{a} el retardo 10, por lo que, se puede estimar un VAR(5).\newline
 
 Esto da lugar a 2 posibles modelos: 
-
 \begin{enumerate}
-\item VAR(5), considerando solamente el retardo 5.
-\item VAR(5), considerando los retardos del 1 al 5.
-\item \textbf{Segunda Etapa}: Prueba de Johansen
+\item[1.] VAR(5), considerando solamente el retardo 5.
+\item[2.] VAR(5), considerando los retardos del 1 al 5.
+\item[b.] \textbf{Segunda Etapa}: Prueba de Johansen
 \end{enumerate}
 
-Como ya se mencion\'{o}, las series son $I(1)$. Se realizan las pruebas 
-sobre los supuestos de la tendencia de los datos (\'{e}stas est\'{a}n 
-implementadas en EViews):
+Como ya se mencion\'{o}, las series son $I(1)$. Se realizan las pruebas sobre los supuestos de la tendencia de los datos (\'{e}stas est\'{a}n implementadas en EViews):
 
 \begin{figure}[H]
-\includegraphics[width=5.16in,height=4.02in]{STcap65.eps}
+\centering
+\includegraphics[width=5.16in,height=4.02in]{Graficos/Cap6-7/STcap65.eps}
+\caption{Prueba de cointegraci\'{o}n de Johansen}
 \label{fig5}
 \end{figure}
 
-\begin{center}
-Figura 7.2: Prueba de cointegraci\'{o}n de Johansen
-\end{center}
 
-N\'{o}tese, que esta prueba es v\'{a}lida solo para series que no son 
-estacionarias. Adem\'{a}s, los retardos se fijan para la series en primeras 
-diferencias (ver figura 9.3, \textit{lag intervals}) y \underline {no en niveles}. Por ejemplo, si 
-se escribe ``1 2'' la prueba hace la regresi\'{o}n de $\Delta X_{t}$ sobre 
-$\Delta X_{t-1}$, $\Delta X_{t-2}$ y sobre las variables ex\'{o}genas 
-especificadas, de ser el caso. Para $X_{t}$ tendr\'{\i}a 3 retardos. Si se 
-desea correr la prueba con un retardo en niveles, se debe escribir ``0 0''. 
+N\'{o}tese, que esta prueba es v\'{a}lida solo para series que no son estacionarias. Adem\'{a}s, los retardos se fijan para la series en primeras diferencias (ver figura 9.3, \textit{lag intervals}) y \underline {no en niveles}. Por ejemplo, si se escribe ``1 2'' la prueba hace la regresi\'{o}n de $\Delta X_{t}$ sobre $\Delta X_{t-1}$, $\Delta X_{t-2}$ y sobre las variables ex\'{o}genas especificadas, de ser el caso. Para $X_{t}$ tendr\'{i}a 3 retardos. Si se desea correr la prueba con un retardo en niveles, se debe escribir ``0 0''. 
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{|p{13pt}|p{129pt}|p{129pt}|}
-\hline
-\multicolumn{3}{|p{271pt}|}{Resumen de los 5 conjuntos de supuestos} \\
-\hline
-& 
-CE& 
-VAR \\
-\hline
-\multicolumn{3}{|p{271pt}|}{No tendencia determin\'{\i}stica en los datos} \\
-\hline
-1& 
-Ni intercepto ni Tendencia& 
-Ni intercepto ni Tendencia \\
-\hline
-2& 
-Intercepto-no Tendencia & 
-No intercepto \\
-\hline
-\multicolumn{3}{|p{271pt}|}{Tendencia determin\'{\i}stica lineal en los datos} \\
-\hline
-3& 
-Intercepto-no Tendencia & 
-Intercepto-no Tendencia \\
-\hline
-4& 
-Intercepto y Tendencia & 
-No Tendencia \\
-\hline
-\multicolumn{3}{|p{271pt}|}{Tendencia determin\'{\i}stica cuadr\'{a}tica en los datos} \\
-\hline
-5& 
-Intercepto y Tendencia & 
-Tendencia lineal \\
-\hline
+\centering
+\begin{tabular}{|c|c|c|}\hline
+\multicolumn{3}{|c|}{Resumen de los 5 conjuntos de supuestos} \\ \hline
+ & CE & VAR \\ \hline
+\multicolumn{3}{|c|}{No tendencia determin\'{i}stica en los datos} \\ \hline
+1 & Ni intercepto ni Tendencia & Ni intercepto ni Tendencia \\ \hline
+2 &  Intercepto-no Tendencia &  No intercepto \\ \hline
+\multicolumn{3}{|c|}{Tendencia determin\'{i}stica lineal en los datos} \\ \hline
+3 &  Intercepto-no Tendencia &  Intercepto-no Tendencia \\ \hline
+4 &  Intercepto y Tendencia &  No Tendencia \\ \hline
+\multicolumn{3}{|c|}{Tendencia determin\'{i}stica cuadr\'{a}tica en los datos} \\ \hline
+5 &  Intercepto y Tendencia &  Tendencia lineal \\ \hline
 \end{tabular}
 \label{tab8}
-\end{center}
 \end{table}
-
-La prueba de Johansen propone 5 modelos del VEC que se describen de la 
-siguiente manera:
+ 
+La prueba de Johansen propone 5 modelos del VEC que se describen de la siguiente manera:
 
 \begin{enumerate}
-\item Es el modelo m\'{a}s restrictivo: No admite ni constante ni tendencia. Es decir, los datos de nivel $X_{t}$ no tienen tendencia determin\'{\i}stica y las ecuaciones de cointegraci\'{o}n no tienen interceptos.
-\item Incluye una constante en el vector de cointegraci\'{o}n; pero, los datos de nivel no tienen tendencia determin\'{\i}stica.
-\item Incluye una constante en el vector de cointegraci\'{o}n y adem\'{a}s una tendencia lineal en las componentes de $X_{t}$.
-\item Incluye una constante en el vector de cointegraci\'{o}n, una tendencia lineal en las componentes de $X_{t}$, y adem\'{a}s, una tendencia lineal en el vector de cointegraci\'{o}n.
-\item Finalmente el \'{u}ltimo modelo, incluye una constante en el vector de cointegraci\'{o}n, una tendencia lineal en las componentes de $X_{t}$, una tendencia lineal en el vector de cointegraci\'{o}n y una tendencia cuadr\'{a}tica en las variables en nivel. Este es el modelo menos restrictivo.
+      \item Es el modelo m\'{a}s restrictivo: No admite ni constante ni tendencia. Es decir, los datos de nivel $X_{t}$ no tienen tendencia determin\'{i}stica y las ecuaciones de cointegraci\'{o}n no tienen interceptos.
+      \item Incluye una constante en el vector de cointegraci\'{o}n; pero, los datos de nivel no tienen tendencia determin\'{i}stica.
+      \item Incluye una constante en el vector de cointegraci\'{o}n y adem\'{a}s una tendencia lineal en las componentes de $X_{t}$.
+      \item Incluye una constante en el vector de cointegraci\'{o}n, una tendencia lineal en las componentes de $X_{t}$, y adem\'{a}s, una tendencia lineal en el vector de cointegraci\'{o}n.
+      \item Finalmente el \'{u}ltimo modelo, incluye una constante en el vector de cointegraci\'{o}n, una tendencia lineal en las componentes de $X_{t}$, una tendencia lineal en el vector de cointegraci\'{o}n y una tendencia cuadr\'{a}tica en las variables en nivel. Este es el modelo menos restrictivo.
 \end{enumerate}
-En la figura siguiente se muestran los supuestos y las relaciones de 
-cointegraci\'{o}n, para las pruebas de la traza y del m\'{a}ximo valor 
-absoluto para los dos modelos descritos anteriormente:
+
+En la figura siguiente se muestran los supuestos y las relaciones de cointegraci\'{o}n, para las pruebas de la traza y del m\'{a}ximo valor absoluto para los dos modelos descritos anteriormente:
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{|p{58pt}|l|l|l|l|l|}
-\hline
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
-Data Trend:& 
-None& 
-None& 
-Linear& 
-Linear& 
-Quadratic \\
-\hline
-Test Type& 
-No Intercept& 
-Intercept& 
-Intercept& 
-Intercept& 
-Intercept \\
-\hline
-& 
-No Trend& 
-No Trend& 
-No Trend& 
-Trend& 
-Trend \\
-\hline
-Trace& 
-2& 
-3& 
-3& 
-2& 
-0 \\
-\hline
-Max-Eig& 
-2& 
-1& 
-0& 
-0& 
-0 \\
-\hline
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}\hline\hline
+Data Trend: & None & None & Linear & Linear & Quadratic \\ \hline
+Test Type & No Intercept & Intercept & Intercept & Intercept & Intercept \\
+ & No Trend & No Trend & No Trend & Trend & Trend \\
+Trace & 2 & 3 & 3 & 2 &  0 \\ 
+Max-Eig & 2 & 1 & 0 & 0 & 0 \\ \hline\hline
 \end{tabular}
+\caption{Resumen de la prueba de cointeraci\'{o}n de Johansen para VAR(5), con solo el retardo 5}
 \label{tab9}
-\end{center}
 \end{table}
-
-\begin{center}
-Tabla 7.2: Resumen de la prueba de cointeraci\'{o}n de Johansen para VAR(5), 
-con solo el retardo 5
-\end{center}
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{|p{58pt}|l|l|l|l|l|}
-\hline
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
-Data Trend:& 
-None& 
-None& 
-Linear& 
-Linear& 
-Quadratic \\
-\hline
-Test Type& 
-No Intercept& 
-Intercept& 
-Intercept& 
-Intercept& 
-Intercept \\
-\hline
-& 
-No Trend& 
-No Trend& 
-No Trend& 
-Trend& 
-Trend \\
-\hline
-Trace& 
-0& 
-0& 
-0& 
-0& 
-0 \\
-\hline
-Max-Eig& 
-0& 
-0& 
-0& 
-0& 
-0 \\
-\hline
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}\hline\hline
+Data Trend: & None & None & Linear & Linear & Quadratic \\ \hline
+Test Type & No Intercept & Intercept & Intercept & Intercept & Intercept \\
+ & No Trend & No Trend & No Trend & Trend & Trend \\
+Trace & 0 & 0 & 0 & 0 &  0 \\ 
+Max-Eig & 0 & 0 & 0 & 0 & 0 \\ \hline\hline
 \end{tabular}
+\caption{Resumen de la prueba de cointeraci\'{o}n de Johansen para VAR(5), con los retardos desde el 1 al 5}
 \label{tab10}
-\end{center}
 \end{table}
 
-\begin{center}
-Tabla 7.3: Resumen de la prueba de cointeraci\'{o}n de Johansen para VAR(5), 
-con los retardos desde el 1 al 5 \newline
-
-\end{center}
-
-Como se puede observar, dependiendo del n\'{u}mero de retardos y la forma de 
-ingresarlos se tienen diferentes relaciones de cointegraci\'{o}n. En el 
-modelo VAR(5) con los retardos del 1 al 5 no se tienen relaciones de 
-cointegraci\'{o}n. Ahora, se tiene un solo modelo posible:
+Como se puede observar, dependiendo del n\'{u}mero de retardos y la forma de ingresarlos se tienen diferentes relaciones de cointegraci\'{o}n. En el modelo VAR(5) con los retardos del 1 al 5 no se tienen relaciones de cointegraci\'{o}n. Ahora, se tiene un solo modelo posible:
 
 \begin{enumerate}
-\item Modelo VAR(5) solo con el retardo 5, con dos relaci\'{o}n de cointegraci\'{o}n sin intercepto ni tendencia.
+\item[1.] Modelo VAR(5) solo con el retardo 5, con dos relaci\'{o}n de cointegraci\'{o}n sin intercepto ni tendencia.
 \end{enumerate}
 
-\textbf{\textit{Primera prueba}}: El rango de la matriz $\mathrm{\Omega }$ 
-igual a 0. Sea $H_{0}:\thinspace r=0\thinspace contra\thinspace 
-H_{1}:\thinspace r>0$.
+\textbf{Primera prueba}: El rango de la matriz $\Omega$ igual a 0. Sea $H_{0}: r=0\text{ contra } H_{1}:\quad r>0$.\newline
 
-Los valores propios de la matriz $\mathrm{\Omega }$, estimados por 
-m\'{a}xima verosimilitud, son iguales a: $\lambda_{3}=0,4451,\thinspace 
-\thinspace \lambda_{2}=0,2734\thinspace y\thinspace \lambda_{1}=0,0257$
+Los valores propios de la matriz $\Omega$, estimados por m\'{a}xima verosimilitud, son iguales a: $\lambda_{3}=0,4451,\quad \lambda_{2}=0,2734$ y $\lambda_{1}=0,0257$.\newline
 
-Se calcula el estad\'{\i}stico de Johansen: 
+Se calcula el estad\'{i}stico de Johansen: 
 \[
-\lambda_{traza}=-T\sum\limits_{i=r+1}^k {Ln\left( 1-\lambda_{i} \right)} 
-;\thinspace para\thinspace r=0
+\lambda_{traza}=-T\sum\limits_{i=r+1}^k {Ln\left( 1-\lambda_{i} \right)};\quad \text{para}\quad r=0
 \]
-\[
-\lambda_{traza}=-T\ast \left\{ Ln\left( 1-\lambda_{1} \right)+Ln\left( 
-1-\lambda_{2} \right) \right\}\thinspace \thinspace \thinspace 
-\]
-\[
-\thinspace =-50\ast \left\{ \ln \left( 1-0,4451 \right)+\ln \left( 1-0,2734 
-\right)+\ln \left( 1-0,0257 \right) \right\}=41,11
-\]
+\begin{align*}
+\lambda_{traza} &= -T\ast \left\{ Ln\left( 1-\lambda_{1} \right)+Ln\left(1-\lambda_{2} \right) \right\}\\
+                &= -50\ast \left\{ \ln \left( 1-0,4451 \right)+\ln \left( 1-0,2734 \right)+\ln \left( 1-0,0257 \right) \right\}\\
+                &= 41,11
+\end{align*}
+
 Tambi\'{e}n, se calcula el del m\'{a}ximo valor propio:
 \[
-\lambda_{max}\left( r,\thinspace r+1 \right)=-T\ln \left( 1-\lambda_{r+1} 
-\right)para\thinspace r=0
+\lambda_{max}\left( r,\quad r+1 \right)=-T\ln \left( 1-\lambda_{r+1}\right)\quad \text{para}\quad r=0
 \]
 \[
-\lambda_{max}\left( 0,1 \right)=-T\ln \left( 1-\lambda_{2} \right)=-50\ast 
-\ln \left( 1-0,2734 \right)=25,91
+\lambda_{max}\left( 0,1 \right)=-T\ln \left( 1-\lambda_{2} \right)=-50\ast \ln \left( 1-0,2734 \right)=25,91
 \]
-El valor cr\'{\i}tico para la traza es igual a 24,27 para un nivel de 
-significaci\'{o}n del 5{\%}. Por lo tanto para el caso se la traza, se 
-rechaza la hip\'{o}tesis nula; el rango de la matriz no es 0 (las series no 
-son estacionarias). Mientras que, la prueba del m\'{a}ximo valor propio 
-tiene un valor cr\'{\i}tico de 25,91, se rechaza la hip\'{o}tesis nula; el 
-rango de la matriz no es 0.
 
-Se acepta que la hip\'{o}tesis de que existe al menos una relaci\'{o}n de 
-cointegraci\'{o}n.
+El valor cr\'{i}tico para la traza es igual a 24,27 para un nivel de significaci\'{o}n del 5{\%}. Por lo tanto para el caso se la traza, se rechaza la hip\'{o}tesis nula; el rango de la matriz no es 0 (las series no son estacionarias). Mientras que, la prueba del m\'{a}ximo valor propio tiene un valor cr\'{i}tico de 25,91, se rechaza la hip\'{o}tesis nula; el rango de la matriz no es 0.\newline
 
-\textbf{\textit{Segunda prueba}}: El rango de la matriz $\mathrm{\Omega }$ 
-igual a 1. Sea $H_{0}:\thinspace r=1\thinspace contra\thinspace 
-H_{1}:\thinspace r>1$.
-\[
-\begin{array}{l}
- \lambda_{traza}=-15,19 \\ 
- \lambda_{max}\left( 1,2 \right)=14,05 \\ 
- \end{array}
-\]
-El valor cr\'{\i}tico es igual a 12,32 y de 11,22 para la prueba de la traza 
-y del m\'{a}ximo valor propio, respectivamente, con un nivel de 
-significaci\'{o}n del 5{\%}. Por lo tanto, se rechazar $H_{0}$; se considera 
-que el rango de la matriz no es 1. Se tiene al menos 2 relaciones de 
-cointegraci\'{o}n.
+Se acepta que la hip\'{o}tesis de que existe al menos una relaci\'{o}n de cointegraci\'{o}n.\newline
 
-\textbf{\textit{Tercera prueba}}: El rango de la matriz $\mathrm{\Omega }$ 
-igual a 2. Sea $H_{0}:\thinspace r=2\thinspace contra\thinspace 
-H_{1}:\thinspace r>2$.
-\[
-\begin{array}{l}
- \lambda_{traza}=1,14 \\ 
- \lambda_{max}\left( 1,2 \right)=1,14 \\ 
- \end{array}
-\]
-El valor cr\'{\i}tico es igual a 4,12 tanto para la prueba de la traza como 
-para la del m\'{a}ximo valor propio con un nivel de significaci\'{o}n del 
-5{\%}. Por lo tanto, no se rechazar $H_{0}$; se considera que el rango de la 
-matriz es 2. 
+\textbf{Segunda prueba}: El rango de la matriz $\Omega$ igual a 1. Sea $H_{0}: r=1\text{ contra }H_{1}:\quad r>1$.
 
-Se acepta la hip\'{o}tesis que existen dos relaciones de cointegraci\'{o}n.
+\begin{align*}
+ \lambda_{traza} &= -15,19 \\ 
+ \lambda_{max}\left( 1,2 \right) &=14,05
+\end{align*}
 
-\textbf{Observaci\'{o}n 6.2. }A pesar de que la prueba de Johansen est\'{a} 
-implementada en algunos paquetes estad\'{\i}sticos, tiene algunos problemas 
-al momento de realizar las predicciones. Hay observaciones sobre la 
-especificaci\'{o}n de los modelos derivados de la prueba de Johansen (Ver, 
-Tsay 2008).
+El valor cr\'{i}tico es igual a 12,32 y de 11,22 para la prueba de la traza y del m\'{a}ximo valor propio, respectivamente, con un nivel de significaci\'{o}n del 5{\%}. Por lo tanto, se rechazar $H_{0}$; se considera que el rango de la matriz no es 1. Se tiene al menos 2 relaciones de cointegraci\'{o}n.\newline
+
+\textbf{Tercera prueba}: El rango de la matriz $\Omega$ igual a 2. Sea $H_{0}: r=2\text{ contra }H_{1}:\quad r>2$.
+
+\begin{align*}
+ \lambda_{traza} &= 1,14 \\ 
+ \lambda_{max}\left( 1,2 \right) &= 1,14 
+\end{align*}
+
+El valor cr\'{i}tico es igual a 4,12 tanto para la prueba de la traza como para la del m\'{a}ximo valor propio con un nivel de significaci\'{o}n del 5{\%}. Por lo tanto, no se rechazar $H_{0}$; se considera que el rango de la matriz es 2.\newline
+
+Se acepta la hip\'{o}tesis que existen dos relaciones de cointegraci\'{o}n.\newline
+
+\begin{observacion}
+A pesar de que la prueba de Johansen est\'{a} implementada en algunos paquetes estad\'{i}sticos, tiene algunos problemas al momento de realizar las predicciones. Hay observaciones sobre la especificaci\'{o}n de los modelos derivados de la prueba de Johansen (Ver, Tsay 2008).
+\end{observacion}
 
 \begin{enumerate}
-\item \textbf{Tercera Etapa}: Estimaci\'{o}n de un modelo vectorial de correcci\'{o}n del error (MCE)
+\item[c.] \textbf{Tercera Etapa}: Estimaci\'{o}n de un modelo vectorial de correcci\'{o}n del error (MCE)
 \end{enumerate}
 
-Se presentan los resultados del modelo encontrado. La estimaci\'{o}n final 
-de un VEC con 50 observaciones es el siguiente:
+Se presentan los resultados del modelo encontrado. La estimaci\'{o}n final de un VEC con 50 observaciones es el siguiente:
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{|p{111pt}|l|l|l|}
-\hline
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-Cointegrating Eq:~& 
-CointEq1& 
-CointEq2& 
- \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-X1(-1)& 
-~1.000000& 
-~0.000000& 
- \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-X2(-1)& 
-~0.000000& 
-~1.000000& 
- \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-X3(-1)& 
--1.087335& 
--0.349631& 
- \\
-\hline
-& 
-~(0.01946)& 
-~(0.07942)& 
- \\
-\hline
-& 
-[-55.8619]& 
-[-4.40212]& 
- \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-Error Correction:& 
-D(X1)& 
-D(X2)& 
-D(X3) \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-CointEq1& 
--0.141775& 
--0.068674& 
-~0.323563 \\
-\hline
-& 
-~(0.24049)& 
-~(0.09656)& 
-~(0.22752) \\
-\hline
-& 
-[-0.58952]& 
-[-0.71123]& 
-[ 1.42214] \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-CointEq2& 
-~0.026182& 
-~0.019842& 
-~0.139864 \\
-\hline
-& 
-~(0.06048)& 
-~(0.02428)& 
-~(0.05721) \\
-\hline
-& 
-[ 0.43293]& 
-[ 0.81719]& 
-[ 2.44458] \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-D(X1(-5))& 
--0.640939& 
--0.117720& 
--0.159909 \\
-\hline
-& 
-~(0.24748)& 
-~(0.09936)& 
-~(0.23413) \\
-\hline
-& 
-[-2.58981]& 
-[-1.18474]& 
-[-0.68298] \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-D(X2(-5))& 
-~0.375685& 
-~0.330682& 
-~0.512122 \\
-\hline
-& 
-~(0.55345)& 
-~(0.22221)& 
-~(0.52359) \\
-\hline
-& 
-[ 0.67880]& 
-[ 1.48817]& 
-[ 0.97809] \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-D(X3(-5))& 
-~0.219208& 
--0.074681& 
--0.280249 \\
-\hline
-& 
-~(0.26134)& 
-~(0.10493)& 
-~(0.24724) \\
-\hline
-& 
-[ 0.83877]& 
-[-0.71173]& 
-[-1.13349] \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
- \\
-\hline
+\centering
+\begin{tabular}{cccc}\hline\hline
+ Cointegrating Eq:~ &  CointEq1 &  CointEq2 &  \\ \hline\hline
+X1(-1) & 1.000000 & 0.000000 &  \\ 
+X2(-1) & 0.000000 & 1.000000 &  \\ 
+X3(-1) & -1.087335 & -0.349631 & \\ 
+       & ~(0.01946) &  ~(0.07942) &  \\ 
+       & [-55.8619] & [-4.40212] &  \\ \hline\hline
+Error Correction: & D(X1) & D(X2) & D(X3) \\ \hline\hline
+CointEq1 & -0.141775 & -0.068674 & 0.323563 \\
+ & (0.24049) & (0.09656) & (0.22752) \\
+ & [-0.58952] & [-0.71123] & [ 1.42214] \\
+ & & & \\
+CointEq2 & 0.026182 & 0.019842 & 0.139864 \\
+& (0.06048) & (0.02428) & (0.05721) \\
+& [0.43293] & [0.81719] & [2.44458] \\
+& & & \\
+D(X1(-5)) & -0.640939 & -0.117720 & -0.159909 \\
+& (0.24748) & (0.09936) & (0.23413) \\
+& [-2.58981] & [-1.18474] & [-0.68298] \\
+& & & \\
+D(X2(-5)) & 0.375685 & 0.330682 & 0.512122 \\
+ & (0.55345) & (0.22221) & (0.52359) \\
+ & [0.67880] & [1.48817] & [0.97809] \\
+ & & & \\
+D(X3(-5)) & 0.219208 & -0.074681 & -0.280249 \\
+& (0.26134) & (0.10493) & (0.24724) \\
+& [0.83877] & [-0.71173] & [-1.13349] \\ \hline\hline
 \end{tabular}
 \label{tab11}
-\end{center}
 \end{table}
 
 Las expresiones de cointegraci\'{o}n tienen la siguiente forma:
@@ -866,552 +334,178 @@ Las expresiones de cointegraci\'{o}n tienen la siguiente forma:
  X_{1,t-2}-0,350\ast X_{3,t-1} \\ 
  \end{array}
 \]
+
 Las ecuaciones de correcci\'{o}n del error son:
-\[
-\mathrm{\Delta }X_{1t}=-0,641\mathrm{\Delta }X_{1,t-5}+0,376\mathrm{\Delta 
-}X_{2,t-5}+0,219\mathrm{\Delta }X_{3,t-5}-0,142\left( 3X_{1,t-1}-1,087\ast 
-X_{3,t-1} \right)+0,026(X_{1,t-2}-0,350\ast X_{3,t-1})
-\]
-\[
-\mathrm{\Delta }X_{2t}=-0,118\mathrm{\Delta }X_{1,t-5}+0,331\mathrm{\Delta 
-}X_{2,t-5}-0,075\mathrm{\Delta }X_{3,t-5}-0,069\left( 3X_{1,t-1}-1,087\ast 
-X_{3,t-1} \right)+0,020(X_{1,t-2}-0,350\ast X_{3,t-1})
-\]
-\[
-\mathrm{\Delta }X_{3t}=-0,160\mathrm{\Delta }X_{1,t-5}+0,512\mathrm{\Delta 
-}X_{2,t-5}-0,280\mathrm{\Delta }X_{3,t-5}+0,324\left( 3X_{1,t-1}-1,087\ast 
-X_{3,t-1} \right)+0,140(X_{1,t-2}-0,350\ast X_{3,t-1})
-\]
+\begin{align*}
+\Delta X_{1t} &= -0,641\Delta X_{1,t-5}+0,376\Delta X_{2,t-5}+0,219\Delta X_{3,t-5}\\
+            & -0,142\left( 3X_{1,t-1}-1,087\ast X_{3,t-1} \right)+0,026(X_{1,t-2}-0,350\ast X_{3,t-1})\\
+\Delta X_{2t} &= -0,118\Delta X_{1,t-5}+0,331\Delta X_{2,t-5}-0,075\Delta X_{3,t-5}\\
+            & -0,069\left( 3X_{1,t-1}-1,087\ast X_{3,t-1} \right)+0,020(X_{1,t-2}-0,350\ast X_{3,t-1})\\
+\Delta X_{3t} &= -0,160\Delta X_{1,t-5}+0,512\Delta X_{2,t-5}-0,280\Delta X_{3,t-5}\\
+            & +0,324\left( 3X_{1,t-1}-1,087\ast X_{3,t-1} \right)+0,140(X_{1,t-2}-0,350\ast X_{3,t-1})
+\end{align*}
+
 \begin{enumerate}
-\item \textbf{Diagn\'{o}stico y verificaci\'{o}n del modelo}
+\item[d.] \textbf{Diagn\'{o}stico y verificaci\'{o}n del modelo}
 \end{enumerate}
-Para verificar el modelo, se consideran \index{Modelos MCE!Diagn\'{o}stico y 
-verificaci\'{o}n}los mismos estad\'{\i}sticos que se utilizaron en el caso 
-del VAR.
+
+Para verificar el modelo, se consideran \index{Modelos MCE!Diagn\'{o}stico y verificaci\'{o}n}los mismos estad\'{i}sticos que se utilizaron en el caso del VAR.
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{|p{43pt}|l|l|l|l|l|}
-\hline
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
-Lags& 
-Q-Stat& 
-Prob.& 
-Adj Q-Stat& 
-Prob.& 
-df \\
-\hline
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
-1& 
-~7.902984& 
-NA*& 
-~8.086774& 
-NA*& 
-NA* \\
-\hline
-2& 
-~24.71026& 
-NA*& 
-~25.69440& 
-NA*& 
-NA* \\
-\hline
-3& 
-~29.93520& 
-NA*& 
-~31.30165& 
-NA*& 
-NA* \\
-\hline
-4& 
-~32.89659& 
-NA*& 
-~34.55918& 
-NA*& 
-NA* \\
-\hline
-5& 
-~35.08583& 
-NA*& 
-~37.02909& 
-NA*& 
-NA* \\
-\hline
-6& 
-~41.49298& 
-~0.7349& 
-~44.44789& 
-~0.6192& 
-48 \\
-\hline
-7& 
-~52.58789& 
-~0.6411& 
-~57.64185& 
-~0.4513& 
-57 \\
-\hline
-8& 
-~63.54760& 
-~0.5627& 
-~71.03705& 
-~0.3137& 
-66 \\
-\hline
-9& 
-~71.85129& 
-~0.5817& 
-~81.47597& 
-~0.2849& 
-75 \\
-\hline
-10& 
-~79.78680& 
-~0.6099& 
-~91.74545& 
-~0.2639& 
-84 \\
-\hline
-11& 
-~86.84222& 
-~0.6601& 
-~101.1527& 
-~0.2644& 
-93 \\
-\hline
-12& 
-~90.95700& 
-~0.7751& 
-~106.8105& 
-~0.3527& 
-102 \\
-\hline
-13& 
-~96.73747& 
-~0.8306& 
-~115.0150& 
-~0.3779& 
-111 \\
-\hline
-14& 
-~101.9794& 
-~0.8817& 
-~122.7032& 
-~0.4144& 
-120 \\
-\hline
-15& 
-~107.4967& 
-~0.9161& 
-~131.0742& 
-~0.4325& 
-129 \\
-\hline
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
-& 
-& 
- \\
-\hline
+\centering
+\begin{tabular}{cccccc}\hline\hline
+Lags & Q-Stat & Prob. & Adj Q-Stat & Prob. & df \\ \hline\hline
+1 & 7.902984 & NA* & 8.086774 & NA* & NA* \\
+2 & 24.71026 & NA* & 25.69440 & NA* & NA* \\
+3 & 29.93520 & NA* & 31.30165 & NA* & NA* \\
+4 & 32.89659 & NA* & 34.55918 & NA* & NA* \\
+5 & 35.08583 & NA* & 37.02909 & NA* & NA* \\
+6 & 41.49298 & 0.7349 & 44.44789 & 0.6192 & 48 \\
+7 & 52.58789 & 0.6411 & 57.64185 & 0.4513 & 57 \\
+8 & 63.54760 & 0.5627 & 71.03705 & 0.3137 & 66 \\
+9 & 71.85129 & 0.5817 & 81.47597 & 0.2849 & 75 \\
+10 & 79.78680 & 0.6099 & 91.74545 & 0.2639 & 84 \\
+11 & 86.84222 & 0.6601 & 101.1527 & 0.2644 & 93 \\
+12 & 90.95700 & 0.7751 & 106.8105 & 0.3527 & 102 \\
+13 & 96.73747 & 0.8306 & 115.0150 & 0.3779 & 111 \\
+14 & 101.9794 & 0.8817 & 122.7032 & 0.4144 & 120 \\
+15 & 107.4967 & 0.9161 & 131.0742 & 0.4325 & 129 \\ \hline\hline
 \end{tabular}
-\label{tab12}
-\end{center}
+\caption{Prueba Portmanteau}
+%\label{tab12}
 \end{table}
 
-\begin{center}
-Tabla 7.4: Prueba \textit{Portmanteau} \newline
+La prueba expresa que no existe autocorrelaci\'{o}n de los residuos.\newline
 
-\end{center}
-
-La prueba expresa que no existe autocorrelaci\'{o}n de los residuos.
-
-\textbf{Prueba de Jarque-Bera}
+\textbf{Prueba de Jarque-Bera}\newline
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{|p{64pt}|l|l|l|}
-\hline
-Component& 
-Jarque-Bera& 
-df& 
-Prob. \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-1& 
-~0.994354& 
-2& 
-~0.6082 \\
-\hline
-2& 
-~1.961766& 
-2& 
-~0.3750 \\
-\hline
-3& 
-~5.545940& 
-2& 
-~0.0625 \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-Joint& 
-~8.502061& 
-6& 
-~0.2036 \\
-\hline
-& 
-& 
-& 
- \\
-\hline
-& 
-& 
-& 
- \\
-\hline
+\centering
+\begin{tabular}{cccc}\hline\hline
+Component & Jarque-Bera & df & Prob. \\ \hline\hline
+1 & 0.994354 & 2 & 0.6082 \\
+2 & 1.961766 & 2 & 0.3750 \\
+3 & 5.545940 & 2 & 0.0625 \\ \hline\hline
+Joint & 8.502061 & 6 & 0.2036 \\ \hline\hline
 \end{tabular}
-\label{tab13}
-\end{center}
+\caption{Prueba de Jarque-Bera}
+%\label{tab13}
 \end{table}
 
-\begin{center}
-Tabla 7.5: Prueba de Jarque-Bera
-\end{center}
-
-La prueba de Jarque-Bera concluye que los residuos tienen una 
-distribuci\'{o}n normal, tanto de manera marginal como global. Finalmente, 
-se muestra la prueba LM de correlaci\'{o}n serial:
-
+La prueba de Jarque-Bera concluye que los residuos tienen una distribuci\'{o}n normal, tanto de manera marginal como global. Finalmente, se muestra la prueba LM de correlaci\'{o}n serial:
+ 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{|p{43pt}|l|l|}
-\hline
-& 
-& 
- \\
-\hline
-& 
-& 
- \\
-\hline
-Lags& 
-LM-Stat& 
-Prob \\
-\hline
-& 
-& 
- \\
-\hline
-& 
-& 
- \\
-\hline
-1& 
-~7.935467& 
-~0.5407 \\
-\hline
-2& 
-~16.71692& 
-~0.0533 \\
-\hline
-3& 
-~5.199048& 
-~0.8166 \\
-\hline
-4& 
-~2.892506& 
-~0.9684 \\
-\hline
-5& 
-~13.83981& 
-~0.1281 \\
-\hline
-6& 
-~8.614968& 
-~0.4735 \\
-\hline
-7& 
-~14.98006& 
-~0.0915 \\
-\hline
-8& 
-~12.22423& 
-~0.2010 \\
-\hline
-9& 
-~13.94869& 
-~0.1242 \\
-\hline
-10& 
-~11.32514& 
-~0.2541 \\
-\hline
-11& 
-~10.29224& 
-~0.3273 \\
-\hline
-12& 
-~7.225709& 
-~0.6136 \\
-\hline
-13& 
-~10.47207& 
-~0.3136 \\
-\hline
-14& 
-~7.876060& 
-~0.5467 \\
-\hline
-15& 
-~9.297943& 
-~0.4102 \\
-\hline
-& 
-& 
- \\
-\hline
-& 
-& 
- \\
-\hline
+\centering
+\begin{tabular}{|c|c|c|}\hline
+Lags & LM-Stat & Prob \\ \hline
+1 & 7.935467 & 0.5407 \\ \hline
+2 & 16.71692 & 0.0533 \\ \hline
+3 & 5.199048 & 0.8166 \\ \hline
+4 & 2.892506 & 0.9684 \\ \hline
+5 & 13.83981 & 0.1281 \\ \hline
+6 & 8.614968 & 0.4735 \\ \hline
+7 & 14.98006 & 0.0915 \\ \hline
+8 & 12.22423 & 0.2010 \\ \hline
+9 & 13.94869 & 0.1242 \\ \hline
+10 & 11.32514 & 0.2541 \\ \hline
+11 & 10.29224 & 0.3273 \\ \hline
+12 & 7.225709 & 0.6136 \\ \hline
+13 & 10.47207 & 0.3136 \\ \hline
+14 & 7.876060 & 0.5467 \\ \hline
+15 & 9.297943 & 0.4102 \\ \hline
 \end{tabular}
-\label{tab14}
-\end{center}
+\caption{Prueba LM}
+%\label{tab14}
 \end{table}
-
-\begin{center}
-Tabla 7.6: Prueba LM \newline
-
-\end{center}
 
 Como se puede observar, no existe correlaci\'{o}n serial en los residuos.
 
 \begin{enumerate}
-\item \textbf{Predicciones a partir del MCE}
+\item[e.] \textbf{Predicciones a partir del MCE}
 \end{enumerate}
+
 Las predicciones obtenidas a partir del modelo son las siguientes:
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{|p{60pt}|p{60pt}|p{60pt}|p{60pt}|p{60pt}|p{60pt}|p{60pt}|}
-\hline
-& 
-\multicolumn{2}{|p{120pt}|}{$X_{1}$} & 
-\multicolumn{2}{|p{120pt}|}{$X_{2}$} & 
-\multicolumn{2}{|p{120pt}|}{$X_{3}$} \\
-\hline
-obs& 
-Real& 
-Predicci\'{o}n& 
-Real& 
-Predicci\'{o}n& 
-Real& 
-Predicci\'{o}n \\
-\hline
-51& 
-165,071& 
-167,8575& 
-130,579& 
-130,9032& 
-169,377& 
-171,4889 \\
-\hline
-52& 
-169,493& 
-171,6238& 
-132,612& 
-133,0139& 
-171,449& 
-174,5759 \\
-\hline
-53& 
-172& 
-173,1461& 
-133,298& 
-134,601& 
-175,665& 
-176,6129 \\
-\hline
-54& 
-175,099& 
-176,1222& 
-136,343& 
-136,5069& 
-177,327& 
-178,8983 \\
-\hline
-55& 
-178,819& 
-180,4314& 
-138,931& 
-138,8625& 
-184,029& 
-182,4962 \\
-\hline
-56& 
-180,759& 
-183,9694& 
-140,683& 
-141,5225& 
-183,299& 
-186,2786 \\
-\hline
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+& \multicolumn{2}{|c|}{$X_{1}$} & \multicolumn{2}{|c|}{$X_{2}$} & \multicolumn{2}{|c|}{$X_{3}$} \\ \hline
+obs & Real & Predicci\'{o}n & Real & Predicci\'{o}n & Real & Predicci\'{o}n \\ \hline
+51 & 165,071 & 167,8575 & 130,579 & 130,9032 & 169,377 & 171,4889 \\ \hline
+52 & 169,493 & 171,6238 & 132,612 & 133,0139 & 171,449 & 174,5759 \\ \hline
+53 & 172 & 173,1461 & 133,298 & 134,601 & 175,665 & 176,6129 \\ \hline
+54 & 175,099 & 176,1222 & 136,343 & 136,5069 & 177,327 & 178,8983 \\ \hline
+55 & 178,819 & 180,4314 & 138,931 & 138,8625 & 184,029 & 182,4962 \\ \hline
+56 & 180,759 & 183,9694 & 140,683 & 141,5225 & 183,299 & 186,2786 \\ \hline
 \end{tabular}
-\label{tab15}
-\end{center}
+\caption{Predicciones para las tres series utilizando el MCE}
+% \label{tab15}
 \end{table}
 
-\begin{center}
-Tabla 7.7: Predicciones para las tres series utilizando el MCE
-\end{center}
-
-A continuaci\'{o}n, se presenta gr\'{a}ficamente la comparaci\'{o}n con los 
-datos reales guardados:
+A continuaci\'{o}n, se presenta gr\'{a}ficamente la comparaci\'{o}n con los datos reales guardados:
 
 \begin{figure}[H]
-\includegraphics[width=4.58in,height=3.42in]{STcap66.eps}
-\label{fig6}
+\centering
+\includegraphics[width=4.58in,height=3.42in]{Graficos/Cap6-7/STcap66.eps}
+\caption{Predicci\'{o}n para $X_{1t}$}
+%\label{fig6}
 \end{figure}
-
-\begin{center}
-Figura 7.3: Predicci\'{o}n para $X_{1t}$
-\end{center}
 
 \begin{figure}[H]
-\includegraphics[width=4.47in,height=3.34in]{STcap67.eps}
-\label{fig7}
+\centering
+\includegraphics[width=4.47in,height=3.34in]{Graficos/Cap6-7/STcap67.eps}
+\caption{Predicci\'{o}n para $X_{2t}$}
+%\label{fig7}
 \end{figure}
-
-\begin{center}
-Figura 7.4: Predicci\'{o}n para $X_{2t}$
-\end{center}
 
 \begin{figure}[H]
-\includegraphics[width=4.58in,height=3.42in]{STcap68.eps}
-\label{fig8}
+\centering
+\includegraphics[width=4.58in,height=3.42in]{Graficos/Cap6-7/STcap68.eps}
+\caption{Predicci\'{o}n para $X_{3t}$}
+%\label{fig8}
 \end{figure}
-
-\begin{center}
-Figura 7.5: Predicci\'{o}n para $X_{3t}$
-\end{center}
 
 En los gr\'{a}ficos las leyendas significan:
+\begin{itemize}
+      \item LCI: L\'{i}mite de confianza inferior.
+      \item Xi: Serie real de datos, i$=$1,2,3.
+      \item Xi (MCE): Predicci\'{o}n de la serie Xi, i$=$1,2,3.
+      \item LCS: L\'{i}mite de confianza superior.
+\end{itemize}
 
-LCI: L\'{\i}mite de confianza inferior.
+Adicionalmente, se presentan las predicciones de los modelos univariantes y se realiza la comparaci\'{o}n con las predicciones del modelo de 
+correcci\'{o}n del error. As\'{i}, para $X_{1t}$ se estim\'{o} el modelo: ${\Delta \hat{X}}_{1t}=0,92X_{1t-1}+\hat{u}_{1t}-0,96u_{1t-1}+3,05$. Para 
+$X_{2t}$ se obtuvo: ${\Delta \hat{X}}_{2t}=0,50X_{1t-1}+\hat{u}_{1t}+1,75$ y; finalmente, para $X_{3t}$ se encontr\'{o}: ${\Delta \log (\hat{X}}_{3t})=0,78X_{1t-6}+\hat{u}_{1t}$.
 
-Xi: Serie real de datos, i$=$1,2,3.
-
-Xi (MCE): Predicci\'{o}n de la serie Xi, i$=$1,2,3.
-
-LCS: L\'{\i}mite de confianza superior.
-
-Adicionalmente, se presentan las predicciones de los modelos univariantes y 
-se realiza la comparaci\'{o}n con las predicciones del modelo de 
-correcci\'{o}n del error. As\'{\i}, para $X_{1t}$ se estim\'{o} el modelo: 
-${\Delta \hat{X}}_{1t}=0,92X_{1t-1}+\hat{u}_{1t}-0,96u_{1t-1}+3,05$. Para 
-$X_{2t}$ se obtuvo: ${\Delta \hat{X}}_{2t}=0,50X_{1t-1}+\hat{u}_{1t}+1,75$ 
-y; finalmente, para $X_{3t}$ se encontr\'{o}: ${\Delta 
-\mathrm{log?}(\hat{X}}_{3t})=0,78X_{1t-6}+\hat{u}_{1t}$.
-
-A continuaci\'{o}n, se presentan los gr\'{a}ficos con la comparaci\'{o}n de 
-las predicciones:
+A continuaci\'{o}n, se presentan los gr\'{a}ficos con la comparaci\'{o}n de las predicciones:
 
 \begin{figure}[H]
-\includegraphics[width=4.10in,height=2.95in]{STcap69.eps}
-\label{fig9}
+\centering
+\includegraphics[width=4.10in,height=2.95in]{Graficos/Cap6-7/STcap69.eps}
+\caption{Comparaci\'{o}n de las predicciones para $X_{1t}$ entre el MCE y el modelo univariante.}
+%\label{fig9}
 \end{figure}
-
-\begin{center}
-Figura 7.6: Comparaci\'{o}n de las predicciones para $X_{1t}$ entre el MCE y 
-el modelo univariante.
-\end{center}
 
 \begin{figure}[H]
-\includegraphics[width=4.26in,height=3.31in]{STcap610.eps}
-\label{fig10}
+\centering
+\includegraphics[width=4.26in,height=3.31in]{Graficos/Cap6-7/STcap610.eps}
+\caption{Comparaci\'{o}n de las predicciones para $X_{2t}$ entre el MCE y el modelo univariante.}
+%\label{fig10}
 \end{figure}
-
-\begin{center}
-Figura 7.7: Comparaci\'{o}n de las predicciones para $X_{2t}$ entre el MCE y 
-el modelo univariante.
-\end{center}
 
 \begin{figure}[H]
-\includegraphics[width=4.26in,height=3.31in]{STcap611.eps}
-\label{fig11}
+\centering
+\includegraphics[width=4.26in,height=3.31in]{Graficos/Cap6-7/STcap611.eps}
+\caption{Comparaci\'{o}n de las predicciones para $X_{3t}$ entre el MCE y el modelo univariante.}
+%\label{fig11}
 \end{figure}
 
-\begin{center}
-Figura 7.8: Comparaci\'{o}n de las predicciones para $X_{1t}$ entre el MCE y 
-el modelo univariante.
-\end{center}
 
-Se puede observar, en las tres series, que el ajuste de las predicciones 
-realizadas por el MCE son mejores que las que se obtienen con el modelo 
-univariante.
+Se puede observar, en las tres series, que el ajuste de las predicciones realizadas por el MCE son mejores que las que se obtienen con el modelo univariante.
 
-\section{7.3 PRUEBA DE EXOGENEIDAD D\'{E}BIL}
-\label{subsec:mylabel5}
-Esta prueba\index{Prueba!Exogeneidad d\'{e}bil} busca ver si las variables 
-son end\'{o}genas o no. Esta prueba se refiere al coeficiente $\alpha $ de 
-la fuerza de empuje (si existe una sola relaci\'{o}n de cointegraci\'{o}n) o 
-los coeficientes $\alpha $ cuando existe m\'{a}s de una relaci\'{o}n de 
-cointegraci\'{o}n. Realizar una prueba sobre $\alpha $ comprueba si la 
-relaci\'{o}n de cointegraci\'{o}n est\'{a} presente en todas las ecuaciones 
-del modelo. Esta prueba se realiza sobre la matriz $\pi =\alpha^{'}\beta $, 
-donde $\beta $ son las relaciones de cointegraci\'{o}n y $\alpha $ los pesos 
-del estas relaciones en cada una de las ecuaciones del sistema.
+\section{Prueba de Exogeneidad D\'{e}bil}
+%\label{subsec:mylabel5}
+Esta prueba\index{Prueba!Exogeneidad d\'{e}bil} busca ver si las variables son end\'{o}genas o no. Esta prueba se refiere al coeficiente $\alpha $ de la fuerza de empuje (si existe una sola relaci\'{o}n de cointegraci\'{o}n) o los coeficientes $\alpha $ cuando existe m\'{a}s de una relaci\'{o}n de cointegraci\'{o}n. Realizar una prueba sobre $\alpha $ comprueba si la relaci\'{o}n de cointegraci\'{o}n est\'{a} presente en todas las ecuaciones del modelo. Esta prueba se realiza sobre la matriz $\pi =\alpha^{'}\beta $, donde $\beta $ son las relaciones de cointegraci\'{o}n y $\alpha $ los pesos del estas relaciones en cada una de las ecuaciones del sistema.
 
 Por ejemplo, considere un MCE con dos relaciones de cointegraci\'{o}n:
 \[
@@ -1436,31 +530,18 @@ X_{2,t-1}\\
 X_{3,t-1}\\
 \end{array} } \right)
 \]
+
 Para probar la exogeneidad de la variable $X_{2t}$, se debe realizar la 
 prueba de hip\'{o}tesis:
 \[
 \left\{ {\begin{array}{l}
- H_{0}:\thinspace \alpha_{21}=\alpha_{22}=0 \\ 
- H_{a}:\thinspace \alpha_{21},\alpha_{22}\ne 0\thinspace \thinspace 
-\thinspace \thinspace \\ 
+ H_{0}:\quad \alpha_{21}=\alpha_{22}=0 \\ 
+ H_{a}:\quad \alpha_{21},\alpha_{22}\ne 0\\ 
  \end{array}} \right.
 \]
-Si se acepta la hip\'{o}tesis nula, esto significa que la fuerza de empuje 
-$\alpha $ no interviene en ninguna relaci\'{o}n de cointegraci\'{o}n y que 
-la variable $X_{2t}$ es d\'{e}bilmente ex\'{o}gena. En este caso, se estima 
-un MCE imponiendo la restricci\'{o}n $\alpha_{21}=\alpha_{22}=0$.
 
-\section{7.4 COINTEGRACI\'{O}N ESTACIONAL}
-\label{subsec:mylabel6}
-Los modelos descritos\index{Cointegraci\'{o}n!Estacional} anteriormente no 
-cubren la variaci\'{o}n estacional de las series de tiempo. Sin embargo, los 
-resultados b\'{a}sicos de invertir los polinomios matriciales pueden ser 
-extendidas para cubrir este caso tambi\'{e}n, con el resultado que se 
-obtiene de una formulaci\'{o}n de correcci\'{o}n del error y la posibilidad 
-de calcular el rango de cointegraci\'{o}n sobre diversas frecuencias 
-complejas. Las as\'{\i}ntotas son, aproximadamente, las mismas que para el 
-modelo usual, pero implican movimientos Brownianos complejos, como 
-consecuencia de permitir ra\'{\i}ces en las frecuencias complejas. El lector 
-puede indagar m\'{a}s sobre el tema, por ejemplo, en ``Likelihood analysis 
-of seasonal cointegration'' (Johansen and Schaumburg,1998) o en 
-``Cointegration: an overview'' (Johansen, 2004).
+Si se acepta la hip\'{o}tesis nula, esto significa que la fuerza de empuje $\alpha $ no interviene en ninguna relaci\'{o}n de cointegraci\'{o}n y que la variable $X_{2t}$ es d\'{e}bilmente ex\'{o}gena. En este caso, se estima un MCE imponiendo la restricci\'{o}n $\alpha_{21}=\alpha_{22}=0$.
+
+\section{Cointegraci\'{o}n Estacional}
+%\label{subsec:mylabel6}
+Los modelos descritos\index{Cointegraci\'{o}n!Estacional} anteriormente no cubren la variaci\'{o}n estacional de las series de tiempo. Sin embargo, los resultados b\'{a}sicos de invertir los polinomios matriciales pueden ser extendidas para cubrir este caso tambi\'{e}n, con el resultado que se obtiene de una formulaci\'{o}n de correcci\'{o}n del error y la posibilidad de calcular el rango de cointegraci\'{o}n sobre diversas frecuencias complejas. Las as\'{i}ntotas son, aproximadamente, las mismas que para el modelo usual, pero implican movimientos Brownianos complejos, como consecuencia de permitir ra\'{i}ces en las frecuencias complejas. El lector puede indagar m\'{a}s sobre el tema, por ejemplo, en ``Likelihood analysis of seasonal cointegration'' (Johansen and Schaumburg,1998) o en ``Cointegration: an overview'' (Johansen, 2004).
