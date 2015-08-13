@@ -2,111 +2,58 @@
 
 \section{Modelos Arch--Garch Sim\'{e}tricos}
 
-En esta secci\'{o}n, se presentar\'{a} un breve resumen de la teor\'{i}a 
-desarrollada alrededor de los modelos ARCH\index{ARCH!Definici\'{o}n} -- 
-GARCH, los cuales determinan un patr\'{o}n de comportamiento 
-estad\'{i}stico para la varianza condicional, denominados modelos 
-Auto-Regresivos con Heteroscedasticidad Condicional. 
+En esta secci\'{o}n, se presentar\'{a} un breve resumen de la teor\'{i}a desarrollada alrededor de los modelos ARCH\index{ARCH!Definici\'{o}n} -- GARCH, los cuales determinan un patr\'{o}n de comportamiento estad\'{i}stico para la varianza condicional, denominados modelos Auto-Regresivos con Heteroscedasticidad Condicional.\newline
 
-El an\'{a}lisis de series temporales econ\'{o}micas, tradicionalmente se ha 
-centrado en el estudio de modelos para la media condicional en los que se 
-asume que la varianza condicional es constante; en este caso se dice que 
-existe homoscedasticidad. Si este no fuera el caso, se estar\'{i}a 
-enfrentado un problema de no estacionariedad de la serie.
+El an\'{a}lisis de series temporales econ\'{o}micas, tradicionalmente se ha centrado en el estudio de modelos para la media condicional en los que se asume que la varianza condicional es constante; en este caso se dice que existe homoscedasticidad. Si este no fuera el caso, se estar\'{i}a enfrentado un problema de no estacionariedad de la serie.\newline
 
-En 1982, Robert Engle revolucion\'{o} los modelos de volatilidad 
-introduciendo el estudio de las estructuras cuadr\'{a}ticas, ampliando 
-as\'{i} la visi\'{o}n de la metodolog\'{i}a Box--Jenkins, en la cual los 
-modelos lineales de tipo ARIMA admiten que las innovaciones son un ruido 
-blanco, con media cero y varianza constante.
+En 1982, Robert Engle revolucion\'{o} los modelos de volatilidad introduciendo el estudio de las estructuras cuadr\'{a}ticas, ampliando as\'{i} la visi\'{o}n de la metodolog\'{i}a Box--Jenkins, en la cual los modelos lineales de tipo ARIMA admiten que las innovaciones son un ruido blanco, con media cero y varianza constante.\newline
 
-Los modelos de volatilidad condicional son importantes por el papel que 
-juega el riesgo y el concepto de incertidumbre en el desarrollo de las 
-teor\'{i}as modernas de modelos financieros, que relacionan de forma 
-directa el riesgo con la volatilidad. Estos modelos permiten relacionar el 
-valor de la varianza condicional (no constante) en funci\'{o}n del conjunto 
-de informaci\'{o}n disponible en periodos anteriores; est\'{a}n 
-espec\'{i}ficamente dise\~{n}ados para modelar y pronosticar varianzas 
-condicionales.
+Los modelos de volatilidad condicional son importantes por el papel que juega el riesgo y el concepto de incertidumbre en el desarrollo de las teor\'{i}as modernas de modelos financieros, que relacionan de forma directa el riesgo con la volatilidad. Estos modelos permiten relacionar el valor de la varianza condicional (no constante) en funci\'{o}n del conjunto de informaci\'{o}n disponible en periodos anteriores; est\'{a}n espec\'{i}ficamente dise\~{n}ados para modelar y pronosticar varianzas condicionales.
 
 \begin{definicion}
  Un Modelo $ARCH(r)$ se define por:
 \begin{align*}
- Z_{t}&=\sqrt h_{t} u_{t} \\ 
- h_{t}&=\alpha_{0}+\alpha_{1}Z_{t-1}^{2}+\mathellipsis +\alpha 
-_{r}Z_{t-r}^{2}
+ Z_{t} &= \sqrt h_{t} u_{t} \\ 
+ h_{t} &= \alpha_{0}+\alpha_{1}Z_{t-1}^{2}+\mathellipsis +\alpha_{r}Z_{t-r}^{2}
 \end{align*}
-donde los $(u_{t})$ son independientes e id\'{e}nticamente distribuidos con 
-media cero y varianza uno (i.i.d. $(0,1)$), $\alpha_{0}>0$ y $\alpha_{i}\ge 0$ para $i>0$.
+
+donde los $(u_{t})$ son independientes e id\'{e}nticamente distribuidos con media cero y varianza uno (i.i.d. $(0,1)$), $\alpha_{0}>0$ y $\alpha_{i}\geq 0$ para $i>0$.
 \end{definicion}
 
+En la pr\'{a}ctica se supone que $u_{t}\sim N(0,1)$ o que siguen una distribuci\'{o}n t-student. Los coeficientes $\alpha_{i}$ deben satisfacer ciertas condiciones (en general no negatividad: $\alpha_{0}>0$ y $\alpha_{i}\geq 0$ para $i>0$ y $\sum_{i=1}^r \alpha_{i} <1$), dependiendo del tipo de restricciones que se coloquen sobre el proceso $Z_{t}$.\newline
 
-En la pr\'{a}ctica se supone que $u_{t}\sim N(0,1)$ o que siguen una 
-distribuci\'{o}n t-student. Los coeficientes $\alpha_{i}$ deben satisfacer 
-ciertas condiciones (en general no negatividad: $\alpha_{0}>0$ y $\alpha_{i}\ge 0$ para $i>0$ y $\sum_{i=1}^r \alpha_{i} <1$), dependiendo del tipo de 
-restricciones que se coloquen sobre el proceso $Z_{t}$. 
+Las \index{ARCH!Restricciones}restricciones de signo de los coeficientes de la ecuaci\'{o}n de varianza garantizan que la varianza condicional sea positiva en todos los per\'{i}odos. Lo que se necesita es que, una vez que se haya estimado el modelo, genere una serie de varianzas positiva, lo que puede suceder a\'{u}n si algunos de los coeficientes $\alpha_{i}$ fueran negativos. Esto se puede considerar como un contraste de validez del modelo.\newline
 
-Las \index{ARCH!Restricciones}restricciones de signo de los coeficientes de 
-la ecuaci\'{o}n de varianza garantizan que la varianza condicional sea 
-positiva en todos los per\'{i}odos. Lo que se necesita es que, una vez que 
-se haya estimado el modelo, genere una serie de varianzas positiva, lo que 
-puede suceder a\'{u}n si algunos de los coeficientes $\alpha_{i}$ fueran 
-negativos. Esto se puede considerar como un contraste de validez del modelo.
+Por la propia definici\'{o}n, a valores grandes de $Z_{t}$ les siguen otros valores grandes de la serie.\newline
 
-Por la propia definici\'{o}n, a valores grandes de $Z_{t}$ les siguen otros 
-valores grandes de la serie.
-
-$h_{t}$ es la varianza condicional de $Z_{t}$ dado $Z_{s},\thinspace s<t$.
+$h_{t}$ es la varianza condicional de $Z_{t}$ dado $Z_{s},\quad s<t$.
 
 \begin{observacion}
-Se puede demostrar que un proceso $ARCH(r)$ implica que se puede representar $X_{t}^{2}$ como un proceso $AR(r)$, con residuos que no son gaussianos. Adem\'{a}s, el coeficiente de apuntamiento (curtosis) es mayor que 3, por lo cual las colas de la distribuci\'{o}n 
-ser\'{a}n m\'{a}s pesadas que en la distribuci\'{o}n normal.
+Se puede demostrar que un proceso $ARCH(r)$ implica que se puede representar $X_{t}^{2}$ como un proceso $AR(r)$, con residuos que no son gaussianos. Adem\'{a}s, el coeficiente de apuntamiento (curtosis) es mayor que 3, por lo cual las colas de la distribuci\'{o}n ser\'{a}n m\'{a}s pesadas que en la distribuci\'{o}n normal.
 \end{observacion}
 
 \begin{definicion}
-Un modelo $GARCH(r,s)$, 
-est\'{a}\index{GARCH!Definici\'{o}n} definido por:
+Un modelo $GARCH(r,s)$, est\'{a}\index{GARCH!Definici\'{o}n} definido por:
 \begin{align*}
  Z_{t}&=\sqrt h_{t} u_{t} \\ 
- h_{t}&=\alpha_{0}+\sum_{i=1}^r {\alpha_{i}Z_{t-i}^{2}} 
-+\sum_{j=1}^s {\beta_{j}h_{t}} 
+ h_{t}&=\alpha_{0}+\sum_{i=1}^r {\alpha_{i}Z_{t-i}^{2}} +\sum_{j=1}^s {\beta_{j}h_{t}} 
 \end{align*}
-donde los $u_{t}$ son i.i.d. $(0,1)$ con $\alpha_{0}>0$, $\alpha_{i}\ge 0$, 
-$\beta_{j}\ge 0$ para $i>0$ y
+donde los $u_{t}$ son i.i.d. $(0,1)$ con $\alpha_{0}>0$, $\alpha_{i}\geq 0$, $\beta_{j}\geq 0$ para $i>0$ y
 \[
 \sum_{i=1}^r \alpha_{i} +\sum_{i=1}^s \beta_{i} <1
 \]
-Como en el caso de los modelos ARCH, usualmente se supone que los $u_{t}$ 
-son normales o siguen una distribuci\'{o}n $t$-student.
+Como en el caso de los modelos ARCH, usualmente se supone que los $u_{t}$ son normales o siguen una distribuci\'{o}n $t$-student.
 \end{definicion}
 
-Las restricciones\index{ARCH!Restricciones} de no negatividad impuestas 
-sobre los coeficientes en la definici\'{o}n son para asegurarse que la 
-varianza no llegue a tomar un valor negativo. Adem\'{a}s, en algunos casos 
-se pueden encontrar condiciones menos restrictivas para estos coeficientes, 
-que aseguren que la varianza sea positiva. 
+Las restricciones\index{ARCH!Restricciones} de no negatividad impuestas sobre los coeficientes en la definici\'{o}n son para asegurarse que la varianza no llegue a tomar un valor negativo. Adem\'{a}s, en algunos casos se pueden encontrar condiciones menos restrictivas para estos coeficientes, que aseguren que la varianza sea positiva. 
 
 \begin{observacion}
- Se puede demostrar que un proceso $GARCH(rs)$ 
-implica que se puede representar $Z_{t}^{2}$como un proceso $ARMA(rs)$, con 
-residuos que no son gaussianos (m\'{a}s precisamente con residuos que 
-representan una diferencia martingala). Tambi\'{e}n, en este caso, el 
-coeficiente de apuntamiento (curtosis) es mayor que 3, por lo cual las colas 
-de la distribuci\'{o}n ser\'{a}n m\'{a}s pesadas que en la distribuci\'{o}n 
-normal.
+ Se puede demostrar que un proceso $GARCH(r, s)$ implica que se puede representar $Z_{t}^{2}$ como un proceso $ARMA(r, s)$, con residuos que no son gaussianos (m\'{a}s precisamente con residuos que representan una diferencia martingala). Tambi\'{e}n, en este caso, el coeficiente de apuntamiento (curtosis) es mayor que 3, por lo cual las colas de la distribuci\'{o}n ser\'{a}n m\'{a}s pesadas que en la distribuci\'{o}n normal.
 \end{observacion}
-
-
-
 
 \subsection*{Modelos IGARCH}
 
-Este modelo fue descrito originalmente por Engle y Bollerslev (1986). Si el 
-modelo polinomial AR del modelo GARCH tiene una ra\'{i}z unitaria, se tiene 
-un modelo IGARCH. Los modelos IGARCH\index{IGARCH!Definici\'{o}n} son 
-modelos GARCH con una ra\'{i}z unitaria. Estos modelos tienen la 
-caracter\'{i}stica que los impactos de los choques al cuadrado sobre 
-$Z_{t}^{2}$ son persistentes; esto se puede expresare por:
+Este modelo fue descrito originalmente por Engle y Bollerslev (1986). Si el modelo polinomial AR del modelo GARCH tiene una ra\'{i}z unitaria, se tiene un modelo IGARCH. Los modelos IGARCH\index{IGARCH!Definici\'{o}n} son modelos GARCH con una ra\'{i}z unitaria. Estos modelos tienen la caracter\'{i}stica que los impactos de los choques al cuadrado sobre $Z_{t}^{2}$ son persistentes; esto se puede expresare por:
 \[
 \eta_{t-i}=Z_{t-i}^{2}-h_{t-i},\qquad\text{para }i>0
 \]
@@ -115,84 +62,53 @@ $Z_{t}^{2}$ son persistentes; esto se puede expresare por:
  Un modelo $IGARCH(r,s)$, se define por:
 \begin{align*}
 Z_{t}&=\sqrt h_{t} u_{t} \\ 
-h_{t}&=\alpha_{0}+\sum_{i=1}^r {\alpha_{i}Z_{t-i}^{2}} 
-+\sum_{j=1}^s {{(1-\beta }_{j})h_{t-j}}
+h_{t}&=\alpha_{0}+\sum_{i=1}^r {\alpha_{i}Z_{t-i}^{2}} +\sum_{j=1}^s {{(1-\beta }_{j})h_{t-j}}
 \end{align*}
 tal que,
 \[
 \sum_{j=1}^s \beta_{j} +\sum_{i=1}^r \alpha_{i} =1
 \]
-Como en el caso de los modelos ARCH, usualmente se supone que los $u_{t}$ 
-son normales o siguen una distribuci\'{o}n $t$-student.
+
+Como en el caso de los modelos ARCH, usualmente se supone que los $u_{t}$ son normales o siguen una distribuci\'{o}n $t$-student.
 \end{definicion}
 
-Los modelos IGARCH son un caso espec\'{i}fico dentro de la familia de los 
-``modelos con varianza persistente'' en los que la informaci\'{o}n actual (en 
-el instante ``$t$'') es importante para realizar predicciones \'{o}ptimas con 
-cualquier horizonte temporal.
-
+Los modelos IGARCH son un caso espec\'{i}fico dentro de la familia de los ``modelos con varianza persistente'' en los que la informaci\'{o}n actual (en el instante ``t'') es importante para realizar predicciones \'{o}ptimas con cualquier horizonte temporal.
 
 \section{Modelos GARCH asim\'etricos}
 
-Una caracter\'{i}stica de los modelos GARCH, dado que la varianza depende 
-fundamentalmente de valores cuadr\'{a}ticos pasados, es que la volatilidad 
-que generan frente a cambios positivos o negativos inesperados de la 
-variable (pi\'{e}nsese en retornos de inversiones), dan una respuesta 
-sim\'{e}trica a estos. Sin embargo, se ha probado emp\'{i}ricamente que la 
-reacci\'{o}n que tiene la volatilidad o varianza condicional de muchas 
-variables financieras a este tipo de cambios es asim\'{e}trica; es decir, 
-existe diferencia en la respuesta de la volatilidad de la variable, 
-dependiendo de si el cambio es positivo o negativo. 
+Una caracter\'{i}stica de los modelos GARCH, dado que la varianza depende fundamentalmente de valores cuadr\'{a}ticos pasados, es que la volatilidad que generan frente a cambios positivos o negativos inesperados de la variable (pi\'{e}nsese en retornos de inversiones), dan una respuesta sim\'{e}trica a estos. Sin embargo, se ha probado emp\'{i}ricamente que la reacci\'{o}n que tiene la volatilidad o varianza condicional de muchas variables financieras a este tipo de cambios es asim\'{e}trica; es decir, existe diferencia en la respuesta de la volatilidad de la variable, dependiendo de si el cambio es positivo o negativo.\newline
 
-Con el fin de modelar esta respuesta asim\'{e}trica se han desarrollado una 
-variedad de modelos asim\'{e}tricos; los m\'{a}s representativos son los 
-modelos EGARCH, TARCH, PARCH. 
+Con el fin de modelar esta respuesta asim\'{e}trica se han desarrollado una variedad de modelos asim\'{e}tricos; los m\'{a}s representativos son los modelos EGARCH, TARCH, PARCH. 
 
 \subsection*{Modelos EGARCH}
 
-Las restricciones de no negatividad para asegurar la positividad de la 
-varianza en los modelos GARCH en muchas ocasiones son dif\'{i}ciles de 
-lograr. Nelson (1991) propuso los modelos EGARCH (\textit{Exponential GARCH)}, como soluci\'{o}n a este problema; \'{e}stos, adem\'{a}s, incorporan efectos asim\'{e}tricos.
+Las restricciones de no negatividad para asegurar la positividad de la varianza en los modelos GARCH en muchas ocasiones son dif\'{i}ciles de lograr. Nelson (1991) propuso los modelos EGARCH (\textit{Exponential GARCH)}, como soluci\'{o}n a este problema; \'{e}stos, adem\'{a}s, incorporan efectos asim\'{e}tricos.
 
 \begin{definicion}
-  Un modelo $EGARCH(r,s)$, se 
-define\index{EGARCH!Definici\'{o}n} por:
+Un modelo $EGARCH(r,s)$, se define\index{EGARCH!Definici\'{o}n} por:
 \begin{align*}
  Z_{t}&=\sqrt h_{t} u_{t} \\ 
- \ln \left( h_{t} \right)&=\alpha_{0}+\sum_{j=1}^s {\beta_{j}\ln 
-\left( h_{t-j} \right)} +\sum_{i=1}^r \left( \alpha_{i}\left| u_{t} 
-\right|+\gamma_{i}u_{t} \right)
+ \ln \left( h_{t} \right)&=\alpha_{0}+\sum_{j=1}^s {\beta_{j}\ln \left( h_{t-j} \right)} +\sum_{i=1}^r \left( \alpha_{i}\left| u_{t} \right|+\gamma_{i}u_{t} \right)
 \end{align*}
 \end{definicion}
 
-N\'{o}tese que el lado izquierdo de la ecuaci\'{o}n es el logaritmo de la 
-varianza condicional; esto implica que su efecto es exponencial y garantiza 
-que las predicciones de \'{e}sta ser\'{a}n no negativas. Cuando $\gamma 
-_{i}\ne 0$, el efecto asim\'{e}trico deber incorporarse al Modelo GARCH. 
+N\'{o}tese que el lado izquierdo de la ecuaci\'{o}n es el logaritmo de la varianza condicional; esto implica que su efecto es exponencial y garantiza que las predicciones de \'{e}sta ser\'{a}n no negativas. Cuando $\gamma_{i}\neq 0$, el efecto asim\'{e}trico deber incorporarse al Modelo GARCH.\newline
 
-Obs\'{e}rvese tambi\'{e}n que se puede escribir $\frac{Z_{t}}{\sqrt h_{t} }$ 
-en lugar de $u_{t}$, en las f\'{o}rmulas anteriores.
+Obs\'{e}rvese tambi\'{e}n que se puede escribir $\frac{Z_{t}}{\sqrt h_{t} }$ en lugar de $u_{t}$, en las f\'{o}rmulas anteriores.\newline
 
-Como en el caso de los modelos ARCH, usualmente se supone que los $u_{t}$ 
-son normales o siguen una distribuci\'{o}n $t$-student.
-
+Como en el caso de los modelos ARCH, usualmente se supone que los $u_{t}$ son normales o siguen una distribuci\'{o}n $t$-student.
 
 \subsection*{Modelos TARCH}
 
-Los modelos\index{TARCH!Definici\'{o}n} TARCH (\textit{Threshold} \textit{ARCH)} fueron introducidos independientemente por Zakoian (1990) y Glosten, Jaganathan y Runklen 
-(1993), por lo que tambi\'{e}n se conocen como GJR--GARCH. Estos modelos 
-incluyen una variable adicional $d_{t}$, que determina el car\'{a}cter 
-asim\'{e}trico del modelo.
+Los modelos\index{TARCH!Definici\'{o}n} TARCH (\textit{Threshold} \textit{ARCH)} fueron introducidos independientemente por Zakoian (1990) y Glosten, Jaganathan y Runklen (1993), por lo que tambi\'{e}n se conocen como GJR--GARCH. Estos modelos incluyen una variable adicional $d_{t}$, que determina el car\'{a}cter asim\'{e}trico del modelo.
 
 \begin{definicion}
 Un modelo $TARCH(r,s)$, se define por:
 \begin{align*}
   Z_{t}&=\sqrt h_{t} u_{t} \\ 
- h_{t}&=\alpha_{0}+\sum_{i=1}^r {\alpha_{i}Z_{t-i}^{2}} +\gamma 
-Z_{t-1}^{2}d_{t-1}+\sum_{j=1}^s {\beta_{j}h_{t-j}}
+ h_{t}&=\alpha_{0}+\sum_{i=1}^r {\alpha_{i}Z_{t-i}^{2}} +\gamma Z_{t-1}^{2}d_{t-1}+\sum_{j=1}^s {\beta_{j}h_{t-j}}
 \end{align*}
-donde los $u_{t}$ son i.i.d. $(0,1)$ con $\alpha_{0}>0$, $\alpha_{i}\ge 0$, 
-$\beta_{j}\ge 0$ para $i,j>0$ y $\gamma \ne 0$
+donde los $u_{t}$ son i.i.d. $(0,1)$ con $\alpha_{0}>0$, $\alpha_{i}\geq 0$, $\beta_{j}\geq 0$ para $i,j>0$ y $\gamma \neq 0$
 \[
 d_{t}=\begin{cases}
        1,& \text{si }Z_{t}<0 \\ 
@@ -202,231 +118,130 @@ d_{t}=\begin{cases}
 Si $\gamma =0$ se pierde el efecto asim\'{e}trico del modelo.
 \end{definicion}
 
-
-En este modelo, las malas noticias $(Z_{t}<0)$ y las buenas noticias 
-$(Z_{t}\ge 0)$ (pi\'{e}nsese otra vez en retornos), tienen efectos 
-diferentes sobre la varianza condicional.
+En este modelo, las malas noticias $(Z_{t}<0)$ y las buenas noticias $(Z_{t}\geq 0)$ (pi\'{e}nsese otra vez en retornos), tienen efectos diferentes sobre la varianza condicional.
 
 \subsection*{Modelos PARCH}
 
-Los modelos\index{PARCH!Definici\'{o}n} PARCH (\textit{Power }ARCH) desarrollados 
-independientemente por Taylor (1986) y Schwert (1989), introducen la 
-desviaci\'{o}n est\'{a}ndar a los modelos ARCH; donde se modela la 
-desviaci\'{o}n est\'{a}ndar en lugar de la varianza. Este modelo fue 
-generalizado por Ding y otros (1993). 
+Los modelos\index{PARCH!Definici\'{o}n} PARCH (\textit{Power }ARCH) desarrollados independientemente por Taylor (1986) y Schwert (1989), introducen la desviaci\'{o}n est\'{a}ndar a los modelos ARCH; donde se modela la desviaci\'{o}n est\'{a}ndar en lugar de la varianza. Este modelo fue generalizado por Ding y otros (1993).\newline
 
-En el modelo PARCH, el par\'{a}metro de potencia $\delta $ de la 
-desviaci\'{o}n est\'{a}ndar puede ser estimado antes que impuesto y los 
-par\'{a}metros opcionales $\gamma $ se agregan para capturar la 
-asimetr\'{i}a dentro de los datos$.$ 
+En el modelo PARCH, el par\'{a}metro de potencia $\delta $ de la desviaci\'{o}n est\'{a}ndar puede ser estimado antes que impuesto y los par\'{a}metros opcionales $\gamma $ se agregan para capturar la asimetr\'{i}a dentro de los datos. 
 
 \begin{definicion}
 Un modelo $PARCH(r,s)$, se define por:
 \begin{align*}
  Z_{t}&=\sqrt h_{t} u_{t} \\ 
- h_{t}^{\delta }&=\alpha_{0}+\sum_{i=1}^r {\alpha_{i}(\left| u_{t-i} 
-\right|-} \gamma_{i}{u_{t-i})}^{\delta }+\sum_{j=1}^s {\beta 
-_{j}h_{t-j}^{\delta }}  
+ h_{t}^{\delta }&=\alpha_{0}+\sum_{i=1}^r {\alpha_{i}(\left| u_{t-i}\right|-} \gamma_{i}{u_{t-i})}^{\delta }+\sum_{j=1}^s {\beta_{j}h_{t-j}^{\delta }}
 \end{align*}
-donde $\delta >0$, es el par\'{a}metro del t\'{e}rmino de la potencia. 
-$\gamma_{i}$ se dicen los par\'{a}metros de apalancamiento. 
+donde $\delta >0$, es el par\'{a}metro del t\'{e}rmino de la potencia. $\gamma_{i}$ se dicen los par\'{a}metros de apalancamiento. 
 \end{definicion}
 
-En series de valores sim\'{e}tricos $\gamma_{i}=0$ para
-todo $i$. N\'{o}tese que si $\delta =1$ y $\gamma_{i}=$ para todo 
-$i$, el modelo PARCH es simplemente una especificaci\'{o}n GARH est\'{a}ndar. 
-Si los $\gamma_{i}=0$ se pierde el efecto asim\'{e}trico del modelo.
+En series de valores sim\'{e}tricos $\gamma_{i}=0$ para todo $i$. N\'{o}tese que si $\delta =1$ y $\gamma_{i}=0$ para todo $i$, el modelo PARCH es simplemente una especificaci\'{o}n GARH est\'{a}ndar. Si los $\gamma_{i}=0$ se pierde el efecto asim\'{e}trico del modelo.\newline
 
-Los modelos GARCH asim\'{e}tricos, se estiman por el m\'{e}todo de 
-m\'{a}xima verosimilitud condicional, por lo cual se requiere de ciertos 
-supuestos acerca del comportamiento de los errores. Por lo general, se 
-suponen i.i.d con distribuci\'{o}n normal o incluso con una distribuci\'{o}n 
-$t$-student.
-
-
+Los modelos GARCH asim\'{e}tricos, se estiman por el m\'{e}todo de m\'{a}xima verosimilitud condicional, por lo cual se requiere de ciertos supuestos acerca del comportamiento de los errores. Por lo general, se suponen i.i.d con distribuci\'{o}n normal o incluso con una distribuci\'{o}n $t$-student.
 
 \section{Metodolog\'ia de la Modelici\'on}
 
-El objetivo es encontrar un modelo que represente adecuadamente a los datos 
-hist\'{o}ricos de una determinada variable, combinando especificaciones 
-tanto para la media como para la varianza condicional. Los tipos de modelos 
-que se considerar\'{a}n ser\'{a}n los ARIMA -- GARCH, de tal manera que la 
-media condicional de la serie sea descrita por un modelo del tipo ARIMA y su 
-varianza condicional por uno de la familia de modelos ARCH -- GARCH o de sus 
-extensiones asim\'{e}tricas PARCH, TARCH y EGARCH. La modelaci\'{o}n se 
-realizar\'{a} utilizando el paquete EViews. 
+El objetivo es encontrar un modelo que represente adecuadamente a los datos hist\'{o}ricos de una determinada variable, combinando especificaciones tanto para la media como para la varianza condicional. Los tipos de modelos que se considerar\'{a}n ser\'{a}n los ARIMA -- GARCH, de tal manera que la media condicional de la serie sea descrita por un modelo del tipo ARIMA y su varianza condicional por uno de la familia de modelos ARCH -- GARCH o de sus extensiones asim\'{e}tricas PARCH, TARCH y EGARCH. La modelaci\'{o}n se realizar\'{a} utilizando el paquete EViews.\newline
 
-El primer paso es, por tanto, modelar la serie de datos por un modelo del 
-tipo ARIMA o incluso SARIMA, con lo que se obtiene un modelo para la media 
-condicional de la serie. 
+El primer paso es, por tanto, modelar la serie de datos por un modelo del tipo ARIMA o incluso SARIMA, con lo que se obtiene un modelo para la media condicional de la serie.\newline
 
-Luego de haberse eliminado toda correlaci\'{o}n lineal en la serie, se debe 
-indagar si existe heteroscedasticidad condicional residual, para lo cual 
-deben analizarse los residuos estandarizados estimados al cuadrado; el 
-correleograma correspondiente, permite llevar a cabo un an\'{a}lisis 
-gr\'{a}fico de identificaci\'{o}n, para ver si alg\'{u}n valor es 
-estad\'{\i}sticamente diferente de cero, y por tanto, existe 
-autocorrelaci\'{o}n en su forma residual cuadr\'{a}tica.
+Luego de haberse eliminado toda correlaci\'{o}n lineal en la serie, se debe indagar si existe heteroscedasticidad condicional residual, para lo cual deben analizarse los residuos estandarizados estimados al cuadrado; el correleograma correspondiente, permite llevar a cabo un an\'{a}lisis gr\'{a}fico de identificaci\'{o}n, para ver si alg\'{u}n valor es estad\'{i}sticamente diferente de cero, y por tanto, existe autocorrelaci\'{o}n en su forma residual cuadr\'{a}tica.\newline
 
-Si se verifica la existencia de heteroscedasticadad condicional en los 
-residuos, se rechaza el supuesto de la varianza constante; se intentar\'{a} 
-entonces obtener una especificaci\'{o}n para la varianza condicional, a 
-trav\'{e}s de la modelaci\'{o}n de los residuos estimados obtenidos por el 
-modelo ARIMA, mediante un modelo del tipo ARCH -- GARCH o sus extensiones 
-asim\'{e}tricas. 
+Si se verifica la existencia de heteroscedasticadad condicional en los residuos, se rechaza el supuesto de la varianza constante; se intentar\'{a} entonces obtener una especificaci\'{o}n para la varianza condicional, a trav\'{e}s de la modelaci\'{o}n de los residuos estimados obtenidos por el modelo ARIMA, mediante un modelo del tipo ARCH -- GARCH o sus extensiones asim\'{e}tricas.\newline
 
-Inicialmente se mantiene la estructura para la media condicional, obtenida 
-por el modelo ARIMA, pero esta puede modificarse con la nueva 
-especificaci\'{o}n. Los residuos estimados deben analizarse, tanto en su 
-forma simple como en la cuadr\'{a}tica, para eliminar toda evidencia de 
-autocorrelaci\'{o}n lineal (deben aceptarse como un ruido blanco).
+Inicialmente se mantiene la estructura para la media condicional, obtenida por el modelo ARIMA, pero esta puede modificarse con la nueva especificaci\'{o}n. Los residuos estimados deben analizarse, tanto en su forma simple como en la cuadr\'{a}tica, para eliminar toda evidencia de autocorrelaci\'{o}n lineal (deben aceptarse como un ruido blanco).\newline
 
-La estimaci\'{o}n y verificaci\'{o}n permiten encontrar uno o varios modelos 
-que cumplan las condiciones que se impusieron en la modelaci\'{o}n ARIMA; es 
-decir, todos los coeficientes deben ser significativos; las ra\'{\i}ces de 
-los polinomios caracter\'{\i}sticos, tanto de la parte auto-regresiva como 
-de la media m\'{o}vil, deben estar fuera del c\'{\i}rculo unidad, para 
-as\'{\i} asegurar la estacionariedad e invertibilidad del proceso. 
-Adem\'{a}s, los coeficientes de la ecuaci\'{o}n de la varianza condicional 
-deben satisfacer las restricciones de no negatividad para la varianza 
-(modelos ARCH -- GARCH). 
+La estimaci\'{o}n y verificaci\'{o}n permiten encontrar uno o varios modelos que cumplan las condiciones que se impusieron en la modelaci\'{o}n ARIMA; es decir, todos los coeficientes deben ser significativos; las ra\'{i}ces de los polinomios caracter\'{i}sticos, tanto de la parte auto-regresiva como de la media m\'{o}vil, deben estar fuera del c\'{i}rculo unidad, para as\'{i} asegurar la estacionariedad e invertibilidad del proceso. Adem\'{a}s, los coeficientes de la ecuaci\'{o}n de la varianza condicional deben satisfacer las restricciones de no negatividad para la varianza (modelos ARCH -- GARCH).\newline
 
-Para la verificaci\'{o}n de la presencia de una estructura ARIMA en los 
-residuos (simples o cuadr\'{a}ticos) pueden utilizarse la FAC y la FACP; 
-adem\'{a}s, tambi\'{e}n se debe realizar la prueba global (estad\'{\i}stico 
-$Q$) de Box -- Pierce -- Ljung.
+Para la verificaci\'{o}n de la presencia de una estructura ARIMA en los residuos (simples o cuadr\'{a}ticos) pueden utilizarse la FAC y la FACP; adem\'{a}s, tambi\'{e}n se debe realizar la prueba global (estad\'{i}stico $Q$) de Box -- Pierce -- Ljung.\newline
 
-Una vez que un modelo ha sido estimado y ha superado las diversas 
-verificaciones, se convierte en un instrumento \'{u}til para las 
-predicciones de valores futuros. Como en la modelaci\'{o}n ARIMA, si varios 
-modelos son plausibles, se elige entre estos al mejor, mediante los 
-criterios ya citados previamente.
-
-
-
+Una vez que un modelo ha sido estimado y ha superado las diversas verificaciones, se convierte en un instrumento \'{u}til para las predicciones de valores futuros. Como en la modelaci\'{o}n ARIMA, si varios modelos son plausibles, se elige entre estos al mejor, mediante los criterios ya citados previamente.
 
 \section{Ejemplos con Heteroscedasticidad Condicional}
 
-Aunque los datos de las ventas que se vienen utilizando no corresponden al 
-\'{a}mbito financiero, sirven muy bien para ilustrar la modelaci\'{o}n para 
-la varianza condicional. En esta ocasi\'{o}n se adoptar\'{a} el Modelo 3 con 
-el cual se model\'{o} la media condicional (SARIMA). La Figura 4.2 no 
-permite aceptar la hip\'{o}tesis de que la serie tenga una varianza 
-constante.
+Aunque los datos de las ventas que se vienen utilizando no corresponden al \'{a}mbito financiero, sirven muy bien para ilustrar la modelaci\'{o}n para la varianza condicional. En esta ocasi\'{o}n se adoptar\'{a} el Modelo 3 con el cual se model\'{o} la media condicional (SARIMA). La Figura 4.2 no permite aceptar la hip\'{o}tesis de que la serie tenga una varianza constante.\newline
 
-Una posibilidad para amortiguar los efectos de varianza no constante es 
-utilizar la transformaci\'{o}n logaritmo o, en general, la 
-transformaci\'{o}n de Box y Cox; sin embargo, en esta ocasi\'{o}n se 
-tratar\'{a} de modelar directamente la varianza a trav\'{e}s de los Modelos 
-ARCH-GARCH o sus extensiones asim\'{e}tricas. 
+Una posibilidad para amortiguar los efectos de varianza no constante es utilizar la transformaci\'{o}n logaritmo o, en general, la transformaci\'{o}n de Box y Cox; sin embargo, en esta ocasi\'{o}n se tratar\'{a} de modelar directamente la varianza a trav\'{e}s de los Modelos ARCH-GARCH o sus extensiones asim\'{e}tricas.\newline
 
-En la Tabla 4.1 y en las figuras 4.1 y 4.2 se presentan la informaci\'{o}n 
-estad\'{\i}stica y residual para el Modelo 3 de la SVM:
+En la Tabla 4.1 y en las figuras 4.1 y 4.2 se presentan la informaci\'{o}n estad\'{i}stica y residual para el Modelo 3 de la SVM:
 
 \begin{table}[H]
-\centering\small
-\caption{Informaci\'{o}n sobre los coeficientes del Modelo 3 para la SVM}
-\begin{tabular}{@{}ccccc@{}}
-\toprule
-Variable& Coefficient& Std. Error& $t$-Statistic& Prob. \\
-\midrule
+\centering
+\begin{tabular}{ccccc}\hline\hline
+Variable & Coefficient & Std. Error & $t$-Statistic & Prob. \\ \hline\hline
 $C$& 156.1661& 34.82541& 4.484257& 0.0000 \\
 $AR(1)$& 0.325909& 0.107494& 3.031876& 0.0033 \\
 $AR(12)$& -0.335945& 0.114892& -2.924008& 0.0045 \\
-$MA(13)$& 0.480540& 0.111556& 4.307611& 0.0000 \\
-\bottomrule
+$MA(13)$& 0.480540& 0.111556& 4.307611& 0.0000 \\ \hline\hline
 \end{tabular}
+\caption{Informaci\'{o}n sobre los coeficientes del Modelo 3 para la SVM}
 \end{table}
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap4STcap41.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap4-5/STcap41.eps}
 \caption{FAC y FACP estimadas residuales del Modelo 3 para la SVM}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap4STcap42.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap4-5/STcap42.eps}
 \caption{FAC y FACP estimadas de los residuos cuadr\'{a}ticos del Modelo 
 3 para la SVM}
 \end{figure}
 
+Se observan fuertes correlaciones entre los residuos cuadr\'{a}ticos estandarizados estimados, por lo cual se hace necesaria la modelaci\'{o}n de la varianza condicional del Modelo 3.\newline
 
-Se observan fuertes correlaciones entre los residuos cuadr\'{a}ticos 
-estandarizados estimados, por lo cual se hace necesaria la modelaci\'{o}n de 
-la varianza condicional del Modelo 3.
-
-En general, es dif\'{\i}cil establecer el orden para los modelos ARCH-GARCH. 
-Lo usual es probar los modelos con par\'{a}metros (1,0), (1,1), (1,2) o 
-(2,2). Para este caso se empez\'{o} probando con el modelo $ARCH(1)$; los 
-resultados aparecen en la Tabla 4.2 y el las Figuras 4.3 y 4.4. 
-
+En general, es dif\'{i}cil establecer el orden para los modelos ARCH-GARCH. Lo usual es probar los modelos con par\'{a}metros (1,0), (1,1), (1,2) o (2,2). Para este caso se empez\'{o} probando con el modelo $ARCH(1)$; los resultados aparecen en la Tabla 4.2 y el las Figuras 4.3 y 4.4. 
 
 \begin{table}[H]
-\centering\small
-\caption{nformaci\'{o}n estad\'{\i}stica para el Modelo 3-ARCH(1) para la 
-SVM}
-\begin{tabular}{@{}ccccc@{}}
-\toprule
-Variable& Coefficient& Std. Error& $z$-Statistic& Prob. \\
-\midrule
+\centering
+\begin{tabular}{ccccc}\hline\hline
+Variable & Coefficient & Std. Error & $z$-Statistic & Prob. \\ \hline\hline
 $C$& 115.3958& 36.57140& 3.155355& 0.0016 \\
 $AR(1)$& 0.483776& 0.103019& 4.695993& 0.0000 \\
 $AR(12)$& -0.449722& 0.078830& -5.704935& 0.0000 \\
-$MA(13)$& 0.798959& 0.041313& 19.33915& 0.0000 \\
-\midrule
-\multicolumn{5}{c}{Variance Equation}\\
-\midrule
+$MA(13)$& 0.798959& 0.041313& 19.33915& 0.0000 \\ \hline\hline
+\multicolumn{5}{c}{Variance Equation}\\ \hline\hline
 $C$& 16129.50& 3530.889& 4.568113& 0.0000 \\
-$RESID(-1)^2$& 0.610436& 0.249248& 2.449115& 0.0143 \\
-\bottomrule
+$RESID(-1)^2$& 0.610436& 0.249248& 2.449115& 0.0143 \\ \hline\hline
 \end{tabular}
+\end{table}
 
-\begin{tabular}{@{}cccc@{}}
-\toprule
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}\hline\hline
 R-squared& 0.335639& Mean dependent var & 157.1548 \\
 Adjusted R-squared& 0.310726& S.D. dependent var& 258.2531 \\
 S.E. of regression& 214.4082& Akaike info criterion & 13.23093 \\
 Sum squared resid& 3677671.& Schwarz criterion & 13.40456 \\
 Log likelihood& -549.6992& Hannan-Quinn criter. & 13.30073 \\
-Durbin-Watson stat& 2.201103& \\
-\bottomrule
+Durbin-Watson stat& 2.201103& \\ \hline\hline
 \end{tabular}
 
-\begin{tabular}{@{}ccccc@{}}
-\toprule
+\begin{tabular}{ccccc} \hline\hline
 Inverted AR Roots& $.96-.24i$& $.96+.24i$& $.71+.65i$& $.71-.65i$ \\
 & $.28-.89i$& $.28+.89i$& $-.21+.90i$& $-.21-.90i$ \\
 & $-.63-.66i$& $-.63+.66i$& $-.87+.24i$& $-.87-.24i$ \\
 Inverted MA Roots& .95-.24i& .95$+$.24i& .74-.65i& .74$+$.65i \\
 & $.35+.92i$& $.35-.92i$& $-.12-.98i$& $-.12+.98i$ \\
 & $-.56-.81i$& $-.56+.81i$& $-.87+.46i$& $-.87-.46i$ \\
-& $.98$ & &  \\
-\bottomrule
+& $.98$ & &  \\ \hline\hline
 \end{tabular}
+\caption{Informaci\'{o}n estad\'{i}stica para el Modelo 3-ARCH(1) para la SVM}
 \end{table}
-
 
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap4STcap43.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap4-5/STcap43.eps}
 \caption{FAC y FACP estimadas residuales del Modelo 3-ARCH(1) para la SVM}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap4STcap44.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap4-5/STcap44.eps}
 \caption{FAC y FACP estimadas de los residuos cuadr\'{a}ticos del Modelo 3-ARCH(1) para la SVM}
 \end{figure}
 
-Las Figuras 4.3 y 4.4 evidencian que existen problemas ya no solo en los 
-residuos cuadr\'{a}ticos, sino tambi\'{e}n en los residuos simples. En la 
-figura 4.4, la FACP en el orden 13 es significativo (y cercano a la 
-estacionalidad 12); por lo cual, se decidi\'{o} incluir un t\'{e}rmino 
-AR(13) en el Modelo 3; esto tampoco solucion\'{o} totalmente la falta de 
-independencia de los residuos cuadr\'{a}ticos. Luego, de algunas pruebas se 
-encontr\'{o} como modelo final aquel que contiene t\'{e}rminos c, SAR(12), 
-MA(12) y AR(13) para la media (se lo llamar\'{a} Modelo 4) y ARCH(1) para la 
-varianza. Los resultados se muestran en la Tabla 4.3 y en las Figuras 4.5 y 
-4.6. 
+Las Figuras 4.3 y 4.4 evidencian que existen problemas ya no solo en los residuos cuadr\'{a}ticos, sino tambi\'{e}n en los residuos simples. En la figura 4.4, la FACP en el orden 13 es significativo (y cercano a la estacionalidad 12); por lo cual, se decidi\'{o} incluir un t\'{e}rmino AR(13) en el Modelo 3; esto tampoco solucion\'{o} totalmente la falta de independencia de los residuos cuadr\'{a}ticos. Luego, de algunas pruebas se encontr\'{o} como modelo final aquel que contiene t\'{e}rminos c, SAR(12), MA(12) y AR(13) para la media (se lo llamar\'{a} Modelo 4) y ARCH(1) para la varianza. Los resultados se muestran en la Tabla 4.3 y en las Figuras 4.5 y 4.6. 
