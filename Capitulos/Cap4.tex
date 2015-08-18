@@ -244,4 +244,896 @@ Inverted MA Roots& .95-.24i& .95$+$.24i& .74-.65i& .74$+$.65i \\
 \caption{FAC y FACP estimadas de los residuos cuadr\'{a}ticos del Modelo 3-ARCH(1) para la SVM}
 \end{figure}
 
-Las Figuras 4.3 y 4.4 evidencian que existen problemas ya no solo en los residuos cuadr\'{a}ticos, sino tambi\'{e}n en los residuos simples. En la figura 4.4, la FACP en el orden 13 es significativo (y cercano a la estacionalidad 12); por lo cual, se decidi\'{o} incluir un t\'{e}rmino AR(13) en el Modelo 3; esto tampoco solucion\'{o} totalmente la falta de independencia de los residuos cuadr\'{a}ticos. Luego, de algunas pruebas se encontr\'{o} como modelo final aquel que contiene t\'{e}rminos c, SAR(12), MA(12) y AR(13) para la media (se lo llamar\'{a} Modelo 4) y ARCH(1) para la varianza. Los resultados se muestran en la Tabla 4.3 y en las Figuras 4.5 y 4.6. 
+Las Figuras 4.3 y 4.4 evidencian que existen problemas ya no solo en los residuos cuadr\'{a}ticos, sino tambi\'{e}n en los residuos simples. En la figura 4.4, la FACP en el orden 13 es significativo (y cercano a la estacionalidad 12); por lo cual, se decidi\'{o} incluir un t\'{e}rmino AR(13) en el Modelo 3; esto tampoco solucion\'{o} totalmente la falta de independencia de los residuos cuadr\'{a}ticos. Luego, de algunas pruebas se encontr\'{o} como modelo final aquel que contiene t\'{e}rminos c, SAR(12), MA(12) y AR(13) para la media (se lo llamar\'{a} Modelo 4) y ARCH(1) para la varianza. Los resultados se muestran en la Tabla 4.3 y en las Figuras 4.5 y 4.6.
+
+\begin{observacion}
+El Modelo adoptado para la serie es el siguiente: 
+\end{observacion}
+
+\[
+SVMDE\left( t \right)=9,27+0,32\ast SVMDE\left( t-13 \right)+0,41\ast 
+SVMDE\left( t-12P \right)+u\left( t \right)+0,71\ast u(t-12)
+\]
+\[
+Z_{t}=\sqrt h_{t} \varepsilon_{t}
+\]
+\[
+h_{t}^{2}=323,59+7,21\ast Z_{t-1}^{2}
+\]
+
+Donde los $\varepsilon_{t}$ son i.i.d(0,1).
+ 
+\begin{table}[H]
+\centering
+\begin{tabular}{ccccc}\hline\hline
+Variable & Coefficient & Std. Error & z-Statistic & Prob. \\
+C & 9.265438 & 3.978654 & 2.328787 & 0.0199 \\
+AR(13) & 0.319152 & 0.025925 & 12.31043 & 0.0000 \\
+SAR(12) & 0.407339 & 0.014784 & 27.55205 & 0.0000 \\
+MA(12) & -0.712141 & 0.006475 & -109.9861 & 0.0000 \\ \hline\hline
+\multicolumn{5}{c}{Variance Equation} \\ \hline\hline
+C & 323.5866 & 330.1205 & 0.980208 & 0.3270 \\
+RESID(-1)$\^$ 2& 7.215214 & 1.233581 & 5.848999 & 0.0000 \\ \hline\hline
+R-squared & 0.005121 & \multicolumn{2}{l}{Mean dependent var} & 153.2254 \\
+Adjusted R-squared & -0.039426 & \multicolumn{2}{l}{S.D. dependent var} & 260.5928 \\
+S.E. of regression & 265.6801 & \multicolumn{2}{l}{Akaike info criterion} & 12.91269 \\
+Sum squared resid & 4729258& \multicolumn{2}{l}{Schwarz criterion} & 13.10390 \\
+Log likelihood & -452.4003 & \multicolumn{2}{l}{Hannan-Quinn criter.} & 12.98872 \\
+Durbin-Watson stat & 1.033534 &  &  &  \\ \hline\hline
+\end{tabular}
+\caption{Informaci\'{o}n estad\'{i}stica para el Modelo 4-ARCH(1) para la SVM}
+% \label{tab3}
+\end{table}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.51in,height=4.30in]{Graficos/Cap4-5/STcap45.eps}
+\caption{FAC y FACP estimadas residuales del Modelo 4-ARCH(1) para la SVM}
+%\label{fig5}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.54in,height=4.31in]{Graficos/Cap4-5/STcap46.eps}
+\caption{FAC y FACP estimadas de los residuos cuadr\'{a}ticos} del Modelo 4-ARCH(1) para la SVM
+%\label{fig6}
+\end{figure}
+
+\begin{observacion}
+En la Tabla 4.3, se puede observar que el coeficiente correspondiente a la constante del ARCH no es significativo; sin embargo, se lo debe conservar (siempre) para asegurar la positividad de la varianza.
+\end{observacion}
+
+
+A continuaci\'{o}n se presenta el ajuste de la varianza de la SVM con este Modelo (Figura 4.7), la cual era dif\'{i}cil de percibir en el gr\'{a}fico original debido a la presencia de una fuerte estacionalidad. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.32in,height=3.68in]{Graficos/Cap4-5/STcap47.eps}
+\caption{Evoluci\'{o}n de la varianza de la SVM seg\'{u}n el Modelo 4-ARCH(1)}
+%\label{fig7}
+\end{figure}
+
+\begin{observacion}
+En el anexo C se presenta una serie de datos de temperaturas que se deben modelar por un modelo m\'{a}s general que el presentado aqu\'{i}; esto es, un modelo ARIMA(1,1,1)-GARCH(2,1).
+\end{observacion}
+
+\textbf{Modelos con una extensi\'{o}n ARCH asim\'{e}trica}\newline
+
+Considerando el ejemplo anterior, se plantea buscar un modelo que considere alguna de las extensiones asim\'{e}tricas de los modelos ARCH. As\'{i}, se probaron varios modelos utilizando las representaciones EGARCH y TGARCH; sin embargo, no se encontraron buenos resultados. 
+
+\begin{ejemplo}
+(Aplicaci\'{o}n a una serie financiera): Para el siguiente ejemplo se consideran los precios diarios de cierre del \'{i}ndice Standar and Poor's 500 (S{\&}P 500), que es uno de los \'{i}ndices burs\'{a}tiles m\'{a}s importante de los Estados Unidos. El per\'{i}odo de an\'{a}lisis est\'{a} comprendido entre el 2 de marzo de 2009 y el 31 de diciembre de 2014, obteni\'{e}ndose un total de 1.471 datos (http://finance.yahoo.com/q/hp?s$=${\%}5EGSPC$+$Historical$+$Prices).
+\end{ejemplo}
+
+A continuaci\'{o}n se presenta el gr\'{a}fico de la serie a ser analizada:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.83in,height=3.96in]{Graficos/Cap4-5/STcap48.eps}
+\caption{Serie de los precios de cierre del \'{\i}ndice S{\&}P 500}
+%\label{fig8}
+\end{figure}
+
+Evidentemente la serie no es estacionaria, por lo que se deber\'{i}a realizar alg\'{u}n procedimiento para volverla estacionaria. En el caso de los \'{i}ndices burs\'{a}tiles es muy com\'{u}n el uso de los logaritmos de los retornos de los precios de las series para poder realizar el an\'{a}lisis de las mismas. En este caso se utiliza la siguiente f\'{o}rmula:
+
+\[
+r_{t}=\mathrm{ln?}\left( \frac{P_{t}}{P_{t-1}} \right)
+\]
+
+Los $P_{t}$ son los precios de cierre diarios; los valores $r_{t}$ posteriormente se transforman en porcentajes. Ahora, se tiene la siguiente forma de la serie de log retornos:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.73in,height=3.96in]{Graficos/Cap4-5/STcap49.eps}
+\caption{Serie de las rentabilidades de los precios de cierre del \'{i}ndice S{\&}P 500}
+%\label{fig9}
+\end{figure}
+
+A partir de este punto se trabajar\'{a} con la serie de log retornos en lugar de los precios del \'{i}ndice. Se realiza una prueba de Dickey -- Fuller para verificar la estacionariedad de la serie:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{110pt}p{70pt}ll}\hline\hline
+& & t-Statistic & ~~Prob.* \\ \hline \hline
+\multicolumn{2}{l}{Augmented Dickey-Fuller test statistic} & -41,62920 & ~0,0000 \\ \hline
+Test critical values: & 1$\%$ level & -3,964304 & \\
+& 5$\%$ level & -3,412872 & \\
+& 10$\%$ level & -3,128424 & \\ \hline \hline
+\end{tabular}
+\caption{Prueba de Dickey - Fuller para $r_t$}
+%\label{tab16}
+\end{table}
+
+Como se puede ver en la tabla anterior, la serie es estacionaria (Prob. menor que 0,05). Una vez verificada la estacionariedad de la serie, se procede a plantear un modelo ARIMA para eliminar la correlaci\'{o}n serial de los datos. Para ello se presentan los correlogramas de la serie en niveles:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.51in,height=5.23in]{Graficos/Cap4-5/STcap410.eps}
+\caption{FAC y FACP estimadas $r_{t}$}
+%\label{fig10}
+\end{figure}
+
+
+En este tipo de series se vuelve un tanto complicado poder fijar de antemano los valores de p y q. Para este ejemplo, se escogen los siguientes coeficientes: AR(1) y MA(1) (se denominar\'{a} Modelo 1). As\'{i}, se obtiene: 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccccc}\hline\hline
+Variable & Coefficient & Std. Error & t-Statistic & Prob.\\
+C & 0,000734 & 0,000274 & 2,680441 & 0,0074 \\
+AR(1) & -0,809534 & 0,066741 & -12,12955 & 0,0000 \\
+MA(1) & 0,748635 & 0,076324 & 9,808685 & 0,0000 \\ \hline\hline
+R-squared & 0,025091 & \multicolumn{2}{l}{Mean dependent var} & 0,000738 \\
+Adjusted R-squared & 0,023761 & \multicolumn{2}{l}{S.D. dependent var} & 0,010989 \\
+S.E. of regression & 0,010858 & \multicolumn{2}{l}{Akaike info criterion} & -6,205849 \\
+Sum squared resid & 0,172825 & \multicolumn{2}{l}{Schwarz criterion} & -6,195041 \\
+Log likelihood & 4561,196 & \multicolumn{2}{l}{Hannan-Quinn criter.} & -6,201819 \\
+F-statistic & 18,86514 & \multicolumn{2}{l}{Durbin-Watson stat} & 2,001260 \\
+Prob(F-statistic) & 0,000000 & & & \\ \hline\hline
+\end{tabular}
+\caption{Resumen de estad\'{i}sticas del Modelo 1 para $r_{t}$}
+% \label{tab5}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.51in,height=4.31in]{Graficos/Cap4-5/STcap411.eps}
+\caption{FAC y FACP estimadas del Modelo 1 para $r_{t}$}
+%\label{fig11}
+\end{figure}
+
+Como se puede observar en la tabla 4.5, los coeficientes son significativos. Sin embargo, al revisar los residuos (figura 4.11) se puede constatar que no son un ruido blanco; por lo tanto, hay que reformular el modelo. Observando las FAC y FACP, parecer\'{i}a adecuado agregar un retardo de orden 14 ya que en este punto los residuos se vuelven significativos.\newline
+
+Se agreg\'{o} un AR(14), pero result\'{o} no significativo. Luego, se ingres\'{o} un retardo MA(14) que result\'{o} ser no significativo tambi\'{e}n. Se agregaron los coeficientes AR(2) y MA(2) que resultaron ser significativos, pero los residuos no eran un ruido blanco.\newline
+
+Finalmente, luego de realizar varios intentos con diferentes coeficientes, se obtuvo un modelo en el que todos ellos fueron significativos (se denominar\'{a} Modelo 2):
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccccc}
+Variable & Coefficient & Std. Error & t-Statistic & Prob.\\ \hline\hline
+C & 0,000757 & 0,000231 & 3,280979 & 0,0011 \\
+AR(1) & -0,070311 & 0,025963 & -2,708108 & 0,0068 \\
+AR(3) & -0,073718 & 0,025820 & -2,855059 & 0,0044 \\
+AR(5) & -0,082387 & 0,025782 & -3,195503 & 0,0014 \\ \hline\hline
+R-squared & 0,018832 & \multicolumn{2}{l}{Mean dependent var} & 0,000760 \\
+Adjusted R-squared & 0,016818 & \multicolumn{2}{l}{S.D. dependent var} & 0,010923 \\
+S.E. of regression & 0,010831 & \multicolumn{2}{l}{Akaike info criterion} & -6,210057 \\
+Sum squared resid & 0,171395 & \multicolumn{2}{|p{120pt}|}{Schwarz criterion} & -6,195614 \\
+Log likelihood & 4552,866 & \multicolumn{2}{l}{Hannan-Quinn criter.} & -6,204670 \\
+F-statistic & 9,347342 & \multicolumn{2}{l}{Durbin-Watson stat} & 1,968465 \\
+Prob(F-statistic) & 0,000004 & & &  \\ \hline\hline
+\end{tabular}
+\caption{Resumen de estad\'{i}sticas del Modelo 2 para $r_{t}$}
+% \label{tab6}
+\end{table}
+
+Se puede observar que todos los coeficientes son significativos. Se procede ahora a realizar el an\'{a}lisis de los residuos para validar el modelo. Se presenta el correlograma que contiene las autocorrelaciones simples y parciales del modelo:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.57in,height=6.20in]{Graficos/Cap4-5/STcap412.eps}
+\caption{FAC y FACP estimadas del Modelo 2 para $r_{t}$}
+%\label{fig12}
+\end{figure}
+
+Se puede observar un fen\'{o}meno que suele ocurrir cuando se modela este tipo de series: los residuos se comportan ``bien'' hasta un cierto punto y luego se vuelven significativos. En este caso, a partir del retardo 25 los residuos dejan de ser un ruido blanco; esto sugiere que se debe agregar un retardo de orden 25 al modelo.\newline
+
+Cabe recalcar que es inusual el uso de un coeficiente tan alto como el de orden 25; sin embargo, en este tipo de series suele suceder que se necesitan valores altos de los coeficientes y no es problema usar uno tan alto dada la gran cantidad de datos que se tiene, As\'{i} se obtiene lo siguiente (Modelo 3):
+
+% \begin{table}[H]
+% \begin{center}
+% \begin{tabular}{|p{100pt}|l|l|p{60pt}|l|}
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% Variable& 
+% Coefficient& 
+% Std, Error& 
+% t-Statistic& 
+% Prob,~~ \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% C& 
+% 0,000746& 
+% 0,000207& 
+% 3,599620& 
+% 0,0003 \\
+% \hline
+% AR(3)& 
+% -0,077899& 
+% 0,025863& 
+% -3,011928& 
+% 0,0026 \\
+% \hline
+% AR(5)& 
+% -0,080599& 
+% 0,025807& 
+% -3,123110& 
+% 0,0018 \\
+% \hline
+% AR(1)& 
+% -0,070427& 
+% 0,025972& 
+% -2,711692& 
+% 0,0068 \\
+% \hline
+% MA(25)& 
+% -0,097947& 
+% 0,026205& 
+% -3,737729& 
+% 0,0002 \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% R-squared& 
+% 0,027780& 
+% \multicolumn{2}{|p{120pt}|}{~~~~Mean dependent var} & 
+% 0,000760 \\
+% \hline
+% Adjusted R-squared& 
+% 0,025116& 
+% \multicolumn{2}{|p{120pt}|}{~~~~S,D, dependent var} & 
+% 0,010923 \\
+% \hline
+% S,E, of regression& 
+% 0,010785& 
+% \multicolumn{2}{|p{120pt}|}{~~~~Akaike info criterion} & 
+% -6,217853 \\
+% \hline
+% Sum squared resid& 
+% 0,169832& 
+% \multicolumn{2}{|p{120pt}|}{~~~~Schwarz criterion} & 
+% -6,199799 \\
+% \hline
+% Log likelihood& 
+% 4559,577& 
+% \multicolumn{2}{|p{120pt}|}{~~~~Hannan-Quinn criter,} & 
+% -6,211119 \\
+% \hline
+% F-statistic& 
+% 10,42938& 
+% \multicolumn{2}{|p{120pt}|}{~~~~Durbin-Watson stat} & 
+% 1,966958 \\
+% \hline
+% Prob(F-statistic)& 
+% 0,000000& 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% \end{tabular}
+% \label{tab7}
+% \end{center}
+% \end{table}
+% 
+% \begin{center}
+% Tabla 4.7: Resumen de estad\'{\i}sticas del Modelo 3 para $r_{t}$
+% \end{center}
+% 
+% \begin{figure}[H]
+% \includegraphics[width=4.54in,height=4.30in]{STcap413.eps}
+% \label{fig13}
+% \end{figure}
+% 
+% \begin{center}
+% Figura 4.13: FAC y FACP estimadas del Modelo 3 para $r_{t}$
+% \end{center}
+% 
+% Como se puede observar, el Modelo 3 result\'{o} ser adecuado para los datos, 
+% todos los coeficientes son significativos y los residuos pueden considerarse 
+% como un ruido blanco, Con este modelo se elimina la correlaci\'{o}n serial 
+% de los datos; ahora se analiza la posibilidad de que exista volatilidad en 
+% los datos, para ello se presentan los correlogramas de los residuos al 
+% cuadrado:
+% 
+% \begin{figure}[H]
+% \includegraphics[width=4.52in,height=4.31in]{STcap414.eps}
+% \label{fig14}
+% \end{figure}
+% 
+% \begin{center}
+% Figura 4.14: FAC y FACP de los residuos al cuadrado estimadas del Modelo 3 
+% para $r_{t}$
+% \end{center}
+% 
+% Los residuos cuadr\'{a}ticos del modelo indican que existe volatilidad, por 
+% lo que, es necesario plantear un modelo ARCH -- GARCH o sus extensiones 
+% sim\'{e}tricas o asim\'{e}tricas para poder modelar el efecto de 
+% volatilidad, Resulta complicado plantear el orden de los modelos ARCH -- 
+% GARCH; es recomendable probar los modelos con retardos 0, 1 o 2 y las 
+% posibles combinaciones entre ellos para los modelos sim\'{e}tricos (ARCH, 
+% GARCH y TARCH),
+% 
+% Se ensayaron todos los posibles modelos sim\'{e}tricos, pero ninguno dio 
+% buenos resultados; por lo que se inici\'{o} la b\'{u}squeda de un modelo 
+% asim\'{e}trico, Se plantea un EGARCH (1,0) con 1 grado de asimetr\'{\i}a a 
+% partir del Modelo 3, Se obtiene lo siguiente:
+% 
+% \begin{table}[H]
+% \begin{center}
+% \begin{tabular}{|p{100pt}|l|p{60pt}|l|l|}
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% Variable& 
+% Coefficient& 
+% Std, Error& 
+% z-Statistic& 
+% Prob,~~ \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% C& 
+% 0,000757& 
+% 0,000210& 
+% 3,610536& 
+% 0,0003 \\
+% \hline
+% AR(3)& 
+% -0,079949& 
+% 0,016916& 
+% -4,726127& 
+% 0,0000 \\
+% \hline
+% AR(5)& 
+% -0,076020& 
+% 0,016552& 
+% -4,592778& 
+% 0,0000 \\
+% \hline
+% AR(1)& 
+% -0,086650& 
+% 0,023149& 
+% -3,743161& 
+% 0,0002 \\
+% \hline
+% MA(25)& 
+% -0,099414& 
+% 0,022763& 
+% -4,367456& 
+% 0,0000 \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% \multicolumn{2}{|p{115pt}|}{Variance Equation} & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% C(6)& 
+% -9,221394& 
+% 0,032689& 
+% -282,0918& 
+% 0,0000 \\
+% \hline
+% C(7)& 
+% 0,182044& 
+% 0,039466& 
+% 4,612698& 
+% 0,0000 \\
+% \hline
+% C(8)& 
+% -0,163505& 
+% 0,029388& 
+% -5,563628& 
+% 0,0000 \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% \end{tabular}
+% \label{tab8}
+% \end{center}
+% \end{table}
+% 
+% \begin{center}
+% Tabla 4.8: Resumen de estad\'{\i}sticas del Modelo 3-EGARCH(1,0) para 
+% $r_{t}$
+% \end{center}
+% 
+% \begin{figure}[H]
+% \includegraphics[width=4.51in,height=4.30in]{STcap415.eps}
+% \label{fig15}
+% \end{figure}
+% 
+% \begin{center}
+% Figura 4.15: FAC y FACP de los residuos al cuadrado estimadas del Modelo 
+% 3-EGARCH(1,0) para $r_{t}$
+% \end{center}
+% 
+% Como se puede ver en la tabla 4.8, todos los coeficientes son 
+% significativos, por lo que se puede considerar como un candidato a modelo 
+% adecuado para los datos, Sin embargo, al revisar el correlograma de los 
+% residuos al cuadrado (figura 4.15) se puede concluir que estos no son un 
+% ruido blanco, por lo que el modelo no es adecuado para los datos y es 
+% necesario reformularlo,
+% 
+% As\'{\i}, se prueba con los modelos EGARCH(0,1) con un grado de 
+% asimetr\'{\i}a; pero no result\'{o} bueno, Tambi\'{e}n se intent\'{o} con un 
+% modelo EGARCH(1,1) con un grado de asimetr\'{\i}a que tampoco fue adecuado, 
+% Luego, se consider\'{o} el modelo EGARCH (2,1) con un grado de 
+% asimetr\'{\i}a (se lo denominar\'{a} Modelo 4); as\'{\i}, se obtiene
+% 
+% \begin{table}[H]
+% \begin{center}
+% \begin{tabular}{|p{100pt}|l|p{60pt}|l|l|}
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% Variable& 
+% Coefficient& 
+% Std, Error& 
+% z-Statistic& 
+% Prob,~~ \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% C& 
+% 0,000374& 
+% 0,000179& 
+% 2,091286& 
+% 0,0365 \\
+% \hline
+% AR(1)& 
+% -0,031360& 
+% 0,022832& 
+% -1,373532& 
+% 0,1696 \\
+% \hline
+% AR(3)& 
+% -0,012167& 
+% 0,025680& 
+% -0,473782& 
+% 0,6357 \\
+% \hline
+% AR(5)& 
+% -0,036932& 
+% 0,024399& 
+% -1,513683& 
+% 0,1301 \\
+% \hline
+% MA(25)& 
+% -0,059493& 
+% 0,019810& 
+% -3,003174& 
+% 0,0027 \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% \multicolumn{2}{|p{115pt}|}{Variance Equation} & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% C(6)& 
+% -0,650709& 
+% 0,070982& 
+% -9,167198& 
+% 0,0000 \\
+% \hline
+% C(7)& 
+% -0,119657& 
+% 0,058242& 
+% -2,054483& 
+% 0,0399 \\
+% \hline
+% C(8)& 
+% 0,332807& 
+% 0,060940& 
+% 5,461182& 
+% 0,0000 \\
+% \hline
+% C(9)& 
+% -0,193797& 
+% 0,018401& 
+% -10,53209& 
+% 0,0000 \\
+% \hline
+% C(10)& 
+% 0,947998& 
+% 0,006261& 
+% 151,4142& 
+% 0,0000 \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% \end{tabular}
+% \label{tab9}
+% \end{center}
+% \end{table}
+% 
+% \begin{center}
+% Tabla 4.9: Resumen de estad\'{\i}sticas del Modelo 4 para $r_{t}$
+% \end{center}
+% 
+% \begin{figure}[H]
+% \includegraphics[width=4.52in,height=4.33in]{STcap416.eps}
+% \label{fig16}
+% \end{figure}
+% 
+% \begin{center}
+% Figura 4.16: FAC y FACP de los residuos al cuadrado estimadas del Modelo 4 
+% para $r_{t}$
+% \end{center}
+% 
+% En la tabla 4.9 se muestra el resumen de estad\'{\i}sticas para el Modelo 4: 
+% Se puede observar que algunos coeficientes son no significativos; sin 
+% embargo, con esta especificaci\'{o}n se obtiene que los residuos al cuadrado 
+% se pueden considerar como un ruido blanco, Por lo tanto, es necesario 
+% cambiar la parte ARMA del modelo, 
+% 
+% Se inicia eliminando el coeficiente correspondiente al AR(3), pero esto hizo 
+% que los coeficientes AR(1) y AR(5) sean no significativos, Luego, se elimina 
+% el coeficiente AR(1), pero el coeficiente AR(5) es no significativo y 
+% tambi\'{e}n se lo saca del modelo. Lo anterior hace que la constante sea no 
+% significativa y tambi\'{e}n se la retira del modelo, Finalmente, se obtiene 
+% un modelo ARMA-EGARCH (0,25) -- (2,1) con un grado de asimetr\'{\i}a (Modelo 
+% 5), Se obtiene lo siguiente:
+% 
+% \begin{table}[H]
+% \begin{center}
+% \begin{tabular}{|p{100pt}|l|p{60pt}|p{60pt}|l|}
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% Variable& 
+% Coefficient& 
+% Std, Error& 
+% z-Statistic& 
+% Prob,~~ \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% MA(25)& 
+% -0,060381& 
+% 0,019660& 
+% -3,071285& 
+% 0,0021 \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% \multicolumn{2}{|p{115pt}|}{Variance Equation} & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% C(2)& 
+% -0,662879& 
+% 0,071336& 
+% -9,292324& 
+% 0,0000 \\
+% \hline
+% C(3)& 
+% -0,110414& 
+% 0,055841& 
+% -1,977307& 
+% 0,0480 \\
+% \hline
+% C(4)& 
+% 0,334526& 
+% 0,059085& 
+% 5,661796& 
+% 0,0000 \\
+% \hline
+% C(5)& 
+% -0,213870& 
+% 0,018972& 
+% -11,27318& 
+% 0,0000 \\
+% \hline
+% C(6)& 
+% 0,946505& 
+% 0,006513& 
+% 145,3187& 
+% 0,0000 \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% R-squared& 
+% 0,003666& 
+% \multicolumn{2}{|p{120pt}|}{~~~~Mean dependent var} & 
+% 0,000733 \\
+% \hline
+% Adjusted R-squared& 
+% 0,003666& 
+% \multicolumn{2}{|p{120pt}|}{~~~~S,D, dependent var} & 
+% 0,010987 \\
+% \hline
+% S,E, of regression& 
+% 0,010967& 
+% \multicolumn{2}{|p{120pt}|}{~~~~Akaike info criterion} & 
+% -6,578077 \\
+% \hline
+% Sum squared resid& 
+% 0,176675& 
+% \multicolumn{2}{|p{120pt}|}{~~~~Schwarz criterion} & 
+% -6,556473 \\
+% \hline
+% Log likelihood& 
+% 4840,887& 
+% \multicolumn{2}{|p{120pt}|}{~~~~Hannan-Quinn criter,} & 
+% -6,570021 \\
+% \hline
+% Durbin-Watson stat& 
+% 2,155425& 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% & 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% \end{tabular}
+% \label{tab10}
+% \end{center}
+% \end{table}
+% 
+% \begin{center}
+% Tabla 4.10: Resumen de estad\'{\i}sticas del Modelo 5 para $r_{t}$
+% \end{center}
+% 
+% Se puede observar que todos los coeficientes son significativos y, por lo 
+% tanto, es un posible modelo adecuado para los datos, Para verificar la 
+% validez de los datos, se presentan los correologramas de los residuos 
+% estimados (figura 4.17) y de los residuos al cuadrado estimados del modelo 
+% (figura 4.18):
+% 
+% \begin{figure}[H]
+% \includegraphics[width=4.52in,height=4.32in]{STcap417.eps}
+% \label{fig17}
+% \end{figure}
+% 
+% \begin{center}
+% Figura 4.17: FAC y FACP de los residuos al cuadrado estimadas del Modelo 5 
+% para $r_{t}$
+% \end{center}
+% 
+% \begin{figure}[H]
+% \includegraphics[width=4.52in,height=4.31in]{STcap418.eps}
+% \label{fig18}
+% \end{figure}
+% 
+% \begin{center}
+% Figura 4.18: FAC y FACP de los residuos al cuadrado estimadas del Modelo 5 
+% para $r_{t}$
+% \end{center}
+% 
+% A partir de las figuras anteriores se puede concluir que el modelo planteado 
+% es adecuado para los datos. El modelo final obtenido es:
+% \[
+% r_{t}=\varepsilon_{t}-0,06\varepsilon_{t-25}+\sqrt h_{t} +u_{t}
+% \]
+% \[
+% \ln \left( h_{t} \right)=-0,66-0,11\left| u_{t-1} \right|+0,33\left| u_{t-2} 
+% \right|-0,21u_{t}+0,94\ln \left( h_{t-1} \right)
+% \]
