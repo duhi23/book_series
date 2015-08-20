@@ -1,7 +1,7 @@
 \chapter{Análisis a través de procesos estacionarios}
-\label{sec:mylabel1}
+%\label{sec:mylabel1}
 \section{Introducción}
-\label{subsec:mylabel1}
+%\label{subsec:mylabel1}
 Para el an\'{a}lisis de una variedad de fen\'{o}menos econ\'{o}micos o f\'{i}sicos se dispone, en general, de una cierta cantidad de observaciones, tomadas en momentos equidistantes. A una serie de observaciones de este tipo se le llama una serie cronol\'{o}gica o temporal. Como ejemplos de tales series se pueden mencionar las siguientes:
 
 \begin{enumerate}
@@ -21,27 +21,30 @@ Sea $X_{t}$ la variable aleatoria (v.a.) que se observa en el instante $t$. Aunq
 \end{observacion}
 
 
-Si el gr\'{a}fico correspondiente a los puntos $\left( t,X_{t} \right),\thinspace \thinspace t=1,\mathellipsis ,T$ es bastante regular se puede, en la mayor\'{i}a de los casos, modelar el fen\'{o}meno por una curva simple (de tipo polinomial o sinusoidal; ver figura 1.1). En caso contrario, es necesario utilizar modelos probabil\'{i}sticos un poco m\'{a}s complejos (ver figuras 1.2 y 1.3).
+Si el gr\'{a}fico correspondiente a los puntos $( t,X_{t} )$, $t=1,\mathellipsis ,T$ es bastante regular se puede, en la mayor\'{i}a de los casos, modelar el fen\'{o}meno por una curva simple (de tipo polinomial o sinusoidal; ver figura 1.1). En caso contrario, es necesario utilizar modelos probabil\'{i}sticos un poco m\'{a}s complejos (ver figuras 1.2 y 1.3).
 
-\begin{figure}[H]\centering
-\includegraphics[width=0.7\textwidth]{Graficos/Cap1/STcap11.eps}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{Graficos/Cap1/STcap11.eps}
 \caption{Ajuste adecuado de datos de tendencia cuadr\'{a}tica por una 
-curva polinomial}\label{fig1}
+curva polinomial}
+%\label{fig1}
 \end{figure}
 
-\begin{figure}[H]\centering
-\includegraphics[width=0.7\textwidth]{Graficos/Cap1/STcap12.eps}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{Graficos/Cap1/STcap12.eps}
 \caption{Ajuste no adecuado de una serie de ventas a trav\'{e}s de una 
-curva cuadr\'{a}tica}\label{fig2}
+curva cuadr\'{a}tica}
+%\label{fig2}
 \end{figure}
 
-
-\begin{figure}[H]\centering
-\includegraphics[width=0.7\textwidth]{Graficos/Cap1/STcap13.eps}
-\caption{Modelaci\'{o}n de una serie de ventas a través de un modelo SARIMA (se estudiar\'{a} m\'{a}s adelante)}\label{fig3}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{Graficos/Cap1/STcap13.eps}
+\caption{Modelaci\'{o}n de una serie de ventas a través de un modelo SARIMA (se estudiar\'{a} m\'{a}s adelante)}
+%\label{fig3}
 \end{figure}
-
-
 
 \section{Procesos Estacionarios}
 
@@ -73,17 +76,18 @@ estacionarios!D\'{e}bilmente} si:
 \end{observacion}
 
 \begin{observacion}
+\quad
 \begin{enumerate}
-\item La parte 3 de la definici\'{o}n 1.2, tomando $s=t$, permite deducir que la varianza del proceso es constante.
-\item Segundo orden y fuertemente estacionario implica d\'{e}bilmente estacionario. Lo rec\'{i}proco no es cierto.
-\item La parte 3 de la definici\'{o}n 1.2 es equivalente a
+\item[i.] La parte (3) de la definici\'{o}n 1.2, tomando $s=t$, permite deducir que la varianza del proceso es constante.
+\item[ii.] Segundo orden y fuertemente estacionario implica d\'{e}bilmente estacionario. Lo rec\'{i}proco no es cierto.
+\item[iii.] La parte 3 de la definici\'{o}n 1.2 es equivalente a
 \[ 
 \Cov\left( X_{s},X_{t} \right)=\gamma \left( s-t \right)\text{ para todo } s,t,s-t\in T,
 \]
 y equivalente a
 \[
 \Cov\left( X_{t},X_{t+l} \right)=\E\left( X_{0},X_{t} \right)=\gamma \left( l 
-\right)\text{ para todo }  l,t,t+h\in T
+\right)\text{ para todo }  l,t,t+l\in T
 \]
 
 \item $\gamma \left( l \right)$ se llama la \emph{funci\'{o}n de autocovarianza}\index{Funci\'{o}n!De autocovarianza} del proceso; \'{e}sta solo depende de la diferencia entre los \'{i}ndices $t+l$ y $t$. En particular $V\left( X_{t} \right)=\gamma (0)$; es decir, la varianza de un proceso estacionario es constante.
@@ -124,7 +128,6 @@ es d\'{e}bilmente estacionario (d.e.). En efecto:
 
 \item El proceso $(X_{t}, t\in \mathbb{Z})$, donde las variables aleatorias son i.i.d. (independientes e id\'{e}nticamente distribuidas), es estrictamente estacionario.
 
-
 \item El proceso $(X_{t})$ de v.a. reales de cuadrado integrable ($\E\left( X_{t}^{2} \right)<\infty,\ \forall t$) tal que (t.q)
 \[
 \left\{ {\begin{array}{l}
@@ -137,20 +140,20 @@ es d\'{e}bilmente estacionario.
 
 \item \textbf{Ruido Blanco}\index{Ruido blanco}
 	\begin{itemize}
-	\item Sea $(X_{t}, t\in Z)$ con v.a. independientes e id\'{e}nticamente distribuidas, reales, de segundo orden, t.q. $\E\left( X_{t} \right)=0$ y $\V\left( X_{t} \right)=\sigma^{2}>0,\ \forall t\in \Z$. 
+	\item Sea $(X_{t}, t\in Z)$ con v.a. independientes e id\'{e}nticamente distribuidas, reales, de segundo orden, t.q. $\E\left( X_{t} \right)=0$ y $\V\left( X_{t} \right)=\sigma^{2}>0$, $\forall t\in \Z$.\newline
 
 De acuerdo al ejemplo (2), $(X_{t}, t\in \Z)$ es un proceso estrictamente estacionario, llamado ruido blanco fuerte. En la figura 1.4 se muestra una observaci\'{o}n de un ruido blanco, simulado con observaciones de una distribuci\'{o}n normal est\'{a}ndar.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{Graficos/Cap1/STcap14.eps}
-\caption{Ruido blanco fuerte simulado con distribuci\'{o}n $N(0,1)$}\label{fig4}
+\includegraphics[width=0.75\textwidth]{Graficos/Cap1/STcap14.eps}
+\caption{Ruido blanco fuerte simulado con distribuci\'{o}n $N(0,1)$}
+%\label{fig4}
 \end{figure}
 
 \begin{observacion}
 N\'{o}tese que en estricto rigor matem\'{a}tico el gr\'{a}fico solo corresponder\'{a} a puntos, pues se definen los valores de las variables aleatorias en los puntos de $\Z$ (conjunto discreto); la aparente continuidad de la curva constituye solamente un artificio para una mejor visualizaci\'{o}n, que se logra uniendo los puntos por segmentos de recta; algo similar a lo que sucede en los gr\'{a}ficos de los histogramas. Esto se considerar\'{a} sobre entendido en gr\'{a}ficos posteriores.
 \end{observacion}
-
 
 \item Sea $(X_{t}, t\in \Z)$ un proceso aleatorio real de segundo orden, t.q. $\E\left( X_{t} \right)=0$ y $\V\left( X_{t} \right)=\sigma^{2}>0,\ X_{t}\bot X_{s}$ con $s\neq t$, $\forall t, s\in \Z$. Por el literal (3) del ejemplo este proceso es d\'{e}bilmente estacionario y se llama ruido blanco d\'{e}bil.
 \end{itemize}
@@ -171,7 +174,7 @@ Entonces, $(X_{t}, t\in \Z)$ es d\'{e}bilmente estacionario. Se puede verificar 
 \[
 	\left\{ {\begin{array}{l}
 	\E\left( X_{t} \right)=0\\ 
-	\cov\left( X_{s},X_{t} \right)=\sum_{j=1}^q {\sigma^{2}\cos\left( \lambda_{j}(t-s) \right)} \\ 
+	\cov\left( X_{s},X_{t} \right)=\displaystyle\sum_{j=1}^q {\sigma^{2}\cos\left( \lambda_{j}(t-s) \right)} \\ 
 	\end{array}} \right.
 \]
 	
@@ -200,14 +203,15 @@ Aunque te\'{o}ricamente es algo complicado demostrar que un proceso estoc\'{a}st
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{Graficos/Cap1/STcap15.eps}
-\caption{Proceso estacionario}\label{fig5}
+\includegraphics[width=0.75\textwidth]{Graficos/Cap1/STcap15.eps}
+\caption{Proceso estacionario}
+%\label{fig5}
 \end{figure}
 
 \begin{enumerate}
-\item Los datos oscilan alrededor de una constante (cero en este caso), lo que permite suponer que la media es constante.
-\item Los datos tienen una variabilidad algo homog\'{e}nea, por lo que se puede considerar que la varianza es constate (\'{e}sta solo es una condici\'{o}n necesaria, pero no suficiente para la propiedad (3) de la definici\'{o}n 1.2; sin embargo, para prop\'{o}sitos de aplicaci\'{o}n es bastante \'{u}til).
-\item Tambi\'{e}n se puede decir que $\E\left( X_{t}^{2} \right)=\V\left( X_{t} \right)+m^{2}<\infty $, ya que la varianza no crece indiscriminadamente.
+\item[i.] Los datos oscilan alrededor de una constante (cero en este caso), lo que permite suponer que la media es constante.
+\item[ii.] Los datos tienen una variabilidad algo homog\'{e}nea, por lo que se puede considerar que la varianza es constate (\'{e}sta solo es una condici\'{o}n necesaria, pero no suficiente para la propiedad (3) de la definici\'{o}n 1.2; sin embargo, para prop\'{o}sitos de aplicaci\'{o}n es bastante \'{u}til).
+\item[iii.] Tambi\'{e}n se puede decir que $\E\left( X_{t}^{2} \right)=\V\left( X_{t} \right)+m^{2}<\infty $, ya que la varianza no crece indiscriminadamente.
 \end{enumerate}
 
 A continuaci\'{o}n, se presentan gr\'{a}ficamente algunos casos en los que no se cumplen los supuestos de estacionariedad:
@@ -219,8 +223,9 @@ En el caso que el proceso no tenga la media constante, se dice que presenta una 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{Graficos/Cap1/STcap16.eps}
-\caption{Proceso no estacionario: Tendencia creciente}\label{fig6}
+\includegraphics[width=0.75\textwidth]{Graficos/Cap1/STcap16.eps}
+\caption{Proceso no estacionario: Tendencia creciente}
+%\label{fig6}
 \end{figure}
 
 \item Proceso no estacionario: Varianza no homog\'{e}nea\index{Proceso no estacionario!Varianza no homog\'{e}nea}.
@@ -229,8 +234,9 @@ En este caso, gr\'{a}ficamente, se ve como si el proceso ``explotara''; es decir
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{Graficos/Cap1/STcap17.eps}
-\caption{Proceso no estacionario: Varianza no homog\'{e}nea}\label{fig7}
+\includegraphics[width=0.75\textwidth]{Graficos/Cap1/STcap17.eps}
+\caption{Proceso no estacionario: Varianza no homog\'{e}nea}
+%\label{fig7}
 \end{figure}
 
 \item Proceso no estacionario\index{Proceso no estacionario!Tenencia no constante y varianza no homog\'{e}nea}: Tendencia no constante y varianza no homog\'{e}nea.
@@ -239,29 +245,29 @@ Este caso es una combinaci\'{o}n de los dos anteriores; es decir, se presenta un
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{Graficos/Cap1/STcap18.eps}
-\caption{Proceso no estacionario: Tendencia decreciente y varianza no 
-homog\'{e}nea}\label{fig8}
+\includegraphics[width=0.75\textwidth]{Graficos/Cap1/STcap18.eps}
+\caption{Proceso no estacionario: Tendencia decreciente y varianza no homog\'{e}nea}
+%\label{fig8}
 \end{figure}
 \end{itemize}
 
 \begin{ejemplo} Mostrar que las siguientes funciones son de autocovarianza (determinar los procesos asociados).
 
 \begin{enumerate}
-\item $\gamma (h)=(-1)^{\left| h \right|}$.
+\item[a)] $\gamma (h)=(-1)^{\left| h \right|}$.
 
 Sea el proceso $X_{t} =(-1)^{t}X$ con $\E(X)=0$ y $\V(X)=1$
  
 \begin{enumerate}
-      \item Por demostrar que $\E(X_{t} )=$constante $\forall t$
+      \item[i)] Por demostrar que $\E(X_{t} )=$constante $\forall t$
 	\[
 		\E(X_{t} )=\E\left[ {(-1)^{t}X} \right]=(-1)^{t}\E(X)=0,\quad\forall t
 	\]
-	\item Por demostrar que $\E(X_{t}^{2} )<\infty $
+	\item[ii)] Por demostrar que $\E(X_{t}^{2} )<\infty $
 	\[
 		\E(X_{t}^{2} )=\E\left[ {(-1)^{2t}X^{2}} \right]=1<\infty,\quad\forall t
 	\]
-	\item Por demostrar que $\cov (X_{t} ,X_{t+h} )=\gamma (h)=(-1)^{\left| h \right|}$
+	\item[iii)] Por demostrar que $\cov (X_{t} ,X_{t+h} )=\gamma (h)=(-1)^{\left| h \right|}$
 		\begin{itemize}
 		\item Sea $h\geq 0$:
 		\begin{gather*}
@@ -276,7 +282,7 @@ Sea el proceso $X_{t} =(-1)^{t}X$ con $\E(X)=0$ y $\V(X)=1$
 		\end{itemize}
 	\end{enumerate}
 
-\item $\gamma (h)=1+\cos \left( {\frac{\pi }{2}} \right)+\cos \left({\frac{\pi h}{4}} \right)$.
+\item[b)] $\gamma (h)=1+\cos \left( {\frac{\pi }{2}} \right)+\cos \left({\frac{\pi h}{4}} \right)$.
 \[
 	X_{t} =A\cos \frac{\pi t}{2}+Bsen\frac{\pi t}{2}+D\cos \frac{\pi t}{4}+Esen\frac{\pi t}{4}+F
 \]
@@ -289,14 +295,14 @@ donde $A$, $B$, $D$, $E$, $F$ v.a. independientes y tales que $\E(A)= \E(B)= \E(
 \end{align*}
 
 	\begin{enumerate}
-	\item Por demostrar que $E(X_{t} )=$constante
+	\item[i)] Por demostrar que $E(X_{t} )=$constante
 	\begin{align*}
 	\E(X_{t} )& =\E\left( {\cos \frac{\pi t}{2}+B\sen\frac{\pi t}{2}+D\cos \frac{\pi t}{4}E\sen\frac{\pi t}{4}} \right)\\
 		&=\E(A)\cos \frac{\pi t}{2}+\E(B)sen\frac{\pi t}{2}+\E(D)\cos \frac{\pi t}{4}+\E(E)\sen\frac{\pi t}{4}+\E(F)\\
 		&=0, \qquad\forall t.
 	\end{align*}
 
-	\item Por demostrar que $\V(X_t)=\E(X_{t}^{2} )<\infty $
+	\item[ii)] Por demostrar que $\V(X_t)=\E(X_{t}^{2} )<\infty $
 	\begin{align*}
 	\E(X_{t}^{2} )&= \E(A^{2})\left(\cos \frac{\pi t}{2}\right)^{2}+\E(B^{2})\left(  \sen\frac{\pi t}{2} \right)^{2}+\E(D^{2})\left(\cos \frac{\pi t}{4}\right)^{2}\\
 		&\peq+\E(E^{2})\left( \sen\frac{\pi t}{4} \right)^{2}+\E(F^{2})\\
@@ -304,7 +310,7 @@ donde $A$, $B$, $D$, $E$, $F$ v.a. independientes y tales que $\E(A)= \E(B)= \E(
 		&=5<\infty,\qquad \forall t
 	\end{align*}
 
-	\item Por demostrar que $\cov(X_{t}, X_{t+h} )=\gamma (h)=1+\cos \frac{\pi h}{2}+\cos \frac{\pi h}{4}$
+	\item[iii)] Por demostrar que $\cov(X_{t}, X_{t+h} )=\gamma (h)=1+\cos \frac{\pi h}{2}+\cos \frac{\pi h}{4}$
 	\begin{align*}
 	\cov&(X_{t},X_{t+h})=\\
 		&=\E(X_{t},X_{t+h} )\\
@@ -319,15 +325,13 @@ donde $A$, $B$, $D$, $E$, $F$ v.a. independientes y tales que $\E(A)= \E(B)= \E(
 \end{enumerate}
 \end{ejemplo}
 
-
 \section{Representaci\'{o}n Espectral de un Proceso D\'{e}bilmente Estacionario}
-\label{subsec:mylabel3}
-\subsection{Representaci\'{o}n espectral de $\left( \gamma_{t} 
-\right)_{t\in \Z}$ }
-\label{subsubsec:mylabel1}
+%\label{subsec:mylabel3}
+\subsection{Representaci\'{o}n espectral de $( \gamma_{t} )_{t\in \mathbb{Z}}$ }
+%\label{subsubsec:mylabel1}
 
-Sea $(X_{t}, t\in \Z)$ d.e. y centrado. Recu\'{e}rdese que se defini\'{o} la funci\'{o}n de autocovarianza $\left( \gamma_{t},t\in 
-\Z \right)$ por $\gamma_{t}=\E\left( X_{0},X_{t} \right)=\E\left( X_{l},X_{t+l} \right),\ \forall t,l\in \Z$. 
+Sea $(X_{t}, t\in \mathbb{Z)}$ d.e. y centrado. Recu\'{e}rdese que se defini\'{o} la funci\'{o}n de autocovarianza $\left( \gamma_{t}, t\in 
+\Z \right)$ por $\gamma_{t}=\E\left( X_{0},X_{t} \right)=\E\left( X_{l},X_{t+l} \right),\ \forall t, l\in \Z$. 
 
 \begin{teorema}
 Existe una medida \'{u}nica $\mu $ acotada y sim\'{e}trica sobre $\left[ \pi ,\pi \right]$ tal que:
@@ -341,7 +345,11 @@ absolutamente continua de $\mu $ se dice densidad espectral de $\left( X_{t} \ri
 \end{teorema}
 
 \begin{proof}
-Aqu\'{\i} se abordar\'{a} solamente un caso particular; la demostraci\'{o}n completa se encuentra en el Anexo A.2.
+Aqu\'{i} se abordar\'{a} solamente un caso particular; la demostraci\'{o}n completa se encuentra en el Anexo A.2.
+\begin{itemize}
+      \item Caso particular
+\end{itemize}
+
 \[
 \sum_t \left| \gamma_{t} \right| <\infty .
 \]
@@ -369,7 +377,7 @@ Tambi\'{e}n $\gamma_{t}$ se puede expresar por:
 
 \begin{ejemplo}
  \begin{enumerate}
-\item Sea $\left( X_{t} \right)_{t\in \Z}$ ruido blanco (d\'{e}bil) tal que $\gamma_{t}=0$, $\left| t \right|\geq 1$ y $\gamma_{0}=\sigma^{2}$
+\item[i)] Sea $\left( X_{t} \right)_{t\in \Z}$ ruido blanco (d\'{e}bil) tal que $\gamma_{t}=0$, $\left| t \right|\geq 1$ y $\gamma_{0}=\sigma^{2}$
 \[
 \sum \left| \gamma_{t} \right| <\infty \Longrightarrow f\left( \lambda \right)=
 \frac{1}{2\pi }\sum_{t\in \Z} {\gamma_{t}\cos(\lambda t)} 
@@ -378,7 +386,7 @@ Tambi\'{e}n $\gamma_{t}$ se puede expresar por:
 
 Esta es la densidad con respecto a la medida de Lebesgue sobre $\left[ \pi ,\pi \right]$.
 
-\item Si $X_{t}=X\ \forall t\in Z$, con $\E\left( X \right)=0$ y $\E\left( X^{2} \right)=\sigma^{2}$, $\gamma_{t}=\E\left( X^{2} \right)=\sigma^{2}\Rightarrow \sum \left| \gamma_{t} \right| =\infty $. 
+\item[ii)] Si $X_{t}=X\ \forall t\in Z$, con $\E\left( X \right)=0$ y $\E\left( X^{2} \right)=\sigma^{2}$, $\gamma_{t}=\E\left( X^{2} \right)=\sigma^{2}\Rightarrow \sum \left| \gamma_{t} \right| =\infty $. 
 
 En este caso, $\mu =\sigma^{2}\delta_{(0)}$, pues: 
 \[
@@ -387,36 +395,32 @@ En este caso, $\mu =\sigma^{2}\delta_{(0)}$, pues:
 \]
 donde $\delta_{(a)}$ representa a la medida de Dirac en el punto $a$ (la distribuci\'{o}n que corresponde a la variable aleatoria constante $X=a$).
 
-\item Para el proceso:
+\item[iii)] Para el proceso:
 \[
-X_{t}=\sum_{j=1}^q {(A_{j}\cos \left( \lambda_{j}t 
-\right)+B_{j}\sen(\lambda_{j}t)} ,\qquad \forall t\in Z
+X_{t}=\sum_{j=1}^q {\left(A_{j}\cos ( \lambda_{j}t ) + B_{j}\sen(\lambda_{j}t\right)} ,\qquad \forall t\in Z
 \]
 se tiene:
 \[
-\mu =\sum_{j=1}^q {\frac{\sigma_{j}^{2}}{2}\left[ \delta_{(-\lambda 
-_{j})}+\delta_{(\lambda_{j})} \right]}. 
+\mu =\sum_{j=1}^q {\frac{\sigma_{j}^{2}}{2}\left[ \delta_{(-\lambda_{j})}+\delta_{(\lambda_{j})} \right]}. 
 \]
 \end{enumerate}
 \end{ejemplo}
 
 
-\subsection{Representaci\'{o}n espectral de 
-$(X_{t})$ }
-\label{subsubsec:mylabel2}
+\subsection{Representaci\'{o}n espectral de $(X_{t})$ }
+%\label{subsubsec:mylabel2}
 El objetivo es representar $(X_{t})$ de la manera siguiente:
 \[
 X_{t}=\int_{-\pi }^\pi {\cos(\lambda t)dW(\lambda )} 
 \]
 donde $W$ es una medida aleatoria o estoc\'{a}stica.
 
-\subsubsection{Medida estoc\'{a}stica\index{Medida estoc\'{a}stica!De Wiener} 
-(medida de Wiener)}
+\subsubsection{Medida estoc\'{a}stica\index{Medida estoc\'{a}stica!De Wiener} (medida de Wiener)}
 
 Sean $\left(\Omega,A,P \right)$ un espacio de probabilidad; $(E,\beta, \mu )$ espacio medido, donde $\mu $ es $\sigma 
 $-finita, $\beta_{\mu }$ anillo de conjuntos de medida finita tal que la $\sigma $-\'{a}lgebra generada por $\beta_{\mu }$, $\sigma \left( \beta_{\mu } \right)=\beta $. Se considera la aplicaci\'{o}n:
 \[
-W:\beta_{\mu }\to L_{c}^{2}\left( \Omega,A,P \right)
+W:\beta_{\mu }\to L_{c}^{2}\left( \Omega, A, P \right)
 \]
 
 $L_{c}^{2}\left( \Omega  \right)$ es la notaci\'{o}n simplificada de $L_{c}^{2}\left( \Omega ,A,P \right)$, representa al espacio de las variables aleatorias de cuadrado integrable que toman valores sobre el cuerpo de los n\'{u}meros complejos; este es un espacio de Hilbert sobre $\mathbb{C}$, con producto escalar $\langle X,Y\rangle=\E(X\bar{Y})$. La raya sobre $Y$ representa el conjugado de $Y$.
@@ -426,8 +430,8 @@ $W$ es una medida estoc\'{a}stica basada sobre $\left( \Omega,A,P \right)$ y de 
 \begin{itemize}
 \item $\forall A,B\in \beta_{\mu },$ con $A\cap B=\emptyset $, se tiene:
 	\begin{enumerate}
-	\item $W\left( A\cup B \right)=W\left( A \right)+W\left( B \right)$,
-	\item $\E\left[ W(A)\overline{W\left( B \right)} \right]=0$.
+	\item[a)] $W\left( A\cup B \right)=W\left( A \right)+W\left( B \right)$,
+	\item[b)] $\E\left[ W(A)\overline{W\left( B \right)} \right]=0$.
 	\end{enumerate}
 \item $\forall A\in \beta_{\mu }$, $\E\left| W\left( A \right) \right|^{2}=\mu \left( A \right)$.
 \end{itemize}
@@ -436,12 +440,11 @@ $W$ es una medida estoc\'{a}stica basada sobre $\left( \Omega,A,P \right)$ y de 
 \paragraph{Propiedades de W:}
 
 \begin{enumerate}
-\item $\sigma$-aditividad en media cuadr\'{a}tica (m.c.).
+\item[a)] $\sigma$-aditividad en media cuadr\'{a}tica (m.c.).
 
 Sea $\left( A_{n} \right)$ una sucesi\'{o}n creciente de elementos de $\beta_{\mu }$ que tiene por l\'{\i}mite $A\in \beta_{\mu }$, entonces
 \[
-W\left( A_{n} \right)\buildrel {m.c} \over \longrightarrow W\left( A 
-\right)
+W\left( A_{n} \right)\buildrel {m.c} \over \longrightarrow W\left( A \right)
 \]
 Esto se verifica puesto que: 
 \[
@@ -455,7 +458,7 @@ W(A-A_{n}) \right|^{2}=\mu \left( A-A_{n} \right)\to 0,
 \]
 pues $\mu$ es $\sigma $-aditiva.
 
-\item $\forall A,B\in \beta_{\mu },\ \E\left[ W(A)\overline{W\left( B \right)} \right]=\mu (A\cap B).$
+\item[b)] $\forall A, B\in \beta_{\mu },\ \E\left[ W(A)\overline{W\left( B \right)} \right]=\mu (A\cap B).$
 
 La operaci\'{o}n $A\cap B$ tambi\'{e}n se denotar\'{a} por $AB$. Puesto que: 
 $A=AB+AB^{c}$ y $B=BA+BA^{c}$, se tiene que:
@@ -470,17 +473,16 @@ $A=AB+AB^{c}$ y $B=BA+BA^{c}$, se tiene que:
 \end{enumerate}
 
 \begin{ejemplo}
-Sea $\left( Z_{t},t\in \R^{+} \right)$ de segundo orden, centrado, con incrementos estacionarios y ortogonales, continuo a la 
-derecha en m.c. 
+Sea $\left( Z_{t},t\in \R^{+} \right)$ de segundo orden, centrado, con incrementos estacionarios y ortogonales, continuo a la derecha en m.c. 
 
 Se inicia recordando las definiciones de incrementos ortogonales, incrementos estacionarios y continuidad a la derecha:
 
 \begin{itemize}
-\item Incrementos ortogonales: 
-\begin{center}
+\item Incrementos ortogonales:\newline
+
 $\forall t_{1}<t_{2}<\cdots <t_{k}$ en $\R^{+}$, las v.a. $Z_{t_{1}}Z_{t_{2}}-Z_{t_{1}},\ldots,Z_{t_{k}}-Z_{t_{k-1}}$ 
 son ortogonales 2 a 2.
-\end{center}
+
 
 \item Incrementos estacionarios: 
 
@@ -488,18 +490,18 @@ son ortogonales 2 a 2.
 \forall  s,t,s+l,t+l \in \R^{+},\ \E\left(Z_{t+l}-Z_{s+l} \right)^{2}=\E\left( Z_{t}-Z_{s} \right)^{2}.
 \]
 
-\item Continuo a la derecha: 
-\begin{center}
+\item Continuo a la derecha:\newline
+
 Si $t_{n}\to t^{+}$, entonces $Z_{t_{n}}\to Z_{t}$, con $t_{n}\in\R^{+}$.
-\end{center}
+
 \end{itemize}
 
-Se define: $Z_{0}=0$. Sup\'{o}ngase que $\E\left( Z_{1}^{2} \right)=1$, entonces se demostrar\'{a} que: $\E\left( Z_{t}^{2} \right)=t$ $\forall t\in R^{+}$.
+\begin{itemize}
+\item Se define: $Z_{0}=0$. Sup\'{o}ngase que $\E\left( Z_{1}^{2} \right)=1$, entonces se demostrar\'{a} que: $\E\left( Z_{t}^{2} \right)=t$ $\forall t\in R^{+}$.
 
 \begin{proof} 
 Para todo $s,t \in \R^{+},$ se tiene que: $\E\left( Z_{t}^{2} \right)=\E\left( Z_{t}-Z_{s} \right)^{2}+\E\left( Z_{s}^{2} \right)$, para $t>s$. Sea $f\left( t \right)=\E\left( Z_{t}^{2} \right)\Longrightarrow f\left( t \right)\geq f\left( s \right)$ para $t>s$.
 
-\begin{itemize}
 \item Ahora, se va a demostrar que: $f\left( n \right)=n\ \forall n\in N$
 
 Considere el caso en que $n=2$, se tiene:
@@ -530,7 +532,7 @@ En efecto:
 	&\phantom{=}\vdots\\
 	&=qE\left( Z_{\frac{p}{q}}^{2} \right)=qf\left( \frac{p}{q}\right).
 \end{align*}
-As\'{\i} se tiene:
+As\'{i} se tiene:
 \[
 p=qf\left( \frac{p}{q} \right)
 \]
@@ -552,6 +554,10 @@ f\left( t \right)=t,\qquad \forall t\in \R^{+}.
 \end{itemize}
 \end{proof}
 \end{ejemplo}
+
+\begin{ejercicio}
+Probar que W es definida de esta manera es una medida estocástica.
+\end{ejercicio}
 
 \subsubsection{Integral Estoc\'{a}stica\index{Integral Estoc\'{a}stica}}
 Sea 
@@ -587,14 +593,14 @@ manera \'{u}nica sobre todo el espacio:
 \paragraph{Propiedades de la Integral estoc\'{a}stica:}
 
 \begin{enumerate}
-\item Si $\forall A\in \beta_{\mu },\ W(A)$ centrada; entonces $\mathcal{I}=\left\{ \varphi :\E\left( \int {\varphi dW} \right)=0 \right\}$ es cerrado:
+\item[a)] Si $\forall A\in \beta_{\mu },\ W(A)$ centrada; entonces $\mathcal{I}=\left\{ \varphi :\E\left( \int {\varphi dW} \right)=0 \right\}$ es cerrado:
 
 Sea $\left\{ \varphi_{n} \right\}$ una sucesi\'{o}n de $\mathcal{I}$ tal que $\varphi_{n}\buildrel {m.c} \over \longrightarrow \varphi \Longrightarrow \int \varphi_{n} dW\buildrel {m.c} \over \longrightarrow \int {\varphi dW} $ (pues la 
-integral estoc\'{a}stica es una isometr\'{\i}a y entonces es continua).
+integral estoc\'{a}stica es una isometr\'{i}a y entonces es continua).
 
 Entonces existe convergencia en media cuadr\'{a}tica. Puesto que las $\varphi_{n}\in \mathcal{I}$, se puede concluir que $\varphi \in \mathcal{I}$.
 
-\item $\E\left( \int {\varphi dW} \int \overline{\psi dW} \right)=\int {\varphi \overline{\psi }dW} ,$ pues una isometr\'{\i}a conserva el producto escalar.
+\item[b)] $\E\left( \int {\varphi dW} \int \overline{\psi dW} \right)=\int {\varphi \overline{\psi }dW} ,$ pues una isometr\'{i}a conserva el producto escalar.
 \end{enumerate}
 
 \subsubsection{Representaci\'{o}n espectral de $\left(X_{t} \right)$ }
@@ -682,12 +688,11 @@ entonces:
 \item $\displaystyle\overline X \buildrel {m.c} \over \longrightarrow 
 0\Longleftrightarrow \frac{1}{n}\sum_{t=0}^{n-1} {\gamma_{t} } \to 
 0$
-\item 
 \end{enumerate}
 
 \end{teorema}
 
-Un proceso que satisface 2 o 3 se llama un proceso erg\'{o}dico (d\'{e}bil). Por ejemplo, el proceso definido por $X_{t} =X$ no 
+Un proceso que satisface 2 se llama un proceso erg\'{o}dico (d\'{e}bil). Por ejemplo, el proceso definido por $X_{t} =X$ no 
 es erg\'{o}dico, mientras que el proceso definido por $X_{t} =\left( {-1} \right)^{t}X$ si lo es (en ambos casos se considera $t\in \Z$).
 
 Este teorema indica que solamente en los procesos erg\'{o}dicos la media muestral converge a la media del proceso (extensi\'{o}n de la Ley de los Grandes N\'{u}meros).
