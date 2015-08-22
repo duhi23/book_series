@@ -483,7 +483,6 @@ Se inicia recordando las definiciones de incrementos ortogonales, incrementos es
 $\forall t_{1}<t_{2}<\cdots <t_{k}$ en $\R^{+}$, las v.a. $Z_{t_{1}}Z_{t_{2}}-Z_{t_{1}},\ldots,Z_{t_{k}}-Z_{t_{k-1}}$ 
 son ortogonales 2 a 2.
 
-
 \item Incrementos estacionarios: 
 
 \[
@@ -578,25 +577,19 @@ Sea $\varepsilon_{\mu }$ el espacio de las funciones en escalera, cuyo elemento 
 \]
 Entonces,
 \[
-\E\left( \left| \int {\varphi dW} \right|^{2} \right)=\sum \left| \alpha_{j} 
-\right|^{2} \E\left| W\left( A_{j} \right) \right|^{2}=\sum \left| \alpha 
-_{j} \right|^{2} \mu \left( A_{j} \right)=\int \left| \varphi \right|^{2} 
-d\mu.
+\E\left( \left| \int {\varphi dW} \right|^{2} \right)=\sum \left| \alpha_{j} \right|^{2} \E\left| W\left( A_{j} \right) \right|^{2}=\sum \left| \alpha_{j} \right|^{2} \mu \left( A_{j} \right)=\int \left| \varphi \right|^{2} d\mu.
 \]
-Por tanto, la aplicaci\'{o}n: $\varphi \to \int {\varphi dW} $ conserva la norma (adem\'{a}s es lineal), entonces la aplicaci\'{o}n correspondiente: $\varepsilon_{\mu }\to L_{c}^{2}\left(\Omega,A,P \right)$ es una isometr\'{\i}a. Pero $\varepsilon_{\mu }$ es denso en $L_{c}^{2}\left( E,\beta ,\mu \right)$; por tanto, se puede prolongar la isometr\'{\i}a de 
-manera \'{u}nica sobre todo el espacio:
+Por tanto, la aplicaci\'{o}n: $\varphi \to \int {\varphi dW} $ conserva la norma (adem\'{a}s es lineal), entonces la aplicaci\'{o}n correspondiente: $\varepsilon_{\mu }\to L_{c}^{2}\left(\Omega,A,P \right)$ es una isometr\'{i}a. Pero $\varepsilon_{\mu}$ es denso en $L_{c}^{2}\left( E,\beta ,\mu \right)$; por tanto, se puede prolongar la isometr\'{i}a de manera \'{u}nica sobre todo el espacio:
 \[
-\funcion{W}{L_{c}^{2}\left( E,\beta ,\mu \right)}{L_{c}^{2}\left(\Omega,A,P \right)}{\varphi}{\displaystyle\int {\varphi dW} =:\int_E {\varphi 
-\left( \lambda \right)dW\left( \lambda \right)} }
+\funcion{W}{L_{c}^{2}\left( E,\beta ,\mu \right)}{L_{c}^{2}\left(\Omega,A,P \right)}{\varphi}{\displaystyle\int {\varphi dW} =:\int_E {\varphi \left( \lambda \right)dW\left( \lambda \right)} }
 \]
 
 \paragraph{Propiedades de la Integral estoc\'{a}stica:}
 
 \begin{enumerate}
-\item[a)] Si $\forall A\in \beta_{\mu },\ W(A)$ centrada; entonces $\mathcal{I}=\left\{ \varphi :\E\left( \int {\varphi dW} \right)=0 \right\}$ es cerrado:
+\item[a)] Si $\forall A\in \beta_{\mu },\ W(A)$ centrada; entonces $\mathcal{I}=\left\{ \varphi :\E\left( \int {\varphi dW} \right)=0 \right\}$ es cerrado:\newline
 
-Sea $\left\{ \varphi_{n} \right\}$ una sucesi\'{o}n de $\mathcal{I}$ tal que $\varphi_{n}\buildrel {m.c} \over \longrightarrow \varphi \Longrightarrow \int \varphi_{n} dW\buildrel {m.c} \over \longrightarrow \int {\varphi dW} $ (pues la 
-integral estoc\'{a}stica es una isometr\'{i}a y entonces es continua).
+Sea $\left\{ \varphi_{n} \right\}$ una sucesi\'{o}n de $\mathcal{I}$ tal que $\varphi_{n}\buildrel {m.c} \over \longrightarrow \varphi \Longrightarrow \int \varphi_{n} dW\buildrel {m.c} \over \longrightarrow \int {\varphi dW} $ (pues la integral estoc\'{a}stica es una isometr\'{i}a y entonces es continua).\newline
 
 Entonces existe convergencia en media cuadr\'{a}tica. Puesto que las $\varphi_{n}\in \mathcal{I}$, se puede concluir que $\varphi \in \mathcal{I}$.
 
@@ -608,15 +601,13 @@ Entonces existe convergencia en media cuadr\'{a}tica. Puesto que las $\varphi_{n
 \begin{teorema}
 Sea $(X_{t}, t\in T)$ de segundo orden y centrado (a valores complejos). Se tiene tambi\'{e}n:
 \[
-\cov\left( X_{s},X_{t} \right)=\int_E {f\left( s,\lambda \right)\overline{f\left( 
-t,\lambda \right)}d\mu \left( \lambda \right)} 
+\cov\left( X_{s},X_{t} \right)=\int_E {f\left( s,\lambda \right)\overline{f\left( t, \lambda \right)}d\mu \left( \lambda \right)} 
 \]
 donde, $\left\{ f\left( s,. \right),s\in T \right\}$ es una familia libre y total en $L_{c}^{2}\left( E,\beta ,\mu \right)$; entonces, existe $W$ medida estoc\'{a}stica de medida espectral $\mu $ t.q.:
 \[
 X_{t}=\int_E {f\left( t,\lambda \right)dW\left( \lambda \right)},\qquad t\in T
 \]
-Se dice que una familia es total si: $\forall f\in L_{c}^{2}\left( E,\beta ,\mu \right),\ \exists \left\{ f_{n} \right\}$ t.q. 
-$f_{n}\to f$, donde $f_{n}$ es combinaci\'{o}n lineal de elementos de la familia.
+Se dice que una familia es total si: $\forall f\in L_{c}^{2}\left( E,\beta ,\mu \right),\ \exists \left\{ f_{n} \right\}$ t.q. $f_{n}\to f$, donde $f_{n}$ es combinaci\'{o}n lineal de elementos de la familia.
 \end{teorema}
 
 \begin{proof}
@@ -634,7 +625,7 @@ Ahora, se define:
 v=\sigma \left( \sum_{j\in J} {\alpha_{j}f_{t_{j}}} 
 \right),\qquad J\text{ finito}
 \]
-como el subespacio generado por las combinaciones lineales de elementos $f_{t_{j}}$. 
+como el subespacio generado por las combinaciones lineales de elementos $f_{t_{j}}$.\newline
 
 Se va a verificar que $W$ es una isometr\'{\i}a:
 \begin{align*}
@@ -645,13 +636,13 @@ Se va a verificar que $W$ es una isometr\'{\i}a:
 	&=\int {\left| \sum_j {\alpha_{j}f\left( t_{j},\lambda \right)} \right|^{2}d\mu \left( \lambda \right)} 
 \end{align*}
 
-entonces $W$ es una isometr\'{\i}a de $v$ en $L_{c}^{2}\left(\Omega,A,P \right)$; luego, $W$ se prolonga de manera \'{u}nica (llamada tambi\'{e}n $W$):
+entonces $W$ es una isometr\'{i}a de $v$ en $L_{c}^{2}\left(\Omega,A,P \right)$; luego, $W$ se prolonga de manera \'{u}nica (llamada tambi\'{e}n $W$):
 \[
 \func{W}{L_{c}^{2}\left( E,\beta ,\mu \right)}{L_{c}^{2}\left(\Omega,A,P \right)}
 \]
 A continuaci\'{o}n se va a verificar que la restricci\'{o}n de $W$ a $\beta_{\mu }$ es una medida estoc\'{a}stica. $1_{c}$ representa la funci\'{o}n indicatriz sobre el conjunto $C$.
 
-Sean $A,B\in \beta_{\mu }$ t.q. $A\cap B=\varnothing$.
+Sean $A, B\in \beta_{\mu }$ t.q. $A\cap B=\varnothing$.
 \begin{itemize}
 \item $W\left( {1_{A\cup B} } \right)=W\left( {1_{A} +1_{B} } \right)=W\left( {1_{A} } \right)+W\left( {1_{B} } \right)$
 \item $\E(W\left( {1_{A} } \right)\overline {W(1_{B} )} )=\int {1_{A} \overline {1_{B} } d\mu =\mu \left( {A\cap B} \right)=0} $
@@ -659,10 +650,11 @@ Sean $A,B\in \beta_{\mu }$ t.q. $A\cap B=\varnothing$.
 {\left| {1_{A} } \right|^{2}d\mu =\mu \left( A \right)} .$
 \end{itemize}
 
-Se ha demostrado en realidad, que toda isometr\'{\i}a de $L_{c}^{2}\left( E,\beta ,\mu \right)\to L_{c}^{2}\left( \Omega ,A,P \right)$ es una integral estoc\'{a}stica. Entonces se pueden identificar las isometr\'{\i}as con las integrales estoc\'{a}sticas.
+Se ha demostrado en realidad, que toda isometr\'{i}a de $L_{c}^{2}\left( E,\beta ,\mu \right)\to L_{c}^{2}\left( \Omega ,A,P \right)$ es una integral estoc\'{a}stica. Entonces se pueden identificar las isometr\'{i}as con las integrales estoc\'{a}sticas.
 \end{proof}
 
-\paragraph{Aplicaci\'{o}n a los Procesos Estacionarios}
+{\bf Aplicaci\'{o}n a los Procesos Estacionarios}\newline
+
 Sea ${(X_{t})}_{t\in Z}$ d.e. y centrado. Se tiene que:
 
 \begin{itemize}
@@ -672,32 +664,31 @@ Sea ${(X_{t})}_{t\in Z}$ d.e. y centrado. Se tiene que:
 
 Por tanto, existe $W$ medida estoc\'{a}stica sobre $\left[ {-\pi ,\pi } \right]$, asociada a la medida espectral $\mu ,$ t.q.
 \[
-X_{t} =\int\limits_{\left[ {-\pi ,\pi } \right]} {e^{it\lambda }} dW\left( 
-\lambda \right).
+X_{t} =\int\limits_{\left[ {-\pi ,\pi } \right]} {e^{it\lambda }} dW\left( \lambda \right).
 \]
 
 \section{Teoremas L\'{i}mites}
-\label{subsec:mylabel4}
+%\label{subsec:mylabel4}
 
 \begin{teorema}[Teorema erg\'{o}dico d\'{e}bil\index{Teorema!Erg\'{o}digo d\'{e}bil}]
 Sea ($X_{t} ,t\in \Z)$ d.e, centrado, de autovarianza $\left( {\gamma_{t} } \right),$ de medida espectral $\mu ,$ de medida estoc\'{a}stica $W$, 
 entonces: 
 \begin{enumerate}
- \item $\displaystyle\overline{X}=\frac{1}{n}\sum_{t=1}^n X_{t} \buildrel 
+ \item[a)] $\displaystyle\overline{X}=\frac{1}{n}\sum_{t=1}^n X_{t} \buildrel 
 {m.c} \over \longrightarrow W\left( \left\{ 0 \right\} \right)$ 
-\item $\displaystyle\overline X \buildrel {m.c} \over \longrightarrow 
+\item[b)] $\displaystyle\overline{X} \buildrel {m.c} \over \longrightarrow 
 0\Longleftrightarrow \frac{1}{n}\sum_{t=0}^{n-1} {\gamma_{t} } \to 
 0$
 \end{enumerate}
 
 \end{teorema}
 
-Un proceso que satisface 2 se llama un proceso erg\'{o}dico (d\'{e}bil). Por ejemplo, el proceso definido por $X_{t} =X$ no 
-es erg\'{o}dico, mientras que el proceso definido por $X_{t} =\left( {-1} \right)^{t}X$ si lo es (en ambos casos se considera $t\in \Z$).
+Un proceso que satisface 2 se llama un proceso erg\'{o}dico (d\'{e}bil). Por ejemplo, el proceso definido por $X_{t} =X$ no es erg\'{o}dico, mientras que el proceso definido por $X_{t} =\left( {-1} \right)^{t}X$ si lo es (en ambos casos se considera $t\in \Z$).
 
 Este teorema indica que solamente en los procesos erg\'{o}dicos la media muestral converge a la media del proceso (extensi\'{o}n de la Ley de los Grandes N\'{u}meros).
 
 \begin{proof}
+
  Se tiene que:
 \[
 \overline{X}-W\left( \left\{ 0 \right\} \right)=\int {\left[ 
@@ -723,7 +714,7 @@ y por el teorema de la convergencia dominada, $\E\left| X-W\left( \left\{ 0
 \right\} \right) \right|^{2}\to 0$ por lo tanto, $\overline{X}\buildrel {m.c} \over \longrightarrow W\left( \left\{ 0 \right\} \right)$
 
 \begin{itemize}
-\item $\gamma_{t} =\int_{-\pi }^\pi {e^{i\lambda t}d\mu \left( \lambda \right)} ,$ entonces:
+\item $\gamma_{t} =\int_{-\pi }^\pi {e^{i\lambda t}d\mu \left( \lambda \right)}$, entonces:
 \[
 \frac{1}{n}\sum_{t=0}^{n-1} {\gamma_{t} =\int_{-\pi }^\pi 
 {\left[ {\frac{1}{n}\sum_{t=0}^{n-1} {e^{i\lambda t}} } \right]d\mu 
@@ -746,20 +737,20 @@ Puesto que $\E\left| W\left( \left\{ 0 \right\} \right) \right|^{2}=\mu \left(
 \end{proof}
 
 \begin{observacion}
-  $\displaystyle\widehat{{\gamma }}_{t} =\frac{1}{n-t}\sum_{s=1}^{n-t} {X_{s} X_{s+t} } $ es un estimador natural de $\gamma_{t}$, ($t<n,t\in \N$).
+$\displaystyle\widehat{{\gamma }}_{t} =\frac{1}{n-t}\sum_{s=1}^{n-t} {X_{s} X_{s+t} } $ es un estimador natural de $\gamma_{t}$, ($t<n,t\in \N$).
 \end{observacion}
 
 \begin{teorema}
- Sea $\left( X_{t} ,t\in \Z \right)$ d.e. y centrado; entonces se tiene:
+ Sea $\left( X_{t}, t\in \Z \right)$ d.e. y centrado; entonces se tiene:
 \begin{enumerate}
- \item $\E\left( {X_{s} X_{s+t} } \right)^{2}<\infty $, $\forall 
+ \item[1.] $\E\left( {X_{s} X_{s+t} } \right)^{2}<\infty $, $\forall 
 s,t\in \Z$.
 
-\item $\E\left(X_{s_{1} } X_{s_{1} +t} X_{s_{1} +s_{2} } X_{s_{1} 
-+s_{2} +t} \right)$ indep. De $s_{1}$ $ \forall s_{1} ,s_{2} 
+\item[2.] $\E\left(X_{s_{1} } X_{s_{1} +t} X_{s_{1} +s_{2} } X_{s_{1} 
++s_{2} +t} \right)$ indep. de $s_{1}$ $ \forall s_{1} ,s_{2} 
 ,t\in \Z$.
 
-\item $\displaystyle\widehat{\gamma}_{t} \buildrel {m.c.} \over 
+\item[3.] $\displaystyle\widehat{\gamma}_{t} \buildrel {m.c.} \over 
 \longrightarrow \gamma_{t} \Longleftrightarrow \frac{1}{n}\sum 
 {\E\left( {X_{o} X_{s} X_{t} X_{s+t} } \right)\to \gamma_{t}^{2} } $.
 \end{enumerate}
@@ -803,15 +794,14 @@ Entonces: $\overline{{X}}\to 0$ en media cuadr\'{a}tica y casi seguramente.
 \end{proof}
 
 \begin{ejemplo}
+\quad
 \begin{enumerate}
-\item Sea $\left( {X_{t} } \right)$ con v.a. 2 a 2 ortogonales tales que $\E(X_{t})=0$, $\sup_{t} \E(X_{t}^{2}) \leq k$. El teorema se aplica con $\gamma =1$
-\item Si $X_{t} =\left( {-1} \right)^{t}X$, $t\in 
-\Z$ y $\E(X^{2})=1$; el teorema se aplica con $\gamma =0$.
+\item[1)] Sea $\left( {X_{t} } \right)$ con v.a. 2 a 2 ortogonales tales que $\E(X_{t})=0$, $\sup_{t} \E(X_{t}^{2}) \leq k$. El teorema se aplica con $\gamma =1$
+\item[2)] Si $X_{t} =\left( {-1} \right)^{t}X$, $t\in \Z$ y $\E(X^{2})=1$; el teorema se aplica con $\gamma =0$.
 \end{enumerate}
 \end{ejemplo}
 
-\subsection{Teorema Central del L\'{i}mite\index{Teorema Central de 
-l\'{i}mite}}
+\subsection{Teorema Central del L\'{i}mite\index{Teorema Central de l\'{i}mite}}
 
 \begin{teorema}
 Sea $\displaystyle X_{t} =\sum_{j=-\infty }^\infty {a_{j} 
@@ -832,11 +822,9 @@ Para determinar la velocidad de convergencia:
 \begin{itemize}
 \item Con v.a. independientes se aplica la desigualdad de Berestein:
 \[
-\sup_{x\in \R} \left| {F_{n} \left( x \right)-F\left( x 
-\right)} \right|\leq \frac{K}{\sqrt n }
+\sup_{x\in \R} \left| {F_{n} \left( x \right)-F\left( x \right)} \right|\leq \frac{K}{\sqrt n }
 \]
-donde $F_{n} $ y $F$ representan a las distribuciones muestral y te\'{o}rica, 
-respectivamente, de una v. a. $X$. 
+donde $F_{n} $ y $F$ representan a las distribuciones muestral y te\'{o}rica, respectivamente, de una v. a. $X$. 
 
 \item Con v.a. correlacionadas (entre otras hip\'{o}tesis $\cov(X_{t} ,X_{t+h} )=O(\rho^{h})$; es decir, la covarianza dividida por $\rho^{h}$ converge a una velocidad constante):
 \[
@@ -848,22 +836,23 @@ respectivamente, de una v. a. $X$.
 
 
 \section{Predicci\'{o}n de un Proceso Estacionario y Descomposici\'{o}n de Wold}
-\label{subsec:mylabel5}
+%\label{subsec:mylabel5}
 \subsection{Predicci\'{o}n de un Proceso Estacionario}
-\label{subsubsec:mylabel3}
+%\label{subsubsec:mylabel3}
 
-Se observa $\left( {X_{s} ,s\le t} \right)$ y se busca predecir lo mejor 
-posible a $g\left( {X_{t+h} } \right)\in L^{2}$. Hay dos procedimientos:
+Se observa $\left( {X_{s}, s\leq t} \right)$ y se busca predecir lo mejor posible a $g\left( {X_{t+h} } \right)\in L^{2}$. Hay dos procedimientos:
 
 \paragraph{Predicci\'{o}n no Lineal:}\index{Predicci\'{o}n!No lineal}
-La predicci\'{o}n de $g\left( {X_{t+h} } \right)$ se define por:
+La predicci\'{o}n de $g\left( {X_{t+h} } \right)$ se define por:\newline
+
 $\E^{\beta_{t} }\left( {g\left( {X_{t+h} } \right)} \right)=$ 
 proyecci\'{o}n ortogonal de $g\left( {X_{t+h} } \right)$ sobre $L^{2}\left( 
 {\beta_{t} } \right)$, donde: $\beta_{t} =\sigma (X_{s} ,s\leq t)$, la 
 $\sigma$-\'{a}lgebra generada por las variables aleatorias $X_{s} $, $s\leq 
 t.$ ($L^{2}\left( {\beta_{t} } \right)\subseteq L^{2}$, cerrado)
 
-\paragraph{Predicci\'{o}n lineal:}\index{Predicci\'{o}n!Lineal}
+\paragraph{Predicci\'{o}n lineal:}\index{Predicci\'{o}n!Lineal}\newline
+
 Sean $(X_{t} )$ d.e., centrado; $\mu_{t} =\overline {e.v(X_{s} ;s\leq t)} 
 \subseteq L^{2}$ (clausura del e.v. generado por las $X_{s} ,s\leq t)$. Se 
 toma como predicci\'{o}n de $g(X_{t+h})$ a la proyecci\'{o}n 
@@ -898,16 +887,16 @@ $\widehat{X}_{t}$, con un n\'{u}mero sufrientemente grande de observaciones.
 \label{subsubsec:mylabel4}
 
 \begin{teorema}
-Sea$(X_{t} ,t\in \Z)$ d.e, centrado y regular ($ {\sigma^{2}=\E( {X_{t} -\widehat{{X}}_{t} } )^{2}>0} $).
-(Ejercicio: Verificar que $\E( {X_{t} -\widehat{{X}}_{t} } )^{2}$ no depende de $t$).
+Sea$(X_{t} ,t\in \Z)$ d.e, centrado y regular ($ {\sigma^{2}=\E( {X_{t} -\widehat{{X}}_{t} } )^{2}>0} $).\newline
+
+(Ejercicio: Verificar que $\E( {X_{t} -\widehat{{X}}_{t} } )^{2}$ no depende de $t$).\newline 
+
 Entonces: $\displaystyle X_{t} =\sum_{j=0}^\infty {\lambda_{j} u_{t-j} +v_{t} },$ $t\in \Z$
-donde $(u_{t} )$ r.b. (d\'{e}bil) de varianza $\sigma^{2}$, $\lambda_{o} =1$, $\sum {\lambda_{j}^{2} <\infty },$ $u_{t} \in \mu 
-_{t}$, $u_{t} \bot \mu_{t-1}$ $\left( {v_{t} } \right)$ centrado, los $u_{t} $ son ortogonales a los $v_{s} $, $\displaystyle v_{t} \in \bigcap_{s=0}^{\infty } \mu_{t-s} $. Adem\'{a}s, la descomposici\'{o}n es \'{u}nica.
+donde $(u_{t} )$ r.b. (d\'{e}bil) de varianza $\sigma^{2}$, $\lambda_{o} =1$, $\sum {\lambda_{j}^{2} <\infty },$ $u_{t} \in \mu_{t}$, $u_{t} \bot \mu_{t-1}$ $(v_{t})$ centrado, los $u_{t}$ son ortogonales a los $v_{s}$, $\displaystyle v_{t} \in \bigcap_{s=0}^{\infty } \mu_{t-s} $. Adem\'{a}s, la descomposici\'{o}n es \'{u}nica.
 \end{teorema}
 
 \begin{observacion}
- $u_{t} =X_{t} -\widehat{{X}}_{t} \Rightarrow 
-X_{t} =\widehat{{X}}_{t} +u_{t}.$ $ u_{t} $ se dice la innovaci\'{o}n del proceso y $v_{t}$ la parte determinista del proceso.
+$u_{t} =X_{t} -\widehat{{X}}_{t} \Rightarrow X_{t} =\widehat{{X}}_{t} +u_{t}.$ $ u_{t} $ se dice la innovaci\'{o}n del proceso y $v_{t}$ la parte determinista del proceso.
 \end{observacion}
 
 \begin{proof}
@@ -915,19 +904,19 @@ X_{t} =\widehat{{X}}_{t} +u_{t}.$ $ u_{t} $ se dice la innovaci\'{o}n del proces
 \end{proof}
 
 \begin{definicion}
- Un proceso no regular se dice 
-\emph{determinista}\index{Proceso!Determinista}.
+ Un proceso no regular se dice \emph{determinista}\index{Proceso!Determinista}.
 \end{definicion}
 
 \begin{ejercicio}
+\quad
  \begin{enumerate}
-  \item $(v_{t})$ es un proceso determinista, es decir, si $V_{t}=e\upsilon $ cerrado, generado por $v_{s},s\leq t$ y $\tilde{v}_{t}=\Pro^{V_{t-1}} {v}_{t}$ entonces $\tilde{{v}}_{t} =v_{t} $.
+  \item[a)] $(v_{t})$ es un proceso determinista, es decir, si $V_{t}$ e.v cerrado, generado por $v_{s}, s\leq t$ y $\tilde{v}_{t}=\Pro^{V_{t-1}} {v}_{t}$ entonces $\tilde{{v}}_{t} =v_{t} $.
 
-  \item $\displaystyle W_{t} =\sum_{j=0}^\infty \lambda_{j} u_{t-j}$, $t\in\Z$, es un proceso puramente no determinista y su descomposici\'{o}n de Wold es: 
+  \item[b)] $\displaystyle W_{t} =\sum_{j=0}^\infty \lambda_{j} u_{t-j}$, $t\in\Z$, es un proceso puramente no determinista y su descomposici\'{o}n de Wold es: 
   \[
     W_{t} =\sum_{j=0}^\infty {\lambda_{j} u_{t-j} } 
   \]
-	As\'{\i}, el teorema de Wold permite concluir que todo proceso estacionario se puede expresar como la suma de un proceso lineal $(W_{t})$ y un proceso determinista $(v_{t} )$.
+	As\'{i}, el teorema de Wold permite concluir que todo proceso estacionario se puede expresar como la suma de un proceso lineal $(W_{t})$ y un proceso determinista $(v_{t})$.
  \end{enumerate}
 
 \end{ejercicio}
@@ -941,19 +930,16 @@ X_{t} =\widehat{{X}}_{t} +u_{t}.$ $ u_{t} $ se dice la innovaci\'{o}n del proces
 \gamma_{Y} (t)=2\gamma_{X} (t)-\gamma_{X} (t-1)-\gamma_{X} (t+1)
 \]
 
-\item Sea $(u_{t})$ ruido blanco. Mostrar que los procesos definidos por: $X_{t} =u_{t}$ y $Y_{t} =(-1)^{t}u_{t}$ son estacionarios. ? Qu\'{e} puede decir del proceso $Z_{t} =X_{t} +Y_{t}$, $t\in \Z?$
+\item Sea $(u_{t})$ ruido blanco. Mostrar que los procesos definidos por: $X_{t} =u_{t}$ y $Y_{t} =(-1)^{t}u_{t}$ son estacionarios.? Qu\'{e} puede decir del proceso $Z_{t} =X_{t} +Y_{t}$, $t\in \Z?$
 
 \item Sea $\left( {X_{t} } \right)_{t\in \Z} $ el proceso estoc\'{a}stico definido por:
 \[
- X_{t} =\sum_{d=1}^q (A_{j} \cos \lambda_{j} t+B_{j} \sen \lambda_{j} t), \qquad 
- t\in \Z;\ \lambda_{1},\ldots,\lambda_{q} \in \R;\ q\in \N^{\ast }\ \left( \N^{\ast }=\N\left\{ 0 \right\} \right)
+ X_{t} =\sum_{d=1}^q (A_{j} \cos \lambda_{j} t+B_{j} \sen \lambda_{j} t), \quad 
+ t\in \Z;\ \lambda_{1},\ldots,\lambda_{q} \in \R;\ q\in \N^{\ast }\ \left( \N^{\ast }=\N-\left\{ 0 \right\} \right)
 \]
-con $A_{1} ,\ldots,A_{q} ,B_{1} ,\ldots,B_{q} $ v.a. ortogonales 2-2, centradas, 
-que verifican 
+con $A_{1} ,\ldots,A_{q} ,B_{1} ,\ldots,B_{q} $ v.a. ortogonales 2-2, centradas, que verifican 
 \[
-\E A_{J}^{2} =\E B_{J}^{2} =\sigma_{j}^{2} 
-\qquad
-\left( {j=1,\ldots,q} \right)
+\E A_{J}^{2} =\E B_{J}^{2} =\sigma_{j}^{2} \quad \left( {j=1,\ldots,q} \right)
 \]
 \begin{enumerate}
 \item Probar que $\left( {X_{t} } \right)_{t\in\Z} $ es d.e.
@@ -967,33 +953,30 @@ _{\left( {-\lambda_{j} } \right)} +\delta_{\left( {\lambda_{j} } \right)}
 
 \item Sean $Z_{1}$ y $Z_{2}$ variables aleatorias i.i.d. con distribuci\'{o}n $N(0, \sigma^{2})$. Se define al proceso estoc\'{a}stico
 \begin{equation}\label{eq:1.01}
- Z_{t} =Z_{1} \cos \lambda t+Z_{2} \sen\lambda \qquad t\in \Z\text{ y }\lambda \in \left[ {-\pi ,\pi } \right].
+ Z_{t} =Z_{1} \cos \lambda t+Z_{2} \sen\lambda t \qquad t\in \Z\text{ y }\lambda \in \left[-\pi ,\pi \right].
 \end{equation}
 
 \begin{enumerate}
-\item ?$(Z_{t} )_{t\in \Z} $ es d\'{e}bilmente estacionario? En caso afirmativo, calcular su funci\'{o}n de autocovarianza y la medida espectral correspondiente.
-
+\item $(Z_{t})_{t\in \Z}$ es d\'{e}bilmente estacionario? En caso afirmativo, calcular su funci\'{o}n de autocovarianza y la medida espectral correspondiente.
 
 \begin{definicion}
  Se dice que un proceso $(X_{t} )_{t\in T} $ es \emph{gaussiano}\index{Proceso!Gaussiano} si toda combinaci\'{o}n lineal (finita) de v.a. de $(X_{t})$ es normal.
 \end{definicion}
 
-\item ?Un proceso gaussiano es de segundo orden? ?es estacionario?
+\item Un proceso gaussiano es de segundo orden?. Es estacionario?
 \item Demuestre que el proceso definido por \eqref{eq:1.01} es gaussiano.
 \end{enumerate}
 
 \item Sea $U$ una v.a. que sigue una ley uniformne en $[0,1]:U_{\left[ {0,1} \right]} $. Se define:
 \[
-X_{n} =\sen\left( {2\pi nU} \right)\qquad
-\forall n\in \Z
+X_{n} =\sen\left( {2\pi nU} \right)\qquad \forall n\in \Z
 \]
 \begin{enumerate}
-\item ?El proceso $\left( {X_{n} } \right)_{n\in \Z} $ es d\'{e}bilmente estacionario? ?Qu\'{e} se puede decir del proceso $\left( {X_{n} } \right)_{n\in \N^{\ast }} $? 
+\item El proceso $\left( {X_{n} } \right)_{n\in \Z} $ es d\'{e}bilmente estacionario? Qu\'{e} se puede decir del proceso $\left( {X_{n} } \right)_{n\in \N^{\ast }} $? 
 
-\item Mostrar que para todo boreliano real $A$se tiene:
+\item Mostrar que para todo boreliano real $A$ se tiene:
 \[
-P\left( {X_{n} \in { A}} \right)= \int_{0}^{n} 1_{A} \sen 2\pi y
-\frac{dy}{n}
+P\left( {X_{n} \in { A}} \right)= \int_{0}^{n} 1_{A} \sen 2\pi y \frac{dy}{n}
 \]
 y a partir de esto probar que la ley de $X_{n} $ es independiente de $n$.
 
@@ -1003,18 +986,15 @@ y a partir de esto probar que la ley de $X_{n} $ es independiente de $n$.
 \item Mostrar que:
 \begin{enumerate}
 \item $\left( {X_{n} } \right)_{n\in {\N}} $ es un proceso estrictamente estacionario si y s\'{o}lo si $\Dist\left( {X_{0} ,\ldots,X_{n} } \right)=\Dist\left( {X_{1} ,\ldots,X_{n+1} } \right)$ $\forall \quad n\in {\N}$.
-\item $\left( {X_{n} } \right)_{n\in {\Z}} $ es un proceso estrictamente estacionario si y s\'{o}lo si $\Dist\left( {X_{-n} ,\ldots,X_{0} ,\ldots,X_{n} } \right)=\Dist\left( {X_{-n+1} ,\ldots,X_{1} ,\ldots,X_{n+1} } \right)$ $\forall \quad n\in {\N}$.
+\item $\left( {X_{n} } \right)_{n\in {\Z}} $ es un proceso estrictamente estacionario si y s\'{o}lo si $\Dist\left( {X_{-n} ,\ldots,X_{0} ,\ldots, X_{n} } \right)=\Dist\left( {X_{-n+1} ,\ldots,X_{1} ,\ldots,X_{n+1} } \right)$ $\forall \quad n\in {\N}$.
 \item Para todo proceso estacionario en sentido estricto $\left( {X_{n} } \right){ }_{n\geq 0}$, existe un proceso estrictamente estacionario \'{u}nico $\left( {Y_{n} } \right)_{n\in {\Z}} ,$ salvo por una equivalencia, t.q. $\left( {X_{n} } \right)_{n\geq 0} $ y $\left( {Y_{n} } \right)_{n\geq 0} $ sean equivalentes.
 \end{enumerate}
 
 \begin{definicion}
- Se dice que dos procesos $(X_{t} )_{t\in T} $ y 
-$(Y_{t} )_{t\in T} $ son \emph{equivalentes}\index{Proceso!Equivalentes} (en el 
-sentido amplio) si coinciden sus respectivas distribuciones finitas. 
+Se dice que dos procesos $(X_{t} )_{t\in T} $ y $(Y_{t} )_{t\in T} $ son \emph{equivalentes}\index{Proceso!Equivalentes} (en el sentido amplio) si coinciden sus respectivas distribuciones finitas. 
 \end{definicion}
 
-
-\item ?Cu\'{a}les de las siguientes funciones son funciones de autocovarianza? En caso afirmativo, dar el proceso asociado con su medida espectral sobre $\left[ {-\pi ,\pi } \right]$.
+\item Cu\'{a}les de las siguientes funciones son funciones de autocovarianza? En caso afirmativo, dar el proceso asociado con su medida espectral sobre $\left[ {-\pi ,\pi } \right]$.
 
 \begin{enumerate}
 \item $\gamma (h)=1+\left| h \right|$
@@ -1032,8 +1012,7 @@ sentido amplio) si coinciden sus respectivas distribuciones finitas.
                    1&\text{si } |h|\leq 0\\
                    0&\text{en otro caso}
                   \end{cases}$
-
-                  Considere $T=\Z$
+Considere $T=\Z$
 \end{enumerate}
 
 \item Sean $\varepsilon_{1} ,\varepsilon_{2} ,\ldots$ variables aleatorias independientes, centradas t.q. $\V\left( \varepsilon_{i} \right)=\sigma^{2}$. Considere que: 
@@ -1046,8 +1025,8 @@ sentido amplio) si coinciden sus respectivas distribuciones finitas.
  \end{array}} \right.
 \]
 \begin{enumerate}
-\item Encontrar el predictor lineal \'{o}ptimo de $X_{n+1} $, dadas $X_{1} ,\ldots,X_{n}.$
-\item Encontrar el predictor \'{o}ptimo de $X_{n+1} $, dadas $X_{1} ,\ldots,X_{n} $.
+\item Encontrar el predictor lineal \'{o}ptimo de $X_{n+1} $, dadas $X_{1},\ldots, X_{n}$.
+\item Encontrar el predictor \'{o}ptimo de $X_{n+1} $, dadas $X_{1},\ldots, X_{n} $.
 \end{enumerate}
 
 \end{enumerate}
