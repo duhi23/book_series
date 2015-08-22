@@ -3,13 +3,10 @@
 \section{Procesos Lineales}
 
 \begin{definicion}
-$\left( {X_{t} ,t\in \Z} \right)$ centrado, de segundo orden, se dice un \emph{proceso 
-lineal}\index{Proceso lineal!Definici\'{o}n} si se puede expresar como:
+$\left({X_{t}, t\in \Z} \right)$ centrado, de segundo orden, se dice un \emph{proceso lineal}\index{Proceso lineal!Definici\'{o}n} si se puede expresar como:
 \begin{equation}
 \label{eq1}
-X_{t} =\sum_{j=0}^\infty {\psi_{j} u_{t-j} },
-\qquad
-t\in \Z
+X_{t} =\sum_{j=0}^\infty {\psi_{j} u_{t-j}}, \qquad t\in \Z
 \end{equation}
 donde,
 \begin{itemize}
@@ -23,9 +20,10 @@ donde,
 Bajo estas condiciones la serie converge en media cuadr\'{a}tica (m.c.).
 
 \begin{observacion}
+\quad
 \begin{enumerate}
-\item (\ref{eq1}) no es necesariamente la descomposici\'{o}n de Wold de $\left( {X_{t} } \right)_{t\in \Z} $.
-\item $u_{t}\bot u_{t-1}$ pues:
+\item[i)] (\ref{eq1}) no es necesariamente la descomposici\'{o}n de Wold de $\left( {X_{t} } \right)_{t\in \Z} $.
+\item[ii)] $u_{t}\bot u_{t-1}$ pues:
 \[
 X_{t-s} =\sum_{j=0}^\infty {\psi_{j} u_{t-s-j} \Longrightarrow u_{t} 
 \bot X_{t-s} ,} 
@@ -33,7 +31,7 @@ X_{t-s} =\sum_{j=0}^\infty {\psi_{j} u_{t-s-j} \Longrightarrow u_{t}
 s>0
 \]
 
-\item $(X_{t} )$ d.e., pues es centrado y adem\'{a}s:
+\item[iii)] $(X_{t} )$ d.e., pues es centrado y adem\'{a}s:
 \begin{align*}
  \E\left( {X_{t} ,X_{t+h} } \right)
 	 &=\sum_{i,j} {\psi_{i} \psi_{j'} \E(u_{t-i} u_{t+h-j} )} \\
@@ -42,8 +40,8 @@ s>0
 (t-i=t+h-j\Rightarrow j=i+h)
 \end{align*}
 
-\item Se pasa de $\left( {u_{t} } \right)$ a $\left( {X_{t} } \right)$ por una transformaci\'{o}n lineal\index{Proceso lineal!Filtro lineal}, llamada \emph{filtro lineal}.
-\item Sup\'{o}ngase que $\sum_j {\left| {\psi_{j} } \right|<\infty } $
+\item[iv)] Se pasa de $\left( {u_{t} } \right)$ a $\left( {X_{t} } \right)$ por una transformaci\'{o}n lineal\index{Proceso lineal!Filtro lineal}, llamada \emph{filtro lineal}.
+\item[v)] Sup\'{o}ngase que $\sum_j {\left| {\psi_{j} } \right|<\infty } $
 \[
 \sum_h {\left| {\gamma_{h} } \right|\le \sigma^{2}\sum_{h,j} 
 {\left| {\psi_{j} \psi_{j+h} } \right|} } \le \sigma^{2}\left( 
@@ -53,9 +51,7 @@ s>0
 \[
 \therefore\sum {\left| {\gamma_{h} } \right|<\infty } 
 \]
-entonces existe una medida espectral $\mu $ de $\left( {X_{t} } \right)$, 
-absolutamente continua, con una densidad $f$ continua 
-(si $f\geq 0$).
+entonces existe una medida espectral $\mu$ de $\left(X_{t}\right)$, absolutamente continua, con una densidad $f$ continua (si $f\geq 0$).
 \end{enumerate}
 
 \end{observacion}
@@ -74,26 +70,23 @@ donde
 \begin{observacion}
 Si el proceso $(X_{t} )_{t\in \Z} $ es invertible, entonces:
 \begin{enumerate}
- \item $u_{t} \in \mu_{t} $ 
- \item \begin{equation}
-        X_{t} =\sum_{j=1}^\infty {\pi_{j} X_{t-j} } +u_{t} =\widehat{X}_{t} +u_{t} \qquad t\in \Z,\text{ con }\pi_{j} =-\pi_{j}'     
+ \item[i)] $u_{t} \in \mu_{t} $ 
+ \item[ii)] \begin{equation}
+        X_{t} =\sum_{j=1}^\infty {\pi_{j} X_{t-j} } +u_{t} =\widehat{X}_{t} +u_{t} \quad t\in \Z,\text{ con }\pi_{j} =-\pi_{j}'     
        \end{equation}
 	donde $u_{t} $ es la innovaci\'{o}n en el instante $t$. Entonces el problema estad\'{\i}stico ser\'{a} la estimaci\'{o}n de los $\pi_{j} $. Se puede aproximar el modelo (2.2) por:
 	\[
-	 X_{t} =\sum_{j=1}^p \pi_{j} X_{t-j} +u_{t} ,\qquad t\in \Z
+	 X_{t} =\sum_{j=1}^p \pi_{j} X_{t-j} +u_{t} ,\quad t\in \Z
 	\]
 	(proceso autoregresivo de orden $p: AR(p)$) pero es necesario estimar $p$.
 
-	Si $\displaystyle X_{t} =\sum_{j=0}^\infty {\psi_{j} u_{t-j} } $, no es invertible y los $\psi_{j} $ son peque\~{n}os para j suficientemente grande, se puede considerar tambi\'{e}n la aproximaci\'{o}n por $\displaystyle X_{t} =\sum_{j=0}^q {\psi_{j} u_{t-j} }$, $t\in \Z$ (proceso media m\'{o}vil de orden $q: MA(q)$). Es necesario tambi\'{e}n estimar $q$.
+Si $\displaystyle X_{t} =\sum_{j=0}^\infty {\psi_{j} u_{t-j} } $, no es invertible y los $\psi_{j}$ son peque\~{n}os para j suficientemente grande, se puede considerar tambi\'{e}n la aproximaci\'{o}n por $\displaystyle X_{t} =\sum_{j=0}^q {\psi_{j} u_{t-j} }$, $t\in \Z$ (proceso media m\'{o}vil de orden $q: MA(q)$). Es necesario tambi\'{e}n estimar $q$.
 \end{enumerate}
 
 \end{observacion}
 
 
-
-\paragraph{Notaciones:} Consid\'{e}rese el operador\index{Operador!Retardo} de 
-retardo $B$ (Backward es su expresi\'{o}n en ingl\'{e}s), definido por $BX_{t} 
-=X_{t-1} $ y sean:
+\paragraph{Notaciones:} Consid\'{e}rese el operador\index{Operador!Retardo} de retardo $B$ (Backward es su expresi\'{o}n en ingl\'{e}s), definido por $BX_{t} =X_{t-1} $ y sean:
 \[
 \psi \left( B \right)=\sum_{j=0}^\infty {\psi_{j} B^{j}} ,
 \quad
@@ -124,11 +117,7 @@ f_{z} \left( \lambda \right)=
 \begin{proof}
  Luego del ejercicio (1.1) del cap\'{\i}tulo 1, queda por determinar la densidad espectral de $(Z_{{t}})$. Se supondr\'{a}, de manera general, en esta demostraci\'{o}n que los $c_{j}$ son complejos.
 \[
-\E\left( {Z_{s} Z_{t} } \right)=\sum_{j,j'} {c_{j} 
-\bar{{c}}_{j'} \E\left( {Y_{s-j} Y_{t-j'} } \right)} 
-=\sum_{j,j'} {c_{j} \bar{{c}}_{j'} } \int\limits_{\left[ {-\pi 
-,\pi } \right]} {\cos \lambda \left( {\left( {t-s} \right)+\left( {j'-j} 
-\right)} \right)d\mu \left( \lambda \right)} 
+\E\left( {Z_{s} Z_{t} } \right)=\sum_{j,j'} {c_{j} \bar{{c}}_{j'} \E\left( {Y_{s-j} Y_{t-j'} } \right)} =\sum_{j,j'} {c_{j} \bar{{c}}_{j'} } \int\limits_{\left[ {-\pi ,\pi } \right]} {\cos \lambda \left( {\left( {t-s} \right)+\left( {j'-j} \right)} \right)d\mu \left( \lambda \right)} 
 \]
 Por el teorema de convergencia dominada: 
 \[
@@ -138,33 +127,23 @@ Por el teorema de convergencia dominada:
 } \right)^{2}}} d\mu \left( \lambda \right)
 \]
 \[
-\E\left( {Z_{s} Z_{t} } \right)=\int {\Re\left[ {\sum_{j,j'} {c_{j} 
-c_{j'} e^{i\lambda \left( {\left( {t-s} \right)+\left( {j'-j} \right)} 
-\right)}} } \right]\,d\mu \left( \lambda \right)} 
-=\int {\Re e^{i\lambda \left( {t-s} \right)}\left| {\sum_j {c_{j} 
-e^{i\lambda j}} } \right|^{2}d\mu \left( 
-\lambda \right)} 
+\E\left( {Z_{s} Z_{t} } \right)=\int {Re\left[ {\sum_{j,j'} {c_{j} c_{j'} e^{i\lambda \left( {\left( {t-s} \right)+\left( {j'-j} \right)} \right)}} } \right]\,d\mu \left( \lambda \right)} =\int {Re e^{i\lambda \left( {t-s} \right)}\left| {\sum_j {c_{j} e^{i\lambda j}} } \right|^{2}d\mu \left( \lambda \right)} 
 \]
 \[
 \therefore\gamma_{t-s} =\int {\cos \,\lambda \left( {t-s} \right)} \left| 
 {\sum_j {c_{j} e^{i\lambda j}} } \right|^{2}d\mu \left( \lambda 
 \right)=\int {\cos \,\lambda (t-s)\,f_{z} (\lambda )d\mu (\lambda )} 
 \]
-El resultado se deduce por la unicidad de la representaci\'{o}n espectral de 
-los $\gamma_{t} $.
+El resultado se deduce por la unicidad de la representaci\'{o}n espectral de los $\gamma_{t}$.
 \end{proof}
 
-\paragraph{Aplicaci\'{o}n: } Sea $X_{t} =\sum_{j=0}^\infty {\psi_{j } 
-u_{t-j} } $ proceso lineal, con 
+\paragraph{Aplicaci\'{o}n: } Sea $X_{t} =\sum_{j=0}^\infty {\psi_{j } u_{t-j} } $ proceso lineal, con 
 \[
 \sum_{j=0}^\infty \left| \psi_{j} \right| <\infty 
 \]
-Puesto que $\left( {u_{t} } \right)$ ruido blanco, la medida espectral es 
-$\frac{\sigma^{2}}{2\pi }d\lambda ,$ entonces la medida espectral de $X_{t} 
-$ se escribe:
+Puesto que $(u_{t})$ ruido blanco, la medida espectral es $\frac{\sigma^{2}}{2\pi }d\lambda$, entonces la medida espectral de $X_{t}$ se escribe:
 \[
-f_{X} \left( \lambda \right)=
-\frac{\sigma^{2}}{2\pi }\left| {\sum_j {\psi_{j} e^{i\lambda j}} } \right|^{2}d\lambda 
+f_{X} \left( \lambda \right)=\frac{\sigma^{2}}{2\pi }\left| {\sum_j {\psi_{j} e^{i\lambda j}} } \right|^{2}d\lambda 
 \]
 
 \paragraph{Consecuencia: } Un proceso lineal es erg\'{o}dico (la medida en 0 es 
@@ -172,29 +151,22 @@ nula, pues $\mu \left( \left\{ 0 \right\} \right)=0)$. As\'{\i}, entonces,
 para un proceso lineal se satisface la Ley de de los Grandes N\'{u}meros.
 
 
-\section{Funciones de Autorrelaci\'{o}n Simple y Parcial de un P.E.S.O.}
+\section{Funciones de Autocorrelaci\'{o}n Simple y Parcial de un P.E.S.O.}
 
 \begin{definicion}
  Se llama funci\'{o}n\index{Funci\'{o}n!De autocorrelaci\'{o}n} de autocorrelaci\'{o}n de orden $l$ de un p.e.s.o (denotada por $\rho \left( l \right) o \rho_{l}$) a:
 \[
-\rho \left( l \right)=\frac{\gamma (l)}{\gamma 
-(0)}
+\rho \left( l \right)=\frac{\gamma (l)}{\gamma (0)}
 \]
-Puesto que la varianza de $X_{t}$ es constante, este es el coeficiente de 
-correlaci\'{o}n lineal entre $X_{t} y X_{t+l}$.
+Puesto que la varianza de $X_{t}$ es constante, este es el coeficiente de correlaci\'{o}n lineal entre $X_{t} y X_{t+l}$.
 \end{definicion}
 
 \begin{observacion}
- Para realizar estimaciones, se supondr\'{a} 
-que se dispone de una observaci\'{o}n de cada una de las variables 
-$X_{1},\ldots , X_{T}$ 
+ Para realizar estimaciones, se supondr\'{a} que se dispone de una observaci\'{o}n de cada una de las variables $X_{1},\ldots, X_{T}$.\newline
 
-Dado que las covarianzas se conservan por saltos, $\rho \left( l \right)$ 
-puede estimarse por:
+Dado que las covarianzas se conservan por saltos, $\rho \left( l \right)$ puede estimarse por:
 \[
-\widehat{\rho }(l)=\frac{\displaystyle \sum_{t=l+1}^T 
-(X_{t}-\bar{X})(X_{t-l}-\bar{X}) }{\displaystyle \sum_{t=1}^T 
-(X_{t}-\bar{X})^{2} }
+\widehat{\rho }(l)=\frac{\displaystyle \sum_{t=l+1}^T (X_{t}-\bar{X})(X_{t-l}-\bar{X}) }{\displaystyle \sum_{t=1}^T (X_{t}-\bar{X})^{2} }
 \]
 \end{observacion}
 
