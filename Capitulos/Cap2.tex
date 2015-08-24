@@ -158,7 +158,7 @@ para un proceso lineal se satisface la Ley de de los Grandes N\'{u}meros.
 \[
 \rho \left( l \right)=\frac{\gamma (l)}{\gamma (0)}
 \]
-Puesto que la varianza de $X_{t}$ es constante, este es el coeficiente de correlaci\'{o}n lineal entre $X_{t} y X_{t+l}$.
+Puesto que la varianza de $X_{t}$ es constante, este es el coeficiente de correlaci\'{o}n lineal entre $X_{t}$ y $X_{t+l}$.
 \end{definicion}
 
 \begin{observacion}
@@ -171,23 +171,20 @@ Dado que las covarianzas se conservan por saltos, $\rho \left( l \right)$ puede 
 \end{observacion}
 
 \begin{definicion}
- Se llama funci\'{o}n\index{Funci\'{o}n!De autocorrelaci\'{o}n parcial} de autocorrelaci\'{o}n parcial de orden $l$ (denotada por $r\left( l \right)o r_{l}$) de 
-un p.e.s.o. al coeficiente $a_{l}$ de $X_{t-l}$ en la regresi\'{o}n 
-af\'{\i}n de $X_{t}$ sobre $1,X_{t-1},\ldots,X_{t-l}$.
+ Se llama funci\'{o}n\index{Funci\'{o}n!De autocorrelaci\'{o}n parcial} de autocorrelaci\'{o}n parcial de orden $l$ (denotada por $r\left( l \right)$ o $r_{l}$) de un p.e.s.o. al coeficiente $a_{l}$ de $X_{t-l}$ en la regresi\'{o}n 
+af\'{i}n de $X_{t}$ sobre $1, X_{t-1},\ldots, X_{t-l}$.
 \end{definicion}
 
 El sistema se escribe:
 \[
-X_{t}=a_{0}+a_{1}X_{t-1}+\cdots +a_{l}X_{t-l}+u_{t}, \qquad
- t=l+1, l+2,\ldots ,T
+X_{t}=a_{0}+a_{1}X_{t-1}+\cdots +a_{l}X_{t-l}+u_{t}, \qquad t=l+1, l+2,\ldots ,T
 \]
 Se define tambi\'{e}n:
 \[
  r_{0} =1\quad\text{ y }\quad r_{1} =\rho_{1}
 \]
 
-Se puede demostrar que una de las formas de estimar $r(l)$ es resolver el 
-siguiente sistema de ecuaciones lineales (con matriz sim\'{e}trica):
+Se puede demostrar que una de las formas de estimar $r(l)$ es resolver el siguiente sistema de ecuaciones lineales (con matriz sim\'{e}trica):
 \[
 \begin{bmatrix}
 	\rho (1)\\
@@ -209,50 +206,39 @@ siguiente sistema de ecuaciones lineales (con matriz sim\'{e}trica):
 	a_{l}
 \end{bmatrix}
 \]
-Los valores desconocidos de $\rho \left( l \right)$ se reemplazan por sus 
-estimaciones. Existen t\'{e}cnicas m\'{a}s eficientes, como por ejemplo el 
-m\'{e}todo de autocorrelaciones inversas (Cleveland, 1972).
-
+Los valores desconocidos de $\rho \left( l \right)$ se reemplazan por sus estimaciones. Existen t\'{e}cnicas m\'{a}s eficientes, como por ejemplo el m\'{e}todo de autocorrelaciones inversas (Cleveland, 1972).
 
 \section{Procesos Autoregresivos}
 
 \begin{definicion}
- Sea $\left( {X_{t} ,t\in \Z} \right)$ d.e. que satisface:
+ Sea $\left( {X_{t}, t\in \Z} \right)$ d.e. que satisface:
 \[
 X_{t} =\sum_{j=1}^p {\pi_{j} X_{t-j} +u_{t} } 
 \qquad
 t\in \Z
 \]
-t.q. $\pi_{p} \ne 0, \left( {u_{t} } \right)$ ruido blanco con 
-$u_{t} \bot \mu_{t-1} $, $t\in \Z$; entonces $\left( {X_{t} ,t\in 
-\Z} \right)$ se llama un proceso autoregresivo de orden 
-$p$\index{Procesos AR} (notaci\'{o}n: $AR(p)$ \index{Procesos AR!Orden $p$}).
+t.q. $\pi_{p} \ne 0$, $\left( {u_{t} } \right)$ ruido blanco con $u_{t} \bot \mu_{t-1}$, $t\in \Z$; entonces $\left( {X_{t}, t\in \Z} \right)$ se llama un proceso autoregresivo de orden $p$\index{Procesos AR} (notaci\'{o}n: $AR(p)$ \index{Procesos AR!Orden $p$}).
 \end{definicion}
 
 
 \subsection{El caso del modelo\index{Procesos AR!Orden 1} $AR(1)$}
 
-Sea $\left( {X_{t} ,t\in \Z} \right)$ tal que:
+Sea $\left(X_{t}, t\in \Z \right)$ tal que:
 \begin{equation}
 \label{eq2}
 X_{t} =\rho X_{t-1} +u_{t} 
 \end{equation}
-con $\left( {u_{t} } \right)$ ruido blanco d\'{e}bil y $\left| \rho 
-\right|<1$ 
+con $\left( {u_{t} } \right)$ ruido blanco d\'{e}bil y $\left| \rho \right|<1$.\newline
 
-El proceso definido por \eqref{eq2} es d\'{e}bilmente estacionario; adem\'{a}s, 
-$u_{t} $ y $\left( {X_{s} ,s\le t-1} \right)$ son ortogonales; $u_{t} $ se 
-llama la innovaci\'{o}n\index{Innovaci\'{o}n} en el instante $t$.
+El proceso definido por \eqref{eq2} es d\'{e}bilmente estacionario; adem\'{a}s, $u_{t} $ y $\left( {X_{s}, s\le t-1} \right)$ son ortogonales; $u_{t} $ se llama la innovaci\'{o}n\index{Innovaci\'{o}n} en el instante $t$.
 
 
 \begin{itemize}
 \item \textbf{Existencia y unicidad de un proceso $AR(1)$}
 	\begin{enumerate}
-	\item Se va a demostrar que existe una soluci\'{o}n estacionaria para $X_{t} =\rho X_{t-1} +u_{t} $. Puesto que:
+	\item[i.] Se va a demostrar que existe una soluci\'{o}n estacionaria para $X_{t} =\rho X_{t-1} +u_{t} $. Puesto que:
 	\[
-		X_{t-1} =\rho X_{t-2} +u_{t-1} ,
-		\qquad
-		t\in \Z
+		X_{t-1} =\rho X_{t-2} +u_{t-1}, \qquad t\in \Z
 	\]
 	Se tiene que:
 	\begin{align*}
@@ -267,7 +253,7 @@ llama la innovaci\'{o}n\index{Innovaci\'{o}n} en el instante $t$.
 	\]
 	cuando $s\to \infty $, pues $\left| \rho \right|<1$, por lo tanto, $X_{t} =\sum_{j=0}^\infty {\rho^{j}u_{t-j} } $ ser\'{a} la soluci\'{o}n del problema.
 
-	\item Se va a probar que $\left( {X_{t} } \right)$ es d.e.:
+	\item[ii.] Se va a probar que $\left( {X_{t} } \right)$ es d.e.:
 	\begin{enumerate}
 		\item $\E X_{t} =0$ (Se verifica r\'{a}pidamente ya que se puede introducir la esperanza dentro del sumatorio)
 		\item Por la bicotinuidad de un producto escalar en el espacio de Hilbet $L^{2}$ se tiene: 
@@ -280,7 +266,7 @@ llama la innovaci\'{o}n\index{Innovaci\'{o}n} en el instante $t$.
 	\end{enumerate}
 	\end{enumerate}
 
-\item \textbf{?Qu\'{e} sucede si $\left| \rho \right|\ge 1$?}
+\item \textbf{Qu\'{e} sucede si $\left| \rho \right|\ge 1$?}
 
 	Sup\'{o}ngase que exista una soluci\'{o}n de $X_{t} =\rho X_{t-1} +u_{t} $, $t\in \Z$; $u_{t} $ independiente de $\left( {X_{s} ,s<t} \right)$.
 	\[
@@ -294,7 +280,7 @@ llama la innovaci\'{o}n\index{Innovaci\'{o}n} en el instante $t$.
 			 X_{t} =-u_{0} ......-u_{t+1} & t\le -1 \\ 
 		\end{cases}
 	\]
-	Adem\'{a}s, est\'{a} soluci\'{o}n no satisface que sea no correlacionado $u_{t} $ con $(X_{s} ,s<t)$, pues $\E\left( {u_{0} X_{-1} } \right)=-\sigma^{2}$.
+	Adem\'{a}s, est\'{a} soluci\'{o}n no satisface que sea no correlacionado $u_{t} $ con $(X_{s}, s<t)$, pues $\E\left( {u_{0} X_{-1} } \right)=-\sigma^{2}$.
 \end{itemize}
 
 \subsection{Unicidad de la descomposici\'{o}n para el caso del $AR(p)$:}
@@ -303,36 +289,26 @@ Sup\'{o}ngase que $X_{t}$, tambi\'{e}n se pueda expresar por:
 \[
 X_{t} =\sum_{j=1}^p {\pi_{j}' X_{t-j} +u_{t}' } 
 \]
-con $(u_{t}' )$ ruido blanco de igual varianza que $(u_{t} )$, $u_{t}' 
-\bot \mu_{t-1},$ $\pi_{p}' \ne 0$ 
+con $(u_{t}' )$ ruido blanco de igual varianza que $(u_{t} )$, $u_{t}' \bot \mu_{t-1},$ $\pi_{p}' \ne 0$.\newline 
 
-Entonces $\widehat{{X}}_{t} =\sum_{j=1}^p {\pi_{j} X_{t-j} } 
-=\sum_{j=1}^p {\pi_{j}' X_{t-j} } $ (pues $u_{t} ,u_{t}' \bot 
-\mu_{t-1} )$
+Entonces $\widehat{{X}}_{t} =\sum_{j=1}^p {\pi_{j} X_{t-j} } =\sum_{j=1}^p {\pi_{j}' X_{t-j} } $ (pues $u_{t} ,u_{t}' \bot \mu_{t-1} )$\newline
 
-Si $\pi_{1} \ne \pi_{1}'$, $X_{t-1} =\sum_{j=1}^{p-1} {d_{j} 
-X_{t-1-j} \in \mu_{t-2} }$, $\forall t\in \Z$
+Si $\pi_{1} \ne \pi_{1}'$, $X_{t-1} =\sum_{j=1}^{p-1} {d_{j} X_{t-1-j} \in \mu_{t-2} }$, $\forall t\in \Z$\newline
 
-As\'{\i}, $X_{t} \in \mu_{t-1} \Rightarrow u_{t} \in \mu_{t-1} \Rightarrow 
-u_{t} =0$; esto es una contradicci\'{o}n, pues $E\left( {u_{t}^{2} } 
-\right)=\sigma^{2}>0$ 
+As\'{\i}, $X_{t} \in \mu_{t-1} \Rightarrow u_{t} \in \mu_{t-1} \Rightarrow u_{t} =0$; esto es una contradicci\'{o}n, pues $E\left( {u_{t}^{2} } \right)=\sigma^{2}>0$ 
 \[
 \therefore\pi_{1} =\pi_{1}' 
 \]
 De la misma manera se demuestra que $\pi_{2} =\pi_{2}'$, etc.
 
 \begin{teorema}
- Una condici\'{o}n necesaria y suficiente para 
-que exista un $AR(p)$, que satisfaga $\pi'( B)X_{t} =u_{t} $, 
-es que las ra\'{\i}ces de la ecuaci\'{o}n $\pi'( z )=0$ se 
-encuentren fuera del c\'{\i}rculo unidad. Bajo esta condici\'{o}n:
+Una condici\'{o}n necesaria y suficiente para que exista un $AR(p)$, que satisfaga $\pi'( B)X_{t} =u_{t} $, es que las ra\'{i}ces de la ecuaci\'{o}n $\pi'( z )=0$ se encuentren fuera del c\'{i}rculo unidad. Bajo esta condici\'{o}n:
 \[
 X_{t} =\sum_{j=0}^\infty {\psi_{j} u_{t-j} } ,
 \qquad
 t\in \Z
 \]
-donde los $\psi_{j} $, son los coeficientes de Taylor de $\frac{1}{\Pi 
-'\left( z \right)}$
+donde los $\psi_{j} $, son los coeficientes de Taylor de $\frac{1}{\Pi'\left( z \right)}$
 \end{teorema}
 
 \begin{proof}
@@ -343,7 +319,7 @@ donde los $\psi_{j} $, son los coeficientes de Taylor de $\frac{1}{\Pi
 Los coeficientes $\psi_{j} $ pueden determinarse con uno de los siguientes m\'{e}todos: 
 
 \begin{enumerate}
-\item Puesto que $\Pi'(z)\frac 1{\Pi'(z)}=1$, se identifican los coeficientes de los t\'{e}rminos del mismo grado. Se obtiene un sistema de ecuaciones en $\psi_{i} $, que puede resolverse sucesivamente:
+\item[i)] Puesto que $\Pi'(z)\frac 1{\Pi'(z)}=1$, se identifican los coeficientes de los t\'{e}rminos del mismo grado. Se obtiene un sistema de ecuaciones en $\psi_{i} $, que puede resolverse sucesivamente:
 \begin{gather*}
  \psi_{0} =1 \\ 
  \psi_{1} -\pi_{1} =0 \\ 
@@ -354,13 +330,13 @@ Los coeficientes $\psi_{j} $ pueden determinarse con uno de los siguientes m\'{e
  \vdots 
 \end{gather*}
 
-\item Efectuar la divisi\'{o}n de 1 por $\Pi(z)$ seg\'{u}n las potencias crecientes; los coeficientes se caracterizan entonces por:
+\item[ii)] Efectuar la divisi\'{o}n de 1 por $\Pi'(z)$ seg\'{u}n las potencias crecientes; los coeficientes se caracterizan entonces por:
 \[
  1=\Pi(z)[\psi_0+\psi_1z+\cdots+ \psi_pz^r]+z^{r+1}\lambda_r(z)\qquad \forall r
 \]
 donde $\lambda_{r}( z )$ es un polinomio en $z$. 
 
-\item Descomponer en elementos simples la fracci\'{o}n $\frac{1}{\Pi'( z )}$ y escribir el desarrollo en series de cada t\'{e}rmino. Sup\'{o}ngase que todas las ra\'{\i}ces de $\pi'( z )$ sean reales y distintas:
+\item[iii)] Descomponer en elementos simples la fracci\'{o}n $\frac{1}{\Pi'( z )}$ y escribir el desarrollo en series de cada t\'{e}rmino. Sup\'{o}ngase que todas las ra\'{\i}ces de $\pi'( z )$ sean reales y distintas:
 \begin{align*}
 \frac{1}{\Pi'\left( z \right)}
 	&=\frac{1}{\prod_{i=1}^{p} ( {1-\lambda_{i} z} )}\\
@@ -368,8 +344,7 @@ donde $\lambda_{r}( z )$ es un polinomio en $z$.
 	&=\sum_{i=1}^p {a_{i} } \sum_{j=0}^\infty {\lambda_{i}^{j} } z^{j}\\
 	&=\sum_{j=0}^\infty {\left[ {\sum_{i=1}^p {a_{i} \lambda _{i}^{j} } } \right]} z^{j}
 \end{align*}
-El caso de ra\'{\i}ces complejas o m\'{u}ltiples se trata de la manera 
-habitual.
+El caso de ra\'{i}ces complejas o m\'{u}ltiples se trata de la manera habitual.
 \end{enumerate}
 \end{observacion}
 
@@ -379,16 +354,13 @@ habitual.
 \[
 X_{t} =\rho X_{t-1} +u_{t} ,\qquad \left| \rho \right|<1
 \]
-La condici\'{o}n $\left| \rho \right|<1$, se requiere para que este proceso 
-exista, pues:
-puede resolverse sucesivamente:
+La condici\'{o}n $\left| \rho \right|<1$, se requiere para que este proceso exista, pues: puede resolverse sucesivamente:
 \begin{gather*}
  X_{t} -\rho X_{t-1} =u_{t} \\ 
- \left( {1+\rho B} \right)X_{t} =u_{t} \\ 
+ \left( {1-\rho B} \right)X_{t} =u_{t} \\ 
  1-\rho z=0 \Longleftrightarrow z=\frac{1}{\rho } \\ 
 \end{gather*}
 \end{ejemplo}
-
 
 \begin{teorema}
  La autocovarianza de un $AR(p)$ satisface las ecuaciones de Yule-Walker.
@@ -400,9 +372,7 @@ puede resolverse sucesivamente:
 \]
 y su densidad espectral se escribe:
 \[
-f\left( \lambda \right)=\frac{\sigma^{2}}{2\pi }\left| 
-{1-\sum_{j=1}^p {\pi_{j} e^{i\lambda j}} } 
-\right|^{-2}
+f\left( \lambda \right)=\frac{\sigma^{2}}{2\pi }\left| {1-\sum_{j=1}^p {\pi_{j} e^{i\lambda j}} } \right|^{-2}
 \]
 \end{teorema}
 
@@ -417,29 +387,21 @@ Sea $\left( {X_{t} } \right)$ un $AR (p)$
 \item $\displaystyle u_{t} =X_{t} -\sum_{j=1}^p {\pi_{j} X_{t-j} \Rightarrow \frac{\sigma^{2}}{2\pi }d\lambda =\left| {1-\sum_{j=1}^p {_{j} e^{i\lambda j}} } \right|^{2}} f(\lambda )d\lambda =\left| {1-\sum_{j=1}^p {_{j} e^{i\lambda j}} } \right|^{2}d\mu \left( \lambda \right)$
 \end{itemize}
 
-Estas ecuaciones permiten estimar $\sigma^{2}$ y los $\pi_{j} $, poniendo 
-en lugar de $\gamma_{i} $ su estimaci\'{o}n.
+Estas ecuaciones permiten estimar $\sigma^{2}$ y los $\pi_{j} $, poniendo en lugar de $\gamma_{i} $ su estimaci\'{o}n.
 \end{proof}
-
 
 
 \subsection{Autocorrelaci\'{o}n asint\'{o}tica de un proceso $AR(p)$}
 
-Considerando la definici\'{o}n 2.3, se tiene que el coeficiente de 
-autorrelaci\'{o}n\index{Procesos AR!Coeficiente de autocorrelaci\'{o}n} es:
+Considerando la definici\'{o}n 2.3, se tiene que el coeficiente de autocorrelaci\'{o}n\index{Procesos AR!Coeficiente de autocorrelaci\'{o}n} es:
 \[
-\rho \left( l \right)=\frac{\gamma (l)}{\gamma 
-(0)}=\frac{\gamma_{l}}{\gamma_{0}}=\rho 
-_{l}, \qquad  l\ge 0
+\rho \left( \ell \right)=\frac{\gamma (\ell)}{\gamma(0)}=\frac{\gamma_{\ell}}{\gamma_{0}}=\rho_{\ell}, \qquad  \ell\ge 0
 \]
 Si se dividen por $\gamma_{0} $ las ecuaciones de Yule -- Walker, se tiene:
 \[
- \sum_{j=1}^p {\pi_{j} \rho_{\ell -j} =\rho_{\ell } \Leftrightarrow 
-\pi'\left( B \right)\rho_{\ell } =0} \qquad \text{(ra\'{\i}ces de $\Pi 
-'(z)$ de $| |>1$)}
+ \sum_{j=1}^p {\pi_{j} \rho_{\ell -j} =\rho_{\ell } \Leftrightarrow \pi'\left( B \right)\rho_{\ell } =0} \qquad \text{(ra\'{i}ces de $\Pi'(z)$ de $| |>1$)}
 \]
-As\'{\i}, la sucesi\'{o}n $\rho_{\ell } $ satisface una ecuaci\'{o}n en 
-diferencias. 
+As\'{i}, la sucesi\'{o}n $\rho_{\ell } $ satisface una ecuaci\'{o}n en diferencias.\newline
 
 Se sabe que:
 \[
@@ -447,22 +409,17 @@ Se sabe que:
 \]
 donde, 
 \begin{itemize}
- \item $G_{i} :$ inversas de las ra\'{\i}ces de $\pi'\left( z \right)$ (se suponen distintas y de multiplicidad 1).
+ \item $G_{i} :$ inversas de las ra\'{i}ces de $\pi'\left( z \right)$ (se suponen distintas y de multiplicidad 1).
  \item $a_{i} :$ constantes arbitrarias.
 \end{itemize}
 
-De esta ecuaci\'{o}n se puede deducir que $\rho_{\ell } \to 0$ a velocidad 
-exponencial. El resultado tambi\'{e}n se cumple en el caso general (Ver 
-Anexo B.2).
+De esta ecuaci\'{o}n se puede deducir que $\rho_{\ell } \to 0$ a velocidad exponencial. El resultado tambi\'{e}n se cumple en el caso general (Ver Anexo B.2).
 
 
-
-\subsection{Autorrelaci\'{o}n parcial asint\'{o}tica de un proceso $AR (p)$}
+\subsection{Autocorrelaci\'{o}n parcial asint\'{o}tica de un proceso $AR (p)$}
 
 \begin{teorema}
- Si $(X_{t} )_{t\in \Z} $ es $AR (p)$ y $r_{\ell } $ 
-el coeficiente de autocorrelaci\'{o}n parcial\index{Procesos AR!Coeficiente 
-de autocorrelaci\'{o}n parcial}, entonces:
+Si $(X_{t} )_{t\in \Z} $ es $AR (p)$ y $r_{\ell }$ el coeficiente de autocorrelaci\'{o}n parcial\index{Procesos AR!Coeficiente de autocorrelaci\'{o}n parcial}, entonces:
 \[
 \left\{ {\begin{array}{l}
  r_{p} =\pi_{p} \ne 0 \\ 
@@ -471,7 +428,6 @@ de autocorrelaci\'{o}n parcial}, entonces:
 \]
 \end{teorema}
 
-
 \begin{proof}
 Se tiene que:
 \[
@@ -479,9 +435,7 @@ X_{t} =\sum_{j=1}^p {\pi_{j} X_{t-j} +u_{t} } ,
 \qquad
 t\in \Z
 \]
-Se denota por $X_{t}^{\ast } $ (respectivamente $X_{t-l}^{\ast })$ a la 
-proyecci\'{o}n ortogonal de $X_{t}$ sobre el espacio vectorial generado por 
-$X_{t-1}, X_{t-2},\ldots ,X_{t-l+1}$ (respectivamente $X_{t-l})$.
+Se denota por $X_{t}^{\ast } $ (respectivamente $X_{t-l}^{\ast })$ a la proyecci\'{o}n ortogonal de $X_{t}$ sobre el espacio vectorial generado por $X_{t-1}, X_{t-2},\ldots, X_{t-l+1}$ (respectivamente $X_{t-l})$.
 
 \begin{itemize}
 \item Si $l=p$: 
