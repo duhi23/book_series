@@ -20,8 +20,7 @@ Sea $X_{t}$ la variable aleatoria (v.a.) que se observa en el instante $t$. Aunq
  El signo ``$\widehat{\phantom{aa}}$'' significa que la expresi\'{o}n te\'{o}rica se remplaza por su estimaci\'{o}n\index{Estimaci\'{o}n}; en todo el documento se utilizar\'{a} esta notaci\'{o}n\index{Estimaci\'{o}n!Notaci\'{o}n}.
 \end{observacion}
 
-
-Si el gr\'{a}fico correspondiente a los puntos $( t,X_{t} )$, $t=1,\mathellipsis ,T$ es bastante regular se puede, en la mayor\'{i}a de los casos, modelar el fen\'{o}meno por una curva simple (de tipo polinomial o sinusoidal; ver figura 1.1). En caso contrario, es necesario utilizar modelos probabil\'{i}sticos un poco m\'{a}s complejos (ver figuras 1.2 y 1.3).
+Si el gr\'{a}fico correspondiente a los puntos $(t, X_{t})$, $t=1,\mathellipsis , T$ es bastante regular se puede, en la mayor\'{i}a de los casos, modelar el fen\'{o}meno por una curva simple (de tipo polinomial o sinusoidal; ver figura 1.1). En caso contrario, es necesario utilizar modelos probabil\'{i}sticos un poco m\'{a}s complejos (ver figuras 1.2 y 1.3).
 
 \begin{figure}[H]
 \centering
@@ -48,16 +47,15 @@ curva cuadr\'{a}tica}
 
 \section{Procesos Estacionarios}
 
-Por simplicidad, se asumir\'{a} que un proceso estoc\'{a}stico es una familia de variables aleatorias, denotada por ${(X_{t})}_{t\in T}$ o $(X_{t}, t\in T)$, definidas sobre un espacio muestral $\Omega$ y que toman valores en un conjunto $E$ (regularmente $\mathbb{R}$, aunque tambi\'{e}n puede ser $\mathbb{C},\mathbb{R}^{k}$ o $\mathbb{C}^{k}$). $T$ se dice el espacio de tiempos; por lo general es $\mathbb{R}$ o un subconjunto de este, como $\mathbb{N}$ o $\mathbb{Z}$ (aqu\'{i} se asumir\'{a} frecuentemente que $T=\mathbb{Z}$: el conjunto de n\'{u}meros enteros).
+Por simplicidad, se asumir\'{a} que un proceso estoc\'{a}stico es una familia de variables aleatorias, denotada por ${(X_{t})}_{t\in T}$ o $(X_{t}, t\in T)$, definidas sobre un espacio muestral $\Omega$ y que toman valores en un conjunto $E$ (regularmente $\mathbb{R}$, aunque tambi\'{e}n puede ser $\mathbb{C}$, $\mathbb{R}^{k}$ o $\mathbb{C}^{k}$). $T$ se dice el espacio de tiempos; por lo general es $\mathbb{R}$ o un subconjunto de este, como $\mathbb{N}$ o $\mathbb{Z}$ (aqu\'{i} se asumir\'{a} frecuentemente que $T=\mathbb{Z}$: el conjunto de n\'{u}meros enteros).
 
 \begin{definicion}
  $(X_{t}, t\in T)$ es estrictamente (o fuertemente\index{ Procesos estacionarios!Fuertemente}) 
 estacionario si:
 \[
-\Ley\left(X_{t_1+l},\dots,X_{t_k+l}\right) = 
-\Ley\left(X_{t_1},\dots,X_{t_k}\right),
+\Ley\left(X_{t_1+\ell},\dots, X_{t_k+\ell}\right) = \Ley\left(X_{t_1},\dots, X_{t_k}\right),
 \]
-para todo $k=1,2,\dots$ y $t_{1},\dots t_{k}, t_{1}+l,\dots,t_{k}+l\in T$.
+para todo $k=1,2,\dots$ y $t_{1},\dots t_{k}, t_{1}+\ell,\dots,t_{k}+\ell\in T$.
 \end{definicion}
 
 En este documento se utilizar\'{a} la palabra Ley o Distribuci\'{o}n (Dist.) indistintamente.
@@ -67,7 +65,7 @@ estacionarios!D\'{e}bilmente} si:
 \begin{enumerate}
 \item $(X_{t}, t\in T)$ es real (toma valores en $\mathbb{R}$) y de segundo orden ($ \forall t\in T,\ \E\left( X_{t}^{2} \right)<\infty$).
 \item $\E\left( X_{t} \right)=m$ ($m$ es constante independiente de $t$).
-\item $\Cov\left( X_{s+l},X_{t+l} \right)=\Cov\left( X_{s},X_{t} \right)$ para todo $ s,t,l,s+l,t+l\in T$.
+\item $\Cov\left( X_{s+\ell},X_{t+\ell} \right)=\Cov\left( X_{s},X_{t} \right)$ para todo $s, t, \ell, s+\ell, t+\ell\in T$.
 \end{enumerate}
 \end{definicion}
 
@@ -86,13 +84,12 @@ estacionarios!D\'{e}bilmente} si:
 \]
 y equivalente a
 \[
-\Cov\left( X_{t},X_{t+l} \right)=\E\left( X_{0},X_{t} \right)=\gamma \left( l 
-\right)\text{ para todo }  l,t,t+l\in T
+\Cov\left( X_{t}, X_{t+\ell} \right)=\E\left( X_{0}, X_{t} \right)=\gamma \left(\ell \right)\text{ para todo }  \ell, t, t+\ell \in T
 \]
 
-\item $\gamma \left( l \right)$ se llama la \emph{funci\'{o}n de autocovarianza}\index{Funci\'{o}n!De autocovarianza} del proceso; \'{e}sta solo depende de la diferencia entre los \'{i}ndices $t+l$ y $t$. En particular $V\left( X_{t} \right)=\gamma (0)$; es decir, la varianza de un proceso estacionario es constante.
+\item $\gamma \left( \ell \right)$ se llama la \emph{funci\'{o}n de autocovarianza}\index{Funci\'{o}n!De autocovarianza} del proceso; \'{e}sta solo depende de la diferencia entre los \'{i}ndices $t+\ell$ y $t$. En particular $V\left( X_{t} \right)=\gamma (0)$; es decir, la varianza de un proceso estacionario es constante.
 
-\item Si $T=Z $
+\item Si $T=Z$
   \begin{itemize}
   \item $\gamma \left( h \right)$ es par: $\gamma \left( h \right)=\gamma \left( -h \right),\  \forall   h\in Z$
   \item $\left| \gamma \left( h \right) \right|\le \gamma \left( 0 \right),\  \forall h\in Z$ 
@@ -327,14 +324,13 @@ donde $A$, $B$, $D$, $E$, $F$ v.a. independientes y tales que $\E(A)= \E(B)= \E(
 
 \section{Representaci\'{o}n Espectral de un Proceso D\'{e}bilmente Estacionario}
 %\label{subsec:mylabel3}
-\subsection{Representaci\'{o}n espectral de $( \gamma_{t} )_{t\in \mathbb{Z}}$ }
+\subsection{Representaci\'{o}n espectral de $(\gamma_{t})_{t\in \mathbb{Z}}$ }
 %\label{subsubsec:mylabel1}
 
-Sea $(X_{t}, t\in \mathbb{Z)}$ d.e. y centrado. Recu\'{e}rdese que se defini\'{o} la funci\'{o}n de autocovarianza $\left( \gamma_{t}, t\in 
-\Z \right)$ por $\gamma_{t}=\E\left( X_{0},X_{t} \right)=\E\left( X_{l},X_{t+l} \right),\ \forall t, l\in \Z$. 
+Sea $(X_{t}, t\in \mathbb{Z)}$ d.e. y centrado. Recu\'{e}rdese que se defini\'{o} la funci\'{o}n de autocovarianza $\left( \gamma_{t}, t\in \Z \right)$ por $\gamma_{t}=\E\left( X_{0},X_{t} \right)=\E\left( X_{\ell}, X_{t+\ell} \right),\ \forall t, \ell\in \Z$. 
 
 \begin{teorema}
-Existe una medida \'{u}nica $\mu $ acotada y sim\'{e}trica sobre $\left[ \pi ,\pi \right]$ tal que:
+Existe una medida \'{u}nica $\mu$ acotada y sim\'{e}trica sobre $\left[ \pi , \pi \right]$ tal que:
 \[
 \gamma_{t}=\int_{-\pi }^\pi {\cos \left( \lambda t \right)d\mu 
 \left( \lambda \right)},\quad t\in \Z
@@ -486,7 +482,7 @@ son ortogonales 2 a 2.
 \item Incrementos estacionarios: 
 
 \[
-\forall  s,t,s+l,t+l \in \R^{+},\ \E\left(Z_{t+l}-Z_{s+l} \right)^{2}=\E\left( Z_{t}-Z_{s} \right)^{2}.
+\forall s, t, s+\ell, t+\ell \in \R^{+},\ \E\left(Z_{t+\ell}-Z_{s+\ell} \right)^{2}=\E\left( Z_{t}-Z_{s} \right)^{2}.
 \]
 
 \item Continuo a la derecha:\newline
@@ -505,15 +501,11 @@ Para todo $s,t \in \R^{+},$ se tiene que: $\E\left( Z_{t}^{2} \right)=\E\left( Z
 
 Considere el caso en que $n=2$, se tiene:
 \[
-\E\left( Z_{2}^{2} \right)=\E\left( Z_{2}-Z_{1} \right)^{2}+\E\left( Z_{1}^{2} 
-\right)=\left( Z_{1}-Z_{0} \right)^{2}+\E\left( Z_{1}^{2} \right)=\E\left( 
-Z_{1}^{2} \right)+\E\left( Z_{1}^{2} \right)=2
+\E\left( Z_{2}^{2} \right)=\E\left( Z_{2}-Z_{1} \right)^{2}+\E\left( Z_{1}^{2} \right)=\left( Z_{1}-Z_{0} \right)^{2}+\E\left( Z_{1}^{2} \right)=\E\left( Z_{1}^{2} \right)+\E\left( Z_{1}^{2} \right)=2
 \]
 Luego, realizando el mismo an\'{a}lisis $n$ veces, se tiene:
 \[
-\E\left( Z_{n}^{2} \right)=\E\left( Z_{n}-Z_{n-1} \right)^{2}+\E\left( 
-Z_{n-1}^{2} \right)=\left( Z_{1}-Z_{0} \right)^{2}+\left( n-1 
-\right)=\E\left( Z_{1}^{2} \right)+\left( n-1 \right)=n
+\E\left( Z_{n}^{2} \right)=\E\left( Z_{n}-Z_{n-1} \right)^{2}+\E\left( Z_{n-1}^{2} \right)=\left( Z_{1}-Z_{0} \right)^{2}+\left( n-1 \right)=\E\left( Z_{1}^{2} \right)+\left( n-1 \right)=n
 \]
 
 \item Considere $p$ y $q$ enteros positivos; entonces:
@@ -853,10 +845,7 @@ t.$ ($L^{2}\left( {\beta_{t} } \right)\subseteq L^{2}$, cerrado)
 
 \paragraph{Predicci\'{o}n lineal:}\index{Predicci\'{o}n!Lineal}\newline
 
-Sean $(X_{t} )$ d.e., centrado; $\mu_{t} =\overline {e.v(X_{s} ;s\leq t)} 
-\subseteq L^{2}$ (clausura del e.v. generado por las $X_{s} ,s\leq t)$. Se 
-toma como predicci\'{o}n de $g(X_{t+h})$ a la proyecci\'{o}n 
-ortogonal de $g(X_{t+h} )$ sobre $\mu_{t}$:
+Sean $(X_{t} )$ d.e., centrado; $\mu_{t} =\overline {e.v(X_{s} ;s\leq t)} \subseteq L^{2}$ (clausura del e.v. generado por las $X_{s}$, $s\leq t)$. Se toma como predicci\'{o}n de $g(X_{t+h})$ a la proyecci\'{o}n ortogonal de $g(X_{t+h} )$ sobre $\mu_{t}$:
 \[
 \Pro^{\mu_{t} } g(X_{t+h} ).
 \]
