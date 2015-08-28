@@ -391,12 +391,11 @@ Se sabe que:
 \]
 donde, 
 \begin{itemize}
- \item $G_{i} :$ inversas de las ra\'{i}ces de $\pi'\left( z \right)$ (se suponen distintas y de multiplicidad 1).
- \item $a_{i} :$ constantes arbitrarias.
+ \item $G_{i}:$ inversas de las ra\'{i}ces de $\pi'\left( z \right)$ (se suponen distintas y de multiplicidad 1).
+ \item $a_{i}:$ constantes arbitrarias.
 \end{itemize}
 
 De esta ecuaci\'{o}n se puede deducir que $\rho_{\ell } \to 0$ a velocidad exponencial. El resultado tambi\'{e}n se cumple en el caso general (Ver Anexo B.2).
-
 
 \subsection{Autocorrelaci\'{o}n parcial asint\'{o}tica de un proceso $AR (p)$}
 
@@ -420,7 +419,7 @@ t\in \Z
 Se denota por $X_{t}^{\ast } $ (respectivamente $X_{t-l}^{\ast })$ a la proyecci\'{o}n ortogonal de $X_{t}$ sobre el espacio vectorial generado por $X_{t-1}, X_{t-2},\ldots, X_{t-l+1}$ (respectivamente $X_{t-l})$.
 
 \begin{itemize}
-\item Si $l=p$: 
+\item Si $\ell=p$: 
 \[
 X_{t}^{\ast } =\sum_{j=1}^{p-1} {\pi_{j} X_{t-j} +\pi_{p} 
 X_{t-p}^{\ast } +0} 
@@ -454,40 +453,31 @@ X_{t}^{\ast } =\sum_{j=1}^p {\pi_{j} X_{t-j} } +0\\
 \end{itemize}
 \end{proof}
 
-\begin{observacion}[C\'{o}mo reconocer y determinar un proceso AR] \index{Procesos AR!Reconocer y determinar}A partir del comportamiento de las autocorrelaciones asint\'{o}ticas (simple y parcial) de un $AR(p)$ se puede concluir lo siguiente: Si $(X_{t})$ es un proceso $AR(p)$ entonces, $r(l)=$ cuando $l>p$ y $\rho (l)\to 0$ a velocidad exponencial (descienden r\'{a}pidamente hacia cero). Ver Figuras 2.1, 2.2 y 
-2.3.
+\begin{observacion}[C\'{o}mo reconocer y determinar un proceso AR?] \index{Procesos AR!Reconocer y determinar}A partir del comportamiento de las autocorrelaciones asint\'{o}ticas (simple y parcial) de un $AR(p)$ se puede concluir lo siguiente: Si $(X_{t})$ es un proceso $AR(p)$ entonces, $r(\ell)=0$ cuando $\ell>p$ y $\rho (\ell)\to 0$ a velocidad exponencial (descienden r\'{a}pidamente hacia cero). Ver Figuras 2.1, 2.2 y 2.3.
 \end{observacion}
 
 
-
-
-\begin{ejemplo} Consid\'{e}rese la serie $X_{t}+0,4X_{t-1}-0,5X_{t-2}=u_{t}$, de la cual se han simulado 200 observaciones. El ruido blanco corresponde a 
-observaciones $u_{t}$ independientes e id\'{e}nticamente distribuidas de la 
-distribuci\'{o}n normal est\'{a}ndar ($N(0,1)$)
+\begin{ejemplo} Consid\'{e}rese la serie $X_{t}+0,4X_{t-1}-0,5X_{t-2}=u_{t}$, de la cual se han simulado 200 observaciones. El ruido blanco corresponde a observaciones $u_{t}$ independientes e id\'{e}nticamente distribuidas de la distribuci\'{o}n normal est\'{a}ndar ($N(0,1)$)
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap24.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap24.eps}
 \caption{Modelo simulado $AR(eq4)$}
 \end{figure}
 
-Se puede observar a continuaci\'{o}n el comportamiento de las funciones de 
-autocorrelaci\'{o}n (FAC) y autocorrelaci\'{o}n parcial (FACP) estimadas.
+Se puede observar a continuaci\'{o}n el comportamiento de las funciones de autocorrelaci\'{o}n (FAC) y autocorrelaci\'{o}n parcial (FACP) estimadas.
 
-Las bandas de confianza de los gr\'{a}ficos sirven para determinar 
-cu\'{a}les par\'{a}metros (autocorrelaci\'{o}n o autocorrelaci\'{o}n 
-parcial), se pueden considerar significativos; la manera de construirlas se 
-ver\'{a} m\'{a}s adelante.
+Las bandas de confianza de los gr\'{a}ficos sirven para determinar cu\'{a}les par\'{a}metros (autocorrelaci\'{o}n o autocorrelaci\'{o}n parcial), se pueden considerar significativos; la manera de construirlas se ver\'{a} m\'{a}s adelante.
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap25.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap25.eps}
 \caption{Comportamiento de $r(\ell)$}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap26.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap26.eps}
 \caption{Comportamiento de $r(\ell)$}
 \end{figure}
 
@@ -497,7 +487,7 @@ ver\'{a} m\'{a}s adelante.
 \begin{observacion}
  
 \begin{enumerate}
-\item El inverso del operador $\Pi'(B)$ existe, si las ra\'{\i}ces de $\Pi'(z)$ son de $\left| \right|\ne 1$. Sup\'{o}ngase que las primeras r ra\'{\i}ces sean de $\left| \right|>1$ y las (p-r) \'{u}ltimas de $\left| \right|<1$
+\item El inverso del operador $\Pi'(B)$ existe, si las ra\'{i}ces de $\Pi'(z)$ son de $\left| \right|\ne 1$. Sup\'{o}ngase que las primeras r ra\'{i}ces sean de $\left| \right|>1$ y las (p-r) \'{u}ltimas de $\left| \right|<1$
 entonces, 
 \begin{align*}
  \Pi'(B)
