@@ -462,7 +462,7 @@ X_{t}^{\ast } =\sum_{j=1}^p {\pi_{j} X_{t-j} } +0\\
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap24.eps}
-\caption{Modelo simulado $AR(eq4)$}
+\caption{Modelo simulado $AR(2)$}
 \end{figure}
 
 Se puede observar a continuaci\'{o}n el comportamiento de las funciones de autocorrelaci\'{o}n (FAC) y autocorrelaci\'{o}n parcial (FACP) estimadas.
@@ -472,7 +472,7 @@ Las bandas de confianza de los gr\'{a}ficos sirven para determinar cu\'{a}les pa
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap25.eps}
-\caption{Comportamiento de $r(\ell)$}
+\caption{Comportamiento de $p(\ell)$}
 \end{figure}
 
 \begin{figure}[H]
@@ -485,7 +485,7 @@ Las bandas de confianza de los gr\'{a}ficos sirven para determinar cu\'{a}les pa
 
 
 \begin{observacion}
- 
+\quad
 \begin{enumerate}
 \item El inverso del operador $\Pi'(B)$ existe, si las ra\'{i}ces de $\Pi'(z)$ son de $\left| \right|\ne 1$. Sup\'{o}ngase que las primeras r ra\'{i}ces sean de $\left| \right|>1$ y las (p-r) \'{u}ltimas de $\left| \right|<1$
 entonces, 
@@ -503,15 +503,11 @@ ${\Pi }'\left( z \right)$. Puesto que $\Phi_{1} (B)$ y $\Phi_{2}
 \frac{1}{\Pi'(B)}=\frac{1}{\Phi_{1} (B)}\frac{1}{\Phi_{2} 
 (F)}\frac{1}{\lambda }F^{p-r}
 \]
-Se puede observar que las potencias negativas de $B$ no intervienen si y 
-solamente si $p=r$.
+Se puede observar que las potencias negativas de $B$ no intervienen si y solamente si $p=r$.\newline
 
-Esto significa, utilizando el ejercicio 1.1, que para que un proceso 
-autoregresivo sea estacionario \'{u}nicamente requiere que el polinomio 
-asociado ${\Pi }'\left( z \right)$ tenga las ra\'{\i}ces de 
-$\left| \right|\ne 1$.
+Esto significa, utilizando el ejercicio 1.1, que para que un proceso autoregresivo sea estacionario \'{u}nicamente requiere que el polinomio asociado ${\Pi }'\left( z \right)$ tenga las ra\'{i}ces de $\left| \right|\ne 1$.
 
-\item Cambiando el ruido blanco, se puede suponer que las ra\'{\i}ces de $\Pi'(z)$ son $\left| \right|>1$.
+\item Cambiando el ruido blanco, se puede suponer que las ra\'{i}ces de $\Pi'(z)$ son $\left| \right|>1$.\newline
 
 Se sabe que la densidad espectral de $(X_{{t}})$ es:
 \begin{align*}
@@ -520,19 +516,16 @@ Se sabe que la densidad espectral de $(X_{{t}})$ es:
 	 &=\frac{\sigma ^{2}}{2\pi }\left| {\Pi'(e^{i\lambda })} \right|^{-2}\\
 	 &=\frac{\sigma^{2}}{2\pi }\left| {\prod_{j=1}^{p} \left({1-\frac{e^{i\lambda }}{z_{j} }} \right)} \right|^{-2}
 \end{align*}
-donde $z_{j} =\frac{1}{\lambda_{j} }$ son las ra\'{\i}ces de $\Pi'(z)$.
+donde $z_{j} =\frac{1}{\lambda_{j} }$ son las ra\'{i}ces de $\Pi'(z)$.\newline
 
-Sup\'{o}ngase que las primeras $r$ ra\'{\i}ces de $\Pi'(z)$ sean de 
-$\left| \right|>1$ y las $p-r $\'{u}ltimas de $\left| \right|<1$. Si remplazamos 
-las ra\'{\i}ces de $\left| \right|<1$ por sus inversas, se tiene: 
+Sup\'{o}ngase que las primeras $r$ ra\'{i}ces de $\Pi'(z)$ sean de $\left| \right|>1$ y las $p-r $\'{u}ltimas de $\left| \right|<1$. Si remplazamos las ra\'{i}ces de $\left| \right|<1$ por sus inversas, se tiene: 
 \[
 \Phi (B)=\prod_{j=1}^{r} \left( {1-\frac{B}{z_{j} }} 
 \right)\prod_{j=r+1}^{p} \left( {1-z_{j} B} \right)
 \]
 Consid\'{e}rese ahora el proceso estacionario $\left( {\eta_{t} ;t\in \Z} \right)$ definido por:
 \[
-\eta_{t} =\Phi \left( B \right)X_{t} ,
-\qquad t\in \Z
+\eta_{t} =\Phi \left( B \right)X_{t}, \qquad t\in \Z
 \]
 Se calcula su densidad espectral: 
 \begin{align*}
@@ -542,15 +535,15 @@ Se calcula su densidad espectral:
 	&=\frac{\sigma^{2}}{2\pi }\prod_{j=r+1}^{p} \frac{\left| {1-z_{j} e^{i\lambda }} \right|^{2}}{\left| {1-\frac{1}{z_{j} }e^{i\lambda }} \right|^{2}}\\
 	&=\frac{\sigma^{2}}{2\pi }\prod_{j=r+1}^{p} \left| {z_{j} } \right|^{2}
 \end{align*}
-(independiente de $\lambda$), por lo tanto, $\left( {\eta_{t},t\in \Z} \right)$ es un ruido blanco con varianza menor a $\sigma^{2}$
+(independiente de $\lambda$), por lo tanto, $\left( {\eta_{t},t\in \Z} \right)$ es un ruido blanco con varianza menor a $\sigma^{2}$.\newline
 
-La representaci\'{o}n obtenida a partir de la elecci\'{o}n del polinomio con 
-ra\'{\i}ces de $\left| \right|>1,$ se llama representaci\'{o}n can\'{o}nica.
+La representaci\'{o}n obtenida a partir de la elecci\'{o}n del polinomio con ra\'{i}ces de $\left| \right|>1,$ se llama representaci\'{o}n can\'{o}nica.
 \end{enumerate}
 \end{observacion}
 
 
 \begin{ejemplo}
+\quad 
 \begin{enumerate}
 \item En un modelo $AR(2)$
 \[
@@ -559,14 +552,14 @@ ra\'{\i}ces de $\left| \right|>1,$ se llama representaci\'{o}n can\'{o}nica.
 ($\varepsilon_{t}$ es la innovaci\'{o}n)
 
 \begin{enumerate}
-\item ?Podr\'{\i}a deducir el valor $\varphi_{2} $ si se da la informaci\'{o}n que $\varphi_{1} =-0,4$ y $\rho_{1} =0,7$?
+\item Podr\'{i}a deducir el valor $\varphi_{2} $ si se da la informaci\'{o}n que $\varphi_{1} =-0,4$ y $\rho_{1} =0,7$?
 \item La misma pregunta si se conoce que $\varphi_{1} =0,8$ y $\rho_{2} =0,6$.
 \end{enumerate}
 
 \begin{proof}[Resoluci\'{o}n]
-
+\quad
 \begin{enumerate}
-\item Se supone que el proceso es estacionario. Para esto, se requiere que las ra\'{\i}ces de $1 - \varphi_{{1}}z - \varphi_{{2}}z^{2 }$ est\'{e}n fuera del c\'{\i}rculo unidad. De las ecuaciones de Yule-Walker se obtiene: 
+\item Se supone que el proceso es estacionario. Para esto, se requiere que las ra\'{i}ces de $1 - \varphi_{{1}}z - \varphi_{{2}}z^{2 }$ est\'{e}n fuera del c\'{i}rculo unidad. De las ecuaciones de Yule-Walker se obtiene: 
 \[
 \rho_{1}=
 \varphi_{1} +\varphi_{2} \rho_{1} 
@@ -574,8 +567,7 @@ ra\'{\i}ces de $\left| \right|>1,$ se llama representaci\'{o}n can\'{o}nica.
 \varphi_{2} =\frac{\rho_{1} -\varphi_{1} }{\rho_{1} 
 }=\frac{0,7+0,4}{0,7}=1,5714
 \]
-Ahora, consid\'{e}rese la ecuaci\'{o}n asociada al polinomio autoregresivos 
-$\varphi (z): 1+0,4z-1,5714z^{2}=0$. Las ra\'{\i}ces vienen dadas por la expresi\'{o}n:
+Ahora, consid\'{e}rese la ecuaci\'{o}n asociada al polinomio autoregresivos $\varphi (z): 1+0,4z-1,5714z^{2}=0$. Las ra\'{i}ces vienen dadas por la expresi\'{o}n:
 \[
 z=\frac{0,4\pm \sqrt {0,4^{2}+4(1,5717)} }{2\cdot 1.5714}=\frac{0,4\pm 2,5388}{3,1428}
 \]
@@ -583,21 +575,15 @@ de donde se obtiene:
 \[
 z_{1 }= 0,93\quad\text{ o }\quad z_{2 }= -0,68
 \]
-Se obtiene que $z_{1}$ y $z_{2}$ son de $\left| \right|<1$; luego, el 
-proceso no es estacionario y por tanto no se pueden utilizar estas 
-soluciones; es decir no se puede obtener el coeficiente $\varphi_{2} $.
+Se obtiene que $z_{1}$ y $z_{2}$ son de $\left| \right|<1$; luego, el proceso no es estacionario y por tanto no se pueden utilizar estas soluciones; es decir no se puede obtener el coeficiente $\varphi_{2} $.
 
 \item Sup\'{o}ngase que el proceso es estacionario. De las ecuaciones de Yule-Walker se obtiene: 
 \[
-\rho_{{1}}=
-\varphi_{1} +\varphi_{2}\rho_{1}\quad\text{ y }\quad \rho_{2} =\varphi_{2} +\varphi 
-_{1} \rho_{1} 
+\rho_{{1}}=\varphi_{1} +\varphi_{2}\rho_{1}\quad\text{ y }\quad \rho_{2} =\varphi_{2} +\varphi_{1} \rho_{1} 
 \]
-As\'{\i}:
+As\'{i}:
 \[
-\rho_{2} = \varphi_{2} +\frac{\varphi_{1}^{2} }{1-\varphi_{2} }\Leftrightarrow \rho 
-_{2} -\varphi_{2} \rho_{2} =\varphi_{1}^{2} +\varphi_{2} -\varphi 
-_{2}^{2} \Leftrightarrow \varphi_{2}^{2} -\varphi_{2} (1+\rho_{2} 
+\rho_{2} = \varphi_{2} +\frac{\varphi_{1}^{2} }{1-\varphi_{2} }\Leftrightarrow \rho_{2} -\varphi_{2} \rho_{2} =\varphi_{1}^{2} +\varphi_{2} -\varphi_{2}^{2} \Leftrightarrow \varphi_{2}^{2} -\varphi_{2} (1+\rho_{2} 
 )+(\rho_{2} -\varphi_{1}^{2} )=0
 \]
 Reemplazando los valores de $\phi_{1}$ y $\rho_{2} $ se obtiene:
@@ -605,27 +591,20 @@ Reemplazando los valores de $\phi_{1}$ y $\rho_{2} $ se obtiene:
 \varphi_{2}^{2} +1,6\varphi_{2} -0.04=0\Longleftrightarrow \varphi_{2} 
 =1,625\quad\text{ o }\quad \varphi_{2} =-0,025
 \]
-Si $\varphi_{{2}}=1,625$, se obtiene la ecuaci\'{o}n variada al polinomio 
-autoregresivo:
+Si $\varphi_{{2}}=1,625$, se obtiene la ecuaci\'{o}n variada al polinomio autoregresivo:
 \[
-\varphi (z)=1-0,8z-1,625z^{2}=0\Longleftrightarrow z_{1} =0,576\quad z_{2} 
-=-1,068
+\varphi (z)=1-0,8z-1,625z^{2}=0\Longleftrightarrow z_{1} =0,576\quad z_{2} =-1,068
 \]
-Puesto que una ra\'{\i}z se encuentra dentro del c\'{\i}rculo unidad, no se 
-pueden aplicar los resultados deducidos de las ecuaciones de Yule-Walker, 
-desarrolladas para procesos estacionarios.
+Puesto que una ra\'{i}z se encuentra dentro del c\'{i}rculo unidad, no se pueden aplicar los resultados deducidos de las ecuaciones de Yule-Walker, desarrolladas para procesos estacionarios.\newline
 
-Si $\varphi_{2} =$ -0,025, se obtiene la ecuaci\'{o}n asociada al 
-polinomio autoregresivo.
+Si $\varphi_{2} =$ -0,025, se obtiene la ecuaci\'{o}n asociada al polinomio autoregresivo.
 \[
 \varphi(z)=1-0,8z + 0,02z^{{2 }}\Leftrightarrow 
 z_{{1}}=38,70 z_{{2}}=1,292
 \]
-Puesto que las dos ra\'{\i}ces son de $\left| \right|<1$, el proceso es 
-estacionario. As\'{\i}, entonces, $\varphi_{2}= -0,025$.\qedhere
+Puesto que las dos ra\'{i}ces son de $\left| \right|<1$, el proceso es estacionario. As\'{i}, entonces, $\varphi_{2}= -0,025$.\qedhere
 \end{enumerate} 
 \end{proof}
-
 
 \item Sea $\left( {X_{t} } \right)$ definido por:
 \[
@@ -643,8 +622,7 @@ X_{t} -X_{t-n} =u_{t} +u_{t-1} +....+u_{t-n+1} \qquad\forall n\in \N\\
 \end{gather*}
 Si $\left( {X_{t} } \right)$ fuera estacionario, se tendr\'{\i}a:
 \begin{gather*}
-\E\left( {X_{t} -X_{t-n} } \right)^{2}\le 4\sigma_{X}^{2} ,\quad\text{ donde }\sigma 
-_{X}^{2} =V\left( {X_{t} } \right) \\
+\E\left( {X_{t} -X_{t-n} } \right)^{2}\le 4\sigma_{X}^{2} ,\quad\text{ donde }\sigma_{X}^{2} =V\left( {X_{t} } \right) \\
 \therefore n\sigma^{2}\le 4\sigma^{2} \qquad \forall n\in \N \text{ (imposible)}
 \end{gather*}
 Un razonamiento an\'{a}logo se puede hacer para $\rho =-1$
@@ -652,18 +630,13 @@ Un razonamiento an\'{a}logo se puede hacer para $\rho =-1$
 \item Si $\left| \rho \right|\ne 1$, como se demostrar\'{a} a continuaci\'{o}n, existe un proceso estacionario \'{u}nico que satisface:
 \[
 X_{t} -\rho X_{t-1} =u_{t} 
-\Longleftrightarrow 
-\left( {1-\rho B} \right)X_{t} =u_{t},
-\qquad
-t\in \Z
+\Longleftrightarrow \left( {1-\rho B} \right)X_{t} =u_{t},\qquad t\in \Z
 \]
 
 \item Si $\left| \rho \right|>1$, se tiene:
 \[
 X_{t} -\rho X_{t-1} =u_{t} 
-\Longleftrightarrow 
--\rho B\left( {1-\frac{1}{\rho }F} \right)X_{t} =u_{t} 
-t\in \Z
+\Longleftrightarrow -\rho B\left( {1-\frac{1}{\rho }F} \right)X_{t} =u_{t} t\in \Z
 \]
 luego:
 \begin{align*}
@@ -697,33 +670,20 @@ Ahora bien,
 
 N\'{o}tese igualmente que: 
 \[
-X_{t} =\frac{1}{1-\rho F}\varepsilon_{t} =\sum_{i=0}^\infty {\rho 
-^{i}\varepsilon_{t+i} } 
+X_{t} =\frac{1}{1-\rho F}\varepsilon_{t} =\sum_{i=0}^\infty {\rho^{i}\varepsilon_{t+i} } 
 \]
-y as\'{\i}, $\varepsilon_{t} \bot X_{s} ,$ $s\ge t+1$
+y as\'{i}, $\varepsilon_{t} \bot X_{s}$, $s\geq t+1$.\newline
 
 Tambi\'{e}n se tiene:
 \begin{itemize}
 \item $\rho \left( \ell \right)=\rho \left( {\rho \left( {\ell -1} \right)} 
-\right)$ para $\ell $\textgreater 0, entonces $\rho \left( \ell \right)=\rho 
-^{\ell }$ (puesto que $\rho \left( 0 \right)=1)$
+\right)$ para $\ell $\textgreater 0, entonces $\rho \left( \ell \right)=\rho^{\ell }$ (puesto que $\rho \left( 0 \right)=1)$
 
-\item $\rho \left( \ell \right)=\rho^{\left| \ell \right|}
-\quad
-\forall \ell $
+\item $\rho \left( \ell \right)=\rho^{\left| \ell \right|}$, $\quad \forall \ell $
 
-\item $\gamma \left( 0 \right)=\sigma^{2}+\rho \gamma \left( 1 \right)=\sigma 
-^{2}+\rho \left( {\rho \gamma \left( 0 \right)} \right)\Rightarrow \gamma 
-\left( 0 \right)=\frac{\sigma^{2}}{1-\rho^{2}}$
+\item $\gamma \left( 0 \right)=\sigma^{2}+\rho \gamma \left( 1 \right)=\sigma^{2}+\rho \left( {\rho \gamma \left( 0 \right)} \right)\Rightarrow \gamma \left( 0 \right)=\displaystyle\frac{\sigma^{2}}{1-\rho^{2}}$
 
-\item $\rho \left( 0 \right)=1,
-\quad
-r\left( 1 \right)=\rho \left( 1 \right)=\rho ;
-\quad
-r\left( \ell \right)=0,
-\quad
-\ell >1
-$
+\item $\rho \left( 0 \right)=1, \quad r\left( 1 \right)=\rho \left( 1 \right)=\rho; \quad r\left( \ell \right)=0, \quad \ell >1$
 \end{itemize}
 \end{itemize}
 \end{enumerate}
@@ -733,43 +693,37 @@ $
 \section{Procesos Medias M\'{o}viles}
 
 \begin{definicion}
- Sea ($X_{t} ,t\in \Z)$ t.q\index{Procesos MA!Orden $q$}.
+Sea ($X_{t}, t\in \Z)$ t.q\index{Procesos MA!Orden $q$}.
 \[
 X_{t} =u_{t} -\sum_{j=1}^q {\theta_{j} u_{t-j} } 
 \qquad
 t\in \Z
 \]
-con $\theta_{q} \ne 0$; $\left( {u_{t} } \right)$ r.b. de varianza $\sigma 
-^{2}$ t.q. $u_{t} \bot \mu_{t-1} $. $\left( {X_{t} ,t\in \Z} \right)$ 
-se dice un proceso media m\'{o}vil de orden $q$ (notaci\'{o}n: $MA(q)$).
+con $\theta_{q} \ne 0$; $\left( {u_{t} } \right)$ r.b. de varianza $\sigma^{2}$ t.q. $u_{t} \bot \mu_{t-1} $. $\left( {X_{t} ,t\in \Z} \right)$ se dice un proceso media m\'{o}vil de orden $q$ (notaci\'{o}n: $MA(q)$).
 \end{definicion}
 
 \begin{observacion}
+\quad 
 \begin{enumerate}
 \item Un proceso $MA(q)$ es centrado, d.e. y tiene una representaci\'{o}n \'{u}nica (a causa de la descomposici\'{o}n de Wold).
 
 \item Si $\Theta \left( z \right)=1-\theta_{1} z-\cdots-\theta_{q} z^{q}$ y $\Theta (z)$ no tiene ra\'{\i}ces de $\left| \right|=1$ (es posible suponerlas de $\left| \right|>1$, eventualmente con un nuevo ruido blanco ($\eta_{t}))$, se puede demostrar que el proceso es invertible; es decir,
 \[
-X_{t}=\sum_{i=1}^\infty {\pi_{i}X_{t-i}} +\eta_{t} 
- \qquad\text{ con }  \sum_{i=1}^\infty \left| 
+X_{t}=\sum_{i=1}^\infty {\pi_{i}X_{t-i}} +\eta_{t},  \quad\text{ con }\quad  \sum_{i=1}^\infty \left| 
 \pi_{i} \right| <\infty  
 \]
-Los $\pi_{i}$ se obtienen con los m\'{e}todos descritos en los procesos AR 
-(expresi\'{o}n obtenida a partir de la representaci\'{o}n can\'{o}nica).
+Los $\pi_{i}$ se obtienen con los m\'{e}todos descritos en los procesos AR (expresi\'{o}n obtenida a partir de la representaci\'{o}n can\'{o}nica).
 
 \item Puesto que la densidad espectral de $(X_{{t}})$ es:
 \[
-f_{X} \left( \lambda \right)=\frac{\sigma^{2}}{2\pi }\left| 
-{1-\sum_{j=1}^q {\theta_{j} e^{i\lambda j}} } 
-\right|^{2}
+f_{X} \left( \lambda \right)=\frac{\sigma^{2}}{2\pi }\left| {1-\sum_{j=1}^q {\theta_{j} e^{i\lambda j}} } \right|^{2}
 \]
 se puede demostrar que la densidad espectral de $\eta_{t}$ es:
 \[
 \frac{\sigma^{2}}{2\pi \left( {\prod_{j={r}'+1}^{q} \left| 
 {z_{j} } \right|^{2}} \right)}
 \]
-donde $z_{j}$ raiz de $\left| \right|<1$. Se supondr\'{a} que $\Theta $tiene ra\'{\i}ces de $\left| \right|>1$. 
-
+donde $z_{j}$ raiz de $\left| \right|<1$. Se supondr\'{a} que $\Theta $tiene ra\'{i}ces de $\left| \right|>1$. 
 \end{enumerate}
 \end{observacion}
 
@@ -793,14 +747,11 @@ _{q}^{2} )\sigma^{2}$
             0 & h>q
           \end{cases}
 \]
-Se puede observar que $\rho_{q} =-\frac{\theta_{q} }{1+\theta_{1}^{2} 
-+\cdots+\theta_{q}^{2} }\ne 0$
+Se puede observar que $\rho_{q} =-\displaystyle\frac{\theta_{q} }{1+\theta_{1}^{2} +\cdots+\theta_{q}^{2} }\ne 0$
 
 \subsection{Autocorrelaci\'{o}n Parcial de un $MA (q)$}
 
-Las f\'{o}rmulas\index{Procesos MA!Coeficiente de autocorrelaci\'{o}n 
-parcial} son complicadas, pero se puede demostrar que los coeficientes 
-decrecen exponencialmente hacia cero.
+Las f\'{o}rmulas\index{Procesos MA!Coeficiente de autocorrelaci\'{o}n parcial} son complicadas, pero se puede demostrar que los coeficientes decrecen exponencialmente hacia cero.
 
 \begin{ejemplo}
  Sea el proceso definido por:
@@ -812,8 +763,8 @@ t\in \Z
 donde $(u_{t} )$ r.b. de varianza $\sigma^{2}$.
 
 \begin{itemize}
-\item Si $\left| \theta \right|<1,$ $u_{{t}}$ es la innovaci\'{o}n al instante $t$.
-\item Si $\left| \theta \right|>1,$ la representaci\'{o}n can\'{o}nica es:
+\item Si $\left| \theta \right|<1$, $u_{{t}}$ es la innovaci\'{o}n al instante $t$.
+\item Si $\left| \theta \right|>1$, la representaci\'{o}n can\'{o}nica es:
 \[
 X_{t} =\varepsilon_{t} -\frac{1}{\theta }\varepsilon_{t-1} 
 \]
@@ -827,11 +778,8 @@ Adem\'{a}s:
 \right)=0, \quad h\ge 2
 \]
 
-
-Se puede demostrar que $r\left( h \right)=\frac{-\theta^{h}(1-\theta 
-^{2})}{1-\theta^{2(h+1)}}$, $h\ge 1$
+Se puede demostrar que $r\left( h \right)=\frac{-\theta^{h}(1-\theta^{2})}{1-\theta^{2(h+1)}}$, $h\ge 1$
 \end{ejemplo}
-
 
 \begin{ejemplo}
  Sea la funci\'{o}n de covarianza:$\gamma (h)=\begin{cases}
@@ -840,14 +788,11 @@ Se puede demostrar que $r\left( h \right)=\frac{-\theta^{h}(1-\theta
      0 &\text{en otro caso}
     \end{cases}$
 
-Consid\'{e}rese el proceso media m\'{o}vil $X_{{t}} =u_{{t}}-\theta u_{t-1} $ con $(u_{t} )$ r.b. de varianza $\sigma^{2}$.
+Consid\'{e}rese el proceso media m\'{o}vil $X_{{t}} =u_{{t}}-\theta u_{t-1} $ con $(u_{t} )$ r.b. de varianza $\sigma^{2}$.\newline
 
-Se sabe que $\gamma (0)=\sigma^{2}(1+\theta^{2})$ y $\gamma (1)=-\theta 
- \sigma^{2}$.
+Se sabe que $\gamma (0)=\sigma^{2}(1+\theta^{2})$ y $\gamma (1)=-\theta \sigma^{2}$.\newline
 
-As\'{\i}: $0,4=-\theta \sigma^{2}$ y  $1= \sigma^{2}(1+\theta^{2})$, de 
-donde se obtiene que $\theta =-0,5y\sigma^{2}=0,8$. Por tanto, el 
-proceso asociado es: $X_{t} =u_{t} +0,5u_{t-1}$, $(u_{t})$  r.b. con varianza $\sigma^{2}=0,8$.
+As\'{i}: $0,4=-\theta \sigma^{2}$ y  $1= \sigma^{2}(1+\theta^{2})$, de donde se obtiene que $\theta =-0,5$ y $\sigma^{2}=0,8$. Por tanto, el proceso asociado es: $X_{t} =u_{t} +0,5u_{t-1}$, $(u_{t})$  r.b. con varianza $\sigma^{2}=0,8$.\newline
 
 Ahora, analizando la $\cov(X_{t} ,X_{t+h} )=\gamma (h)=\begin{cases}
      1& \text{si }h=0\\
@@ -868,99 +813,84 @@ Ahora, analizando la $\cov(X_{t} ,X_{t+h} )=\gamma (h)=\begin{cases}
 \end{itemize}
 \end{ejemplo}
 
-\begin{observacion}[C\'{o}mo reconocer un proceso MA]
- \index{Procesos MA!Reconocer y determinar}Si $(X_{t})$ es un proceso $MA(q)$ 
-entonces, $\rho (l) = $ cuando $l q {y} r(l) \to $ a velocidad 
-exponencial (ver Figuras 2.4, 2.5 y 2.6).
+\begin{observacion}[C\'{o}mo reconocer un proceso MA?]
+ \index{Procesos MA!Reconocer y determinar}Si $(X_{t})$ es un proceso $MA(q)$ entonces, $\rho (l) = 0$ cuando $\ell > q$ y $r(\ell) \to 0$ a velocidad exponencial (ver Figuras 2.4, 2.5 y 2.6).
 \end{observacion}
 
 
 \begin{ejemplo}
-Consid\'{e}rese la serie $X_{t}=u_{t}+0,8u_{t-1}$, de 
-la cual se han simulado 200 observaciones (como en el ejemplo precedente). 
-Se presentan las FAC y FACP estimadas. 
-\[
-X_{t}=u_{t}+0,8u_{t-1}
-X_{t}
-\]
+Consid\'{e}rese la serie $X_{t}=u_{t}+0,8u_{t-1}$, de la cual se han simulado 200 observaciones (como en el ejemplo precedente). Se presentan las FAC y FACP estimadas. 
+% \[
+% X_{t}=u_{t}+0,8u_{t-1}
+% X_{t}
+% \]
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap27.eps}
-\caption{Modelo $ MA(1)$}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap27.eps}
+\caption{Modelo $MA(1)$}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap28.eps}
-\caption{Comportamiento de $\rho (l)$}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap28.eps}
+\caption{Comportamiento de $\rho (\ell)$}
 \end{figure}
 
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap29.eps}
-\caption{Comportamiento asint\'{o}tico de $r(l)$}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap29.eps}
+\caption{Comportamiento asint\'{o}tico de $r(\ell)$}
 \end{figure}
 
 \end{ejemplo}
 
 
-\section{Procesos ARMA (Autoregresivos -- Medias M\'{o}viles)}
+\section{Procesos ARMA (Autoregressive -- Moving Averange)}
 
 \begin{definicion}
- Se llama proceso\index{Procesos ARMA} 
-autoregresivo-media m\'{o}vil de orden $(p,q)$ o $ARMA (p,q)$, \index{Procesos 
-ARMA! Orden (p,q)} a todo proceso estacionario $(X_{{t}}$, $t\in 
-\Z)$ que satisface:
+Se llama proceso\index{Procesos ARMA} autoregresivo-media m\'{o}vil de orden $(p,q)$ o $ARMA (p,q)$, \index{Procesos ARMA! Orden (p,q)} a todo proceso estacionario $(X_{{t}}$, $t\in \Z)$ que satisface:
 \[
 \Phi (B)X_{t} =\theta_{0} +\Theta \left( B \right)u_{t} \Longleftrightarrow 
 X_{t} -\sum_{i=1}^p {\phi_{i} X_{t-1} =\theta_{0} +u_{t} 
 -\sum_{i=1}^q {\theta_{i} u_{t-i} } } 
 \]
-$\phi_{i} ,\ \theta_{i} $ reales, $\phi_{p} \ne 0,\ \theta_{q} \ne 0;$ 
-$(u_{{t}})$ r.b. de varianza $\sigma^{2}$; adem\'{a}s $\Phi 
-(z)$ y $\Theta (z)$ no tienen ra\'{\i}ces de $\left| \right|=1$.
+$\phi_{i}, $\theta_{i}$ reales, $\phi_{p} \ne 0$, $\theta_{q} \ne 0;$ $(u_{{t}})$ r.b. de varianza $\sigma^{2}$; adem\'{a}s $\Phi(z)$ y $\Theta (z)$ no tienen ra\'{i}ces de $\left| \right|=1$.
 \end{definicion}
 
 \begin{observacion}
- Se puede suponer que $\theta_{0} =0,$ 
-reemplazando $X_{{t}}$ por $X_{{t }}-\E X_{{t}}$; es decir, por $X_{t} -\frac{\theta_{0} }{1-\sum_{i=1}^p {\phi_{i} } }$ (bien definida si $\Phi  (z)$ no 
-tiene ra\'{\i}ces de m\'{o}dulo 1).
+Se puede suponer que $\theta_{0}=0$, reemplazando $X_{{t}}$ por $X_{{t }}-\E X_{{t}}$; es decir, por $\displaystyle X_{t} -\frac{\theta_{0} }{1-\sum_{i=1}^p {\phi_{i} } }$ (bien definida si $\Phi  (z)$ no tiene ra\'{i}ces de m\'{o}dulo 1).
 \end{observacion}
 
 En lo que sigue se supondr\'{a} que $\theta_{0} =0$ .
 
 \paragraph{Propiedades:}
 \begin{enumerate}
-\item Si $\Phi (z)$ tiene ra\'{\i}ces de $\left| \right|> 1$:
+\item Si $\Phi (z)$ tiene ra\'{i}ces de $\left| \right|> 1$:
 \[
- X_{t} =\sum_{i=0}^\infty {\psi_{i} u_{t-i} }\qquad\text{ con }\psi_{0} =1,\ \sum_{i=1}^\infty {\left| {\psi_{i} } \right|<\infty } 
+ X_{t} =\sum_{i=0}^\infty {\psi_{i} u_{t-i} }\quad\text{ con }\quad \psi_{0} =1,\ \sum_{i=1}^\infty {\left| {\psi_{i} } \right|<\infty } 
 \]
-Si $\Theta (z)$ tiene ra\'{\i}ces de $\left| \right|>1$
+Si $\Theta (z)$ tiene ra\'{i}ces de $\left| \right|>1$
 \[
-X_{t}=\sum_{i=1}^\infty {{\Pi }_{i}X_{t-i}} +u_{t}, 
-\qquad\text{ con }\sum_{i=1}^\infty \left| {\Pi }_{i} 
+X_{t}=\sum_{i=1}^\infty {{\Pi }_{i}X_{t-i}} +u_{t}, \quad\text{ con }\quad \sum_{i=1}^\infty \left| {\Pi }_{i} 
 \right| {<\infty  }
 \]
 $u_{{t}}$ es la innovaci\'{o}n en el instante $t$.
 
-\item Si $\Phi (z)$ y $\Theta (z)$ tienen ra\'{\i}ces de $\left| \right|\ne 1,$ cambiando eventualmente el ruido blanco, se puede obtener una representaci\'{o}n con polinomios de ra\'{\i}ces con $\left| \right|>1$. El ruido blanco que interviene es la innovaci\'{o}n. Esta se llamar\'{a} la\index{Procesos ARMA! Representaci\'{o}n can\'{o}nica} \textbf{\textit{representaci\'{o}n can\'{o}nica}} si, adem\'{a}s, $\Phi (z)$ y $\Theta (z)$ son primos entre si. Se supondr\'{a} siempre que $\Phi (z)$ y $\Theta (z)$ tienen ra\'{\i}ces de $\left| \right|>1$.
+\item Si $\Phi (z)$ y $\Theta (z)$ tienen ra\'{i}ces de $\left| \right|\ne 1,$ cambiando eventualmente el ruido blanco, se puede obtener una representaci\'{o}n con polinomios de ra\'{i}ces con $\left| \right|>1$. El ruido blanco que interviene es la innovaci\'{o}n. Esta se llamar\'{a} la\index{Procesos ARMA! Representaci\'{o}n can\'{o}nica} \textbf{representaci\'{o}n can\'{o}nica} si, adem\'{a}s, $\Phi (z)$ y $\Theta (z)$ son primos entre si. Se supondr\'{a} siempre que $\Phi (z)$ y $\Theta (z)$ tienen ra\'{i}ces de $\left| \right|>1$.\newline
 
-La varianza del nuevo ruido blanco se obtiene integrando los resultados para 
-los procesos AR y MA, que se presentaron anteriormente.
+La varianza del nuevo ruido blanco se obtiene integrando los resultados para los procesos AR y MA, que se presentaron anteriormente.
 
 \item La densidad espectral del proceso, es entonces:
 \[
-f\left( \lambda \right)=\frac{\sigma^{2}}{2\pi }\frac{\left| {\Theta 
-(e^{i\lambda })} \right|^{2}}{\left| {\Phi (e^{i\lambda })} \right|^{2}},
-\quad
-\lambda \in \left[ {-\pi ,\pi } \right]
+f\left( \lambda \right)=\frac{\sigma^{2}}{2\pi }\frac{\left| {\Theta (e^{i\lambda })} \right|^{2}}{\left| {\Phi (e^{i\lambda })} \right|^{2}}, \quad \lambda \in \left[ {-\pi ,\pi } \right]
 \]
 
-\item $\Phi (F)X_{t} =\Theta (F)\varepsilon_{t} $ es la representaci\'{o}n en avance del proceso. Puesto que $\Phi (z)$ y $\Theta (z)$ tienen ra\'{\i}ces en $\left| \right|>1$, $\varepsilon_{t} \bot X_{s} ,s\ge t+1$.
+\item $\Phi (F)X_{t} =\Theta (F)\varepsilon_{t} $ es la representaci\'{o}n en avance del proceso. Puesto que $\Phi (z)$ y $\Theta (z)$ tienen ra\'{i}ces en $\left| \right|>1$, $\varepsilon_{t} \bot X_{s} ,s\ge t+1$.
 
-\item Los coeficientes de autocorrelaci\'{o}n\index{Procesos ARMA! Coeficiente de autocorrelaci\'{o}n} de un ARMA se comportan asint\'{o}ticamente como los coeficientes de autorrelaci\'{o}n de la parte AR (convergen a velocidad exponencial hacia cero).
+\item Los coeficientes de autocorrelaci\'{o}n\index{Procesos ARMA! Coeficiente de autocorrelaci\'{o}n} de un ARMA se comportan asint\'{o}ticamente como los coeficientes de autocorrelaci\'{o}n de la parte AR (convergen a velocidad exponencial hacia cero).
+
 \item Los coeficientes de autocorrelaci\'{o}n parcial\index{Procesos ARMA! Coeficiente de autocorrelaci\'{o}n parcial} de un ARMA se comportan como los coeficientes de autocorrelaci\'{o}n parcial de la parte MA (convergen a velocidad exponencial hacia cero).
 
 \item Es posible demostrar que todo proceso estacionario se puede aproximar por un MA. La introducci\'{o}n de procesos AR y ARMA, permite disminuir los retardos y por ende los par\'{a}metros a estimar.
@@ -971,52 +901,34 @@ Consid\'{e}rese el modelo $ARMA(1,1)$, $X_{t}+0,3X_{t-1}=u_{t}+0,7u_{t-1}$, del 
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap210.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap210.eps}
 \caption{Modelo $ARMA(1,1)$}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap211.eps}
-\caption{Comportamiento de $\rho (l)$}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap211.eps}
+\caption{Comportamiento de $\rho (\ell)$}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap212.eps}
-\caption{Comportamiento de $r(l)$}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap212.eps}
+\caption{Comportamiento de $r(\ell)$}
 \end{figure}
 
 \end{ejemplo}
 
 
-Estas condiciones permiten determinar, a priori, ciertas estimaciones de los 
-valores de p y q, observando a partir de qu\'{e} \'{\i}ndice se anulan las 
-estimaciones de $\rho (l)$ y $r(l)$, seg\'{u}n ciertos criterios 
-estad\'{\i}sticos; sin embargo, estas estimaciones se pueden considerar 
-cotas superiores, seg\'{u}n se puede constatar en las Figuras 2.8 y 2.9, las 
-que podr\'{\i}an sugerir, en inicio, un modelo $ARMA(2,2)$, cuando en 
-realidad las observaciones provienen de un $ARMA(1,1)$. 
+Estas condiciones permiten determinar, a priori, ciertas estimaciones de los valores de p y q, observando a partir de qu\'{e} \'{i}ndice se anulan las estimaciones de $\rho (\ell)$ y $r(\ell)$, seg\'{u}n ciertos criterios 
+estad\'{i}sticos; sin embargo, estas estimaciones se pueden considerar cotas superiores, seg\'{u}n se puede constatar en las Figuras 2.8 y 2.9, las que podr\'{i}an sugerir, en inicio, un modelo $ARMA(2,2)$, cuando en realidad las observaciones provienen de un $ARMA(1,1)$.\newline
 
-Tambi\'{e}n es importante para no sobreparametrizar (asumir valores de $p$ o $q$ 
-extremadamente altos), lo que es muy com\'{u}n en quienes est\'{a}n 
-iniciando en la modelaci\'{o}n de series temporales, observar con cuidado 
-los comportamientos asint\'{o}ticos de las FAC y FACP estimadas. As\'{\i}, 
-en el proceso autoregresivo precedente (ejemplo 2.2), si se trata de asumir 
-un modelo ARMA, al mirar la FAC estimada se podr\'{\i}a pensar en un valor 
-de $q$ demasiado alto, cuando en verdad este comportamiento est\'{a} 
-confirmando lo que muestran las FACP estimadas: que se tratar\'{\i}a de un 
-$AR(2)$.
+Tambi\'{e}n es importante para no sobreparametrizar (asumir valores de $p$ o $q$ extremadamente altos), lo que es muy com\'{u}n en quienes est\'{a}n iniciando en la modelaci\'{o}n de series temporales, observar con cuidado los comportamientos asint\'{o}ticos de las FAC y FACP estimadas. As\'{i}, en el proceso autoregresivo precedente (ejemplo 2.2), si se trata de asumir un modelo ARMA, al mirar la FAC estimada se podr\'{i}a pensar en un valor de $q$ demasiado alto, cuando en verdad este comportamiento est\'{a} confirmando lo que muestran las FACP estimadas: que se tratar\'{i}a de un $AR(2)$.\newline
 
-Las estimaciones de los coeficientes $a_{j}$, $b_{j}$ y $\sigma^{2}$ 
-se tratan en el cap\'{\i}tulo siguiente. La t\'{e}cnica m\'{a}s utilizada es 
-la popularizada por Box y Jenkins; este m\'{e}todo se encuentra implantado 
-en algunos paquetes estad\'{\i}sticos (por ejemplo SPSS, STATGRAPHICS, 
-Eviews).
+Las estimaciones de los coeficientes $a_{j}$, $b_{j}$ y $\sigma^{2}$ se tratan en el cap\'{i}tulo siguiente. La t\'{e}cnica m\'{a}s utilizada es la popularizada por Box y Jenkins; este m\'{e}todo se encuentra implantado en algunos paquetes estad\'{i}sticos (por ejemplo SPSS, STATGRAPHICS, Eviews).
 
 \begin{observacion}
- No siempre un p.e.s.o. se puede representar 
-como un ARMA (los ejemplos est\'{a}n fuera del alcance de este documento).
+No siempre un p.e.s.o. se puede representar como un ARMA (los ejemplos est\'{a}n fuera del alcance de este documento).
 \end{observacion}
 
 \begin{observacion}
@@ -1029,13 +941,9 @@ como un ARMA (los ejemplos est\'{a}n fuera del alcance de este documento).
 \end{observacion}
 
 
-\section{Procesos ARIMA (Autoregressive Integrates Moving Avarage)}
+\section{Procesos ARIMA (Autoregressive Integrated Moving Average)}
 
-Una buena parte de las series econ\'{o}micas son generadas por procesos no 
-estacionarios; por esta raz\'{o}n, es \'{u}til considerar tales procesos, 
-pero que sean f\'{a}cilmente transformables en procesos estacionarios. Por 
-ejemplo, ciertas series se vuelven estacionarias mediante 
-``diferenciaci\'{o}n'':
+Una buena parte de las series econ\'{o}micas son generadas por procesos no estacionarios; por esta raz\'{o}n, es \'{u}til considerar tales procesos, pero que sean f\'{a}cilmente transformables en procesos estacionarios. Por ejemplo, ciertas series se vuelven estacionarias mediante ``diferenciaci\'{o}n'':
 \[
 Y_{t}=X_{t}-X_{t-1}
 \]
@@ -1047,87 +955,73 @@ Es decir:
 \[
 Z_{t}=X_{t}-2X_{t-1}+X_{t-2}
 \]
-Un proceso que despu\'{e}s de diferenciarlo\index{Diferenciaci\'{o}n! 
-Definici\'{o}n} $d$ veces se transforma en un proceso\index{Proceso 
-ARIMA} $ARMA (p,q)$ se dice $ARIMA (p,d,q)$ \index{Proceso 
-ARIMA! Orden $(p,d,q)$}. Si se denota $\Delta  = 1-B$, 
-entonces el proceso $(X_{t})$ es un $ARIMA (p,d,q)$, si 
-${\Delta }^{d}X_{t}$ es un $ARMA (p,q)$. Se tiene as\'{\i}, 
-la siguiente definici\'{o}n:
+Un proceso que despu\'{e}s de diferenciarlo\index{Diferenciaci\'{o}n! Definici\'{o}n} $d$ veces se transforma en un proceso\index{Proceso ARIMA} $ARMA (p,q)$ se dice $ARIMA (p,d,q)$ \index{Proceso ARIMA! Orden $(p,d,q)$}. Si se denota $\Delta= 1-B$, entonces el proceso $(X_{t})$ es un $ARIMA (p,d,q)$, si ${\Delta }^{d}X_{t}$ es un $ARMA (p,q)$. Se tiene as\'{i}, la siguiente definici\'{o}n:
 
 \begin{definicion}
-Sea $(X_{t}, t\in Z)$ de segundo orden\index{Proceso ARIMA! Definici\'{o}n}. El proceso se dice un $ARIMA (p, d, q)$ si se puede representar por:
+Sea $(X_{t}$, $t\in Z)$ de segundo orden\index{Proceso ARIMA! Definici\'{o}n}. El proceso se dice un $ARIMA (p, d, q)$ si se puede representar por:
 \begin{equation}
 \label{eq3}
 \Phi ( B ){(1-B)}^{d}X_{t}=\Theta( B )u_{t},\qquad t\in Z
 \end{equation}
-donde, $\Phi(z)$ y $\Theta(z)$ tienen sus ra\'{\i}ces fuera del c\'{\i}rculo unitario complejo y $(u_{t})$ es un ruido blanco de varianza $\sigma^{2}$. 
+donde, $\Phi(z)$ y $\Theta(z)$ tienen sus ra\'{i}ces fuera del c\'{i}rculo unitario complejo y $(u_{t})$ es un ruido blanco de varianza $\sigma^{2}$. 
 \end{definicion}
 
 \begin{ejemplo}
- $\left( 1-0,3B \right)\left( 1-B \right)X_{t}=u_{t}$ es un proceso $ARIMA(1,1,0)$.
+ $\left( 1-0,3B \right)\left( 1-B \right)X_{t}=u_{t}$ es un proceso $ARIMA(1,1,0)$.\newline
 
-A continuaci\'{o}n, se presentan los ``efectos'' gr\'{a}ficos de la 
-diferenciaci\'{o}n\index{Diferenciaci\'{o}n! Definici\'{o}n} para algunas 
-tendencias polinomiales:
-
+A continuaci\'{o}n, se presentan los ``efectos'' gr\'{a}ficos de la diferenciaci\'{o}n\index{Diferenciaci\'{o}n! Definici\'{o}n} para algunas tendencias polinomiales:
 
 \begin{itemize}
-\item \textbf{Tendencia Lineal:} Consid\'{e}rese la tendencia \index{Diferenciaci\'{o}n! Tendencia lineal} dada por la ecuaci\'{o}n $X_{t}=20+4t$; una vez que se realiza la diferenciaci\'{o}n se obtiene ${\Delta }X_{t}=4 (constante)$. As\'{\i}, gr\'{a}ficamente se tiene:
+\item \textbf{Tendencia Lineal:} Consid\'{e}rese la tendencia \index{Diferenciaci\'{o}n! Tendencia lineal} dada por la ecuaci\'{o}n $X_{t}=20+4t$; una vez que se realiza la diferenciaci\'{o}n se obtiene ${\Delta }X_{t}=4 (constante)$. As\'{i}, gr\'{a}ficamente se tiene:
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap213.eps}
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap214.eps}
+\includegraphics[width=0.45\textwidth]{Graficos/Cap2/STcap213.eps}
+\includegraphics[width=0.45\textwidth]{Graficos/Cap2/STcap214.eps}
 \caption{Efecto de la diferenciaci\'{o}n en una tendencia lineal}
 \end{figure}
 
-\item \textbf{Tendencia Cuadr\'{a}tica:} Consid\'{e}rese la tendencia cuadr\'{a}tica\index{Diferenciaci\'{o}n! Tendencia cuadr\'{a}tica} dada por la ecuaci\'{o}n $X_{t}=20+4t+2t^{2}$; una vez que se realiza la diferenciaci\'{o}n se obtiene ${\Delta }X_{t}=2+4t$. Entonces, todav\'{\i}a se tiene una tendencia lineal; sin embargo, al realizar la segunda diferenciaci\'{o}n se llega a: ${\Delta }^{2}X_{t}=4 (constante)$. Gr\'{a}ficamente se observa:
+\item \textbf{Tendencia Cuadr\'{a}tica:} Consid\'{e}rese la tendencia cuadr\'{a}tica\index{Diferenciaci\'{o}n! Tendencia cuadr\'{a}tica} dada por la ecuaci\'{o}n $X_{t}=20+4t+2t^{2}$; una vez que se realiza la diferenciaci\'{o}n se obtiene ${\Delta }X_{t}=2+4t$. Entonces, todav\'{i}a se tiene una tendencia lineal; sin embargo, al realizar la segunda diferenciaci\'{o}n se llega a: ${\Delta }^{2}X_{t}=4 (constante)$. Gr\'{a}ficamente se observa:
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap215.eps}
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap216.eps}
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap217.eps}
+\includegraphics[width=0.45\textwidth]{Graficos/Cap2/STcap215.eps}
+\includegraphics[width=0.45\textwidth]{Graficos/Cap2/STcap216.eps}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{Graficos/Cap2/STcap217.eps}
 \caption{Efecto de la diferenciaci\'{o}n de una tendencia cuadr\'{a}tica}
 \end{figure}
 \end{itemize}
 \end{ejemplo}
 
-
 \begin{observacion}
- Se puede demostrar que con una 
-diferenciaci\'{o}n de orden $d$ se anula una tendencia 
-polinomial\index{Diferenciaci\'{o}n! Tendencia polinomial} de grado $d$.
+Se puede demostrar que con una diferenciaci\'{o}n de orden $d$ se anula una tendencia polinomial\index{Diferenciaci\'{o}n! Tendencia polinomial} de grado $d$.
 \end{observacion}
-
 
 \begin{observacion}
 Existen series temporales con tendencias no polinomiales, en las cuales la diferenciaci\'{o}n ya no produce el efecto visto en los casos anteriores; por ejemplo, en el caso de una tendencia exponencial\index{Diferenciaci\'{o}n! Tendencia exponencial}, se tiene:
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap218.eps}
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap219.eps} 
+\includegraphics[width=0.45\textwidth]{Graficos/Cap2/STcap218.eps}
+\includegraphics[width=0.45\textwidth]{Graficos/Cap2/STcap219.eps} 
 \caption{Efecto de la diferenciaci\'{o}n de una tendencia exponencial}
 \end{figure}
 
-Como se puede ver, la diferenciaci\'{o}n no elimina la tendencia de los 
-datos. En este caso es necesario aplicar previamente una transformaci\'{o}n 
-de los datos; por ejemplo, una transformaci\'{o}n logar\'{\i}tmica. En el 
+Como se puede ver, la diferenciaci\'{o}n no elimina la tendencia de los datos. En este caso es necesario aplicar previamente una transformaci\'{o}n de los datos; por ejemplo, una transformaci\'{o}n logar\'{i}tmica. En el 
 ejemplo, se tiene:
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap2/STcap220.eps}
-\caption{Efecto de la transformaci\'{o}n logar\'{\i}tmica en una 
-tendencia exponencial}
+\includegraphics[width=0.6\textwidth]{Graficos/Cap2/STcap220.eps}
+\caption{Efecto de la transformaci\'{o}n logar\'{i}tmica en una tendencia exponencial}
 \end{figure}
 
-Entonces, luego de aplicar la transformaci\'{o}n logar\'{\i}tmica se puede 
-efectuar la diferenciaci\'{o}n. Como se vio en los ejemplos precedentes, se 
-requiere efectuar adicionalmente una diferenciaci\'{o}n de orden 1. 
+Entonces, luego de aplicar la transformaci\'{o}n logar\'{i}tmica se puede efectuar la diferenciaci\'{o}n. Como se vio en los ejemplos precedentes, se requiere efectuar adicionalmente una diferenciaci\'{o}n de orden 1. 
 \end{observacion}
 
-
 \begin{observacion}
+\quad
 \begin{enumerate}
 \item Si $\phi (B)=\Phi \left( B \right)(1-B)^{d}=1-\phi_{1} B-\cdots-\phi_{p'} B^{p'},$ $p'=p+d$, la relaci\'{o}n (\ref{eq3}) se escribe como aquella de un $ARMA(p',q)$.
 \[
@@ -1139,8 +1033,7 @@ pero $\phi (z)$ admite como ra\'{\i}z m\'{u}ltiple de orden $d$ a 1.
 \[
 X_{t} -X_{t-1} =u_{t} 
 \]
-Para completar la definici\'{o}n de $X_{t}$ se introduce un valor inicial que 
-se denotar\'{a} por $X_{-s+1}$ $(s\in \N)$. Se puede escribir entonces:
+Para completar la definici\'{o}n de $X_{t}$ se introduce un valor inicial que se denotar\'{a} por $X_{-s+1}$ $(s\in \N)$. Se puede escribir entonces:
 \[
 X_{t} =X_{-s+1} +\sum_{i=0}^{t+s-2} {u_{t-i} } 
 \qquad
@@ -1151,57 +1044,44 @@ t\ge -s+2
 \[
 X_{-s+1} ,\ldots,X_{-s+p'} 
 \]
-que se supondr\'{a}n no aleatorios.
+que se supondr\'{a}n no aleatorios.\newline
 
-La relaci\'{o}n (\ref{eq2}) es v\'{a}lida para $t>-s+p'$, con $u_{t}=0$, $\forall 
-t\le -s+p'$. Todos los $u_{t}$ que intervienen en (\ref{eq2}) ser\'{a}n no nulos 
-si $t\ge - s+p+q+1$.
+La relaci\'{o}n (\ref{eq2}) es v\'{a}lida para $t>-s+p'$, con $u_{t}=0$, $\forall t\le -s+p'$. Todos los $u_{t}$ que intervienen en (\ref{eq2}) ser\'{a}n no nulos si $t\ge - s+p+q+1$.
 
 \item La introducci\'{o}n de un mecanismo de inicializaci\'{o}n, hace que el prop\'{o}sito inicial de que el proceso $(X_{t})$ diferenciado $d$ veces sea $ARMA (p,q)$, se cumpla solo asint\'{o}ticamente. Es decir, el proceso ARIMA
 \[
-X_{t} =m_{t} +\sum_{i=0}^{t+s-p'-1} {\psi_{i} u_{t-i} } 
-\qquad
-\psi_{0} =1,
-\qquad
-t>-s+p'+1
+X_{t} =m_{t} +\sum_{i=0}^{t+s-p'-1} {\psi_{i} u_{t-i} } \quad \psi_{0} =1,\quad t>-s+p'+1
 \]
-es t.q. $\E(\Delta^{d}X_{t} -Z_{t} )^{2}\to 0$, donde $Z_{t} $ es un $ARMA 
-(p,q)$ definido por: $\Phi (B)Z_{t} =\Theta (B)u_{t} $.
+es t.q. $\E(\Delta^{d}X_{t} -Z_{t} )^{2}\to 0$, donde $Z_{t} $ es un $ARMA (p,q)$ definido por: $\Phi (B)Z_{t} =\Theta (B)u_{t} $.
 \end{enumerate}
 \end{observacion}
 
 \subsection{Representaci\'{o}n MA de un ARIMA}
 
 \begin{teorema}
- Se tiene\index{Procesos ARIMA! Representaci\'{o}n MA} 
-que $X_{t}= m_{t}+Y_{t}$ $\forall t\ge -s+1$, donde: 
+ Se tiene\index{Procesos ARIMA! Representaci\'{o}n MA} que $X_{t}= m_{t}+Y_{t}$, $\forall t\geq -s+1$, donde: 
 \begin{enumerate}
-\item $m_{t} $es la soluci\'{o}n de $\phi (B)X_{t} =0$ con $X_{-s+1} ,\ldots,X_{-s+p'} $ como valores iniciales (v.i.).
-\item $Y_{t} =\begin{cases}\displaystyle
+\item[a)] $m_{t}$ es la soluci\'{o}n de $\phi (B)X_{t} =0$ con $X_{-s+1}, \ldots, X_{-s+p'}$ como valores iniciales (v.i.).
+\item[b)] $Y_{t} =\begin{cases}\displaystyle
                \sum_{i=0}^{t+s-p'-1} \psi_{i} u_{t-i} & t\ge -s+p'+1 \\ 
                0 & -s+1<t<-s+p'+1
               \end{cases}$
 \end{enumerate}
-Los $\psi_{i} $ se obtienen por divisi\'{o}n creciente de $\Theta $ por 
-$\phi $ (hasta el orden $t+s-p'-1$).
+Los $\psi_{i} $ se obtienen por divisi\'{o}n creciente de $\Theta$ por $\phi $ (hasta el orden $t+s-p'-1$).
 \end{teorema}
-
-
 
 \subsection{2.6.2 Representaci\'{o}n AR de un ARIMA:}
 
 \begin{teorema}
  Se tiene\index{Procesos ARIMA! Representaci\'{o}n AR}:
 \[
-X_{t} =-\sum_{i=1}^{t+s-p'-1} {\pi_{i} X_{t-i} +} 
-\sum_{j=s-p'}^{s-1} {\pi_{j,t}^{\ast } X_{-j} +u_{t} } 
-\qquad
-\forall t>-s+p'
+X_{t} =-\sum_{i=1}^{t+s-p'-1} {\pi_{i} X_{t-i} +} \sum_{j=s-p'}^{s-1} {\pi_{j,t}^{\ast } X_{-j} +u_{t} } 
+\quad \forall t>-s+p'
 \]
 donde:
 \begin{enumerate}
 \item Los $\pi_{i} $ se obtienen por divisi\'{o}n creciente de $\phi $ por $\Theta (\pi_{0} =1)$
-\item Los $\pi_{j,t}^{\ast } \to 0$ cuando $s\to \infty $
+\item Los $\pi_{j,t}^{\ast } \to 0$ cuando $s\to \infty$
 \end{enumerate}
 \end{teorema}
 
@@ -1209,58 +1089,45 @@ donde:
  Ver Anexo B.3
 \end{proof}
 
-
 \begin{ejemplo}
-Verifique si los siguientes modelos son estacionarios y/o invertibles. En 
-caso de que no sean estacionarios, ?`puede transformarlos en estacionarios? 
-?Cu\'{a}l ser\'{i}a la varianza de la innovaci\'{o}n?
+Verifique si los siguientes modelos son estacionarios y/o invertibles. En caso de que no sean estacionarios, ?`puede transformarlos en estacionarios? ?`Cu\'{a}l ser\'{i}a la varianza de la innovaci\'{o}n?
 
 \begin{enumerate}
-\item $(1-1,5 B +0,5 B^{2} ) (1 - B) X_{t}= (1-0,3B) u_{t}$.
+\item[a)] $(1-1,5 B +0,5 B^{2} ) (1 - B) X_{t}= (1-0,3B) u_{t}$.
 \begin{proof}[Resoluci\'{o}n]
 \begin{align*}
 (1-1,5 B +0,5 B^{2}) (1 - B) X_{t}&=(1-0,3B) u_{{t }}\\
 &\Longleftrightarrow
 	\left(1-\frac{B}{2}\right)(1-B)(1-B)X_{t} = (1-0,3B)u_{t} \\
 &\Longleftrightarrow
-	\left(1-\frac{B}{2}\right)(1-B)^{2}=(1-0,3B)\mu_{t}\\
+	\left(1-\frac{B}{2}\right)(1-B)^{2}X_{t}=(1-0,3B)\mu_{t}\\
 &\Longleftrightarrow
 	\varphi (B)X_{t} = \Theta (B)u_{t} 
 \end{align*}
-$\varphi (z)$ tiene una ra\'{\i}z unitaria de multiciplicidad 2; por tanto, 
-$(X_{t} )$ no es estacionario. $\Theta (z)$ tiene una ra\'{\i}z de $\left| 
-\right|>1$; por tanto, $(X_{t} )$ es invertible.
+$\varphi (z)$ tiene una ra\'{i}z unitaria de multiciplicidad 2; por tanto, $(X_{t} )$ no es estacionario. $\Theta (z)$ tiene una ra\'{i}z de $\left| \right|>1$; por tanto, $(X_{t} )$ es invertible.\newline
 
-Para transformar el proceso en estacionario, se define un nuevo proceso 
-$Z_{t} =(1-B)^{2}X_{t} $; el nuevo proceso es estacionario, lineal (el 
-polinomio AR asociado tiene como ra\'{\i}z 2) e invertible y su forma 
-can\'{o}nica se expresa por:
+Para transformar el proceso en estacionario, se define un nuevo proceso $Z_{t} =(1-B)^{2}X_{t} $; el nuevo proceso es estacionario, lineal (el polinomio AR asociado tiene como ra\'{i}z 2) e invertible y su forma can\'{o}nica se expresa por:
 \[
 \left(1-\frac{B}{2}\right)Z_{t} =(1-0,3B)u_{t} 
 \]
 La varianza de la innovaci\'{o}n es $\V(u_{t} )=\sigma^{2}$
 \end{proof}
 
-\item $(1-2 B + B^{2})X_{t}=(1+1,1B) u_{t}$
+\item[b)] $(1-2 B + B^{2})X_{t}=(1+1,1B) u_{t}$
 \begin{proof}[Resoluci\'{o}n]
 \[
  (1-2B +B^{2})X_{t}=(1+1,1B) u_{t}\Leftrightarrow (1-B)^{2}X_{t} =(1+1,1B)u_{t} \Leftrightarrow \varphi (B)X_{t} =\Theta (B)u_{t}
 \]
 $\varphi (B)=
-(1-B)^{2}$ tiene una ra\'{\i}z unitaria de multiplicidad 2; por tanto, el 
-proceso no es estacionario
+(1-B)^{2}$ tiene una ra\'{i}z unitaria de multiplicidad 2; por tanto, el proceso no es estacionario.\newline
 
-$\Theta (B)=
-(1+1,1B)$ tiene una ra\'{\i}z de $\left| \right|<1$; por tanto, el 
-proceso no es invertible.
+$\Theta (B)=(1+1,1B)$ tiene una ra\'{i}z de $\left| \right|<1$; por tanto, el proceso no es invertible.\newline
 
-Para que el proceso sea estacionario se define $Z_{t} =(1-B)^{2}X_{t} $, es 
-decir:
+Para que el proceso sea estacionario se define $Z_{t} =(1-B)^{2}X_{t} $, es decir:
 \[
 Z_{t} =(1+1,1B)u_{t} 
 \]
-Para que el proceso sea invertible, se invierte ra\'{\i}z 
-$z=\frac{1}{1,1}=0,91$.
+Para que el proceso sea invertible, se invierte ra\'{i}z $z=\frac{1}{1,1}=0,91$.\newline
 
 La ecuaci\'{o}n can\'{o}nica es:
 \begin{gather*}
@@ -1269,7 +1136,7 @@ La ecuaci\'{o}n can\'{o}nica es:
 \end{gather*}
 \end{proof}
 
-\item $\left(1+\frac{4}{3}B+\frac{4}{9}B^{2}\right)X_{t} =(1-0,4B)^{2}u_{t} $
+\item[c)] $\left(1+\frac{4}{3}B+\frac{4}{9}B^{2}\right)X_{t} =(1-0,4B)^{2}u_{t} $
 
 \begin{proof}[Resoluci\'{o}n]
 
@@ -1277,32 +1144,23 @@ La ecuaci\'{o}n can\'{o}nica es:
 \left(1+\frac{4}{3}B+\frac{4}{9}B^{2}\right)X_{t} =(1-0,4B)^{2}u_{t} 
 \Longleftrightarrow \varphi (B)X_{t} =\Theta (B)u_{t} 
 \]
-$\varphi (B)=\left(1+\frac{2}{3}B\right)\left(1+\frac{2}{3}B\right)$ tiene ra\'{\i}ces de $\left| 
-\right|< 1$; por tanto, el proceso es lineal y en concecuencia 
-estacionario.
+$\varphi (B)=\left(1+\frac{2}{3}B\right)\left(1+\frac{2}{3}B\right)$ tiene ra\'{i}ces de $\left| \right|< 1$; por tanto, el proceso es lineal y en concecuencia estacionario.\newline
 
-$\Theta (B)=(1-0,4B)^{2}$ tiene ra\'{\i}ces de $\left| \right|> 1$, 
-por tanto, el proceso es invertible y $\V(u_{t} )=\sigma^{2}$. La 
-ecuaci\'{o}n can\'{o}nica es la inicial. 
+$\Theta (B)=(1-0,4B)^{2}$ tiene ra\'{i}ces de $\left| \right|> 1$, por tanto, el proceso es invertible y $\V(u_{t} )=\sigma^{2}$. La ecuaci\'{o}n can\'{o}nica es la inicial. 
 \end{proof}
 
-
-
-\item $\left(1-\frac{1}{4}B-\frac{3}{8}B^{2}\right)X_{t} =(1+1,1B)u_{t} $ 
+\item[d)] $\left(1-\frac{1}{4}B-\frac{3}{8}B^{2}\right)X_{t} =(1+1,1B)u_{t} $ 
 \begin{proof}[Soluci\'{o}n]
 \begin{align*}
 \left(1-\frac{1}{4}B-\frac{3}{8}B^{2}\right)X_{t} =(1+1,1B)u_{t}
 	& \Leftrightarrow \left(1-\frac{3}{4}B\right)\left(1+\frac{1}{2}B\right)X_{t} =(1+1,1B)u_{t}\\
 	& \Leftrightarrow \varphi(B)X_{t} =\Theta (B)u_{t} 
 \end{align*}
-$\varphi (B)$ tiene ra\'{\i}ces de $\left| \right|> 1$; por tanto, 
-el proceso es lineal y estacionario.
+$\varphi (B)$ tiene ra\'{i}ces de $\left| \right|> 1$; por tanto, el proceso es lineal y estacionario.\newline
 
-$\Theta (B)$ tiene una ra\'{\i}z de $\left| \right|< 1$; por tanto, 
-el proceso no es invertible.
+$\Theta (B)$ tiene una ra\'{i}z de $\left| \right|< 1$; por tanto, el proceso no es invertible.\newline
 
-Como $(X_{t} )$ no es invertible, se invierte la ra\'{\i}z del polinomio 
-media m\'{o}vil. La ecuaci\'{o}n can\'{o}nica es:
+Como $(X_{t} )$ no es invertible, se invierte la ra\'{i}z del polinomio media m\'{o}vil. La ecuaci\'{o}n can\'{o}nica es:
 \begin{gather*}
 \varphi (B)X_{t} =(1+0,91B)\eta_{t} 
 \\
@@ -1310,18 +1168,13 @@ media m\'{o}vil. La ecuaci\'{o}n can\'{o}nica es:
 \end{gather*}
 \end{proof}
 
-
-\item $\left(1-\frac{5}{3}B-\frac{2}{3}B^{2}\right)X_{t} =\left(1-\frac{7}{10}B-\frac{3}{5}B^{2}\right)u_{t} $ 
+\item[e)] $\left(1-\frac{5}{3}B-\frac{2}{3}B^{2}\right)X_{t} =\left(1-\frac{7}{10}B-\frac{3}{5}B^{2}\right)u_{t} $ 
 \begin{proof}[Soluci\'{o}n]
-$\varphi (B)=(1-2B)(1+\frac{1}{3}B)$ tiene una ra\'{\i}z de $\left| 
-\right|< 1$ ($z=\frac{1}{2}$); por tanto, el proceso es 
-estacionario, pero no es lineal.
+$\varphi (B)=(1-2B)(1+\frac{1}{3}B)$ tiene una ra\'{\i}z de $\left| \right|< 1$ ($z=\frac{1}{2}$); por tanto, el proceso es estacionario, pero no es lineal.\newline
 
-$\Theta (B)=\left( {1-\frac{6}{5}B} \right)\left( {1+\frac{B}{2}} 
-\right)u_{t} $ tiene una ra\'{\i}z de $\left| \right|< 1$ ($z=\frac{5}{6}$); por tanto, no es invertible.
+$\Theta (B)=\left( {1-\frac{6}{5}B} \right)\left( {1+\frac{B}{2}} \right)u_{t} $ tiene una ra\'{i}z de $\left| \right|< 1$ ($z=\frac{5}{6}$); por tanto, no es invertible.\newline
 
-Invirtiendo las ra\'{\i}ces correspondientes para que el proceso sea lineal 
-e invertible, se tiene la siguiente ecuaci\'{o}n ARMA can\'{o}nica:
+Invirtiendo las ra\'{i}ces correspondientes para que el proceso sea lineal e invertible, se tiene la siguiente ecuaci\'{o}n ARMA can\'{o}nica:
 \begin{gather*}
 \left(1-\frac{1}{2}B\right)\left(1+\frac{1}{3}B\right)X_{t} =\left(1-\frac{5}{6}B\right)\left(1+\frac{1}{2}B\right)u_{t} 
 \\
@@ -1331,7 +1184,6 @@ e invertible, se tiene la siguiente ecuaci\'{o}n ARMA can\'{o}nica:
 \end{proof}
 \end{enumerate}
 \end{ejemplo}
-
 
 
 \begin{ejemplo}
