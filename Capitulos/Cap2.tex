@@ -71,7 +71,7 @@ Si el proceso $(X_{t} )_{t\in \Z} $ es invertible, entonces:
  \item[ii)] \begin{equation}
         X_{t} =\sum_{j=1}^\infty {\pi_{j} X_{t-j} } +u_{t} =\widehat{X}_{t} +u_{t} \quad t\in \Z,\text{ con }\pi_{j} =-\pi_{j}'     
        \end{equation}
-	donde $u_{t} $ es la innovaci\'{o}n en el instante $t$. Entonces el problema estad\'{\i}stico ser\'{a} la estimaci\'{o}n de los $\pi_{j} $. Se puede aproximar el modelo (2.2) por:
+	donde $u_{t} $ es la innovaci\'{o}n en el instante $t$. Entonces el problema estad\'{i}stico ser\'{a} la estimaci\'{o}n de los $\pi_{j} $. Se puede aproximar el modelo (2.2) por:
 	\[
 	 X_{t} =\sum_{j=1}^p \pi_{j} X_{t-j} +u_{t} ,\quad t\in \Z
 	\]
@@ -131,7 +131,7 @@ El resultado se deduce por la unicidad de la representaci\'{o}n espectral de los
 \]
 Puesto que $(u_{t})$ ruido blanco, la medida espectral es $\frac{\sigma^{2}}{2\pi }d\lambda$, entonces la medida espectral de $X_{t}$ se escribe:
 \[
-f_{X} \left( \lambda \right)=\frac{\sigma^{2}}{2\pi }\left| {\sum_j {\psi_{j} e^{i\lambda j}} } \right|^{2}d\lambda 
+f_{X} \left( \lambda \right)=\frac{\sigma^{2}}{2\pi }\left| {\displaystyle\sum_j {\psi_{j} e^{i\lambda j}} } \right|^{2}d\lambda 
 \]
 
 \paragraph{Consecuencia: } Un proceso lineal es erg\'{o}dico (la medida en 0 es nula, pues $\mu \left( \left\{ 0 \right\} \right)=0)$. As\'{i}, entonces, para un proceso lineal se satisface la Ley de de los Grandes N\'{u}meros.
@@ -143,7 +143,7 @@ f_{X} \left( \lambda \right)=\frac{\sigma^{2}}{2\pi }\left| {\sum_j {\psi_{j} e^
 \[
 \rho \left( \ell \right)=\frac{\gamma (\ell)}{\gamma (0)}
 \]
-Puesto que la varianza de $X_{t}$ es constante, este es el coeficiente de correlaci\'{o}n lineal entre $X_{t}$ y $X_{t+\ell}$.
+Puesto que la varianza de $X_{t}$ es constante, \'{e}ste es el coeficiente de correlaci\'{o}n lineal entre $X_{t}$ y $X_{t+\ell}$.
 \end{definicion}
 
 \begin{observacion}
@@ -263,7 +263,7 @@ El proceso definido por \eqref{eq2} es d\'{e}bilmente estacionario; adem\'{a}s, 
 			 X_{t} =-u_{0} ......-u_{t+1} & t\le -1 \\ 
 		\end{cases}
 	\]
-	Adem\'{a}s, est\'{a} soluci\'{o}n no satisface que sea no correlacionado $u_{t} $ con $(X_{s}, s<t)$, pues $\E\left( {u_{0} X_{-1} } \right)=-\sigma^{2}$.
+	Adem\'{a}s, esta soluci\'{o}n no satisface que sea no correlacionado $u_{t} $ con $(X_{s}, s<t)$, pues $\E\left( {u_{0} X_{-1} } \right)=-\sigma^{2}$.
 \end{itemize}
 
 \subsection{Unicidad de la descomposici\'{o}n para el caso del $AR(p)$:}
@@ -278,7 +278,7 @@ Entonces $\widehat{{X}}_{t} =\sum_{j=1}^p {\pi_{j} X_{t-j} } =\sum_{j=1}^p {\pi_
 
 Si $\pi_{1} \ne \pi_{1}'$, $X_{t-1} =\sum_{j=1}^{p-1} {d_{j} X_{t-1-j} \in \mu_{t-2} }$, $\forall t\in \Z$\newline
 
-As\'{\i}, $X_{t} \in \mu_{t-1} \Rightarrow u_{t} \in \mu_{t-1} \Rightarrow u_{t} =0$; esto es una contradicci\'{o}n, pues $E\left( {u_{t}^{2} } \right)=\sigma^{2}>0$ 
+As\'{i}, $X_{t} \in \mu_{t-1} \Rightarrow u_{t} \in \mu_{t-1} \Rightarrow u_{t} =0$; esto es una contradicci\'{o}n, pues $E\left( {u_{t}^{2} } \right)=\sigma^{2}>0$ 
 \[
 \therefore\pi_{1} =\pi_{1}' 
 \]
@@ -319,7 +319,7 @@ Los coeficientes $\psi_{j} $ pueden determinarse con uno de los siguientes m\'{e
 \]
 donde $\lambda_{r}( z )$ es un polinomio en $z$. 
 
-\item[iii)] Descomponer en elementos simples la fracci\'{o}n $\frac{1}{\Pi'( z )}$ y escribir el desarrollo en series de cada t\'{e}rmino. Sup\'{o}ngase que todas las ra\'{\i}ces de $\pi'( z )$ sean reales y distintas:
+\item[iii)] Descomponer en elementos simples la fracci\'{o}n $\frac{1}{\Pi'( z )}$ y escribir el desarrollo en series de cada t\'{e}rmino. Sup\'{o}ngase que todas las ra\'{i}ces de $\pi'( z )$ sean reales y distintas:
 \begin{align*}
 \frac{1}{\Pi'\left( z \right)}
 	&=\frac{1}{\prod_{i=1}^{p} ( {1-\lambda_{i} z} )}\\
@@ -496,7 +496,7 @@ entonces,
 =\prod_{i=r+l}^{p} \left( {-\lambda_{i} } \right)
 \end{align*}
 
-Las $\lambda_{i}$ son las inversas de las ra\'{\i}ces del polinomio 
+Las $\lambda_{i}$ son las inversas de las ra\'{i}ces del polinomio 
 ${\Pi }'\left( z \right)$. Puesto que $\Phi_{1} (B)$ y $\Phi_{2} 
 (B)$ son invertibles, entonces $\Pi'(z)$ es invertible. Adem\'{a}s:
 \[
@@ -615,12 +615,12 @@ t\in \Z
 donde $\left( {u_{t} ,t\in \Z} \right)$ r.b. de varianza $\sigma^{2}>0$.
 
 \begin{itemize}
-\item Si $\left| \rho \right|=1,$ no existe un proceso estacionario que satisfaga esta relaci\'{o}n. Sup\'{o}ngase que $\rho =1$. Entonces se tendr\'{\i}a:
+\item Si $\left| \rho \right|=1,$ no existe un proceso estacionario que satisfaga esta relaci\'{o}n. Sup\'{o}ngase que $\rho =1$. Entonces se tendr\'{i}a:
 \begin{gather*}
 X_{t} -X_{t-n} =u_{t} +u_{t-1} +....+u_{t-n+1} \qquad\forall n\in \N\\
 \therefore\E\left( {X_{t} -X_{t-n} } \right)^{2}=n\sigma^{2}\qquad\forall n\in \N
 \end{gather*}
-Si $\left( {X_{t} } \right)$ fuera estacionario, se tendr\'{\i}a:
+Si $\left( {X_{t} } \right)$ fuera estacionario, se tendr\'{i}a:
 \begin{gather*}
 \E\left( {X_{t} -X_{t-n} } \right)^{2}\le 4\sigma_{X}^{2} ,\quad\text{ donde }\sigma_{X}^{2} =V\left( {X_{t} } \right) \\
 \therefore n\sigma^{2}\le 4\sigma^{2} \qquad \forall n\in \N \text{ (imposible)}
@@ -707,7 +707,7 @@ con $\theta_{q} \ne 0$; $\left( {u_{t} } \right)$ r.b. de varianza $\sigma^{2}$ 
 \begin{enumerate}
 \item Un proceso $MA(q)$ es centrado, d.e. y tiene una representaci\'{o}n \'{u}nica (a causa de la descomposici\'{o}n de Wold).
 
-\item Si $\Theta \left( z \right)=1-\theta_{1} z-\cdots-\theta_{q} z^{q}$ y $\Theta (z)$ no tiene ra\'{\i}ces de $\left| \right|=1$ (es posible suponerlas de $\left| \right|>1$, eventualmente con un nuevo ruido blanco ($\eta_{t}))$, se puede demostrar que el proceso es invertible; es decir,
+\item Si $\Theta \left( z \right)=1-\theta_{1} z-\cdots-\theta_{q} z^{q}$ y $\Theta (z)$ no tiene ra\'{i}ces de $\left| \right|=1$ (es posible suponerlas de $\left| \right|>1$, eventualmente con un nuevo ruido blanco ($\eta_{t}))$, se puede demostrar que el proceso es invertible; es decir,
 \[
 X_{t}=\sum_{i=1}^\infty {\pi_{i}X_{t-i}} +\eta_{t},  \quad\text{ con }\quad  \sum_{i=1}^\infty \left| 
 \pi_{i} \right| <\infty  
@@ -723,7 +723,7 @@ se puede demostrar que la densidad espectral de $\eta_{t}$ es:
 \frac{\sigma^{2}}{2\pi \left( {\prod_{j={r}'+1}^{q} \left| 
 {z_{j} } \right|^{2}} \right)}
 \]
-donde $z_{j}$ raiz de $\left| \right|<1$. Se supondr\'{a} que $\Theta $tiene ra\'{i}ces de $\left| \right|>1$. 
+donde $z_{j}$ ra\'{i}z de $\left| \right|<1$. Se supondr\'{a} que $\Theta $tiene ra\'{i}ces de $\left| \right|>1$. 
 \end{enumerate}
 \end{observacion}
 
@@ -1027,7 +1027,7 @@ Entonces, luego de aplicar la transformaci\'{o}n logar\'{i}tmica se puede efectu
 \[
 \phi (B)X_{t} =\Theta (B)u_{t} 
 \]
-pero $\phi (z)$ admite como ra\'{\i}z m\'{u}ltiple de orden $d$ a 1.
+pero $\phi (z)$ admite como ra\'{i}z m\'{u}ltiple de orden $d$ a 1.
 
 \item Se puede observar que (\ref{eq2}) no define $(X_{t})$ completamente, por lo cual se hace necesario introducir un mecanismo para inicializar el proceso. Consid\'{e}rese, por ejemplo, el caso particular de una ``marcha aleatoria'':
 \[
@@ -1170,7 +1170,7 @@ Como $(X_{t} )$ no es invertible, se invierte la ra\'{i}z del polinomio media m\
 
 \item[e)] $\left(1-\frac{5}{3}B-\frac{2}{3}B^{2}\right)X_{t} =\left(1-\frac{7}{10}B-\frac{3}{5}B^{2}\right)u_{t} $ 
 \begin{proof}[Soluci\'{o}n]
-$\varphi (B)=(1-2B)(1+\frac{1}{3}B)$ tiene una ra\'{\i}z de $\left| \right|< 1$ ($z=\frac{1}{2}$); por tanto, el proceso es estacionario, pero no es lineal.\newline
+$\varphi (B)=(1-2B)(1+\frac{1}{3}B)$ tiene una ra\'{i}z de $\left| \right|< 1$ ($z=\frac{1}{2}$); por tanto, el proceso es estacionario, pero no es lineal.\newline
 
 $\Theta (B)=\left( {1-\frac{6}{5}B} \right)\left( {1+\frac{B}{2}} \right)u_{t} $ tiene una ra\'{i}z de $\left| \right|< 1$ ($z=\frac{5}{6}$); por tanto, no es invertible.\newline
 
@@ -1194,15 +1194,16 @@ Sea el proceso $(X_{{t}})_{t\in \Z} $,definido por:
 donde $(u_{t})$ r.b. de varianza 1.
 \begin{enumerate}
 \item Expresar $X_{t}$ en funci\'{o}n de los $u_{t-i}$, $i\in \Z$.
-\item Exprese el proceso en su forma can\'{o}nica (y centrado). ?Cu\'{a}l es la expresi\'{o}n como proceso lineal?
+\item Exprese el proceso en su forma can\'{o}nica (y centrado). ?`Cu\'{a}l es la expresi\'{o}n como proceso lineal?
 \item Encuentre la covarianza entre $X_{t}$ y $u_{t-i}$, $i\in \Z$.
-\item ?Cu\'{a}l es la varianza del error de predicci\'{o}n con horizonte 1?
+\item ?`Cu\'{a}l es la varianza del error de predicci\'{o}n con horizonte 1?
 \end{enumerate}
 
 
 \begin{proof}[Soluci\'{o}n]
+\quad
 \begin{enumerate}
-\item Se tiene que:
+\item[a)] Se tiene que:
 \[
 (1-4B)X_t=3+(1-0,5B)u_t\Longleftrightarrow -4B(1-\frac{1}{4}F)X_{t} 
 =3+(1-0,5B)u_{t} 
@@ -1218,7 +1219,7 @@ X_{t}
 	&=-3+\frac{1}{8}u_{t} -\frac{7}{8}\sum_{j=1}^\infty {\left( {\frac{1}{4}} \right)^{j}u_{t+j} } 
 \end{align*}
 
-\item Se considera el proceso Sea $(Y_{t} )$ en el que se invierte la ra\'{\i}z autoregresiva de $\left| \right|< 1$ del proceso $(X_{t} )$, a la vez que se centra el nuevo proceso:
+\item[b)] Se considera el proceso Sea $(Y_{t} )$ en el que se invierte la ra\'{i}z autoregresiva de $\left| \right|< 1$ del proceso $(X_{t} )$, a la vez que se centra el nuevo proceso:
 \begin{gather*}
   Y_{t} =X_{t} -\frac{3}{1-\frac{1}{4}}=X_{t} -4 \\
   v_{t} =u_{t} =\left| {\frac{1}{4}} \right|u_{t} =\frac{1}{4}u_{t}
@@ -1244,7 +1245,7 @@ Consid\'{e}rese ahora la siguiente igualdad de operadores:
 esta es la expresi\'{o}n como proceso lineal
 
 
-\item Ahora se remplaza $X_{t}$   por  $Y_{t} +4$, de donde se obtiene:
+\item[c)] Ahora se remplaza $X_{t}$   por  $Y_{t} +4$, de donde se obtiene:
 \[
 X_{t} =4+v_{t} -0,5\sum_{j=1}^\infty {(0,25)^{j-1}v_{t-j} } 
 =4+\frac{1}{4}u_{t} -\frac{1}{8}\sum_{j=1}^\infty 
@@ -1261,7 +1262,7 @@ Adem\'{a}s:
 	  \end{cases}
 \end{align*}
 
-\item 
+\item[d)]
 \[
 \V(X_{t+1} -\widehat{X}_{t} (1))=\V(v_{t} 
 )=\frac{1}{16}\V(u_{t} )=\frac{1}{16}
@@ -1280,21 +1281,22 @@ Sea
 \]
 
 \begin{enumerate}
-\item Probar que existe un proceso estacionario ARMA $X=(X_{t} )_{t\in \Z} $ tal que la medida espectral $\mu $ de $X$ tenga por densidad $f$ (con respecto a la medida de Lebesgue):
+\item[a)] Probar que existe un proceso estacionario ARMA $X=(X_{t} )_{t\in \Z} $ tal que la medida espectral $\mu $ de $X$ tenga por densidad $f$ (con respecto a la medida de Lebesgue):
 \[
 f(\lambda )=\frac{\frac{13}{12}+\cos \lambda }{\frac{41}{40}+\cos \lambda 
 }\cdot\frac{1}{2\pi }=\frac{13+12 \cos \lambda }{41+40\cos \lambda }\cdot\frac{40}{12}\cdot\frac{1}{2\pi }
 \]
 
-\item Escribir la ecuaci\'{o}n ARMA can\'{o}nica (y centrado). ?Cu\'{a}l es la expresi\'{o}n como proceso lineal?
+\item[b)] Escribir la ecuaci\'{o}n ARMA can\'{o}nica (y centrado). ?`Cu\'{a}l es la expresi\'{o}n como proceso lineal?
 
-\item Representar $u_{{t}}$ en t\'{e}rminos de los $X_{j}$, $j\le t$.
+\item[c)] Representar $u_{{t}}$ en t\'{e}rminos de los $X_{j}$, $j\le t$.
 \end{enumerate}
 
 
 \begin{proof}[Resoluci\'{o}n]
+\quad 
 \begin{enumerate}
-\item Sea el modelo $ARMA(1, 1)$. Su densidad espectral se expresa por:
+\item[a)] Sea el modelo $ARMA(1, 1)$. Su densidad espectral se expresa por:
 \[
 f(\lambda )=\frac{\left| {1-\theta e^{i\lambda }} \right|^{2}}{\left| 
 {1-\varphi e^{i\lambda }} \right|^{2}}\cdot\frac{\sigma^{2}}{2\pi }
@@ -1311,15 +1313,11 @@ f(\lambda )=\frac{\left| {1-\theta e^{i\lambda }} \right|^{2}}{\left|
 ^{2}
 \]
 \[
-f(\lambda )=\frac{1-2\theta \cos \lambda +\theta^{2}}{1-2\varphi \cos 
-\lambda +\varphi^{2}}\cdot\frac{\sigma^{2}}{2\pi }=\frac{-\frac{(1+\theta 
-^{2})}{2\theta }+\cos \lambda }{-\frac{(1+\varphi^{2})}{2\varphi }+\cos 
-\lambda }\cdot\frac{2\theta }{2\varphi }\cdot\frac{\sigma^{2}}{2\pi }
+f(\lambda )=\frac{1-2\theta \cos \lambda +\theta^{2}}{1-2\varphi \cos \lambda +\varphi^{2}}\cdot\frac{\sigma^{2}}{2\pi }=\frac{-\frac{(1+\theta^{2})}{2\theta }+\cos \lambda }{-\frac{(1+\varphi^{2})}{2\varphi }+\cos \lambda }\cdot\frac{2\theta }{2\varphi }\cdot\frac{\sigma^{2}}{2\pi }
 \]
 Del numerador de la expresi\'{o}n precedente se tiene que:
 \[
--\frac{(1+\theta^{2})}{2\theta }=\frac{13}{6}\Longleftrightarrow -1-\theta 
-^{2}=\frac{13}{6}\theta \Longleftrightarrow \theta^{2}+\frac{13}{6}\theta +1=0
+-\frac{(1+\theta^{2})}{2\theta }=\frac{13}{6}\Longleftrightarrow -1-\theta ^{2}=\frac{13}{6}\theta \Longleftrightarrow \theta^{2}+\frac{13}{6}\theta +1=0
 \]
 \[
 \therefore\theta =-\frac{2}{3}\quad\text{ o }\quad\theta =-\frac{3}{2}
@@ -1328,8 +1326,7 @@ Se elige $\theta =-\frac{2}{3}$
 
 De otro lado, analizando el denominador de $f(\lambda )$ se tiene:
 \[
--\frac{\left( {1+\varphi^{2}} \right)}{2\varphi 
-}=\frac{41}{40}\Longleftrightarrow \varphi^{2}+\frac{41}{20}\varphi +1=0
+-\frac{\left( {1+\varphi^{2}} \right)}{2\varphi }=\frac{41}{40}\Longleftrightarrow \varphi^{2}+\frac{41}{20}\varphi +1=0
 \]
 \[
 \varphi =-\frac{5}{4}\quad\text{ o }\quad\varphi =-\frac{4}{5}
@@ -1341,33 +1338,25 @@ Adem\'{a}s:
 \sigma^{2}=\frac{2\varphi }{2\varphi }=\frac{\theta }{\varphi }
 \]
 
-\item Aunque en inicio se podr\'{\i}an considerar cuatro modelos posibles, se retiene aquel que toma $\theta =-\frac{3}{2}$ y $\varphi =-\frac{4}{5}$. La ecuaci\'{o}n ARMA can\'{o}nica viene dada por:
+\item[b)] Aunque en inicio se podr\'{i}an considerar cuatro modelos posibles, se retiene aquel que toma $\theta =-\frac{3}{2}$ y $\varphi =-\frac{4}{5}$. La ecuaci\'{o}n ARMA can\'{o}nica viene dada por:
 \[
 X_{t} -\frac{4}{5}X_{t-1} =u_{t} -\frac{2}{3}u_{t-1} \Longleftrightarrow \left( 
 {1-\frac{4}{5}B} \right)X_{t} =\left( {1-\frac{2}{3}B} \right)u_{t} 
 \]
 La varianza de la innovaci\'{o}n $(u_{{t}})$ es $\sigma^{2}=\frac{5}{6}$.
 
-\item Representar $u_{{t}}$ en t\'{e}rminos de los $X_{j}$, $j\le  t$
+\item[c)] Representar $u_{{t}}$ en t\'{e}rminos de los $X_{j}$, $j\le  t$
 \[
-\left( {1-\frac{4}{5}B} \right)X_{t} =\left( {1-\frac{2}{3}B} \right)u_{t} 
-\Longleftrightarrow u_{t} =\frac{\left( {1-\frac{4}{5}B} \right)}{\left( 
-{1-\frac{2}{3}B} \right)}X_{t} 
+\left( {1-\frac{4}{5}B} \right)X_{t} =\left( {1-\frac{2}{3}B} \right)u_{t} \Longleftrightarrow u_{t} =\frac{\left( {1-\frac{4}{5}B} \right)}{\left( {1-\frac{2}{3}B} \right)}X_{t} 
 \quad
 \]
 \[
-\Longleftrightarrow u_{t} =\left( {1-\frac{4}{5}B} 
-\right)\sum_{j=0}^\infty {\left( {\frac{2}{3}} \right)}^{j}X_{t-j} 
-=\sum_{j=0}^\infty {\left( {\frac{2}{3}} \right)}^{j}X_{t-j} 
--\frac{4}{5}\sum_{j=0}^\infty {\left( {\frac{2}{3}} \right)} 
-^{j}X_{t-1-j} 
+\Longleftrightarrow u_{t} =\left( {1-\frac{4}{5}B} \right)\sum_{j=0}^\infty {\left( {\frac{2}{3}} \right)}^{j}X_{t-j} =\sum_{j=0}^\infty {\left( {\frac{2}{3}} \right)}^{j}X_{t-j} -\frac{4}{5}\sum_{j=0}^\infty {\left( {\frac{2}{3}} \right)}^{j}X_{t-1-j} 
 \]
 \[
 =X_{t} +\sum_{j=1}^\infty {\left( {\left( {\frac{2}{3}} 
-\right)^{j}-\frac{3}{2}\ast \frac{4}{5}\left( {\frac{2}{3}} \right)^{j}} 
-\right)X_{t-j} } 
-=X_{t} -\frac{1}{5}\sum_{j=1}^\infty {\left( {\frac{2}{3}} \right)} 
-^{j}X_{t-j} 
+\right)^{j}-\frac{3}{2}\ast \frac{4}{5}\left( {\frac{2}{3}} \right)^{j}} \right)X_{t-j} } 
+=X_{t} -\frac{1}{5}\sum_{j=1}^\infty {\left( {\frac{2}{3}} \right)} ^{j}X_{t-j} 
 \]
 \end{enumerate}
 \end{proof}
@@ -1383,14 +1372,15 @@ X_{n} -(4/9) X_{n-1} +(1/27) X_{n-2} =w_{n} -(19/2) w_{n-1}
 donde $(w_{n})$ es un ruido blanco de varianza 1.
 
 \begin{enumerate}
-\item Encontrar la ecuaci\'{o}n ARMA can\'{o}nica satisfecha por $X$.
-\item Si ($v_{n}) $es la innovaci\'{o}n introducida en la ecuaci\'{o}n ARMA can\'{o}nica, expresar $(v_{n})$ con la ayuda de los $(w_{p}, p\in \Z)$. Calcular la varianza de la innovaci\'{o}n.
-\item ?Puede comparar los pasados de $(v_{n})$ y $(w_{n})$? ?los futuros?.
+\item[a)] Encontrar la ecuaci\'{o}n ARMA can\'{o}nica satisfecha por $X$.
+\item[b)] Si ($v_{n}) $es la innovaci\'{o}n introducida en la ecuaci\'{o}n ARMA can\'{o}nica, expresar $(v_{n})$ con la ayuda de los $(w_{p}, p\in \Z)$. Calcular la varianza de la innovaci\'{o}n.
+\item[b)] ?`Puede comparar los pasados de $(v_{n})$ y $(w_{n})$? ?`los futuros?.
 \end{enumerate}
 
 \begin{proof}[Resoluci\'{o}n]
+\quad 
 \begin{enumerate}
-\item 
+\item[a)]
 \begin{equation}\label{eq:ej12.1}
 X_{n} -\frac{4}{9}X_{n-1} +\frac{1}{27}X_{n-2} =w_{n} 
 -\frac{19}{2}w_{n-1} +\frac{9}{2}w_{n-2}  
@@ -1427,10 +1417,7 @@ La ecuaci\'{o}n \eqref{eq:ej12.1} se puede expresar:
 \left( {1-\frac{1}{9}B} \right) \left( {1-\frac{1}{3}B} \right) X_{n} 
 =\left( {1-\frac{1}{2}B} \right)\left( {1-9B} \right) w_{n} 
 \end{equation}
-Como se tiene una ra\'{\i}z de valor absoluto menor que uno, tenemos que 
-invertirla, de tal manera que cambiar\'{a} el ruido blanco; ahora tendremos 
-la innovaci\'{o}n $v_{n}$ y las ra\'{\i}ces fuera del c\'{\i}rculo unidad, 
-as\'{\i}:
+Como se tiene una ra\'{i}z de valor absoluto menor que uno, tenemos que invertirla, de tal manera que cambiar\'{a} el ruido blanco; ahora tendremos la innovaci\'{o}n $v_{n}$ y las ra\'{i}ces fuera del c\'{i}rculo unidad, as\'{i}:
 \[
 \left( {1-\frac{1}{9}B} \right)\left( {1-\frac{1}{3}B} \right) X_{n} 
 =\left( {1-\frac{1}{2}B} \right) \left( {1-\frac{1}{9}B} \right)v_{n} 
@@ -1441,7 +1428,7 @@ y la ecuaci\'{o}n ARMA can\'{o}nica se expresa por:
 \right)v_{n} 
 \]
 
-\item Puesto que:
+\item[b)] Puesto que:
 \[
 v_{n} =\frac{\left( {1-\frac{1}{3}B} \right)}{\left( {1-\frac{1}{2}B} 
 \right)}X_{n} 
@@ -1454,16 +1441,14 @@ v_{n} =\frac{\left( {1-\frac{1}{3}B} \right)}{\left( {1-\frac{1}{2}B}
 \right)}w_{n} 
 =\frac{\left( {1-9B} \right)}{\left( {1-\frac{1}{9}B} \right)}w_{n} \qquad n\in \Z
 \]
-Para calcular la varianza de la innovaci\'{o}n $v_{n}$ se utiliza la 
-funci\'{o}n de densidad espectral de $(v_{n})$:
+Para calcular la varianza de la innovaci\'{o}n $v_{n}$ se utiliza la funci\'{o}n de densidad espectral de $(v_{n})$:
 \[
 f_{v} (\lambda )=\frac{\left| {1-9 e^{i\lambda } } \right|^{2}}{\left| 
 {1-\frac{1}{9} e^{i\lambda }} \right|^{2}}\cdot \frac{\sigma^{2}}{2\pi 
 }=\frac{81\left| {\frac{1}{9}-e^{i\lambda }} \right|}{\left| 
 {1-\frac{1}{9}e^{i\lambda }} \right|^{2}}^{2}\cdot \frac{\sigma^{2}}{2\pi }
 \]
-Multiplicando el numerador de esta expresi\'{o}n por $\left| {e^{-i\lambda 
-}} \right|^{2}=1$ se tiene:
+Multiplicando el numerador de esta expresi\'{o}n por $\left| {e^{-i\lambda }} \right|^{2}=1$ se tiene:
 \[
 f (v_{n} )=\frac{81\left| {\frac{1}{9}e^{-i\lambda }-1} \right|^{2}}{\left| 
 {1-\frac{1}{9}e^{i\lambda }} \right|^{2}}\frac{\sigma^{2}}{2\pi }=
@@ -1471,19 +1456,15 @@ f (v_{n} )=\frac{81\left| {\frac{1}{9}e^{-i\lambda }-1} \right|^{2}}{\left|
 \]
 Puesto que por hip\'{o}tesis $\sigma^{2}=1$, tenemos que $V(v_{n})=81$ 
 
-\item Dado que:
+\item[c)] Dado que:
 \[
  v_{n}=\frac{\left( {1-9B} \right) }{\left( {1-\frac{1}{9}B} 
 \right)}w_{n} =\frac{\Theta_{1}  (B)}{\varphi_{1}  (B)}w_{n} 
 \]
 \begin{itemize}
-\item $\varphi_{1}  (z)$ tiene su ra\'{\i}z de valor absoluto mayor que 1; por tanto, la inversi\'{o}n de $\varphi_{1} (B)$ nos da una serie en t\'{e}rminos de potencias $B\left( {\sum_{j=0}^\infty {\left( {\frac{1}{9}} \right)^{j}B^{j}} } \right)$; es decir; $v_{n} $ se puede expresar en t\'{e}rminos del presente y del pasado de los $w_{n}$. Por lo tanto $v_{n }\in   ev\left\{ {w_{j} \left| {j\le n} \right.} \right\}$.
+\item $\varphi_{1}  (z)$ tiene su ra\'{i}z de valor absoluto mayor que 1; por tanto, la inversi\'{o}n de $\varphi_{1} (B)$ nos da una serie en t\'{e}rminos de potencias $B\left( {\sum_{j=0}^\infty {\left( {\frac{1}{9}} \right)^{j}B^{j}} } \right)$; es decir; $v_{n} $ se puede expresar en t\'{e}rminos del presente y del pasado de los $w_{n}$. Por lo tanto $v_{n }\in   ev\left\{ {w_{j} \left| {j\le n} \right.} \right\}$.
 
-Sin embargo, puesto que $\Theta_{1} (z)$ tiene una ra\'{\i}z de valor 
-absoluto menor que 1, al invertir $\Theta_{1} (B)$ se obtiene una serie 
-con potencias de $F$; es decir, en t\'{e}rminos del futuro de los $v_{j} $(e.d. 
-$v_{j}, j\ge n);$ por tanto $w_{{n}}$ no se puede expresar en 
-t\'{e}rminos del pasado de los $(v_{j})$.
+Sin embargo, puesto que $\Theta_{1} (z)$ tiene una ra\'{i}z de valor absoluto menor que 1, al invertir $\Theta_{1} (B)$ se obtiene una serie con potencias de $F$; es decir, en t\'{e}rminos del futuro de los $v_{j} $(e.d. $v_{j}, j\ge n);$ por tanto $w_{{n}}$ no se puede expresar en t\'{e}rminos del pasado de los $(v_{j})$.
 
 \item De manera an\'{a}loga, se puede observar que $w_{{n}}$ esta contenido en el futuro de los $(v_{{j}})$, pero $v_{n}$ no lo est\'{a} en el futuro de los $(w_{{j}})$.
 \end{itemize} 
@@ -1500,17 +1481,18 @@ Sea $X$ p.e. centrado, que satisface la ecuaci\'{o}n ARMA:
 donde $( X_{n} )_{es }$ un r.b. de varianza $\sigma $
 
 \begin{enumerate}
-\item Encontrar la ecuaci\'{o}n ARMA can\'{o}nica satisfecha por $X$ y la varianza de la innovaci\'{o}n. 
-\item Calcular expl\'{\i}citamente las covarianzas $\gamma_{h} =\E(X_{n+h} X_{n} )$ del proceso $X$ (se puede comenzar buscando la recurrencia satisfecha por $\gamma_{h})$
+\item[a)] Encontrar la ecuaci\'{o}n ARMA can\'{o}nica satisfecha por $X$ y la varianza de la innovaci\'{o}n. 
+\item[b)] Calcular expl\'{i}citamente las covarianzas $\gamma_{h} =\E(X_{n+h} X_{n} )$ del proceso $X$ (se puede comenzar buscando la recurrencia satisfecha por $\gamma_{h})$
 \end{enumerate}
 
 \begin{proof}[Resoluci\'{o}n]
+\quad
 \begin{enumerate}
-\item $9X_{n} -X_{n-2} =W_{n} +3W_{n-1} $
+\item[a)] $9X_{n} -X_{n-2} =W_{n} +3W_{n-1} $
 
-Sea $\Theta (z)=1+3_{Z} \Rightarrow 1+3_{Z} =0 \Leftrightarrow z=-1/3$ ($\left| z \right|<1$)
+Sea $\Theta (z)=1+3_{Z} \Rightarrow 1+3_{Z} =0 \Leftrightarrow z=-1/3$ ($\left| z \right|<1$).\newline
 
-Sea $\phi (z)=9-z^{2}$ y $\phi (z)=0\Rightarrow(3+z)(3-z)=0\Leftrightarrow z=3$ o $z=-3$
+Sea $\phi (z)=9-z^{2}$ y $\phi (z)=0\Rightarrow(3+z)(3-z)=0\Leftrightarrow z=3$ o $z=-3$.
 
 Puesto que:
 \[
@@ -1525,52 +1507,37 @@ Se puede escribir a partir de un nuevo ruido blanco $u_{n}$
 \]
 De donde se obtiene 
 \[
-9(1-B/3)X_{n} =u_{n} \Leftrightarrow (X_{n} -X_{n-1} 
-/3=u_{n} /9
+9(1-B/3)X_{n} =u_{n} \Leftrightarrow (X_{n} -X_{n-1} /3=u_{n} /9
 \]
 \[
  \Leftrightarrow X_{n} -(X_{n-1} /3)=v_{n}
 \]
-(Ecuaci\'{o}n can\'{o}nica) donde $(v_{n} )$es un nuevo ruido blanco 
+(Ecuaci\'{o}n can\'{o}nica) donde $(v_{n} )$es un nuevo ruido blanco.\newline
 
 La relaci\'{o}n entre la innovaci\'{o}n y el ruido blanco original es:
 \[
-v_{n} =u_{n} /9=\frac{W_{n} }{9\left| {-1/3} \right|}
-\Longrightarrow 
-v_{n} =W_{n} /3
+v_{n} =u_{n} /9=\frac{W_{n} }{9\left| {-1/3} \right|} \Longrightarrow v_{n} =W_{n} /3
 \]
 Por lo tanto la varianza de $v_{n}$ es:
 \[
 \V(v_{n} )=\frac{\V(W_{n} )}{9}=\frac{\sigma^{2}}{9}
 \]
 
-\item Puesto que $X_{n} =v_{n} +X_{n-1} /3$, se puede considerar:
+\item[b)] Puesto que $X_{n} =v_{n} +X_{n-1} /3$, se puede considerar:
 \[
 \gamma_{h} =\E(X_{n} X_{n-h} )=\E(X_{n-1} X_{n-h} )/3+\E(\upsilon_{n} X_{n-h} )
 \]
-$\gamma_{h} =\frac{\gamma_{h-1} }{3}+\E(\upsilon_{n} X_{n-h} 
-)=\frac{1}{3}\gamma_{h-1} +0$ si $h\ge 1$
+$\gamma_{h} =\frac{\gamma_{h-1} }{3}+\E(\upsilon_{n} X_{n-h} )=\frac{1}{3}\gamma_{h-1} +0$ si $h\ge 1$
 \[
-\gamma_{h} =\frac{\gamma_{h-1} }{3}=\frac{1}{3}(\frac{\gamma_{h-2} 
-}{3})=\cdots=(1/3)^{h}\gamma_{o} 
-\quad
-\forall h\ge 1
+\gamma_{h} =\frac{\gamma_{h-1} }{3}=\frac{1}{3}(\frac{\gamma_{h-2} }{3})=\cdots=(1/3)^{h}\gamma_{o} \quad \forall h\ge 1
 \]
 Utilizando las ecuaciones de Yule -- Walker se obtiene:
 \[
-\sum_{j=0}^k {\pi_{j} } \gamma_{j} =\sigma_{v}^{2}\Leftrightarrow 
-\gamma_{0} -\frac{1}{3}\gamma_{1} =\frac{\sigma^{2}}{9}
-\Leftrightarrow \gamma_{0} -\left( {\frac{1}{3}} \right)\gamma_{o} 
-=\frac{\sigma^{2}}{9}
-\Leftrightarrow \frac{8}{9}\gamma_{0} =\frac{\sigma^{2}}{9}
-\quad
-\Leftrightarrow \gamma_{0} =\frac{\sigma^{2}}{8}
+\sum_{j=0}^k {\pi_{j} } \gamma_{j} =\sigma_{v}^{2}\Leftrightarrow \gamma_{0} -\frac{1}{3}\gamma_{1} =\frac{\sigma^{2}}{9}\Leftrightarrow \gamma_{0} -\left( {\frac{1}{3}} \right)\gamma_{o} =\frac{\sigma^{2}}{9} \Leftrightarrow \frac{8}{9}\gamma_{0} =\frac{\sigma^{2}}{9}\quad \Leftrightarrow \gamma_{0} =\frac{\sigma^{2}}{8}
 \]
 En consecuencia:
 \[
-\gamma_{h} =\frac{1}{8}\left( {\frac{1}{3}} \right)^{h}\sigma^{2}
-\quad
-h\ge 1
+\gamma_{h} =\frac{1}{8}\left( {\frac{1}{3}} \right)^{h}\sigma^{2} \quad h\ge 1
 \]
 \end{enumerate}
 \end{proof}
@@ -1586,30 +1553,28 @@ h\ge 1
  \[
   \Phi \left( B \right)Z_{t} =\xi_{t}\quad\text{con }\xi_{t} =\prod_{j=r+l}^{p} \left| {z_{j} } \right|u_{t} 
  \]
-tiene los mismos elementos de segundo orden ($\gamma_{h}$, $\rho( h)$, $r(h)$, densidad espectral) que $\left({X_{t} ,t\in \Z} \right)$.
+tiene los mismos elementos de segundo orden ($\gamma_{h}$, $\rho( h)$, $r(h)$, densidad espectral) que $\left({X_{t}, t\in \Z} \right)$.
 
 \item Sea el proceso autoregresivo de orden $p$, definido por $\Phi \left( B \right)X_{t} =u_{t} $. Probar que el proceso $(\varepsilon_t, t\in \Z)$ definido por:
 \[
 \varepsilon_{t} =\Phi \left( F \right)X_{t} 
 \]
-es un ruido blanco de igual varianza que $u_{{t}}$. Adem\'{a}s 
-$\varepsilon_{t} \bot X_{s}$, $s\ge t+1$. Esta representaci\'{o}n se dice 
-la representaci\'{o}n en avance de $(X_{t} )$.
+es un ruido blanco de igual varianza que $u_{{t}}$. Adem\'{a}s $\varepsilon_{t} \bot X_{s}$, $s\ge t+1$. Esta representaci\'{o}n se dice la representaci\'{o}n en avance de $(X_{t} )$.
 \end{enumerate}
 
 
 \subsubsection*{Modelos MA}
 
 \begin{enumerate}[resume]
-\item El proceso $(Z_{t} )_{t\in z} $ definido por: $Z_{t} =\Theta \left( B \right)\xi_{t} $ con $\displaystyle\xi_{t} =\dfrac{u_{t} }{\prod_{j=r'+l}^{q} \left| z_{j}\right| } $ donde $z_{j}$ ra\'{\i}z de $\left| \right|<1$ tiene los mismos elementos de segundo orden que $(X_{t})$.
+\item El proceso $(Z_{t} )_{t\in z}$ definido por: $Z_{t} =\Theta \left( B \right)\xi_{t} $ con $\xi_{t} =\displaystyle \frac{u_{t}}{\prod_{j=r'+l}^{q} \left| z_{j}\right|}$ donde $z_{j}$ ra\'{i}z de $\left| \right|<1$ tiene los mismos elementos de segundo orden que $(X_{t})$.
 
-\item El proceso $(\varepsilon_{t} )_{t\in z} $ definido por $X_{t} =\Theta \left( F \right)\varepsilon_{t} $ es r.b. de varianza $\sigma^{2}$. Se dice la representaci\'{o}n en avance de $(X_{{t}})$. Adem\'{a}s $\varepsilon_{t} $ no est\'{a} correlacionada con ($X_{s}$, $s\ge t+1$).
+\item El proceso $(\varepsilon_{t} )_{t\in z} $ definido por $X_{t} =\Theta \left(F \right)\varepsilon_{t} $ es r.b. de varianza $\sigma^{2}$. Se dice la representaci\'{o}n en avance de $(X_{{t}})$. Adem\'{a}s $\varepsilon_{t} $ no est\'{a} correlacionada con ($X_{s}$, $s\ge t+1$).
 \end{enumerate}
 
 \subsubsection*{Ejercicios Adicionales}
 
 \begin{enumerate}[resume]
-\item ?Cu\'{a}les de las siguientes funciones son funciones de autocovarianza? En caso afirmativo, dar el proceso asociado.
+\item ?`Cu\'{a}les de las siguientes funciones son funciones de autocovarianza? En caso afirmativo, dar el proceso asociado.
 	\begin{enumerate}
 	\item $\gamma (h)=1+\left| h \right|$
 	\item $\gamma (h)=\begin{cases}\le
@@ -1621,10 +1586,10 @@ la representaci\'{o}n en avance de $(X_{t} )$.
 	\end{enumerate}
 \item Sea el proceso $ARMA (1, 1)$: $X_{t}=0,5X_{t-1} +u_{t} -1,5  u_{t-1} $
 	\begin{enumerate}
-	\item ?El proceso es lineal?
-	\item ?El proceso es invertible?
-	\item ?El proceso es estacionario?
-	\item Dar la ecuaci\'{o}n can\'{o}nica para este proceso. ?Qu\'{e} relaci\'{o}n existe entre la innovaci\'{o}n y los $u_{{t}}$?
+	\item ?`El proceso es lineal?
+	\item ?`El proceso es invertible?
+	\item ?`El proceso es estacionario?
+	\item Dar la ecuaci\'{o}n can\'{o}nica para este proceso. ?`Qu\'{e} relaci\'{o}n existe entre la innovaci\'{o}n y los $u_{{t}}$?
 	\end{enumerate}
 \item Consid\'{e}rense las siguientes estimaciones de un ruido blanco:
 \begin{center}
@@ -1635,6 +1600,5 @@ la representaci\'{o}n en avance de $(X_{t} )$.
 \end{tabular}
 \end{center}
 
-
-?Existe autocorrelaci\'{o}n entre estas observaciones?
+?`Existe autocorrelaci\'{o}n entre estas observaciones?
 \end{enumerate}
