@@ -62,7 +62,7 @@
 
 \theoremstyle{estiloejemplo}
     \newtheorem{ejemplo}{Ejemplo}[chapter]
-    \newtheorem{ejercicio}{Ejercicio}
+    \newtheorem{ejercicio}{Ejercicio}[chapter]
     \newtheorem{observacion}{Observación}[chapter]
 
 \setcounter{secnumdepth}{3}
@@ -111,19 +111,25 @@ $\E(.)$ & Esperanza matem\'{a}tica de una variable aleatoria. \\[5pt]
 $\V(.)$ & Varianza de una variable aleatoria. \\[5pt]
 $\Cov(.,.)$ & Covarianza de dos variables aleatorias. \\[5pt]
 $N(\mu, \sigma^{2})$ & Distribuci\'{o}n normal con media $\mu $ y varianza $\sigma^{2}$. \\[5pt]
-$\widehat{\cdot}$ & Denota un estimador del par\'{a}metro estad\'{\i}stico que se encuentra bajo el s\'{\i}mbolo. \\[5pt]
+$\widehat{\cdot}$ & Denota un estimador del par\'{a}metro estad\'{i}stico que se encuentra bajo el s\'{i}mbolo. \\[5pt]
 $c$ & De manera general, representa a una constante num\'{e}rica. \\[5pt]
 i.i.d & Representa a la frase: independientes e id\'{e}nticamente distribuidas. \\[5pt]
 i.i.d (0,1) & Variables aleatorias independientes e id\'{e}nticamente distribuidas con esperanza matem\'{a}tica 0 y varianza 1. \\[5pt]
-$\gamma (l)$ & Funci\'{o}n de autocovarianza de orden $l$. \\[5pt]
-$\rho (l)$ & Funci\'{o}n de autocorrelaci\'{o}n de orden $l$. \\[5pt]
-$r(l)$ & Funci\'{o}n de autocorrelaci\'{o}n parcial de orden $l$. \\[5pt]
+$\gamma (\ell)$ & Funci\'{o}n de autocovarianza de orden $\ell$. \\[5pt]
+$\rho (\ell)$ & Funci\'{o}n de autocorrelaci\'{o}n de orden $\ell$. \\[5pt]
+$r(\ell)$ & Funci\'{o}n de autocorrelaci\'{o}n parcial de orden $\ell$. \\[5pt]
 $1_{A}$ & Funci\'{o}n indicatriz sobre el conjunto $A$. \\[5pt]
 $L_{c}^{2}(\Omega)$ & Espacio de variables aleatorias de $\Omega$ en $C$, de cuadrado integrable. \\[5pt]
 $L_{c}^{2}(E)$ & Espacio de funciones medibles de $E$ en $C$, de cuadrado integrable. \\[5pt]
-$\Sigma $ & Matriz de varianzas - covarianzas \\[5pt]
+$\Sigma$ & Matriz de varianzas - covarianzas \\[5pt]
 $\Sigma_{u}$ & Matriz de varianzas -- covarianzas residuales \\[5pt]
-$\therefore$ & Significa: por tanto 
+$\therefore$ & Significa: por tanto \\[5pt]
+v.a. & Variable aleatoria \\[5pt]
+p.e.s.o. & Proceso estacionario de segundo orden \\[5pt]
+e.v. & Espacio vectorial \\[5pt]
+r.b. & Ruido blanco \\[5pt]
+m.c. & Media cuadrática \\[5pt]
+d.e. & Débilmente estacionario
 \end{tabular}
 \end{center}
 
