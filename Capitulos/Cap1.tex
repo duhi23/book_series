@@ -47,7 +47,7 @@ curva cuadr\'{a}tica}
 
 \section{Procesos Estacionarios}
 
-Por simplicidad, se asumir\'{a} que un proceso estoc\'{a}stico es una familia de variables aleatorias, denotada por ${(X_{t})}_{t\in T}$ o $(X_{t}, t\in T)$, definidas sobre un espacio muestral $\Omega$ y que toman valores en un conjunto $E$ (regularmente $\mathbb{R}$, aunque tambi\'{e}n puede ser $\mathbb{C}$, $\mathbb{R}^{k}$ o $\mathbb{C}^{k}$). $T$ se dice el espacio de tiempos; por lo general es $\mathbb{R}$ o un subconjunto de este, como $\mathbb{N}$ o $\mathbb{Z}$ (aqu\'{i} se asumir\'{a} frecuentemente que $T=\mathbb{Z}$: el conjunto de n\'{u}meros enteros).
+Por simplicidad, se asumir\'{a} que un proceso estoc\'{a}stico es una familia de variables aleatorias, denotada por ${(X_{t})}_{t\in T}$ o $(X_{t}, t\in T)$, definidas sobre un espacio muestral $\Omega$ y que toman valores en un conjunto $E$ (regularmente $\mathbb{R}$, aunque tambi\'{e}n puede ser $\mathbb{C}$, $\mathbb{R}^{k}$ o $\mathbb{C}^{k}$). $T$ se dice el espacio de tiempos; por lo general es $\mathbb{R}$ o un subconjunto de \'{e}ste, como $\mathbb{N}$ o $\mathbb{Z}$ (aqu\'{i} se asumir\'{a} frecuentemente que $T=\mathbb{Z}$: el conjunto de n\'{u}meros enteros).
 
 \begin{definicion}
  $(X_{t}, t\in T)$ es estrictamente (o fuertemente\index{ Procesos estacionarios!Fuertemente}) 
@@ -196,7 +196,7 @@ $\left( {v_{t} } \right)_{t\in \Z} $ es un proceso d.e. llamado \emph{media m\'{
 Se puede demostrar que con $\left( X_{t} \right)$ definida en el ejemplo 1.1 literal (5), se puede aproximar cualquier proceso d\'{e}bilmente estacionario.
 \end{observacion}
 
-Aunque te\'{o}ricamente es algo complicado demostrar que un proceso estoc\'{a}stico es d\'{e}bilmente estacionario, gr\'{a}ficamente se puede intuir; su gr\'{a}fico con respecto al tiempo aparecer\'{\i}a con una forma similar a la siguiente:
+Aunque te\'{o}ricamente es algo complicado demostrar que un proceso estoc\'{a}stico es d\'{e}bilmente estacionario, gr\'{a}ficamente se puede intuir; su gr\'{a}fico con respecto al tiempo aparecer\'{i}a con una forma similar a la siguiente:
 
 \begin{figure}[H]
 \centering
@@ -304,7 +304,7 @@ donde $A$, $B$, $D$, $E$, $F$ v.a. independientes y tales que $\E(A)= \E(B)= \E(
 	\E(X_{t}^{2} )&= \E(A^{2})\left(\cos \frac{\pi t}{2}\right)^{2}+\E(B^{2})\left(  \sen\frac{\pi t}{2} \right)^{2}+\E(D^{2})\left(\cos \frac{\pi t}{4}\right)^{2}\\
 		&\peq+\E(E^{2})\left( \sen\frac{\pi t}{4} \right)^{2}+\E(F^{2})\\
 		&=\cos^{2}\frac{\pi t}{2}+\sen^{2}\frac{\pi t}{2}+\cos^{2}\frac{\pi t}{4}+\sen^{2}\frac{\pi t}{4}+1\\
-		&=5<\infty,\qquad \forall t
+		&=3<\infty,\qquad \forall t
 	\end{align*}
 
 	\item[iii)] Por demostrar que $\cov(X_{t}, X_{t+h} )=\gamma (h)=1+\cos \frac{\pi h}{2}+\cos \frac{\pi h}{4}$
@@ -419,7 +419,7 @@ $-finita, $\beta_{\mu }$ anillo de conjuntos de medida finita tal que la $\sigma
 W:\beta_{\mu }\to L_{c}^{2}\left( \Omega, A, P \right)
 \]
 
-$L_{c}^{2}\left( \Omega  \right)$ es la notaci\'{o}n simplificada de $L_{c}^{2}\left( \Omega ,A,P \right)$, representa al espacio de las variables aleatorias de cuadrado integrable que toman valores sobre el cuerpo de los n\'{u}meros complejos; este es un espacio de Hilbert sobre $\mathbb{C}$, con producto escalar $\langle X,Y\rangle=\E(X\bar{Y})$. La raya sobre $Y$ representa el conjugado de $Y$.
+$L_{c}^{2}\left( \Omega  \right)$ es la notaci\'{o}n simplificada de $L_{c}^{2}\left( \Omega ,A,P \right)$, representa al espacio de las variables aleatorias de cuadrado integrable que toman valores sobre el cuerpo de los n\'{u}meros complejos; \'{e}ste es un espacio de Hilbert sobre $\mathbb{C}$, con producto escalar $\langle X,Y\rangle=\E(X\bar{Y})$. La raya sobre $Y$ representa el conjugado de $Y$.
 
 \begin{definicion}
 $W$ es una medida estoc\'{a}stica basada sobre $\left( \Omega,A,P \right)$ y de medida espectral $\mu $ si:
@@ -438,7 +438,7 @@ $W$ es una medida estoc\'{a}stica basada sobre $\left( \Omega,A,P \right)$ y de 
 \begin{enumerate}
 \item[a)] $\sigma$-aditividad en media cuadr\'{a}tica (m.c.).
 
-Sea $\left( A_{n} \right)$ una sucesi\'{o}n creciente de elementos de $\beta_{\mu }$ que tiene por l\'{\i}mite $A\in \beta_{\mu }$, entonces
+Sea $\left( A_{n} \right)$ una sucesi\'{o}n creciente de elementos de $\beta_{\mu }$ que tiene por l\'{i}mite $A\in \beta_{\mu }$, entonces
 \[
 W\left( A_{n} \right)\buildrel {m.c} \over \longrightarrow W\left( A \right)
 \]
@@ -619,7 +619,7 @@ v=\sigma \left( \sum_{j\in J} {\alpha_{j}f_{t_{j}}}
 \]
 como el subespacio generado por las combinaciones lineales de elementos $f_{t_{j}}$.\newline
 
-Se va a verificar que $W$ es una isometr\'{\i}a:
+Se va a verificar que $W$ es una isometr\'{i}a:
 \begin{align*}
  \E\left| W\left( \sum_{j\in J} {\alpha_{j}f_{t_{j}}} \right) \right|^{2}
 	&= \left| \sum {\alpha_{j}X_{t_{j}}} \right|^{2}\\
@@ -861,15 +861,11 @@ Sean $(X_{t} )$ d.e., centrado; $\mu_{t} =\overline {e.v(X_{s} ;s\leq t)} \subse
 \end{itemize}
 
 \begin{observacion}
-Se puede demostrar que si $\widehat{X}_{t,p} 
-=$ proyecci\'{o}n ortogonal de $X_{t} $ sobre el espacio vectorial 
-generado por: $X_{t-1} ,\ldots,X_{t-p} $, entonces 
+Se puede demostrar que si $\widehat{X}_{t,p} =$ proyecci\'{o}n ortogonal de $X_{t} $ sobre el espacio vectorial generado por: $X_{t-1} ,\ldots,X_{t-p} $, entonces 
 \[
  \widehat{X}_{t,p}\xrightarrow[p\to \infty]{m.c.} \widehat{X}
 \]
-Donde $\widehat{X}_{t} =\Pro^{\mu_{t-1} }(X_{t} )$. Este 
-resultado permite utilizar en la pr\'{a}ctica $\widehat{X}_{t,p}$ en lugar de 
-$\widehat{X}_{t}$, con un n\'{u}mero sufrientemente grande de observaciones.
+Donde $\widehat{X}_{t} =\Pro^{\mu_{t-1} }(X_{t} )$. Este resultado permite utilizar en la pr\'{a}ctica $\widehat{X}_{t,p}$ en lugar de $\widehat{X}_{t}$, con un n\'{u}mero sufrientemente grande de observaciones.
 \end{observacion}
 
 \subsection{Descomposici\'{o}n de Wold\index{Descomposici\'{o}n de Wold}}
@@ -899,7 +895,7 @@ $u_{t} =X_{t} -\widehat{{X}}_{t} \Rightarrow X_{t} =\widehat{{X}}_{t} +u_{t}.$ $
 \begin{ejercicio}
 \quad
  \begin{enumerate}
-  \item[a)] $(v_{t})$ es un proceso determinista, es decir, si $V_{t}$ e.v cerrado, generado por $v_{s}, s\leq t$ y $\tilde{v}_{t}=\Pro^{V_{t-1}} {v}_{t}$ entonces $\tilde{{v}}_{t} =v_{t} $.
+  \item[a)] $(v_{t})$ es un proceso determinista, es decir, si $V_{t}$ es un e.v cerrado, generado por $v_{s}, s\leq t$ y $\tilde{v}_{t}=\Pro^{V_{t-1}} {v}_{t}$ entonces $\tilde{{v}}_{t} =v_{t} $.
 
   \item[b)] $\displaystyle W_{t} =\sum_{j=0}^\infty \lambda_{j} u_{t-j}$, $t\in\Z$, es un proceso puramente no determinista y su descomposici\'{o}n de Wold es: 
   \[
