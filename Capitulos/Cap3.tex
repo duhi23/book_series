@@ -2,192 +2,111 @@
 
 \section{Metodolog\'{i}a Box--Jenkins}
 
-
-El procedimiento para \index{Metodolog\'{i}a de Box y Jenkins} identificar, 
-estimar, verificar y predecir a partir de un modelo ARIMA compatible con los 
-datos, se hace de una manera secuencial, que se puede describir (en forma 
-resumida) de la siguiente forma:
+El procedimiento para \index{Metodolog\'{i}a de Box y Jenkins} identificar, estimar, verificar y predecir a partir de un modelo ARIMA compatible con los datos, se hace de una manera secuencial, que se puede describir (en forma resumida) de la siguiente forma:
 
 \begin{enumerate}
-\item Se comienza por buscar, a partir de las observaciones, los valores plausibles para $(p,d,q)$. Esta etapa constituye la fase de\index{Metodolog\'{i}a de Box y Jenkins! Identificaci\'{o}n a priori} \emph{identificaci\'{o}n a priori} del modelo. Se requieren muchos c\'{a}lculos y, en general, no se obtiene una sola tripleta de valores $(p,d,q)$. 
+\item[a)] Se comienza por buscar, a partir de las observaciones, los valores plausibles para $(p,d,q)$. Esta etapa constituye la fase de\index{Metodolog\'{i}a de Box y Jenkins! Identificaci\'{o}n a priori} \emph{identificaci\'{o}n a priori} del modelo. Se requieren muchos c\'{a}lculos y, en general, no se obtiene una sola tripleta de valores $(p,d,q)$.\newline
 
+Esto se explica porque un proceso estacionario puede aproximarse, tanto como se quiera, por un proceso $ARMA(p,q)$, donde el valor de $p$ puede ser cualquiera.
 
-Esto se explica porque un proceso estacionario puede aproximarse, tanto como 
-se quiera, por un proceso $ARMA(p,q)$, donde el valor de 
-$p$ puede ser cualquiera.
+\item[b)] Para cada tripleta de valores de $(p,d,q)$ obtenida, se procede a la fase de \emph{estimaci\'{o}n de los coeficientes} \index{Metodolog\'{i}a de Box y Jenkins! Estimaci\'{o}n de los coeficientes}de los polinomios autoregresivo y media m\'{o}vil. Para fines pr\'{a}cticos, se los puede obtener con alguno de los paquetes estad\'{i}sticos (EViews, Statgraphics, R, etc.).
 
-\item Para cada tripleta de valores de $(p,d,q)$ obtenida, se procede a la fase de \emph{estimaci\'{o}n de los coeficientes} \index{Metodolog\'{i}a de Box y Jenkins! Estimaci\'{o}n de los coeficientes}de los polinomios autoregresivo y media m\'{o}vil. Para fines pr\'{a}cticos, se los puede obtener con alguno de los paquetes estad\'{i}sticos (EViews, Statgraphics, R, etc.).
+\item[c)] Al final de la etapa b), se dispone de varios modelos estimados. Estos pasan entonces por una fase de \emph{pruebas estad\'{i}sticas} (pruebas de significaci\'{o}n para los coeficientes, pruebas concernientes a las no correlaciones de los ruidos blancos, etc.), para verificar los resultados obtenidos con las hip\'{o}tesis hechas.\newline
 
-\item Al final de la etapa 2, se dispone de varios modelos estimados. Estos pasan entonces por una fase de \emph{pruebas estad\'{\i}sticas} (pruebas de significaci\'{o}n para los coeficientes, pruebas concernientes a las no correlaciones de los ruidos blancos, etc.), para verificar los resultados obtenidos con las hip\'{o}tesis hechas.
+Esta es la fase de \emph{verificaci\'{o}n} y \index{Metodolog\'{i}a de Box y Jenkins!Verificaci\'{o}n}puede resultar que todos los modelos estimados sean rechazados. Bajo condiciones de normalidad de los residuos (o independencia), las pruebas para los coeficientes son del tipo `$t$-student'' usuales.
 
-Esta es la fase de \emph{verificaci\'{o}n} y \index{Metodolog\'{\i}a de Box y Jenkins! 
-Verificaci\'{o}n}puede resultar que todos los modelos estimados sean 
-rechazados. Bajo condiciones de normalidad de los residuos (o 
-independencia), las pruebas para los coeficientes son del tipo `$t$-student'' 
-usuales.
+\item[d)] Puede darse el caso de que varios modelos pasen la fase de verificaci\'{o}n. En este caso se escoge al modelo que tenga el mayor poder predictivo o la mayor cantidad de informaci\'{o}n (se explicar\'{a}n posteriormente estos conceptos).
 
+\item[e)] Finalmente, una vez escogido el mejor modelo se procede a realizar la predicci\'{o}n para un per\'{i}odo posterior a la de los datos con los que se realiz\'{o} la modelaci\'{o}n.\newline
 
-\item Puede darse el caso de que varios modelos pasen la fase de verificaci\'{o}n. En este caso se escoge al modelo que tenga el mayor poder predictivo o la mayor cantidad de informaci\'{o}n (se explicar\'{a}n posteriormente estos conceptos).
-
-
-\item Finalmente, una vez escogido el mejor modelo se procede a realizar la predicci\'{o}n para un per\'{i}odo posterior a la de los datos con los que se realiz\'{o} la modelaci\'{o}n.
-
-Las etapas 3 y 4 constituyen la fase \index{Metodolog\'{i}a de Box y 
-Jenkins! Identificaci\'{o}n a posteriori} de \emph{identificaci\'{o}n a posteriori}; es decir, despu\'{e}s de la estimaci\'{o}n. Todas las etapas se explican en este cap\'{i}tulo tanto la parte te\'{o}rica como la pr\'{a}ctica.
+Las etapas c) y d) constituyen la fase \index{Metodolog\'{i}a de Box y Jenkins!Identificaci\'{o}n a posteriori} de \emph{identificaci\'{o}n a posteriori}; es decir, despu\'{e}s de la estimaci\'{o}n. Todas las etapas se explican en este cap\'{i}tulo tanto la parte te\'{o}rica como la pr\'{a}ctica.
 \end{enumerate}
 
 
-\section{Identificación \emph{A Priori} \index{Metodolog\'{i}a de Box y Jenkins! 
-Identificaci\'{o}n a priori} }
-
+\section{Identificación \emph{A Priori} \index{Metodolog\'{i}a de Box y Jenkins!Identificaci\'{o}n a priori} }
 
 \subsection{Elecci\'{o}n de $d$}
 
-
-Si el proceso 
-$(X_t)_{t\in \Z}$, generado por las observaciones, es un ARIMA con $d > 0$, 
-no es estacionario; luego, su funci\'{o}n de autocorrelaci\'{o}n depende de 
-$l$ y $t$, as\'{\i}:
+Si el proceso $(X_t)_{t\in \Z}$, generado por las observaciones, es un ARIMA con $d > 0$, no es estacionario; luego, su funci\'{o}n de autocorrelaci\'{o}n depende de $\ell$ y $t$, as\'{i}:
 \[
-\rho \left( l,t \right)=\frac{\cov(X_{t},X_{t+l})}{\sqrt {\V(X_{t})} \cdot 
-\sqrt {\V(X_{t+l})} }
+\rho \left(\ell, t \right)=\frac{\cov(X_{t}, X_{t+\ell})}{\sqrt {\V(X_{t})} \cdot \sqrt {\V(X_{t+\ell})} }
 \]
-Se puede demostrar, adem\'{a}s, que la funci\'{o}n $\rho (l, t)$, tiende 
-a 1 cuando $t$ tiende a $+\infty $. Si la funci\'{o}n $\widehat{\rho 
-}(l)$ queda relativamente pr\'{o}xima a uno para un n\'{u}mero importante de 
-valores de $l$, se puede entonces pensar que es necesario diferenciar la 
-serie para volverla estacionaria.
 
-En la pr\'{a}ctica, sin embargo, el criterio de proximidad a 1 de los 
-primeros valores de la funci\'{o}n $\widehat{\rho }(l)$ se remplaza por el de la 
-proximidad entre si de los primeros valores de esta funci\'{o}n, aun cuando 
-el valor $\widehat{\rho }(l)$ sea muy diferente de uno. A la serie diferenciada 
-una vez se le aplica nuevamente este criterio para ver si es conveniente 
-diferenciarla una segunda vez, y as\'{\i} sucesivamente. Esto se muestra a 
-continuaci\'{o}n:
+Se puede demostrar, adem\'{a}s, que la funci\'{o}n $\rho (\ell, t)$, tiende a 1 cuando $t$ tiende a $+\infty $. Si la funci\'{o}n $\widehat{\rho}(\ell)$ queda relativamente pr\'{o}xima a uno para un n\'{u}mero importante de valores de $\ell$, se puede entonces pensar que es necesario diferenciar la serie para volverla estacionaria.\newline
+
+En la pr\'{a}ctica, sin embargo, el criterio de proximidad a 1 de los primeros valores de la funci\'{o}n $\widehat{\rho }(\ell)$ se remplaza por el de la proximidad entre si de los primeros valores de esta funci\'{o}n, aun cuando el valor $\widehat{\rho }(\ell)$ sea muy diferente de uno. A la serie diferenciada una vez se le aplica nuevamente este criterio para ver si es conveniente diferenciarla una segunda vez, y as\'{i} sucesivamente. Esto se muestra a continuaci\'{o}n:
 
 \begin{ejemplo}
-Para este ejemplo se ha utilizado el programa 
-Statgraphics Centurion XV. Consid\'{e}rense los datos de variaci\'{o}n de un 
-\'{i}ndice burs\'{a}til (ver Anexo C.2), cuyo gr\'{a}fico se muestra a 
-continuaci\'{o}n:
+Para este ejemplo se ha utilizado el programa Statgraphics Centurion XV. Consid\'{e}rense los datos de variaci\'{o}n de un \'{i}ndice burs\'{a}til (ver Anexo C.2), cuyo gr\'{a}fico se muestra a continuaci\'{o}n:
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap31.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap31.eps}
 \caption{Serie de un \'{I}ndice Burs\'{a}til (SIB)}
 \end{figure}
 
-Al observar las autocorrelaciones estimadas del modelo original (Figura 3.2) 
-se constata que se trata de un modelo donde es necesario realizar una 
-diferenciaci\'{o}n para volver a la serie estacionaria (Figura 3.3); esto se 
-podr\'{i}a deducir tambi\'{e}n al mirar la forma lineal creciente de la 
-tendencia de la serie (Figura 3.1).
+Al observar las autocorrelaciones estimadas del modelo original (Figura 3.2) se constata que se trata de un modelo donde es necesario realizar una diferenciaci\'{o}n para volver a la serie estacionaria (Figura 3.3); esto se podr\'{i}a deducir tambi\'{e}n al mirar la forma lineal creciente de la tendencia de la serie (Figura 3.1).
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap32.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap32.eps}
 \caption{Funci\'{o}n de autocorrelaci\'{o}n de la SIB}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap33.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap33.eps}
 \caption{Serie estacionaria obtenida a partir de la SIB}
 \end{figure}
 
-Para las series econ\'{o}micas los valores de $d$ que se obtienen, en general, 
-son 0, 1 o 2; los valores superiores son muy raros. En el caso de la serie 
-en consideraci\'{o}n, no se requiere una segunda diferenciaci\'{o}n no 
-estacional. 
+Para las series econ\'{o}micas los valores de $d$ que se obtienen, en general, son 0, 1 o 2; los valores superiores son muy raros. En el caso de la serie en consideraci\'{o}n, no se requiere una segunda diferenciaci\'{o}n no estacional.
 \end{ejemplo}
 
 \begin{observacion}
- El t\'{e}rmino utilizado para referirse a este 
-tipo de diferenciaci\'{o}n es el de: \emph{diferenciaci\'{o}n no estacional}; la \emph{diferencia estacional} se explicar\'{a} m\'{a}s 
-adelante.
+ El t\'{e}rmino utilizado para referirse a este tipo de diferenciaci\'{o}n es el de: \emph{diferenciaci\'{o}n no estacional}; la \emph{diferencia estacional} se explicar\'{a} m\'{a}s adelante.
 \end{observacion}
 
-La consecuencia de aplicar en un modelo un n\'{u}mero de diferencias mayor 
-que el necesario es que el proceso final sea no invertible y con varianza 
-mayor que si se hubiera aplicado un n\'{u}mero de diferencias correcto.
-
+La consecuencia de aplicar en un modelo un n\'{u}mero de diferencias mayor que el necesario es que el proceso final sea no invertible y con varianza mayor que si se hubiera aplicado un n\'{u}mero de diferencias correcto.
 
 \subsection{Elecci\'{o}n de $p$ y $q$}
 
-Para la elecci\'{o}n de $p$ y $q$ se analiza esencialmente la forma de la 
-funci\'{o}n de autocorrelaci\'{o}n estimada $\widehat{\rho }(l)$ y de la 
-funci\'{o}n de autocorrelaci\'{o}n parcial estimada $\widehat{r}(l)$ de la serie 
-diferenciada d veces. Si la funci\'{o}n $\widehat{\rho }(l)$ se anula 
-estad\'{i}sticamente para $l>q$, se puede pensar que se trata de un 
-$MA(q)$; y si la funci\'{o}n $\widehat{r}(l)$ se anula estad\'{\i}sticamente 
-para valores de $l>p $se puede admitir que se trata de un $AR(p).$ As\'{i}, 
-se obtienen valores de $p$ y $q$ (que pueden considerarse m\'{a}ximos) para el 
-modelo; utilizando un paquete estad\'{i}stico (en este cap\'{i}tulo se ha 
-elegido Statgraphics) se puede graficar la funci\'{o}n $\widehat{\rho }(l)$ y 
-ver a partir de qu\'{e} orden $l$ los valores de la funci\'{o}n quedan 
-dentro de la banda. Similarmente, se procede con la funci\'{o}n de 
-autocorrelaci\'{o}n parcial.
+Para la elecci\'{o}n de $p$ y $q$ se analiza esencialmente la forma de la funci\'{o}n de autocorrelaci\'{o}n estimada $\widehat{\rho }(\ell)$ y de la funci\'{o}n de autocorrelaci\'{o}n parcial estimada $\widehat{r}(\ell)$ de la serie diferenciada d veces. Si la funci\'{o}n $\widehat{\rho }(\ell)$ se anula estad\'{i}sticamente para $\ell>q$, se puede pensar que se trata de un $MA(q)$; y si la funci\'{o}n $\widehat{r}(\ell)$ se anula estad\'{i}sticamente para valores de $\ell>p $se puede admitir que se trata de un $AR(p).$ As\'{i}, se obtienen valores de $p$ y $q$ (que pueden considerarse m\'{a}ximos) para el modelo; utilizando un paquete estad\'{i}stico (en este cap\'{i}tulo se ha elegido Statgraphics) se puede graficar la funci\'{o}n $\widehat{\rho }(\ell)$ y ver a partir de qu\'{e} orden $\ell$ los valores de la funci\'{o}n quedan dentro de la banda. Similarmente, se procede con la funci\'{o}n de autocorrelaci\'{o}n parcial.\newline
 
-En cuanto a la obtenci\'{o}n de la banda de confianza para las dos funciones 
-estimadas, para juzgar si los valores de $\widehat{\rho }(l)$ o $\widehat{r}(l)$ son 
-significativamente diferentes de cero es bueno tener una idea de su 
-desviaci\'{o}n est\'{a}ndar. Para un $MA(q)$, se tiene:
+En cuanto a la obtenci\'{o}n de la banda de confianza para las dos funciones estimadas, para juzgar si los valores de $\widehat{\rho }(\ell)$ o $\widehat{r}(\ell)$ son significativamente diferentes de cero es bueno tener una idea de su desviaci\'{o}n est\'{a}ndar. Para un $MA(q)$, se tiene:
 \[
-\forall l>q,\qquad      \V\left[ \widehat{\rho }\left( l 
-\right) \right]\approx \frac{1}{T}\left[ 1+2\sum_{i=1}^{l-1} {\rho ^{2}(i)} \right]
+\forall \ell>q,\qquad \V\left[ \widehat{\rho}\left(\ell \right) \right]\approx \frac{1}{T}\left[ 1+2\sum_{i=1}^{\ell-1} {\rho^{2}(i)} \right]
 \]
-Se puede probar que para identificar el orden q de un proceso media 
-m\'{o}vil, se debe representar la sucesi\'{o}n de autocorrelaciones 
-estimadas $\widehat{\rho }(l)$ y mirar a partir de qu\'{e} valor $q$ cada uno de 
-los $\widehat{\rho }(l)$ se queda en el intervalo de extremos:
-\[
-\pm \left( \frac{1,96}{\sqrt T } \right)\left[ 1+2\left[ \rho^{2}\left( 1 
-\right)+\mathellipsis +\rho^{2}(l-1) \right]^{1/2} \right]
-\]
-Los valores te\'{o}ricos $\rho (j)$ deben reemplazarse por sus estimaciones. 
-Se asume tambi\'{e}n un nivel de significaci\'{o}n del 5{\%} en la prueba de 
-hip\'{o}tesis respectiva.
 
-Igualmente, se tiene que $\sqrt \frac{1}{T} $ es la desviaci\'{o}n 
-est\'{a}ndar aproximada de $\widehat{r}(l)$ para $l>p$, si el proceso es un 
-$AR(p)$. Para identificar el orden $p$ de un proceso autoregresivo, asumiendo 
-un nivel de significaci\'{o}n del 5{\%}, se puede representar la 
-sucesi\'{o}n de autocorrelaciones parciales estimadas $\widehat{r}(l)$ y mirar a 
-partir de qu\'{e} valor $p$ cada una se queda en la banda dada por:
+Se puede probar que para identificar el orden q de un proceso media m\'{o}vil, se debe representar la sucesi\'{o}n de autocorrelaciones estimadas $\widehat{\rho }(\ell)$ y mirar a partir de qu\'{e} valor $q$ cada uno de los $\widehat{\rho }(\ell)$ se queda en el intervalo de extremos:
+
+\[
+\pm \left( \frac{1,96}{\sqrt T } \right)\left[ 1+2\left[ \rho^{2}\left( 1 \right)+\mathellipsis +\rho^{2}(\ell-1) \right]^{1/2} \right]
+\]
+
+Los valores te\'{o}ricos $\rho (j)$ deben reemplazarse por sus estimaciones. Se asume tambi\'{e}n un nivel de significaci\'{o}n del 5{\%} en la prueba de hip\'{o}tesis respectiva.\newline
+
+Igualmente, se tiene que $\sqrt \frac{1}{T} $ es la desviaci\'{o}n est\'{a}ndar aproximada de $\widehat{r}(\ell)$ para $\ell>p$, si el proceso es un $AR(p)$. Para identificar el orden $p$ de un proceso autoregresivo, asumiendo un nivel de significaci\'{o}n del 5{\%}, se puede representar la sucesi\'{o}n de autocorrelaciones parciales estimadas $\widehat{r}(\ell)$ y mirar a partir de qu\'{e} valor $p$ cada una se queda en la banda dada por:
+
 \[
 \left[ -\frac{1,96}{\sqrt T };\frac{1,96}{\sqrt T } \right]
 \]
 
-
 \begin{ejemplo}
-Volviendo al ejemplo 3.1, obs\'{e}rvense los 
-gr\'{a}ficos correspondientes a las autocorrelaciones estimadas (ver Figura 
-3.4), donde se aprecia que a partir de $q=2$ la funci\'{o}n queda dentro de 
-la banda de confianza, lo que en primera instancia hace suponer que se trata 
-de un modelo $MA(2).$
+Volviendo al ejemplo 3.1, obs\'{e}rvense los gr\'{a}ficos correspondientes a las autocorrelaciones estimadas (ver Figura 3.4), donde se aprecia que a partir de $q=2$ la funci\'{o}n queda dentro de la banda de confianza, lo que en primera instancia hace suponer que se trata de un modelo $MA(2).$
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap34.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap34.eps}
 \caption{FAC estimada del modelo $ARIMA(0,1,0)$, para la SIB}
 \end{figure}
 
-Ahora bien, si adem\'{a}s se revisa la funci\'{o}n de autocorrelaci\'{o}n 
-parcial estimada (Figura 3.5), donde se observa un decrecimiento exponencial 
-de la serie hacia cero, parece confirmarse el hecho de que la serie original 
-se debe modelar por un $MA(1)$ o un $MA(2)$.
+Ahora bien, si adem\'{a}s se revisa la funci\'{o}n de autocorrelaci\'{o}n parcial estimada (Figura 3.5), donde se observa un decrecimiento exponencial de la serie hacia cero, parece confirmarse el hecho de que la serie original se debe modelar por un $MA(1)$ o un $MA(2)$.\newline
 
-En este punto es necesario realizar un an\'{a}lisis m\'{a}s profundo. En 
-principio, dado que $\widehat{r}(6)$ es estad\'{i}sticamente significativo, se 
-podr\'{i}a pensar en que el Modelo m\'{a}s adecuado ser\'{i}a un $AR(6)$; 
-es decir, globalmente se considerar\'{i}a un $ARMA(6,2)$, lo que realmente 
-llevar\'{i}a a una sobreparametrizaci\'{o}n. En general, se aconseja que 
-$p+d+q\le 5$.
+En este punto es necesario realizar un an\'{a}lisis m\'{a}s profundo. En principio, dado que $\widehat{r}(6)$ es estad\'{i}sticamente significativo, se podr\'{i}a pensar en que el Modelo m\'{a}s adecuado ser\'{i}a un $AR(6)$; es decir, globalmente se considerar\'{i}a un $ARMA(6,2)$, lo que realmente llevar\'{i}a a una sobreparametrizaci\'{o}n. En general, se aconseja que $p+d+q\le 5$.
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap35.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap35.eps}
 \caption{FACP estimada del modelo $ARIMA(0,1,0)$, para la SIB en primera 
 diferencia}
 \end{figure}
@@ -197,14 +116,11 @@ diferencia}
 
 \section{Estimaci\'{o}n de un Modelo ARIMA}
 
-Consid\'{e}rese el siguiente modelo\index{Metodolog\'{i}a de Box y Jenkins! 
-Estimaci\'{o}n de los coeficientes }:
+Consid\'{e}rese el siguiente modelo\index{Metodolog\'{i}a de Box y Jenkins!Estimaci\'{o}n de los coeficientes }:
 \[
  \Phi(B)\Delta^{d} X_{t}=  \theta_0  +  \Theta(B) u_{t}
 \]
-donde $\Phi(z)$ y $\Theta(z)$ son primos entre si y tienen ra\'{i}ces de 
-m\'{o}dulo mayor a 1 y $(u_{t})$ ruido blanco de varianza $\sigma 
-^{2}$ ; se tiene entonces que $W_{t} = \Delta^{d} X_{t}$ es asint\'{o}ticamente un $ARMA (p,q)$:
+donde $\Phi(z)$ y $\Theta(z)$ son primos entre si y tienen ra\'{i}ces de m\'{o}dulo mayor a 1 y $(u_{t})$ ruido blanco de varianza $\sigma^{2}$ ; se tiene entonces que $W_{t} = \Delta^{d} X_{t}$ es asint\'{o}ticamente un $ARMA (p,q)$:
 \[
  \Phi(B) W_{t} = \theta_{0} +  \Theta (B) u_{t}
 \]
@@ -217,25 +133,14 @@ Sup\'{o}ngase que se conocen las observaciones $x_{1}, x_{2},\ldots ,x_{T}$ del 
  w_{T}&=\Delta^{d}x_{T}
 \end{align*}
 
-
-As\'{\i}, se tienen $N=T- d$ observaciones, que se denotar\'{a}n por 
-$z_{1} ,z_{2} ,\ldots,z_{N} $, para estimar los par\'{a}metros del modelo:
+As\'{i}, se tienen $N=T- d$ observaciones, que se denotar\'{a}n por $z_{1} ,z_{2} ,\ldots,z_{N} $, para estimar los par\'{a}metros del modelo:
 \[
 \Phi (B) W_{t} = \theta_{0} + \Theta (B)u_{t} 
 \]
 
-Se puede suprimir $\theta_{0}$, remplazando $W_{t}$ por $\widehat W_{t} =W_{t} -\mu$, con $\mu =\theta_{0}/\left( {1-\varphi_{1} -\cdots -\varphi_{p} } \right)$. En lo que sigue se supondr\'{a} que $\theta_{0}= 0$.
+Se puede suprimir $\theta_{0}$, remplazando $W_{t}$ por $\widehat W_{t} =W_{t} -\mu$, con $\mu =\theta_{0}/\left( {1-\varphi_{1} -\cdots -\varphi_{p} } \right)$. En lo que sigue se supondr\'{a} que $\theta_{0}= 0$.\newline
 
-Se supondr\'{a} en esta secci\'{o}n que los ruidos blancos $u_{t} $ son 
-normales (en realidad solo se requiere independencia). Para calcular la 
-funci\'{o}n de verosimilitud $L\left( {\varphi_{1} ,\ldots, \varphi 
-_{p} ,\theta_{1} ,\ldots, \theta_{q} ,\sigma^{2}} \right)=L\left( 
-{\varphi ,\theta ,\sigma^{2}} \right)$ se requieren conocer $p$ valores 
-iniciales $z_{0} ,\ldots,z_{1-p} $ y $q$ valores iniciales $u_{0} 
-,\ldots,u_{1-q}$, que se expresar\'{a}n a trav\'{e}s de los 
-vectores $z_{\ast }' =\left( {z_{0} ,\ldots, z_{1-p} } \right)$ y $u_{\ast }' =\left( {u_{0} ,\ldots,u_{1-q} } \right)$; existen dos formas alternativas de obtenerlos, las que se describen a continuaci\'{o}n.
-
-
+Se supondr\'{a} en esta secci\'{o}n que los ruidos blancos $u_{t} $ son normales (en realidad solo se requiere independencia). Para calcular la funci\'{o}n de verosimilitud $L\left( {\varphi_{1} ,\ldots, \varphi_{p} ,\theta_{1} ,\ldots, \theta_{q} ,\sigma^{2}} \right)=L\left( {\varphi ,\theta ,\sigma^{2}} \right)$ se requieren conocer $p$ valores iniciales $z_{0} ,\ldots,z_{1-p} $ y $q$ valores iniciales $u_{0}, \ldots, u_{1-q}$, que se expresar\'{a}n a trav\'{e}s de los vectores $z_{\ast }' =\left( {z_{0} ,\ldots, z_{1-p} } \right)$ y $u_{\ast }' =\left( {u_{0} ,\ldots,u_{1-q} } \right)$; existen dos formas alternativas de obtenerlos, las que se describen a continuaci\'{o}n.
 
 \subsection{Procedimiento condicional}
 
@@ -244,8 +149,7 @@ En este caso se va a suponer que los elementos de $z_{\ast }$ y $u_{\ast } $ son
 u_{t} =z_{t} -\varphi_{1} z_{t-1} -\cdots -\varphi_{p} z_{t-p} 
 +\theta_{1} u_{t-1} +\cdots +\theta_{q} u_{t-q} \qquad t=p+1,\ldots ,N
 \]
-tomando $u_{p} $, $u_{p-1}$,\dots nulos, pero considerando 
-valores de $z_{t} $ realmente observados.
+tomando $u_{p} $, $u_{p-1}$,\dots nulos, pero considerando valores de $z_{t} $ realmente observados.\newline
 
 La funci\'{o}n de verosimilitud en el caso condicional se expresa por:
 \begin{align*}
@@ -256,33 +160,26 @@ La funci\'{o}n de verosimilitud en el caso condicional se expresa por:
 \end{align*}
 tomando logaritmos se tiene que:
 \[
-\ell =\ln L=cte-\frac{N}{2}\ln\sigma^{2}-\frac{S_{\bullet } \left( {\varphi 
-,\theta | {z,z_{\ast } ,u_{\ast } } } \right)}{2\sigma 
-^{2}}
+\ell =\ln L=cte-\frac{N}{2}\ln\sigma^{2}-\frac{S_{\bullet } \left( {\varphi, \theta | {z,z_{\ast } ,u_{\ast } } } \right)}{2\sigma^{2}}
 \]
 se denotar\'{a}: 
 \[
-S_{\bullet } \left( {\varphi ,\theta } \right)=S\left( {\varphi 
-,\theta | {z,z_{\ast } ,u_{\ast } }} \right)=\sum_{t=1}^N {u_{t}^{2} \left( {\varphi ,\theta ,\sigma ^{2}| {z,z_{\ast } ,u_{\ast } } } \right)} 
+S_{\bullet } \left( {\varphi ,\theta } \right)=S\left( {\varphi, \theta | {z,z_{\ast } ,u_{\ast } }} \right)=\sum_{t=1}^N {u_{t}^{2} \left( {\varphi ,\theta ,\sigma ^{2}| {z,z_{\ast } ,u_{\ast } } } \right)} 
 \]
-llamada la suma cuadr\'{a}tica condicional. La expresi\'{o}n \emph{``cte''} representa de manera general a un valor constante.
+llamada la suma cuadr\'{a}tica condicional. La expresi\'{o}n \emph{``cte''} representa de manera general a un valor constante.\newline
 
 Derivando $\ell $ con respecto a $\sigma^{2}$ e igualando a cero se tiene:
 \[
-\frac{\partial \ell }{\partial \sigma^{2}}=-\frac{N}{2\sigma 
-^{2}}+\frac{S_{\ast } }{2\sigma^{4}}=0\Longleftrightarrow \sigma 
-^{2}=\frac{S_{\ast } \left( {\varphi ,\theta \left| {z,z_{\ast } 
-,u_{\ast } } \right.} \right)}{N}=\frac{S_{\ast } }{N}
+\frac{\partial \ell }{\partial \sigma^{2}}=-\frac{N}{2\sigma^{2}}+\frac{S_{\ast } }{2\sigma^{4}}=0\Longleftrightarrow \sigma^{2}=\frac{S_{\ast } \left( {\varphi ,\theta \left| {z,z_{\ast }, u_{\ast } } \right.} \right)}{N}=\frac{S_{\ast } }{N}
 \]
-Si se reemplaza esta expresi\'{o}n de $\sigma^{2}$ en $\ell ,$ se obtiene:
-\[
-\overline \ell =cte-\frac{N}{2}\ln\frac{S_{\ast } 
-}{N}-\frac{N}{2}=cte+\frac{N}{2}\ln N-\frac{N}{2}\ln S_{\ast } 
--\frac{N}{2}=cte-\frac{N}{2}\ln S_{\ast } 
-\]
-As\'{\i}, maximizar $\overline \ell $ equivale a minimizar $S_{\ast } $; 
-esto es, a obtener una estimaci\'{o}n m\'{i}nimo cuadr\'{a}tica.
 
+Si se reemplaza esta expresi\'{o}n de $\sigma^{2}$ en $\ell$, se obtiene:
+
+\[
+\overline \ell =cte-\frac{N}{2}\ln\frac{S_{\ast } }{N}-\frac{N}{2}=cte+\frac{N}{2}\ln N-\frac{N}{2}\ln S_{\ast } -\frac{N}{2}=cte-\frac{N}{2}\ln S_{\ast } 
+\]
+
+As\'{i}, maximizar $\overline \ell $ equivale a minimizar $S_{\ast}$; esto es, a obtener una estimaci\'{o}n m\'{i}nimo cuadr\'{a}tica.
 
 \begin{ejemplo}
 Consid\'{e}rese una serie temporal que responde a un modelo $ARIMA (0,d,1)$:
@@ -291,14 +188,11 @@ Consid\'{e}rese una serie temporal que responde a un modelo $ARIMA (0,d,1)$:
 \]
 con
 \[
-w_{t} =\Delta^{d}X_{t} ,\qquad t=d+1,\ldots ,T \qquad \text{ y }\qquad 
-z_{t} =w_{t+d} ,\qquad t=1,\cdots ,N
+w_{t} =\Delta^{d} X_{t}, \qquad t=d+1,\ldots, T \qquad \text{ y }\qquad z_{t} =w_{t+d} ,\qquad t=1, \cdots , N
 \]
 En este caso:
 \[
-S_{\ast } \left( {\theta \left| {z,u_{0} } \right.} 
-\right)=\sum_{t=1}^N {u_{t}^{2} =\sum_{t=1}^N {\left( {z_{t} 
-+\theta u_{t-1} \left( \theta \right)} \right)^{2}} } 
+S_{\ast } \left( {\theta \left| {z,u_{0} } \right.} \right)=\sum_{t=1}^N {u_{t}^{2} =\sum_{t=1}^N {\left( {z_{t} +\theta u_{t-1} \left( \theta \right)} \right)^{2}} } 
 \]
 Si se considera entonces que $u_{0} =0,$ se obtiene:
 \begin{align*}
@@ -307,27 +201,19 @@ Si se considera entonces que $u_{0} =0,$ se obtiene:
  u_{3} \left( \theta \right)&=z_{3} +\theta u_{2} \left( \theta \right)=z_{3} +\theta \left( {z_{2} +\theta z_{1} } \right)=z_{3} +\theta z_{2} +\theta^{2}z_{1} +\theta^{3}u_{0} \\ 
  &\ \ \vdots \\ 
  u_{t} \left( \theta \right)&=z_{t} +\theta z_{t-1} +\cdots +\theta ^{t-1}z_{1} +\theta^{t}u_{0} \\ 
- &=z_{t} +\theta z_{t-1} +\cdots +\theta^{t-1}z_{1} 
+ &=z_{t} +\theta z_{t-1} +\cdots +\theta^{t-1}z_{1} \qquad \text{(considerando $u_{0} =0$)}
 \end{align*}
-(considerando $u_{0} =0$)
 
-Si $N$ es suficientemente grande y puesto que $\left| \theta \right|<1,$ el 
-valor que asuma $u_{0} $ no es muy importante; sin embargo, si $\left| 
-\theta \right|$ est\'{a} cerca de 1 y $N$ es peque\~{n}o, la elecci\'{o}n de 
-$u_{0} $ puede resultar significativa.
 
-En la tabla siguiente se presentan los c\'{a}lculos recursivos de $u_{t} ,$ 
-para 11 valores dados de $X_{t} $ en un modelo $ARIMA\left( {0,1,1} 
-\right),$ en el caso en que $\theta=0.6$. En este ejemplo, 
+Si $N$ es suficientemente grande y puesto que $\left| \theta \right|<1,$ el valor que asuma $u_{0} $ no es muy importante; sin embargo, si $\left| \theta \right|$ est\'{a} cerca de 1 y $N$ es peque\~{n}o, la elecci\'{o}n de $u_{0} $ puede resultar significativa.\newline
+
+En la tabla siguiente se presentan los c\'{a}lculos recursivos de $u_{t}$, para 11 valores dados de $X_{t} $ en un modelo $ARIMA\left( {0,1,1} \right),$ en el caso en que $\theta=0.6$. En este ejemplo:
 \[
-S_{\ast } \left( {\theta \left| {z,u_{0} } \right.} 
-\right)=\sum_{t=1}^{10} {u_{t}^{2} \left( {\theta =0,6\left| {u_{0} 
-=0} \right.} \right)=511,98} 
+S_{\ast } \left( {\theta \left| {z,u_{0} } \right.} \right)=\sum_{t=1}^{10} {u_{t}^{2} \left( {\theta =0,6\left| {u_{0} =0} \right.} \right)=511,98} 
 \]
 
 \begin{table}[H]
-\centering\small
-\caption{C\'{a}lculos para el caso condicionado}
+\centering
 \begin{tabular}{@{} cccc @{}}
 \toprule
 $t$& $X(t)$& $z(t)$& $u(t)$ \\
@@ -345,60 +231,37 @@ $t$& $X(t)$& $z(t)$& $u(t)$ \\
 10& 170& -1& 8,15 \\
 \bottomrule
 \end{tabular}
+\caption{C\'{a}lculos para el caso condicionado}
 \end{table}
 
-Observe que con esta disposici\'{o}n de datos $z_{j} =w_{j}$ $\left( 
-{j=1,\ldots ,10} \right).$
+Observe que con esta disposici\'{o}n de datos $z_{j} =w_{j}$ $\left( {j=1,\ldots , 10} \right).$\newline
 
-Realizando el c\'{a}lculo para diversos valores de $\theta \in \left] 
-{-1,1} \right],$se puede tener una idea de d\'{o}nde se alcanza el 
-m\'{\i}nimo para $S_{\ast } \left( {\theta \left| {z,u_{0} } \right.} 
-\right).$ En general, la soluci\'{o}n se obtiene utilizando t\'{e}cnicas del 
-an\'{a}lisis num\'{e}rico, situaci\'{o}n que no ser\'{a} abordada en este 
-texto.
-
-
+Realizando el c\'{a}lculo para diversos valores de $\theta \in \left] {-1,1} \right],$se puede tener una idea de d\'{o}nde se alcanza el m\'{i}nimo para $S_{\ast } \left( {\theta \left| {z,u_{0} } \right.} \right).$ En general, la soluci\'{o}n se obtiene utilizando t\'{e}cnicas del an\'{a}lisis num\'{e}rico, situaci\'{o}n que no ser\'{a} abordada en este texto.
 \end{ejemplo}
-
 
 
 \subsection{Procedimiento no condicional}
 
-Puede demostrarse que el logaritmo de la funci\'{o}n de verosimilitud no 
-condicional se expresa por:
+Puede demostrarse que el logaritmo de la funci\'{o}n de verosimilitud no condicional se expresa por:
 \[
-\ell =\ell \left( {\varphi ,\theta ,\sigma^{2}\left| z \right.} 
-\right)\approx -\frac{N}{2}\ln \sigma^{2}-\frac{S\left( {\varphi ,\theta 
-} \right)}{2\sigma^{2}}
+\ell =\ell \left( {\varphi ,\theta ,\sigma^{2}\left| z \right.} \right)\approx -\frac{N}{2}\ln \sigma^{2}-\frac{S\left( {\varphi, \theta} \right)}{2\sigma^{2}}
 \]
 donde
 \[
-S\left( {\varphi ,\theta } \right)=\sum_{t=-\infty }^N {\left[ 
-{u_{t} \left( {\varphi ,\theta ,z} \right)} \right]^{2}} 
+S\left( {\varphi ,\theta } \right)=\sum_{t=-\infty }^N {\left[ {u_{t} \left( {\varphi ,\theta ,z} \right)} \right]^{2}} 
 \]
-es la suma de cuadrados no condicional y, adem\'{a}s, los corchetes 
-representan la esperanza condicional, definida por:
+es la suma de cuadrados no condicional y, adem\'{a}s, los corchetes representan la esperanza condicional, definida por:
 \[
-\left[ {u_{t} \left( {\varphi ,\theta ,z} \right)} \right]=\E\left( 
-{u_{t} \left| {\varphi ,\theta ,z} \right.} \right)
+\left[ {u_{t} \left( {\varphi ,\theta , z} \right)} \right]=\E\left({u_{t} \left| {\varphi ,\theta ,z} \right.} \right)
 \]
-Se pude tambi\'{e}n demostrar que los estimadores m\'{\i}nimo 
-cuadr\'{a}ticos, que se obtienen minimizando $S\left( {\varphi ,\theta } 
-\right)$, son buenas aproximaciones para los estimadores de m\'{a}xima 
-verosimilitud. Para ejecutar el proceso de minimizaci\'{o}n se requiere 
-calcular las esperanzas condicionales de $z_{-j} \text{y}u_{-j} ,\quad 
-j=0,1,2,\mathellipsis ,$ denotadas por $\left[ {z_{-j} } 
-\right]\text{y}\left[ {\text{u}_{\text{-j}} } \right].$. Se utiliza para 
-este efecto la representaci\'{o}n en avance del proceso:
+
+Se pude tambi\'{e}n demostrar que los estimadores m\'{i}nimo cuadr\'{a}ticos, que se obtienen minimizando $S\left( {\varphi ,\theta } \right)$, son buenas aproximaciones para los estimadores de m\'{a}xima verosimilitud. Para ejecutar el proceso de minimizaci\'{o}n se requiere calcular las esperanzas condicionales de $z_{-j} \text{y}u_{-j} ,\quad j=0,1,2,\mathellipsis ,$ denotadas por $\left[ {z_{-j} } \right]\text{y}\left[ {\text{u}_{\text{-j}} } \right].$. Se utiliza para este efecto la representaci\'{o}n en avance del proceso:
+
 \[
 \Phi \left( F \right)z_{t} =\Theta \left( F \right)\varepsilon_{t} 
 \]
-donde $F$ es el operador de avance $\left( {FX_{t} =X_{t+1} } 
-\right)$ y $\left( {\varepsilon_{t} } \right)$ es un ruido blanco 
-con la misma varianza que $\left( {u_{t} } \right).$ En este caso $z_{t} $ 
-se expresa solamente en t\'{e}rminos futuros de $z_{j}$ y $\in_{j} 
-$. As\'{\i} entonces, los $\left[ {z_{-j} } \right]$ son las predicciones 
-hacia atr\'{a}s de $z_{-j} $ dadas las $z_{1} ,\ldots ,z_{N} .$
+
+donde $F$ es el operador de avance $\left( {FX_{t} =X_{t+1} } \right)$ y $\left( {\varepsilon_{t} } \right)$ es un ruido blanco con la misma varianza que $\left( {u_{t} } \right).$ En este caso $z_{t} $ se expresa solamente en t\'{e}rminos futuros de $z_{j}$ y $\in_{j} $. As\'{i} entonces, los $\left[ {z_{-j} } \right]$ son las predicciones hacia atr\'{a}s de $z_{-j} $ dadas las $z_{1} ,\ldots ,z_{N}$.\newline
 
 Para ilustrar el proceso, consid\'{e}rese el siguiente ejemplo:
 
@@ -409,14 +272,11 @@ z_{t} =\left( {1-\theta B} \right)u_{t} =u_{t} -\theta u_{t-1}
 \]
 cuya representaci\'{o}n en avance se expresa por:
 \[
-z_{t} =\left( {1-\theta F} \right)\varepsilon_{t} =\varepsilon_{t} -\theta 
-\varepsilon_{t+1} 
+z_{t} =\left( {1-\theta F} \right)\varepsilon_{t} =\varepsilon_{t} -\theta \varepsilon_{t+1}
 \]
 se tiene que:
 \[
-\left[ {u_{t} } \right]=\left[ {z_{t} } \right]+\theta \left[ {u_{t-1} } 
-\right]\qquad \text{ y }\qquad \left[ {\varepsilon_{t} } \right]=\left[ {z_{t} 
-} \right]+\theta \left[ {\varepsilon_{t+1} } \right]
+\left[ {u_{t} } \right]=\left[ {z_{t} } \right]+\theta \left[ {u_{t-1} } \right]\qquad \text{ y }\qquad \left[ {\varepsilon_{t} } \right]=\left[ {z_{t}} \right]+\theta \left[ {\varepsilon_{t+1} } \right]
 \]
 de donde se obtiene que:
 \begin{itemize}
@@ -430,8 +290,7 @@ de donde se obtiene que:
 En la tabla siguiente se ilustran los c\'{a}lculos, considerando $\theta =0,6$
 
 \begin{table}[H]
-\centering\small
-\caption{C\'{a}lculos para el caso no condicionado}
+\centering
 \begin{tabular}{@{}ccccc@{}}
 \toprule
 $t$& $X(t)$& $[z(t)]$& $[\varepsilon(t)]$& $[u(t)]$ \\
@@ -451,16 +310,14 @@ $t$& $X(t)$& $[z(t)]$& $[\varepsilon(t)]$& $[u(t)]$ \\
 11& & & 0&  \\
 \bottomrule
 \end{tabular}
+\caption{C\'{a}lculos para el caso no condicionado}
 \end{table}
 
-Se parte calculando $\left[ {\varepsilon_{10} } \right],$ bajo la 
-suposici\'{o}n de que $\left[ {\varepsilon_{11} } \right]=0$:
+Se parte calculando $\left[ {\varepsilon_{10} } \right],$ bajo la suposici\'{o}n de que $\left[ {\varepsilon_{11} } \right]=0$:
 \[
-\left[ {\varepsilon_{10} } \right]=\left[ {z_{10} } \right]+0,6\left[ 
-{\varepsilon_{11} } \right]=-1+0,6\cdot 0=-1
+\left[ {\varepsilon_{10} } \right]=\left[ {z_{10} } \right]+0,6\left[ {\varepsilon_{11} } \right]=-1+0,6\cdot 0=-1
 \]
-de la misma manera se procede para $\left[ {\varepsilon_{9} } 
-\right],\ldots,\left[ {\varepsilon_{1} } \right].$ Luego se tiene:
+de la misma manera se procede para $\left[ {\varepsilon_{9} } \right],\ldots,\left[ {\varepsilon_{1} } \right].$ Luego se tiene:
 \[
 0=\left[ {\varepsilon_{0} } \right]=\left[ {z_{0} } \right]+0,6\cdot \left[ 
 {\varepsilon_{1} } \right]=\left[ {z_{0} } \right]+0,6\cdot \left( {-1,59} 
@@ -470,9 +327,9 @@ de donde:
 \[
 \left[ {z_{0} } \right]=0,95
 \]
-Luego, los $\left[ {z_{-j} } \right]=0,$ para $j=1,2,\ldots$ Ahora 
-se procede a calcular los $\left[ {u_{t} } \right]$ no nulos, de la 
-siguiente manera:
+
+Luego, los $\left[ {z_{-j} } \right]=0,$ para $j=1,2,\ldots$ Ahora se procede a calcular los $\left[ {u_{t} } \right]$ no nulos, de la siguiente manera:
+
 \begin{align*}
 \left[ {u_{0} } \right]&=\left[ {z_{0} } \right]+\theta \left[ {u_{-1} } 
 \right]=\left[ {z_{0} } \right]+0=0,95 \\ 
@@ -485,40 +342,26 @@ Adem\'{a}s:
 \[
 \left[ {X_{-1} } \right]=X_{0} -\left[ {z_{0} } \right]=150-0,95=149,05
 \]
-As\'{\i},
+As\'{i},
 \[
 S\left( {0,6} \right)=\sum_{t=0}^{10} {\left[ {u_{t} } 
 \right]^{2}=510,50} 
 \]
-Como puede observarse en las dos tablas precedentes, aunque se pueden 
-constatar ciertas diferencias entre los valores de $u_{t}$ y $\left[ {u_{t} } \right]$ para valores peque\~{n}os de $t$, \'{e}stas van 
-aminor\'{a}ndose conforme crece $t$, raz\'{o}n por la cual, a\'{u}n con un 
-peque\~{n}o n\'{u}mero de observaciones, $S_{\ast } (0,6)$ es bastante 
-similar a $S\left( {0,6} \right).$
+Como puede observarse en las dos tablas precedentes, aunque se pueden constatar ciertas diferencias entre los valores de $u_{t}$ y $\left[ {u_{t} } \right]$ para valores peque\~{n}os de $t$, \'{e}stas van aminor\'{a}ndose conforme crece $t$, raz\'{o}n por la cual, a\'{u}n con un peque\~{n}o n\'{u}mero de observaciones, $S_{\ast } (0,6)$ es bastante similar a $S\left( {0,6} \right)$.\newline
 
-Como se mencion\'{o} anteriormente, las minimizaciones se deben efectuar 
-utilizando t\'{e}cnicas num\'{e}ricas, para lo cual se requiere obtener 
-valores iniciales para los par\'{a}metros.
+Como se mencion\'{o} anteriormente, las minimizaciones se deben efectuar utilizando t\'{e}cnicas num\'{e}ricas, para lo cual se requiere obtener valores iniciales para los par\'{a}metros.\newline
 
-El procedimiento general para obtener la funci\'{o}n de verosimilitud exacta 
-de un proceso ARMA, as\'{\i} como para las estimaciones de las esperanzas 
-condicionales para $z_{0} ,z_{-1} ,\ldots $ se presentan en el 
-Anexo C.1. En todo caso, hay que recordar que los estimadores de m\'{a}xima 
-verosimilitud son normalmente asint\'{o}ticos.
+El procedimiento general para obtener la funci\'{o}n de verosimilitud exacta de un proceso ARMA, as\'{i} como para las estimaciones de las esperanzas condicionales para $z_{0} ,z_{-1} ,\ldots $ se presentan en el Anexo C.1. En todo caso, hay que recordar que los estimadores de m\'{a}xima verosimilitud son normalmente asint\'{o}ticos.
 \end{ejemplo}
 
 
 \begin{ejemplo}
-En el ejemplo planteado (de la SIB) se ha considerado 
-una serie que luego de realizar una diferenciaci\'{o}n no estacional muestra 
-su comportamiento estacionario; es decir, se trata de un modelo 
-$ARIMA(0,1,0)$
+En el ejemplo planteado (de la SIB) se ha considerado una serie que luego de realizar una diferenciaci\'{o}n no estacional muestra su comportamiento estacionario; es decir, se trata de un modelo $ARIMA(0,1,0)$.\newline
 
 Con ayuda del utilitario Statgraphics y considerando el par $p=2$ y  $q=2$ (es decir, se ha establecido la posibilidad de que se trate de un modelo $ARIMA(2,1,2))$, se han obtenido los siguientes resultados:
 
 \begin{table}[H]
-\centering\small
-\caption{Resumen estad\'{\i}stico para el modelo $ARIMA(2,1,2)$ de la SIB}
+\centering
 \begin{tabular}{@{}ccccc@{}}
 \toprule
 Par\'{a}metro& Estimado& Error Estd.& Valor $t$& Valor $P$ \\
@@ -531,64 +374,49 @@ Media& 0,75431& 0,30518& 2,47172& 0,01469 \\
 Constante& 0,10431& & &  \\
 \bottomrule
 \end{tabular}
+\caption{Resumen estad\'{i}stico para el modelo $ARIMA(2,1,2)$ de la SIB}
 \end{table}
 
 \end{ejemplo}
 
 
-
-
-Esta estimaci\'{o}n la realiza el paquete internamente a trav\'{e}s de los 
-m\'{e}todos descritos anteriormente. En la secci\'{o}n siguiente se 
-realizar\'{a} la verificaci\'{o}n, validaci\'{o}n y elecci\'{o}n del mejor 
-modelo.
+Esta estimaci\'{o}n la realiza el paquete internamente a trav\'{e}s de los m\'{e}todos descritos anteriormente. En la secci\'{o}n siguiente se realizar\'{a} la verificaci\'{o}n, validaci\'{o}n y elecci\'{o}n del mejor modelo.
 
 \section{Identificaci\'{o}n \emph{A Posteriori}}
 
-Una vez realizadas las estimaciones\index{Metodolog\'{\i}a de Box y Jenkins! 
-Identificaci\'{o}n a posteriori } de los modelos, se procede a efectuar las 
-fases de verificaci\'{o}n y de elecci\'{o}n del mejor modelo.
+Una vez realizadas las estimaciones\index{Metodolog\'{i}a de Box y Jenkins!Identificaci\'{o}n a posteriori } de los modelos, se procede a efectuar las fases de verificaci\'{o}n y de elecci\'{o}n del mejor modelo.
 
 \subsection{Fase de verificaci\'{o}n}
 
-La finalidad de esta fase \index{Metodolog\'{\i}a de Box y Jenkins! 
-Verificaci\'{o}n}consiste en analizar la adecuaci\'{o}n entre el modelo y 
-los datos. Las pruebas estad\'{\i}sticas utilizadas son de dos tipos: las 
-concernientes a los par\'{a}metros $a_{j}$ y $b_{j}$ de los procesos 
-autoregresivo y media m\'{o}vil, respectivamente, del modelo propuesto 
-$ARMA(p,q)$ de la serie diferenciada $d$ veces y las pruebas concernientes a las 
-hip\'{o}tesis del ruido blanco $u_{t}$
+La finalidad de esta fase \index{Metodolog\'{i}a de Box y Jenkins!Verificaci\'{o}n}consiste en analizar la adecuaci\'{o}n entre el modelo y los datos. Las pruebas estad\'{i}sticas utilizadas son de dos tipos: las concernientes a los par\'{a}metros $a_{j}$ y $b_{j}$ de los procesos autoregresivo y media m\'{o}vil, respectivamente, del modelo propuesto $ARMA(p,q)$ de la serie diferenciada $d$ veces y las pruebas concernientes a las hip\'{o}tesis del ruido blanco $u_{t}$
 
 \subsubsection{Pruebas concernientes a los par\'{a}metros:}
-Interesa saber si se puede disminuir el n\'{u}mero de par\'{a}metros; es 
-decir, si se dispone de un modelo $ARMA(p,q)$, si es posible formular un 
-modelo $ARMA(p-1,  q)$ o un modelo $ARMA  (p,q-1)$; esto 
-lleva a considerar la siguiente prueba de hip\'{o}tesis:
+
+Interesa saber si se puede disminuir el n\'{u}mero de par\'{a}metros; es decir, si se dispone de un modelo $ARMA(p,q)$, si es posible formular un modelo $ARMA(p-1,  q)$ o un modelo $ARMA  (p,q-1)$; esto lleva a considerar la siguiente prueba de hip\'{o}tesis:
 \[
 \begin{cases}
  H_0:& \phi_{p} =0 \\ 
  H_{1} :& \phi_{p} \ne 0 \\ 
 \end{cases}
 \]
-Si se acepta $H_{0}$, se asume que el modelo es 
-$ARMA(p-1,  q)$; en caso contrario, se retiene la formulaci\'{o}n 
-$ARMA(p,q)$. Utilizando la normalidad asint\'{o}tica de los estimadores, su 
-regi\'{o}n de rechazo est\'{a} determinada por:
+
+Si se acepta $H_{0}$, se asume que el modelo es $ARMA(p-1,  q)$; en caso contrario, se retiene la formulaci\'{o}n $ARMA(p,q)$. Utilizando la normalidad asint\'{o}tica de los estimadores, su regi\'{o}n de rechazo est\'{a} determinada por:
+
 \[
-W=\left\{ {\frac{\left| {\widehat{\varphi}_{p} } \right|}{\sqrt 
-{\widehat{\V}\widehat{\varphi}_{p} } }>u_{1-\frac{\alpha 
-}{2}} } \right\}
+W=\left\{ {\frac{\left| {\widehat{\varphi}_{p} } \right|}{\sqrt {\widehat{\V}\widehat{\varphi}_{p} } }>u_{1-\frac{\alpha }{2}} } \right\}
 \]
+
 Si ahora se considera $p_{1} = p+1$, la prueba a realizar es: 
+
 \[
 \begin{cases}
  H_0:& \phi_{p+1} =0 \\ 
  H_{1} :& \phi_{p+1} \ne 0 \\ 
 \end{cases}
 \]
-Si se acepta $H_{0}$ se retiene la forma $ARMA (p, q)$; en caso 
-contrario, se acepta el modelo $ARMA (p_{1} , q)$. En este caso la 
-regi\'{o}n de rechazo est\'{a} determinada por:
+
+Si se acepta $H_{0}$ se retiene la forma $ARMA (p, q)$; en caso contrario, se acepta el modelo $ARMA (p_{1}, q)$. En este caso la regi\'{o}n de rechazo est\'{a} determinada por:
+
 \[
 W=\left\{ {\frac{\left| {\widehat{\varphi}_{p+1} } \right|}{\sqrt 
 {\widehat{\V}\widehat{\varphi}_{p+1} } }>u_{1-\frac{\alpha 
@@ -600,101 +428,69 @@ De manera similar se procede con el modelo $ARMA (p , q_{1} )$ donde $q_{1} = q 
 No se deben disminuir o aumentar simult\'{a}neamente los dos par\'{a}metros. 
 \end{observacion}
 
-
-Con el paquete estad\'{\i}stico Statgraphics, se obtiene una tabla (ver 
-tabla 3.3) con los valores de los par\'{a}metros, el valor del 
-estad\'{\i}stico $T$ y el $p$-valor: la probabilidad obtenida con los datos 
-observados de aceptar la hip\'{o}tesis $H_{1}$ de que el par\'{a}metro sea 
-diferente de cero, cuando en verdad sea cero (el valor p, o nivel de 
-significaci\'{o}n emp\'{\i}rico del contraste, es el m\'{\i}nimo nivel de 
-significaci\'{o}n tal que se rechaza la hip\'{o}tesis nula).
-
+Con el paquete estad\'{i}stico Statgraphics, se obtiene una tabla (ver tabla 3.3) con los valores de los par\'{a}metros, el valor del estad\'{i}stico $T$ y el $p$-valor: la probabilidad obtenida con los datos observados de aceptar la hip\'{o}tesis $H_{1}$ de que el par\'{a}metro sea diferente de cero, cuando en verdad sea cero (el valor p, o nivel de significaci\'{o}n emp\'{i}rico del contraste, es el m\'{i}nimo nivel de significaci\'{o}n tal que se rechaza la hip\'{o}tesis nula).
 
 \begin{ejemplo}
-Retomando el ejemplo de la SIB, con prop\'{o}sitos ilustrativos, para mostrar los efectos de la sobreparametrizaci\'{o}n, se elegi\'{o} el par $p=2$ y $q=2$; es decir, se ha establecido la posibilidad de que se trate de un modelo $ARIMA(2,1,2)$. Se obtienen los siguientes resultados:
+Retomando el ejemplo de la SIB, con prop\'{o}sitos ilustrativos, para mostrar los efectos de la sobreparametrizaci\'{o}n, se elegi\'{o} el par $p=2$ y $q=2$; es decir, se ha establecido la posibilidad de que se trate de un modelo $ARIMA(2,1,2)$. Se obtienen los siguientes resultados:\newline
 
-Para el modelo $ARIMA(2,1,2)$ se observa que los coeficientes pertenecientes 
-a la parte MA son estad\'{\i}sticamente nulos (se tomar\'{a} siempre como 
-nivel de significaci\'{o}n el 5{\%}. Ver Tabla 3.4), lo que indica la 
-necesidad de reformularlo. Este hecho suele suceder como efecto de la 
-sobreparametrizaci\'{o}n (en este caso $q $ es muy grande). 
+Para el modelo $ARIMA(2,1,2)$ se observa que los coeficientes pertenecientes a la parte MA son estad\'{i}sticamente nulos (se tomar\'{a} siempre como nivel de significaci\'{o}n el 5{\%}. Ver Tabla 3.4), lo que indica la necesidad de reformularlo. Este hecho suele suceder como efecto de la sobreparametrizaci\'{o}n (en este caso $q$ es muy grande). 
 
 \begin{table}[H]
-\centering\small
-\caption{Resumen estad\'{\i}stico para el modelo $ARIMA(2,1,2)$ de la SIB}
-\begin{tabular}{@{}ccccc@{}}
-\toprule
-Par\'{a}metro& Estimado& Error Estd.& Valor $t$& Valor $P$ \\
-\midrule
-$AR(1)$& 1,44980& 0,20709& 7,00091& 0,00000 \\
-$AR(2)$& -0,58809& 0,12222& -4,81164& 0,00000 \\
-$MA(1)$& -0,10109& 0,23630& -0,42781& 0,66948 \\
-$MA(2)$& 0,60732& 0,20394& 2,97796& 0,00344 \\
-Media& 0,75431& 0,30518& 2,47172& 0,01469 \\
-Constante& 0,10431& & &  \\
-\bottomrule
+\centering
+\begin{tabular}{@{}ccccc@{}}\hline
+Par\'{a}metro & Estimado & Error Estd. & Valor $t$ & Valor $P$ \\ \hline
+$AR(1)$ & 1,44980& 0,20709& 7,00091& 0,00000 \\
+$AR(2)$ & -0,58809& 0,12222& -4,81164& 0,00000 \\
+$MA(1)$ & -0,10109& 0,23630& -0,42781& 0,66948 \\
+$MA(2)$ & 0,60732& 0,20394& 2,97796& 0,00344 \\
+Media & 0,75431& 0,30518& 2,47172& 0,01469 \\
+Constante& 0,10431& & &  \\ \hline
 \end{tabular}
+\caption{Resumen estad\'{i}stico para el modelo $ARIMA(2,1,2)$ de la SIB}
 \end{table}
 
-Considerando el modelo $ARIMA(2,1,1)$, se ve que el coeficiente que 
-corresponde a $AR(2)$ es estad\'{\i}sticamente nulo (ver tabla 3.5), 
-seg\'{u}n lo cual se debe volver a cambiar de modelo.
+Considerando el modelo $ARIMA(2,1,1)$, se ve que el coeficiente que corresponde a $AR(2)$ es estad\'{i}sticamente nulo (ver tabla 3.5), seg\'{u}n lo cual se debe volver a cambiar de modelo.
 
 \begin{table}[H]
-\centering\small
-\caption{Resumen estad\'{\i}stico para el modelo ARIMA(2,1,1) de la SIB}
-\begin{tabular}{@{}ccccc@{}}
-\toprule
-Par\'{a}metro& Estimado& Error Estd.& $t$& Valor-$P$ \\
-\midrule
-$AR(1)$& 0,745854& 0,100892& 7,39258& 0,000000 \\
-$AR(2)$& -0,116622& 0,097009& -1,20218& 0,231382 \\
-$MA(1)$& -0,825507& 0,0626035& -13,1863& 0,000000 \\
-Media& 0,765563& 0,416395& 1,83855& 0,068163 \\
-Constante& 0,283847& & &  \\
-\bottomrule
+\centering
+\begin{tabular}{@{}ccccc@{}}\hline
+Par\'{a}metro & Estimado & Error Estd. & $t$ & Valor-$P$ \\ \hline
+$AR(1)$ & 0,745854& 0,100892& 7,39258& 0,000000 \\
+$AR(2)$ & -0,116622& 0,097009& -1,20218& 0,231382 \\
+$MA(1)$ & -0,825507& 0,0626035& -13,1863& 0,000000 \\
+Media   & 0,765563& 0,416395& 1,83855& 0,068163 \\
+Constante & 0,283847& & &  \\ \hline
 \end{tabular}
+\caption{Resumen estad\'{i}stico para el modelo ARIMA(2,1,1) de la SIB}
 \end{table}
 
-
-Considerando el modelo $ARIMA(1,1,1)$ se obtiene que el coeficiente que 
-corresponde a la constante en el modelo es estad\'{\i}sticamente igual a 
-cero; por lo que, es necesario modificarlo nuevamente (ver Tabla 3.6). 
+Considerando el modelo $ARIMA(1,1,1)$ se obtiene que el coeficiente que corresponde a la constante en el modelo es estad\'{i}sticamente igual a cero; por lo que, es necesario modificarlo nuevamente (ver Tabla 3.6). 
 
 \begin{table}[H]
-\centering\small
-\caption{Resumen estad\'{\i}stico para el modelo $ARIMA(1,1,1)$ de la SIB}
-\begin{tabular}{@{}ccccc@{}}
-\toprule
-Par\'{a}metro& Estimado& Error Estd.& $t$& Valor-$P$ \\
-\midrule
-$AR(1)$& 0,64614& 0,0645419& 10,0112& 0,000000 \\
-$MA(1)$& -0,855448& 0,0491277& -17,4127& 0,000000 \\
-Media& 0,847445& 0,45797& 1,85044& 0,066405 \\
-Constante& 0,299877& & &  \\
-\bottomrule
+\centering
+\begin{tabular}{@{}ccccc@{}}\hline
+Par\'{a}metro & Estimado & Error Estd. & $t$ & Valor-$P$ \\ \hline
+$AR(1)$ & 0,64614& 0,0645419& 10,0112& 0,000000 \\
+$MA(1)$ & -0,855448& 0,0491277& -17,4127& 0,000000 \\
+Media   & 0,847445& 0,45797& 1,85044& 0,066405 \\
+Constante & 0,299877& & &  \\ \hline
 \end{tabular}
+\caption{Resumen estad\'{i}stico para el modelo $ARIMA(1,1,1)$ de la SIB}
 \end{table}
 
-Finalmente, se adopta el mismo modelo $ARIMA(1,1,1)$ pero sin la constante 
-(ver Tabla 3.7). Luego, esta ser\'{a} la mejor estimaci\'{o}n del modelo.
+Finalmente, se adopta el mismo modelo $ARIMA(1,1,1)$ pero sin la constante (ver Tabla 3.7). Luego, esta ser\'{a} la mejor estimaci\'{o}n del modelo.
 
 \begin{table}[H]
-\centering\small
-\caption{Resumen estad\'{\i}stico para el modelo $ARIMA(1,1,1)$ de la SIB 
-sin constante}
-\begin{tabular}{@{}ccccc@{}}
-\toprule
-Par\'{a}metro& Estimado& Error Estd.& $t$&Valor-$P$ \\
-\midrule
+\centering
+\begin{tabular}{@{}ccccc@{}}\hline
+Par\'{a}metro& Estimado& Error Estd.& $t$&Valor-$P$ \\ \hline
 $AR(1)$& 0,66579& 0,0603313& 11,0356& 0,000000 \\
-$MA(1)$& -0,841889& 0,0515922& -16,3181& 0,000000 \\
-\bottomrule
+$MA(1)$& -0,841889& 0,0515922& -16,3181& 0,000000 \\ \hline
 \end{tabular}
+\caption{Resumen estad\'{i}stico para el modelo $ARIMA(1,1,1)$ de la SIB sin constante}
 \end{table}
 
 \end{ejemplo}
-
 
 
 \subsubsection{Pruebas concernientes al ruido blanco}
@@ -703,43 +499,36 @@ Se pretende probar si la serie de residuos estimados:
 \[
 \widehat{u}_{t}=\frac{\widehat{\Phi }(B)}{\widehat{\Theta }(B)}X_{t}
 \]
-es coherente con la hip\'{o}tesis de que los $\widehat{u}_{t}$ forman un ruido 
-blanco; es decir, verificar si los residuos son no correlacionados y 
-gaussianos (se puede probar que siempre son centrados). Estas pruebas pueden 
-ser sustituidas por una prueba de independencia. 
+es coherente con la hip\'{o}tesis de que los $\widehat{u}_{t}$ forman un ruido blanco; es decir, verificar si los residuos son no correlacionados y gaussianos (se puede probar que siempre son centrados). Estas pruebas pueden ser sustituidas por una prueba de independencia. 
 
 \begin{itemize}
  \item \textbf{Utilizaci\'{o}n de las FAC y FACP residuales estimadas}
  
- Las pruebas para los residuos consisten en verificar que son no correlacionados. Para ello, lo m\'{a}s f\'{a}cil es verificar que no tienen una estructura ARMA; es decir, que sus funciones de autocorrelaci\'{o}n y autocorrelaci\'{o}n parcial residuales estimadas son estad\'{\i}sticamente nulas (se encuentran dentro de las bandas de confianza). 
+ Las pruebas para los residuos consisten en verificar que son no correlacionados. Para ello, lo m\'{a}s f\'{a}cil es verificar que no tienen una estructura ARMA; es decir, que sus funciones de autocorrelaci\'{o}n y autocorrelaci\'{o}n parcial residuales estimadas son estad\'{i}sticamente nulas (se encuentran dentro de las bandas de confianza). 
 
   \item \textbf{Prueba de Box-Pierce (``Overcoat'')}
   
-  La prueba se basa en que el estad\'{\i}stico:
+  La prueba se basa en que el estad\'{i}stico:
  \[
- Q=T\sum_{l=1}^k {\widehat{\rho }_{l}^{2}\left( \widehat{u}_{t} \right)} 
+ Q=T\sum_{l=1}^k {\widehat{\rho }_{\ell}^{2}\left( \widehat{u}_{t} \right)} 
  \]
- sigue asint\'{o}ticamente una ley $\chi^{2}$ con $(k-p-q)$ grados de libertad, bajo la hip\'{o}tesis de independencia de los $u_{t}$ $(\widehat{\rho }_{l}\left( \widehat{u}_{t} \right)$ representa la correlaci\'{o}n estimada de orden l, de los residuos estimados). Luego, se rechaza la hip\'{o}tesis de independencia de ruido blanco al nivel $\alpha $, si $Q>\chi_{1-\alpha }^{2}[k-p-q]$ (cuantil de orden $1-\alpha $ de la ley $\chi^{2}$ con ($k-p-q$) grados de libertad).
+ sigue asint\'{o}ticamente una ley $\chi^{2}$ con $(k-p-q)$ grados de libertad, bajo la hip\'{o}tesis de independencia de los $u_{t}$ $(\widehat{\rho }_{\ell}\left( \widehat{u}_{t} \right)$ representa la correlaci\'{o}n estimada de orden $\ell$, de los residuos estimados). Luego, se rechaza la hip\'{o}tesis de independencia de ruido blanco al nivel $\alpha $, si $Q>\chi_{1-\alpha }^{2}[k-p-q]$ (cuantil de orden $1-\alpha $ de la ley $\chi^{2}$ con ($k-p-q$) grados de libertad).
 \end{itemize}
 
-El n\'{u}mero $k$ debe ser suficientemente grande; habitualmente se lo toma 
-entre 15 y 20. 
+El n\'{u}mero $k$ debe ser suficientemente grande; habitualmente se lo toma entre 15 y 20.\newline
 
-Cuando la hip\'{o}tesis se declara inadecuada, se pueden utilizar las 
-funciones de autocorrelaci\'{o}n y autocorrelaci\'{o}n parcial estimadas de 
-los residuos, para ver en qu\'{e} forma se modifica el modelo (ver la 
-secci\'{o}n 3.8).
+Cuando la hip\'{o}tesis se declara inadecuada, se pueden utilizar las funciones de autocorrelaci\'{o}n y autocorrelaci\'{o}n parcial estimadas de los residuos, para ver en qu\'{e} forma se modifica el modelo (ver la secci\'{o}n 3.8).
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap38.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap38.eps}
 \caption{FAC residual estimada del Modelo $ARIMA(2,1,2)$ de la SIB}
 \end{figure}
 
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap39.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap39.eps}
 \caption{FACP residual estimada del Modelo $ARIMA(2,1,2)$ de la SIB}
 \end{figure}
 
@@ -750,125 +539,100 @@ $ARIMA(1,1,1)$ sin constante, que se presentan en las Figuras 3.10 y 3.11.
 
 \begin{figure}[H]
 \centering
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap310.eps}
 \caption{FAC residual estimada del Modelo $ARIMA(2,1,1)$ de la SIB}
 \end{figure}
 
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap311.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap311.eps}
 \caption{FACP residual estimada del Modelo $ARIMA(2,1,1)$ de la SIB}
 \end{figure}
 
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap312.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap312.eps}
 \caption{FAC residual estimada del Modelo $ARIMA(1,1,1)$ de la SIB}
 \end{figure}
 
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap313.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap313.eps}
 \caption{FACP residual estimada del Modelo $ARIMA(1,1,1)$ de la SIB}
 \end{figure}
 
 
-Considerando el modelo seleccionado para la SIB ($ARIMA(1,1,1)$), se presenta 
-la salida en el paquete EViews de las autocorrelaciones simples y parciales 
-estimadas del modelo, con el respectivo estad\'{\i}stico $Q$ y su valor $p$ 
-asociado (ver la columna Prob. de la figura 3.12). Dado que en todos los 
-casos el valor $p$ es mayor que 0,05, se consideran que los residuos no son 
-significativos y por lo tanto se acepta la independencia de los mismos.
+Considerando el modelo seleccionado para la SIB ($ARIMA(1,1,1)$), se presenta la salida en el paquete EViews de las autocorrelaciones simples y parciales estimadas del modelo, con el respectivo estad\'{i}stico $Q$ y su valor $p$ asociado (ver la columna Prob. de la figura 3.12). Dado que en todos los casos el valor $p$ es mayor que 0,05, se consideran que los residuos no son significativos y por lo tanto se acepta la independencia de los mismos.
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap314.eps}
-\caption{FAC y FACP residuales estimadas del Modelo $ARIMA(1,1,1)$ de la 
-SIB en EViews}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap314.eps}
+\caption{FAC y FACP residuales estimadas del Modelo $ARIMA(1,1,1)$ de la SIB en EViews}
 \end{figure}
 \end{ejemplo}
 
 
-
 \subsection{Utilizaci\'{o}n de los residuos estimados para modificar el Modelo}
 
-Cuando la funci\'{o}n de autocorrelaci\'{o}n de los residuos estimados de un 
-modelo ajustado indica que este es inadecuado, es necesario considerar de 
-qu\'{e} manera podr\'{\i}a ser modificado. 
+Cuando la funci\'{o}n de autocorrelaci\'{o}n de los residuos estimados de un modelo ajustado indica que este es inadecuado, es necesario considerar de qu\'{e} manera podr\'{i}a ser modificado. 
 
 Sup\'{o}ngase que los residuos estimados $\widehat{u}_{t}$ del modelo:
 \[
 {\Phi }_{0}\left( B \right){\Delta }^{d_{0}}X_{t}={\Theta }_{0}(B)u_{t}
 \]
-parecen no verificar las hip\'{o}tesis de independencia; utilizando las 
-funciones de autocorrelaci\'{o}n y autocorrelaci\'{o}n parcial estimadas de 
-los $\widehat{u}_{t}$ y los m\'{e}todos explicados anteriormente, se puede 
-ajustar para la serie $u_{t}$ un modelo de la forma:
+
+parecen no verificar las hip\'{o}tesis de independencia; utilizando las funciones de autocorrelaci\'{o}n y autocorrelaci\'{o}n parcial estimadas de los $\widehat{u}_{t}$ y los m\'{e}todos explicados anteriormente, se puede ajustar para la serie $u_{t}$ un modelo de la forma:
+
 \[
 {\Phi }'\left( B \right){\Delta }^{d'}u_{t}={\Theta }'(B)\varepsilon_{t}
 \]
-Eliminando $u_{t}$, de las ecuaciones anteriores, se puede a asumir el 
-siguiente modelo:
+
+Eliminando $u_{t}$, de las ecuaciones anteriores, se puede a asumir el siguiente modelo:
+
 \[
 {\Phi }_{0}\left( B \right){\Phi }'\left( B \right){\Delta }^{d_{0}}{\Delta}^{d'}X_{t}={\Theta }_{0}(B){\Theta }'(B)\varepsilon_{t}
 \]
-que puede ser ajustado nuevamente y verificado. Lo importante en el modelo 
-anterior son los grados de los nuevos polinomios asociados a los operadores 
-respectivos (se suman en cada producto):
+
+que puede ser ajustado nuevamente y verificado. Lo importante en el modelo anterior son los grados de los nuevos polinomios asociados a los operadores respectivos (se suman en cada producto):
+
 \[
-{\Phi }\left( {B} \right){=}{\Phi }_{0}\left( B \right){\Phi }'\left( B \right)    
-\qquad \text{ y }\qquad          
-{\Theta }\left( {B} \right){=}{\Theta }_{0}(B){\Theta }'(B)        
+{\Phi }\left( {B} \right){=}{\Phi }_{0}\left( B \right){\Phi }'\left( B \right) \qquad \text{ y }\qquad {\Theta }\left( {B} \right){=}{\Theta }_{0}(B){\Theta }'(B)
 \]
-Una aplicaci\'{o}n de estos procedimientos se presenta en el cap\'{\i}tulo 
-4.
+
+Una aplicaci\'{o}n de estos procedimientos se presenta en el cap\'{i}tulo 4.
 
 \subsection{Pruebas de estabilidad}
 
-En algunos casos, estimar un modelo de series temporales puede verse 
-afectado por la presencia de cambios en la estructura de la serie (o series) 
-en estudio, lo que puede llevar a conclusiones inexactas o incorrectas al 
-momento de realizar predicciones o en la interpretaci\'{o}n del 
-comportamiento de la serie.
+En algunos casos, estimar un modelo de series temporales puede verse afectado por la presencia de cambios en la estructura de la serie (o series) en estudio, lo que puede llevar a conclusiones inexactas o incorrectas al momento de realizar predicciones o en la interpretaci\'{o}n del comportamiento de la serie.\newline
 
-Una de las etapas de validaci\'{o}n del modelo estimado consiste en estudiar 
-si los par\'{a}metros estimados por el modelo son estables en toda la 
-muestra. Si no se cumple este supuesto, la capacidad de predictibilidad del 
-modelo ser\'{a} limitada.
+Una de las etapas de validaci\'{o}n del modelo estimado consiste en estudiar si los par\'{a}metros estimados por el modelo son estables en toda la muestra. Si no se cumple este supuesto, la capacidad de predictibilidad del modelo ser\'{a} limitada.\newline
 
-Una de los m\'{e}todos comunes para comprobar la estabilidad del modelo es 
-dividir las $T$ observaciones en dos grupos:
+Una de los m\'{e}todos comunes para comprobar la estabilidad del modelo es dividir las $T$ observaciones en dos grupos:
 
 \begin{itemize}
 \item $T_{1}$: observaciones utilizadas en la estimaci\'{o}n del modelo
 \item $T_{2}=T-T_{1}$: observaciones que se utilizar\'{a}n para las pruebas y la evaluaci\'{o}n del modelo.
 \end{itemize}
-Lo usual es que las primeras $T_{1}$ observaciones se utilicen para modelar 
-y las \'{u}ltimas observaciones para las pruebas.
 
-Una de las pruebas tradicionales para evaluar esta estabilidad es la prueba 
-de Chow, de punto de quiebre.
+Lo usual es que las primeras $T_{1}$ observaciones se utilicen para modelar y las \'{u}ltimas observaciones para las pruebas.\newline
 
+Una de las pruebas tradicionales para evaluar esta estabilidad es la prueba de Chow, de punto de quiebre.
 
 \subsubsection*{Prueba de punto de quiebre de Chow}
 
-La idea de esta prueba consiste en estimar un modelo de cada submuestra por 
-separado y ver si existen diferencias significativas en los modelos 
-estimados, lo que se manifiesta en un cambio estructural en la relaci\'{o}n.
+La idea de esta prueba consiste en estimar un modelo de cada submuestra por separado y ver si existen diferencias significativas en los modelos estimados, lo que se manifiesta en un cambio estructural en la relaci\'{o}n.\newline
 
-La prueba de Chow compara la suma de residuos al cuadrado obtenidos a partir 
-de un modelo estimado con toda la muestra con la suma de residuos al 
-cuadrado que se obtiene cuando se estiman los modelos para cada subconjunto 
-de las observaciones.
+La prueba de Chow compara la suma de residuos al cuadrado obtenidos a partir de un modelo estimado con toda la muestra con la suma de residuos al cuadrado que se obtiene cuando se estiman los modelos para cada subconjunto de las observaciones.\newline
 
-Para la prueba se utiliza el estad\'{\i}stico $F$, que se calcula de la 
-siguiente manera:
+Para la prueba se utiliza el estad\'{i}stico $F$, que se calcula de la siguiente manera:
+
 \[
-F=\frac{\left( \tilde{u}'\tilde{u}-(u_{1}'u_{1}+u_{2}'u_{2}) 
-\right)/k}{(u_{1}'u_{1}+u_{2}'u_{2})/(T-2k)}
+F=\frac{\left( \tilde{u}'\tilde{u}-(u_{1}'u_{1}+u_{2}'u_{2}) \right)/k}{(u_{1}'u_{1}+u_{2}'u_{2})/(T-2k)}
 \]
+
 donde,
 \begin{itemize}
  \item $\tilde{u}'\tilde{u}$: Es la suma de cuadrados de los residuos considerando todas las observaciones.
@@ -877,160 +641,115 @@ donde,
  \item $k$: N\'{u}mero de par\'{a}metros en la ecuaci\'{o}n estimada.
 \end{itemize}
 
-Si no hubiera diferencias sustanciales en la estructura entre los dos 
-modelos, el numerador ser\'{\i}a muy peque\~{n}o; por tanto, se lo puede 
-utilizar para contrastar la siguiente prueba de hip\'{o}tesis:
+Si no hubiera diferencias sustanciales en la estructura entre los dos modelos, el numerador ser\'{i}a muy peque\~{n}o; por tanto, se lo puede utilizar para contrastar la siguiente prueba de hip\'{o}tesis:
+
 \[
 \left\{ {\begin{array}{l}
  H_{0}\text{: No  existen  cambios  estructurales} \\ 
  H_{1}\text{: Existen  cambios  estructurales}  
  \end{array}} \right.
 \]
-El estad\'{\i}stico $F$ tiene una distribuci\'{o}n de Fisher-Snedcor 
-asint\'{o}ticamente, bajo $H$; es exacta si los errores son normales i.i.d.
 
-Otra forma de evaluar este fen\'{o}meno es mediante el estad\'{\i}stico 
-raz\'{o}n del logaritmo de verosimilitud o el estad\'{\i}stico de Wald. Las 
-interpretaciones de los resultados de estos tres estad\'{\i}sticos son 
-similares. 
+El estad\'{i}stico $F$ tiene una distribuci\'{o}n de Fisher-Snedcor asint\'{o}ticamente, bajo $H$; es exacta si los errores son normales i.i.d.\newline
+
+Otra forma de evaluar este fen\'{o}meno es mediante el estad\'{i}stico raz\'{o}n del logaritmo de verosimilitud o el estad\'{i}stico de Wald. Las interpretaciones de los resultados de estos tres estad\'{i}sticos son similares.
 
 \begin{observacion}
 El tratamiento para dos submuestras se puede generalizar a m\'{a}s de un punto de quiebre. 
 \end{observacion}
 
 \begin{ejemplo}
-Considerando la SIB, se realiza la prueba de punto de quiebre para la observaci\'{o}n 71 (aproximadamente, la mitad de los datos). As\'{\i}, se obtienen los siguientes resultados:
+Considerando la SIB, se realiza la prueba de punto de quiebre para la observaci\'{o}n 71 (aproximadamente, la mitad de los datos). As\'{i}, se obtienen los siguientes resultados:
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap315.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap315.eps}
 \caption{Prueba de Chow para el punto de quiebre.}
 \end{figure}
 
-Dado que el $p$-valor correspondiente al estad\'{\i}stico $F$ es mayor que 
-0,05, se acepta la hip\'{o}tesis nula de no existencia de cambios 
-estructurales de la serie.
+Dado que el $p$-valor correspondiente al estad\'{i}stico $F$ es mayor que 0,05, se acepta la hip\'{o}tesis nula de no existencia de cambios estructurales de la serie.
 \end{ejemplo}
 
 \begin{observacion}
-En caso de que exista un cambio estructural de la serie, hay que tener mucho cuidado al realizar predicciones, ya que un cambio estructural al inicio del per\'{\i}odo de pron\'{o}stico afecta en gran medida el poder predictivo del modelo. 
+En caso de que exista un cambio estructural de la serie, hay que tener mucho cuidado al realizar predicciones, ya que un cambio estructural al inicio del per\'{i}odo de pron\'{o}stico afecta en gran medida el poder predictivo del modelo. 
 \end{observacion}
-
 
 
 \subsection{Elecci\'{o}n del Modelo}
 
-Puede suceder que varios modelos pasen la fase de verificaci\'{o}n. En este 
-caso existen criterios que no poseen una base te\'{o}rica s\'{o}lida, pero 
-son \'{u}tiles a la hora de realizar una elecci\'{o}n.
+Puede suceder que varios modelos pasen la fase de verificaci\'{o}n. En este caso existen criterios que no poseen una base te\'{o}rica s\'{o}lida, pero son \'{u}tiles a la hora de realizar una elecci\'{o}n.
 
 \subsubsection{Criterio del mayor poder predictivo}
 
-En un modelo ARMA, el error de predicci\'{o}n al horizonte 1 ($e_{t}(1)$), es tal que su varianza $\V[e_{t}(1)]=\sigma^{2}$. Se puede entonces, proponer escoger el 
-Modelo que conduzca a un error de predicci\'{o}n m\'{a}s peque\~{n}o; es 
-decir, aquel que tenga la varianza estimada del ruido blanco m\'{a}s 
-peque\~{n}a. Diversos criterios son aceptables:
+En un modelo ARMA, el error de predicci\'{o}n al horizonte 1 ($e_{t}(1)$), es tal que su varianza $\V[e_{t}(1)]=\sigma^{2}$. Se puede entonces, proponer escoger el Modelo que conduzca a un error de predicci\'{o}n m\'{a}s peque\~{n}o; es decir, aquel que tenga la varianza estimada del ruido blanco m\'{a}s peque\~{n}a. Diversos criterios son aceptables:
 
 \begin{enumerate}
-\item La estimaci\'{o}n de la varianza ($\widehat{\sigma }^{2}$).
-\item El coeficiente de determinaci\'{o}n:
+\item[a)] La estimaci\'{o}n de la varianza ($\widehat{\sigma }^{2}$).
+\item[b)] El coeficiente de determinaci\'{o}n:
+
 \[
 R^{2}=1-\frac{(\widehat{\sigma} )^{2}}{V}
 \]
-donde $V$ es la varianza muestral de la serie diferenciada $d$ veces. Este 
-segundo criterio es simplemente una versi\'{o}n normada del anterior.
 
-\item El coeficiente de determinaci\'{o}n modificado:
+donde $V$ es la varianza muestral de la serie diferenciada $d$ veces. Este segundo criterio es simplemente una versi\'{o}n normada del anterior.
+
+\item[c)] El coeficiente de determinaci\'{o}n modificado:
 \[
 \bar{R}^{2}=1-\frac{(\widehat{\sigma})^{2}/(N-p-q)}{V/(N-1)}
 \]
-que toma en cuenta los grados de los polinomios autoregresivo y media 
-m\'{o}vil.
+que toma en cuenta los grados de los polinomios autoregresivo y media m\'{o}vil.
 
-\item El estad\'{\i}stico de Fisher:
+\item[d)] El estad\'{i}stico de Fisher:
 \[
 F=1-\frac{(V-(\widehat{\sigma} )^{2})/(p+q)}{\widehat{\sigma} ^{2}/(N-p-q)}
 \]
-introducido por analog\'{\i}a con el caso del modelo lineal. 
+introducido por analog\'{i}a con el caso del modelo lineal. 
 \end{enumerate}
 
-El criterio 1 es para minimizar mientras que los otros son para maximizar.
-
+El criterio a) es para minimizar mientras que los otros son para maximizar.
 
 
 \subsubsection{Criterio de informaci\'{o}n}
 
-Otra aproximaci\'{o}n, introducida por Akaike (1969), consiste en suponer 
-que los modelos $ARMA  (p,q)$ dan aproximaciones de la realidad y 
-que la verdadera distribuci\'{o}n desconocida de las observaciones 
-${\Delta }^{d}X_{t}$ (observaciones de $\left( X_{t} \right)$ 
-diferenciadas $d$ veces) no satisface forzosamente tal modelo. Se puede 
-entonces fundamentar la elecci\'{o}n del modelo sobre una medida de la 
-desviaci\'{o}n entre la verdadera ley desconocida y el modelo propuesto.
+Otra aproximaci\'{o}n, introducida por Akaike (1969), consiste en suponer que los modelos $ARMA  (p,q)$ dan aproximaciones de la realidad y que la verdadera distribuci\'{o}n desconocida de las observaciones ${\Delta }^{d}X_{t}$ (observaciones de $\left( X_{t} \right)$ diferenciadas $d$ veces) no satisface forzosamente tal modelo. Se puede entonces fundamentar la elecci\'{o}n del modelo sobre una medida de la desviaci\'{o}n entre la verdadera ley desconocida y el modelo propuesto.\newline
 
-La medida habitual es la cantidad de informaci\'{o}n de Kullback. Sean 
-$f_{0}(X)$ la densidad desconocida de las observaciones y $\left\{ f\left( x 
-\right),f\in F_{p,q} \right\}$ la familia de densidades 
-correspondientes al modelo $ARMA  (p,  q)$; la 
-desviaci\'{o}n entre la verdadera ley y el Modelo se mide por:
+La medida habitual es la cantidad de informaci\'{o}n de Kullback. Sean $f_{0}(X)$ la densidad desconocida de las observaciones y $\left\{ f\left( x \right),f\in F_{p,q} \right\}$ la familia de densidades correspondientes al modelo $ARMA  (p,  q)$; la desviaci\'{o}n entre la verdadera ley y el Modelo se mide por:
+
 \[
 I\left( f_{0},F_{p,q} \right)=\int {\log\frac{f_{0}\left( x \right)}{f\left( 
 x \right)}f_{0}\left( x \right)dx} 
 \]
-Esta cantidad es siempre positiva y solo se anula si la verdadera densidad 
-$f_{0}$ pertenece a $F_{p,q}$. $I\left( f_{0},F_{p,q} \right)$, el valor de 
-la cantidad de informaci\'{o}n es evidentemente desconocido; pero si se 
-dispone de un buen estimador $I\left( f_{0},F_{p,q} \right)$ de esta 
-cantidad, ser\'{a} posible utilizarlo como criterio.
 
-Se escoge entonces el modelo $F_{p,q}$ que conduce al valor m\'{a}s 
-peque\~{n}o de la estimaci\'{o}n $I\left( f_{0},F_{p,q} \right)$. Los 
-estimadores de la cantidad de informaci\'{o}n que han sido propuestos son:
+Esta cantidad es siempre positiva y solo se anula si la verdadera densidad $f_{0}$ pertenece a $F_{p,q}$. $I\left( f_{0},F_{p,q} \right)$, el valor de la cantidad de informaci\'{o}n es evidentemente desconocido; pero si se dispone de un buen estimador $I\left( f_{0},F_{p,q} \right)$ de esta cantidad, ser\'{a} posible utilizarlo como criterio.\newline
+
+Se escoge entonces el modelo $F_{p,q}$ que conduce al valor m\'{a}s peque\~{n}o de la estimaci\'{o}n $I\left( f_{0},F_{p,q} \right)$. Los estimadores de la cantidad de informaci\'{o}n que han sido propuestos son:
 
 \begin{enumerate}
  \item $AIC\left( p,q \right)=\log{(\widehat{\sigma })}^{2}+\frac{2(p+q)}{T}$ (Akaike, 1969)
- \item $BIC\left( p,q \right)=\log{(\widehat{\sigma 
-})}^{2}+(p+q)\frac{\log  T}{T}$ (Schwarz, 1978)
- \item $\varphi \left( p,q \right)=\log{(\widehat{\sigma })}^{2}+\left( p+q 
-\right)c\frac{\log\left( \log  T \right)}{T} $ con  $c>2$ (Hannan-Quinn, 1979)
+ \item $BIC\left( p,q \right)=\log{(\widehat{\sigma })}^{2}+(p+q)\frac{\log  T}{T}$ (Schwarz, 1978)
+ \item $\varphi \left( p,q \right)=\log{(\widehat{\sigma })}^{2}+\left( p+q \right)c\frac{\log\left( \log  T \right)}{T}$ con  $c>2$ (Hannan-Quinn, 1979)
 \end{enumerate}
 
-El primero de estos estimadores es el m\'{a}s utilizado; sin embargo, solo 
-los dos restantes son convergentes y conducen a una selecci\'{o}n 
-asint\'{o}tica correcta del modelo.
+El primero de estos estimadores es el m\'{a}s utilizado; sin embargo, solo los dos restantes son convergentes y conducen a una selecci\'{o}n asint\'{o}tica correcta del modelo.\newline
 
-El objetivo es minimizar el error de predicci\'{o}n final, para lo cual los 
-par\'{a}metros $p$ y $q$ pueden ser cambiados hasta obtener un valor m\'{\i}nimo 
-del estimador. Para modelos autoregresivos, simulaciones de Monte Carlo 
-sugieren que AIC tiene una tendencia a sobrestimar el par\'{a}metro $p$; para 
-corregir esta tendencia, se introduce el criterio modificado BIC (criterio 
-de informaci\'{o}n bayesiano), donde $\widehat{\sigma }^{2}$ es el estimador de 
-m\'{a}xima verosimilitud para la varianza del ruido blanco.
+El objetivo es minimizar el error de predicci\'{o}n final, para lo cual los par\'{a}metros $p$ y $q$ pueden ser cambiados hasta obtener un valor m\'{i}nimo del estimador. Para modelos autoregresivos, simulaciones de Monte Carlo sugieren que AIC tiene una tendencia a sobrestimar el par\'{a}metro $p$; para corregir esta tendencia, se introduce el criterio modificado BIC (criterio de informaci\'{o}n bayesiano), donde $\widehat{\sigma }^{2}$ es el estimador de m\'{a}xima verosimilitud para la varianza del ruido blanco.\newline
 
-En forma general, la introducci\'{o}n de estos criterios ayudan a la 
-identificaci\'{o}n del modelo. Sin embargo, la b\'{u}squeda de un modelo que 
-los minimice puede ser muy larga si no se tiene alguna idea de la clase de 
-modelo a explorar.
+En forma general, la introducci\'{o}n de estos criterios ayudan a la identificaci\'{o}n del modelo. Sin embargo, la b\'{u}squeda de un modelo que los minimice puede ser muy larga si no se tiene alguna idea de la clase de modelo a explorar.
 
 \begin{observacion}
-En ciertas ocasiones, no se obtienen los mismos resultados con todos los criterios; en este caso, se elige el modelo que cumpla con el mayor n\'{u}mero de criterios (los paquetes estad\'{\i}sticos tambi\'{e}n suelen incorporar otros criterios como, por 
-ejemplo, la raz\'{o}n de verosimilitud) 
+En ciertas ocasiones, no se obtienen los mismos resultados con todos los criterios; en este caso, se elige el modelo que cumpla con el mayor n\'{u}mero de criterios (los paquetes estad\'{i}sticos tambi\'{e}n suelen incorporar otros criterios como, por ejemplo, la raz\'{o}n de verosimilitud) 
 \end{observacion}
-
 
 
 \section{Predicci\'{o}n de los Modelos ARIMA}
 
-\subsection{C\'{a}lculo de las predicciones \'{o}ptimas en un modelo 
-ARIMA\index{Predicci\'{o}n! Modelo ARIMA}}
+\subsection{C\'{a}lculo de las predicciones \'{o}ptimas en un modelo ARIMA\index{Predicci\'{o}n! Modelo ARIMA}}
 
 \begin{definicion}
-La predicci\'{o}n lineal \'{o}ptima $\widehat{X}_{T} (h)$, al horizonte $h$ ($h>0$, entero), en el instante $T$, se define como la regresi\'{o}n af\'{\i}n de 
-$X_{{T+h}}$ sobre el espacio vectorial generado por $\{X_t, t\in \Z\}$.
+La predicci\'{o}n lineal \'{o}ptima $\widehat{X}_{T} (h)$, al horizonte $h$ ($h>0$, entero), en el instante $T$, se define como la regresi\'{o}n af\'{i}n de $X_{{T+h}}$ sobre el espacio vectorial generado por $\{X_t, t\in \Z\}$.
 \end{definicion}
 
-Sup\'{o}ngase que $(X_{t} , t \in \Z)$ es un proceso $ARIMA(p,d,q)$. La 
-representaci\'{o}n media m\'{o}vil de tal proceso se escribe:
+Sup\'{o}ngase que $(X_{t}, t \in \Z)$ es un proceso $ARIMA(p,d,q)$. La representaci\'{o}n media m\'{o}vil de tal proceso se escribe:
 \[
 X_{t} =m_{t} +\sum_{i=0}^{t+s-p'-1} {\psi_{i} u_{t-i} } \qquad  t\in \Z
 \]
@@ -1038,57 +757,51 @@ Por tanto, para el instante $T+h$, se tiene:
 \[
 X_{T+h} =m_{T+h} +\sum_{i=0}^{T+h+s-p'-1} {\psi_{i} u_{T+h-i} } 
 \]
-donde $(u_{t})$ es un ruido blanco.
+donde $(u_{t})$ es un ruido blanco.\newline
 
-La regresi\'{o}n af\'{\i}n de $X_{{T+h}}$ sobre el e.v. generado por 
-las $X_{t}$, $t\le T$, es la misma que la regresi\'{o}n af\'{\i}n de $X_{{T+h}}$ sobre el e.v. generado por los $\{ u_{t} , t \le  T\}$; adem\'{a}s, \'{e}sta viene dada por:
+La regresi\'{o}n af\'{i}n de $X_{{T+h}}$ sobre el e.v. generado por las $X_{t}$, $t\le T$, es la misma que la regresi\'{o}n af\'{i}n de $X_{{T+h}}$ sobre el e.v. generado por los $\{ u_{t} , t \le  T\}$; adem\'{a}s, \'{e}sta viene dada por:
 \begin{equation}
 \label{eq:3.01}
 {\widehat{X}_{T} (h)=m_{T+h} 
 +\sum_{i=h}^{T+h+s-p'-1} {\psi_{i} u_{T+h-i} } =m_{T+h} 
 +\sum_{j=0}^{T+s-p'-1} {\psi_{j+h} u_{T-j} } }
 \end{equation}
-Esta f\'{o}rmula da la regresi\'{o}n afin de $X_{{T+h}}$ sobre los $X_{t}$ , $t\le T$, puesto que los $u_{t}$ son no correlacionados. Si, adem\'{a}s, los $u_{t}$ son normales o independientes entre ellos, $\widehat{X}_{T} (h)$ es igualmente la esperanza condicional de $X_{{T+h}}$ conocidas $X_{t}$, $t \le T$.
+
+Esta f\'{o}rmula da la regresi\'{o}n afin de $X_{{T+h}}$ sobre los $X_{t}$ , $t\le T$, puesto que los $u_{t}$ son no correlacionados. Si, adem\'{a}s, los $u_{t}$ son normales o independientes entre ellos, $\widehat{X}_{T} (h)$ es igualmente la esperanza condicional de $X_{{T+h}}$ conocidas $X_{t}$, $t \le T$.\newline
 
 El error de predicci\'{o}n se deduce directamente de (\ref{eq:3.01}):
 \[
 e_{T} (h)=X_{T+h} -\widehat{X} _{T} 
 (h)=\sum_{i=0}^{h-1} {\psi_{i} u_{T+h-i} } 
 \]
-En particular: $e_{T} (1)=u_{T+1} $
 
-Adem\'{a}s, el error en media cuadr\'{a}tica de $\widehat{X}_{T} (h)$, que en este caso coincide con la varianza 
-de $\widehat{X}_{T} (h)$, es: 
+En particular: $e_{T} (1)=u_{T+1}$.\newline
+
+Adem\'{a}s, el error en media cuadr\'{a}tica de $\widehat{X}_{T} (h)$, que en este caso coincide con la varianza de $\widehat{X}_{T} (h)$, es: 
 \[
 EMC_{T} (h)=\E(X_{T+h} -\widehat{X} _{T} (h))^{2}=\sigma ^{2}\sum_{i=0}^{h-1} {\psi_{i}^{2} } 
 \]
+
 En particular: $EMC_{T} (1)=\sigma^{2}$
 
 \begin{observacion}
 Por lo general, cuando $X_{t} $ se puede expresar en la forma denominada $MA(\infty )$:
 \[
-X_{t} =\sum_{i=0}^\infty {\psi_{i} u_{t-i} } 
-\qquad
-t\in \Z
+X_{t} =\sum_{i=0}^\infty {\psi_{i} u_{t-i} } \qquad t\in \Z
 \]
-se obtienen los mismos resultados para el error de predicci\'{o}n y el EMC 
-de horizonte h. Los coeficientes $\psi_{i} $ se pueden obtener de la 
-expresi\'{o}n $\psi (B)\phi (B)=\Theta (B),$ donde:
+
+se obtienen los mismos resultados para el error de predicci\'{o}n y el EMC de horizonte h. Los coeficientes $\psi_{i} $ se pueden obtener de la expresi\'{o}n $\psi (B)\phi (B)=\Theta (B),$ donde:
+
 \[
 \psi (B)=\sum_{i=0}^{\infty } \psi_{i} B^{i}
 \]
-Obs\'{e}rvese que $MA(\infty )$ es solamente una notaci\'{o}n, pues la serie 
-$\psi (B)$ no siempre es convergente; no confundir con la definici\'{o}n de 
-un proceso lineal ni con la de una media m\'{o}vil infinita.
+
+Obs\'{e}rvese que $MA(\infty )$ es solamente una notaci\'{o}n, pues la serie $\psi (B)$ no siempre es convergente; no confundir con la definici\'{o}n de un proceso lineal ni con la de una media m\'{o}vil infinita.
 \end{observacion}
 
+La f\'{o}rmula \eqref{eq:3.01} no es utilizable directamente, pues los $u_{t}$ no son observables; es necesario entonces buscar otras expresiones de $\widehat{X} _{T} (h)$.\newline
 
-La f\'{o}rmula \eqref{eq:3.01} no es utilizable directamente, pues los 
-$u_{t}$ no son observables; es necesario entonces buscar otras 
-expresiones de $\widehat{X} _{T} (h)$.
-
-Consid\'{e}rese tambi\'{e}n la representaci\'{o}n AR con $s$ grande (se pueden 
-despreciar los t\'{e}rminos con los $\pi^{\ast}_{j,T+h}$):
+Consid\'{e}rese tambi\'{e}n la representaci\'{o}n AR con $s$ grande (se pueden despreciar los t\'{e}rminos con los $\pi^{\ast}_{j, T+h}$):
 \[
 X_{T+h} =-\sum_{i=1}^{T+h+s-p'-1} {\pi_{i} X_{T+h-i} +u_{T+h} } 
 \]
@@ -1122,8 +835,7 @@ donde:
                       u_{T+h-i}&  \text{si } i\ge h
                      \end{cases}
 \]
-Finalmente, consid\'{e}rese ahora la predicci\'{o}n de $X_{{T+h}}$ en 
-el instante $T+1$:
+Finalmente, consid\'{e}rese ahora la predicci\'{o}n de $X_{{T+h}}$ en el instante $T+1$:
 \[
 \widehat{X}_{T+1} (h-1)=m_{T+h}+\sum_{i=h-1}^{T+h+s-p'-1} {\psi_{i} u_{T+h-i} } 
 \]
@@ -1132,8 +844,8 @@ por tanto:
 \label{eq:3.04}
 \widehat{X} _{T+1} (h-1)-\widehat{X}_{T} (h)=\psi_{h-1} u_{T+1} =\psi_{h-1} (X_{T+1} -\widehat{X}  _{T} (1))
 \end{equation}
-Con esta f\'{o}rmula se puede proceder a actualizar las predicciones, cuando 
-se ha observado $X_{T+1} $.
+
+Con esta f\'{o}rmula se puede proceder a actualizar las predicciones, cuando se ha observado $X_{T+1}$.\newline
 
 En resumen:
 \begin{enumerate}
@@ -1148,31 +860,24 @@ Para el c\'{a}lculo pr\'{a}ctico de las predicciones se suponen conocidos los pa
 
 
 \begin{ejemplo}
-A continuaci\'{o}n se presentan algunos casos en los que se explicitan los 
-predictores y los EMC:
+A continuaci\'{o}n se presentan algunos casos en los que se explicitan los predictores y los EMC:
 
 \begin{enumerate}
 \item Sea el modelo $ARIMA (0, 0, 2)$:
 \[
-X_{t} =u_{t} -\theta_{1} u_{t-1} -\theta_{2} u_{t-2} 
-\quad
-t\in \Z
+X_{t} =u_{t} -\theta_{1} u_{t-1} -\theta_{2} u_{t-2} \quad t\in \Z
 \]
 En este caso:
 \[
- \psi_{1} =-\theta_{1} ;
-\qquad
-\psi_{2} =-\theta_{2}\qquad \text{y}\qquad \psi_{j} =0 \text{ para }j>2
+ \psi_{1} =-\theta_{1}; \qquad \psi_{2} =-\theta_{2}\qquad \text{y}\qquad \psi_{j} =0 \text{ para }j>2
 \]
 
-Se calculan a continuaci\'{o}n para varios per\'{\i}odos de predicci\'{o}n 
-el valor real u observado, el predictor y el correspondiente error medio 
-cuadr\'{a}tico.
+Se calculan a continuaci\'{o}n para varios per\'{i}odos de predicci\'{o}n el valor real u observado, el predictor y el correspondiente error medio cuadr\'{a}tico.
 
 \begin{center}\small
 \begin{tabular}{@{}cccc@{}}
 \toprule
-\textbf{Per\'{\i}odo}& \textbf{Valor Real}& \textbf{Predictor}& \textbf{EMC} \\
+\textbf{Per\'{i}odo}& \textbf{Valor Real}& \textbf{Predictor}& \textbf{EMC} \\
 \midrule
 $T+1$& $X_{T+1} =u_{T+1} -\theta_{1} u_{T} -\theta_{2} u_{T-1} $& $\widehat{X}_{T} (1)=-\theta_{1} u_{T} -\theta_{2} u_{T-1} $& $\sigma_{u}^{2} $ \\[5pt]
 $T+2$& $X_{T+2} =u_{T+2} -\theta_{1} u_{T+1} -\theta_{2} u_{T} $& $\widehat{X}_{T} (2)=-\theta_{2} u{ }_{T}$& $\left( {1+\theta_{1}^{2} } \right)\sigma_{u}^{2} $ \\[5pt]
@@ -1185,22 +890,17 @@ Puede verse que para $h>2$, resultar\'{a} que $\widehat{X}_{T} (h)=0$ y que $EMC
 
 \item Sea un modelo $ARIMA (0, 1, 0)$; es decir, un modelo ``marcha aleatoria''
 \[
-X_{t} =X_{t-1} +u_{t} 
-\qquad
-t\in \Z
+X_{t} =X_{t-1} +u_{t} \qquad t\in \Z
 \]
-Al pasar a la forma $MA( \infty )$ se tiene que $\psi_{i} =1$ 
-para $i=1,2,3\ldots$
+Al pasar a la forma $MA( \infty )$ se tiene que $\psi_{i} =1$ para $i=1,2,3\ldots$.\newline
 
-Para los per\'{\i}odos $T+1$, $T+2$ y $T+3$ se obtienen los siguientes 
-resultados:
-
+Para los per\'{i}odos $T+1$, $T+2$ y $T+3$ se obtienen los siguientes resultados: 
 
 \begin{center}
 \small
 \begin{tabular}{@{}cccc@{}}
 \toprule
-\textbf{Per\'{\i}odo}& \textbf{Valor Real}& \textbf{Predictor}& \textbf{ECM} \\
+\textbf{Per\'{i}odo}& \textbf{Valor Real}& \textbf{Predictor}& \textbf{ECM} \\
 \midrule
 $T+1$& $X_{T+1} =X_{T} +u_{T+1} $& $\widehat{{X}}_{T} \left( 1 \right)=X_{T} $&
 $\sigma_{u}^{2}$ \\[5pt]
@@ -1211,38 +911,38 @@ $T+3$& $X_{T+3} =X_{T+2} +u_{T+3} $& $\widehat{{X}}_{T} \left( 3 \right)=\cdots 
 \end{center}
 
 
-En un modelo ``marcha aleatoria'' para todos los per\'{\i}odos futuros se 
-predice con el valor correspondiente al \'{u}ltimo per\'{\i}odo muestral. El 
-EMC se incrementa en $\sigma_{u}^{2}$ para cada per\'{\i}odo adicional.
+En un modelo ``marcha aleatoria'' para todos los per\'{i}odos futuros se predice con el valor correspondiente al \'{u}ltimo per\'{i}odo muestral. El EMC se incrementa en $\sigma_{u}^{2}$ para cada per\'{i}odo adicional.
 
-\item Sea un modelo $ARIMA( {1,1,0} )$
+\item Sea un modelo $ARIMA( {1,1,0})$
 \[
 \left( {1-\varphi_{1} B} \right)\left( {1-B} \right)X_{t} =u_{t} 
 \]
-Pasando a un ARMA mediante la utilizaci\'{o}n de par\'{a}metros 
-autorregresivos generalizados se tiene que
+
+Pasando a un ARMA mediante la utilizaci\'{o}n de par\'{a}metros autorregresivos generalizados se tiene que
+
 \[
 X_{t} -\phi_{1} X_{t-1} -\phi_{2} X_{t-2} =u_{t} 
 \]
-donde $\phi_{1} =\varphi_{1} +1y\phi_{2} =-\varphi_{1} .$
+
+donde $\phi_{1} =\varphi_{1} +1y\phi_{2} =-\varphi_{1}$.\newline
 
 A partir de la relaci\'{o}n:
 \[
 \psi \left( B \right)\phi \left( B \right)=1
 \]
-Se tiene que $\psi_{0} =1,$ y $\psi_{1} =\varphi_{1} .$ Tomando $\psi 
-_{0} y\psi_{1} $ como valores iniciales, los siguientes valores de 
-$\psi_{i} $ se determinan recursivamente mediante la f\'{o}rmula:
+
+Se tiene que $\psi_{0} =1,$ y $\psi_{1} =\varphi_{1} .$ Tomando $\psi_{0} y\psi_{1} $ como valores iniciales, los siguientes valores de $\psi_{i} $ se determinan recursivamente mediante la f\'{o}rmula:
+
 \[
 \psi_{k} =\phi_{1} \psi_{k-1} +\phi_{2} \psi_{k-2} ,\qquad k\ge 2
 \]
-Para los per\'{\i}odos $T+1,T+2yT+3$ se obtienen los siguientes 
-resultados:
+
+Para los per\'{i}odos $T+1,T+2yT+3$ se obtienen los siguientes resultados:
 
 \begin{center}\small
 \begin{tabular}{@{}cccc@{}}
 \toprule
-\textbf{Per\'{\i}odo}& \textbf{Valor Real}& \textbf{Predictor}& \textbf{ECM} \\
+\textbf{Per\'{i}odo}& \textbf{Valor Real}& \textbf{Predictor}& \textbf{ECM} \\
 \midrule
 $T+1$& $X_{T+1} =\varphi_{1} X_{T} +\varphi_{2} X_{T-1} +u_{T+1} $& $\widehat{{X}}_{T} \left( 1 \right)=\varphi_{1} X_{T} +\varphi_{2} X_{T-1} $& $\sigma_{u}^{2}$ \\[5pt]
 $T+2$& $X_{T+2} =\varphi_{1} X_{T+1} +\varphi_{2} X_{T} +u_{T+2} $& $\widehat{{X}}_{T} \left( 2 \right)=\varphi_{1} \widehat{{X}}_{T} \left( 1 \right)+\varphi_{2} X_{T} $& 
@@ -1257,19 +957,19 @@ $T+3$& $X_{T+3} =\varphi_{1} X_{T+2} +\varphi_{2} X_{T+1} +u_{T+3} $& $\widehat{
 \[
 X_{t} =\varphi_{1} X_{t-1} +u_{t} -\theta_{1} u_{t-1} 
 \]
-El coeficiente $\psi_{1} =\varphi_{1} -\theta_{1} .$ Los siguientes 
-valores se calculan de forma recursiva a partir de
+
+El coeficiente $\psi_{1} =\varphi_{1} -\theta_{1} .$ Los siguientes valores se calculan de forma recursiva a partir de
+
 \[
 \psi_{k} =\varphi_{1} \psi_{k-1} ,\quad \quad k\ge 1
 \]
-Para este modelo, al predecir en los per\'{\i}odos 
-$T+1$,$T+2$ y $T+3$ se obtienen los siguientes resultados:
 
+Para este modelo, al predecir en los per\'{i}odos $T+1$,$T+2$ y $T+3$ se obtienen los siguientes resultados:
 
 \begin{center}\small
 \begin{tabular}{@{}cccc@{}}
 \toprule
-\textbf{Per\'{\i}odo}& \textbf{Valor Real}& \textbf{Predictor}& \textbf{EMC} \\
+\textbf{Per\'{i}odo}& \textbf{Valor Real}& \textbf{Predictor}& \textbf{EMC} \\
 \midrule
 $T+1$& $X_{T+1} =\varphi_{1} X_{T} +u_{T+1} -\theta_{1} u_{T} $& $\widehat{X}_{T} (1)=\varphi_{1} X_{T} -\theta_{1} u_{T} $& $\sigma_{u}^{2} $ \\[5pt]
 $T+2$& $X_{T+2} =\varphi_{1} X_{T+1} +u_{T+2} -\theta_{1} u_{T+1} $& $\widehat{X}_{T} (2)=\varphi_{1} \widehat{X}_{T} (1)$& $\left( {1+\psi_{1}^{2} } \right)\sigma_{u}^{2} $ \\[5pt]
@@ -1289,63 +989,59 @@ Si\index{Predicci\'{o}n!Intervalos} se asume que $u_{t} \sim N\left( {0,\sigma^{
  e_{T} (h)=X_{T+h} -\widehat{X} _{T} (h)=\sum_{i=0}^{h-1} {\psi_{i} u_{T+h-i} }  \sim N\left({0,\sigma^{2}\sum_{i=0}^{h-1} {\psi_{i}^{2} } } \right)
 \]
 
-As\'{\i}, se puede obtener un intervalo de confianza, llamado intervalo de 
-predicci\'{o}n, para $X_{T+h}$:
+As\'{i}, se puede obtener un intervalo de confianza, llamado intervalo de predicci\'{o}n, para $X_{T+h}$:
+
 \[
 I=\widehat{X} _{T} (h)\pm u_{1-\frac{\alpha }{2}} \sigma 
 \sqrt {\sum_{i=0}^{h-1} {\psi_{i}^{2} } } 
 \]
-donde $u_{1-\frac{\alpha}{2}}$ es el  cuantil de orden $(1-\frac{\alpha}{2})$  de la distribuci\'{o}n $N(0,1)$.
 
-Para calcular este intervalo, se requiere reemplazar $\sigma $ por su 
-estimaci\'{o}n.
+donde $u_{1-\frac{\alpha}{2}}$ es el  cuantil de orden $(1-\frac{\alpha}{2})$  de la distribuci\'{o}n $N(0,1)$.\newline
+
+Para calcular este intervalo, se requiere reemplazar $\sigma$ por su estimaci\'{o}n.
 
 \subsection{Funciones de predicci\'{o}n}
 
 Se\index{Predicci\'{o}n!Funciones de} conoce que:
 \[
 \widehat{X}_{_{t} } (h)=\sum_{i=1}^{p'} {\varphi_{i} 
-\widehat{X}_{t} (h-i)} \Longleftrightarrow \widehat{X}_{t} (h)-\sum_{i=1}^{p'} {\varphi_{i} \widehat{X}_{t} 
-(h-i)=0} 
+\widehat{X}_{t} (h-i)} \Longleftrightarrow \widehat{X}_{t} (h)-\sum_{i=1}^{p'} {\varphi_{i} \widehat{X}_{t}  (h-i)=0}  \qquad h>q
 \]
-$h>q$. Si $\left(h\le i,\ \widehat{X}_{t} (h-i)=X_{t+h+i} \right);$ es decir, se tiene una ecuaci\'{o}n en recurrencia.
 
-Se llamar\'{a} funci\'{o}n de predicci\'{o}n a $\widehat{X}_{t} (h)$, (con $t$ fijo). Entonces la soluci\'{o}n 
-general de $\widehat{X} _{t} (h)$ es:
+Si $\left(h\le i,\ \widehat{X}_{t} (h-i)=X_{t+h+i} \right);$ es decir, se tiene una ecuaci\'{o}n en recurrencia.\newline
+
+Se llamar\'{a} funci\'{o}n de predicci\'{o}n a $\widehat{X}_{t} (h)$, (con $t$ fijo). Entonces la soluci\'{o}n general de $\widehat{X} _{t} (h)$ es:
+
 \[
-\widehat{X} _{t} (h)=\sum_{i=1}^{p'} {b_{i} 
-(t)f_{i} (h)} 
+\widehat{X} _{t} (h)=\sum_{i=1}^{p'} {b_{i} (t)f_{i} (h)} 
 \]
-donde los $f_{i}(h)$ son las soluciones elementales de la 
-ecuaci\'{o}n de recurrencia que tiene por polinomio caracter\'{\i}stico a:
+
+donde los $f_{i}(h)$ son las soluciones elementales de la ecuaci\'{o}n de recurrencia que tiene por polinomio caracter\'{i}stico a:
+
 \[
 z^{p'}-\sum_{i=1}^{p'} {\varphi_{i} z^{p'-i}} =z^{p'}\left[ 
 {1-\sum_{i=1}^{p'} {\varphi_{i} } \left( {\frac{1}{z}} \right)^{i}} 
 \right]=z^{p'}\varphi \left( {\frac{1}{z}} \right)
 \]
-es decir, las inversas de las ra\'{\i}ces de $\varphi \left( z \right)=0$. 
-Los $b_{i}(t)$ se determinan de los $p'$ valores iniciales (ver 
-Anexo B.3).
+
+es decir, las inversas de las ra\'{i}ces de $\varphi \left( z \right)=0$. Los $b_{i}(t)$ se determinan de los $p'$ valores iniciales (ver Anexo B.3).
 
 \begin{observacion}
 
 \begin{enumerate}
-\item Si no hay diferenciaci\'{o}n: $\varphi (z)=\Phi (z);$ adem\'{a}s, si las ra\'{i}ces son distintas, se tiene:
+\item[i.] Si no hay diferenciaci\'{o}n: $\varphi (z)=\Phi (z);$ adem\'{a}s, si las ra\'{i}ces son distintas, se tiene:
 \[
- \widehat{X} _{t} (h)=\sum_{i=1}^p {b_{i} 
-(t)\lambda_{i}^{h} }
+ \widehat{X} _{t} (h)=\sum_{i=1}^p {b_{i} (t)\lambda_{i}^{h} }
 \]
 (los $\lambda_i$ inversas de las ra\'{i}ces de $\Phi(z)=0$)
 \[
 \therefore \widehat{X} _{t} (h) \xrightarrow[m.c.]{h-\infty} 0 
 \]
-El resultado es cierto tambi\'{e}n en el caso general, si las ra\'{\i}ces de 
-$\Phi (z)$ son de $\left| \right|>1$.
+El resultado es cierto tambi\'{e}n en el caso general, si las ra\'{i}ces de $\Phi (z)$ son de $\left| \right|>1$.
 
+\item[ii.] Si $\phi(z)=(1-z)^{d} \Phi (z)$, $\widehat{X}_{T}(h)$ admite como l\'{i}mite un polinomio asint\'{o}tico de grado $(d-1)$.
 
-\item Si $\phi(z)=(1-z)^{d} \Phi (z)$, $\widehat{X}_{T}(h)$ admite como l\'{\i}mite un polinomio asint\'{o}tico de grado $(d-1)$.
-
-\item Si adem\'{a}s en el modelo existe una constante $\theta_{0}$ , hay que a\~{n}adir una soluci\'{o}n particular; por ejemplo:
+\item[iii.] Si adem\'{a}s en el modelo existe una constante $\theta_{0}$ , hay que a\~{n}adir una soluci\'{o}n particular; por ejemplo:
 \[
 \frac{\theta_{0} h^{d}}{d!\Phi (1)}
 \]
@@ -1357,25 +1053,24 @@ Consid\'{e}rese el modelo;
 \[
 (1-B)^{2} (1-0,5B) X_{t}=2+(1- 0,8B) u_{t} 
 \]
-con los siguientes valores iniciales; $\widehat{X} _{t} (1)= 1$, $X_{t}= 2$, $X_{t-1} =-1$.
+con los siguientes valores iniciales; $\widehat{X} _{t} (1)= 1$, $X_{t}= 2$, $X_{t-1} =-1$.\newline
 
 La forma general de $\widehat{X} _{T} (h)$ es:
 \[
 \widehat{X} _{T} (h)= a + bh + c(1/2)^{h} +\frac{2h^{2}}{2!(1/2)}
 \]
 
-Para determinar los coeficientes $a$, $b$ y $c$, se deben utilizar los valores 
-iniciales de $\widehat{X} _{T} (h)$ con $h=1, 0, -1$:
+Para determinar los coeficientes $a$, $b$ y $c$, se deben utilizar los valores iniciales de $\widehat{X} _{T} (h)$ con $h=1, 0, -1$:
+
 \begin{align*}
 \widehat{X} _{T} (1)&= a+b+c(1/2)+2 =1\\
 \widehat{X} _{T} (0)&= a+c = 2\\
 \widehat{X} _{T} (-1)= a- b+ 2c + 2= -1 
 \end{align*}
+
 Se debe resolver entonces, el sistema de ecuaciones:
 \[
-\systeme{
-2a+2b+c=-2, a-b+2c=-3 , a+c=2
-}
+\systeme{ 2a+2b+c=-2, a-b+2c=-3 , a+c=2 }
 \]
 que tiene como soluci\'{o}n: $a=18$, $b=-11$, $c=-16$; entonces:
 \[
@@ -1386,78 +1081,59 @@ que tiene como soluci\'{o}n: $a=18$, $b=-11$, $c=-16$; entonces:
 
 \subsection{Contraste de la estabilidad estructural en la predicci\'{o}n }
 
-Cuando se ha utilizado un modelo\index{Predicci\'{o}n!Estabilidad 
-estructural} ARIMA, ya validado, para predecir los valores de la variable en 
-per\'{i}odos extramuestrales, se puede plantear el siguiente interrogante: 
-?sigue siendo v\'{a}lido el modelo para los per\'{i}odos de 
-predicci\'{o}n?; en otras palabras, ?se ha producido un cambio estructural 
-en los per\'{i}odos de predicci\'{o}n?
+Cuando se ha utilizado un modelo\index{Predicci\'{o}n!Estabilidad estructural} ARIMA, ya validado, para predecir los valores de la variable en per\'{i}odos extramuestrales, se puede plantear el siguiente interrogante: ?`sigue siendo v\'{a}lido el modelo para los per\'{i}odos de predicci\'{o}n?; en otras palabras, ?`se ha producido un cambio estructural en los per\'{i}odos de predicci\'{o}n?\newline
 
-Con objeto de obtener una respuesta a esta cuesti\'{o}n se puede utilizar el 
-siguiente estad\'{\i}stico.
+Con objeto de obtener una respuesta a esta cuesti\'{o}n se puede utilizar el siguiente estad\'{i}stico.
+
 \begin{equation}\label{eq:3.05}
- E_{m}^{\ast }=\frac{\sum_{i=0}^m {e_{T+h}^{2}(i)} }{\widehat{\sigma 
-}^{2}} 
+ E_{m}^{\ast }=\frac{\displaystyle\sum_{i=0}^m {e_{T+h}^{2}(i)} }{\widehat{\sigma}^{2}} 
 \end{equation}
-donde $e_{T+h}( i)$ es el error de predicci\'{o}n de 
-$X_{T+h+i} $ utilizando la informaci\'{o}n disponible hasta el momento 
-$T+h.$
 
-Se puede demostrar que el estad\'{\i}stico tiene asint\'{o}ticamente una 
-distribuci\'{o}n $\chi^{2}$ con $m$ grados de libertad, bajo la 
-hip\'{o}tesis nula de que no se ha dado una ruptura estructural al pasar a 
-los per\'{\i}odos de predicci\'{o}n. Para comprender el significado de este 
-contraste debe tenerse en cuenta que si el modelo sigue siendo correcto se 
-verificar\'{a} que:
+donde $e_{T+h}( i)$ es el error de predicci\'{o}n de $X_{T+h+i} $ utilizando la informaci\'{o}n disponible hasta el momento $T+h$.\newline
+
+Se puede demostrar que el estad\'{i}stico tiene asint\'{o}ticamente una distribuci\'{o}n $\chi^{2}$ con $m$ grados de libertad, bajo la hip\'{o}tesis nula de que no se ha dado una ruptura estructural al pasar a los per\'{i}odos de predicci\'{o}n. Para comprender el significado de este contraste debe tenerse en cuenta que si el modelo sigue siendo correcto se verificar\'{a} que:
+
 \[
 e_{T+`h} ( i )\approx u_{T+h+i} 
 \]
-Por el contrario, en la medida que esto no ocurra, tender\'{a} a aumentar el 
-EMC de cada predicci\'{o}n, y por tanto el estad\'{\i}stico $E_{m}^{\ast},$ lo que llevar\'{\i}a a rechazar la hip\'{o}tesis nula.
+
+Por el contrario, en la medida que esto no ocurra, tender\'{a} a aumentar el EMC de cada predicci\'{o}n, y por tanto el estad\'{i}stico $E_{m}^{\ast},$ lo que llevar\'{i}a a rechazar la hip\'{o}tesis nula.
 
 \begin{observacion}
-Esta prueba tambi\'{e}n se la encuentra con el nombre de \emph{Prueba de predicciones de Chow}\index{Prueba de Chow!Predicci\'{o}n}. Se puede utilizar el 
-siguiente estad\'{\i}stico:
+Esta prueba tambi\'{e}n se la encuentra con el nombre de \emph{Prueba de predicciones de Chow}\index{Prueba de Chow!Predicci\'{o}n}. Se puede utilizar el siguiente estad\'{i}stico:
+
 \[
 F=\frac{\left( \tilde{u}'\tilde{u}-u_{1}'u_{1} 
 \right)/T_{2}}{u_{1}'u_{1}/(T_{1}-k)}
 \]
+
 donde
 \begin{itemize}
-\item $\tilde{u}'\tilde{u}$: Es la suma de cuadrados de los residuos considerando 
-todas las observaciones.
-\item $u_{1}'u_{1}$: Es la suma de cuadrados de los residuos de la submuestra 
-$T_{1}$
-\item $T_{1}$: Es un subper\'{\i}odo de $T$.
-\item $T$: N\'{u}mero de observaciones.
-\item $k$: N\'{u}mero de coeficientes estimados.
-\item $T_{2}$: N\'{u}mero de puntos de predicci\'{o}n.
+      \item $\tilde{u}'\tilde{u}$: Es la suma de cuadrados de los residuos considerando todas las observaciones.
+      \item $u_{1}'u_{1}$: Es la suma de cuadrados de los residuos de la submuestra $T_{1}$
+      \item $T_{1}$: Es un subper\'{i}odo de $T$.
+      \item $T$: N\'{u}mero de observaciones.
+      \item $k$: N\'{u}mero de coeficientes estimados.
+      \item $T_{2}$: N\'{u}mero de puntos de predicci\'{o}n.
 \end{itemize}
 
-$F$ sigue una distribuci\'{o}n exacta si los errores son i.i.d.
+$F$ sigue una distribuci\'{o}n exacta si los errores son i.i.d.\newline
 
-Por otro lado, tambi\'{e}n se puede considerar la estimaci\'{o}n del 
-logaritmo de la raz\'{o}n de verosimilitud que est\'{a} basado en la 
-comparaci\'{o}n del m\'{a}ximo de las funciones de verosimilitud restringida 
-y sin restringir. Ambos logaritmos de verosimilitud son obtenidos a partir 
-de la regresi\'{o}n utilizando toda la muestra. La prueba tiene una 
-distribuci\'{o}n asint\'{o}tica $\chi^{2}$ con $T_{2}$ grados de libertad, 
-bajo $H_{0}$, para la siguiente prueba de hip\'{o}tesis:
+Por otro lado, tambi\'{e}n se puede considerar la estimaci\'{o}n del logaritmo de la raz\'{o}n de verosimilitud que est\'{a} basado en la comparaci\'{o}n del m\'{a}ximo de las funciones de verosimilitud restringida y sin restringir. Ambos logaritmos de verosimilitud son obtenidos a partir de la regresi\'{o}n utilizando toda la muestra. La prueba tiene una distribuci\'{o}n asint\'{o}tica $\chi^{2}$ con $T_{2}$ grados de libertad, bajo $H_{0}$, para la siguiente prueba de hip\'{o}tesis:
+
 \[
 \begin{cases}
  H_{0}:&\text{No  existen  cambios  estructurales}\\
  H_{1}:&\text{Existen  cambios  estructurales}
 \end{cases}
 \]
-Cabe recalcar que esta formulaci\'{o}n es similar a la presentada 
-anteriormente.
+
+Cabe recalcar que esta formulaci\'{o}n es similar a la presentada anteriormente.
 \end{observacion}
 
 
 \begin{ejemplo}
-Considerando la SIB se realiza la prueba anterior, 
-teniendo en cuenta que se predicen desde la observaci\'{o}n 135 hasta la 
-141. El resultado es el siguiente:
+Considerando la SIB se realiza la prueba anterior, teniendo en cuenta que se predicen desde la observaci\'{o}n 135 hasta la 141. El resultado es el siguiente:
 
 \begin{figure}[H]
 \centering\small
@@ -1476,51 +1152,35 @@ Likelihood ratio& ~2.691185& ~7& ~0.9120 \\
 \caption{Prueba de predicciones de Chow}
 \end{figure}
 
-Como se puede observar, el valor $p$ asociado al estad\'{\i}stico $F$ es mayor 
-que 0,05; por lo tanto, se acepta la hip\'{o}tesis nula de que no existen 
-cambios estructurales en las predicciones.
+Como se puede observar, el valor $p$ asociado al estad\'{i}stico $F$ es mayor que 0,05; por lo tanto, se acepta la hip\'{o}tesis nula de que no existen cambios estructurales en las predicciones.
 \end{ejemplo}
-
-
 
 
 \section{Transformaci\'{o}n de Datos}
 
-El operador $\Delta^{d}= (1-B)^{d}$ aplicado a $X_{t} $ tiene por 
-objeto volver a la serie estacionaria. Sin embargo, para ciertos tipos de 
-series no se podr\'{a} obtener la estacionariedad de esta manera. Por 
-ejemplo: si la serie $X_{t} $ tiene una esperanza matem\'{a}tica que es 
-funci\'{o}n exponencial de $t$ (tendencia exponencial), ning\'{u}n operador 
-$\Delta^{d}$ podr\'{a} anularla, ya que $\Delta^{d}\left( e^{at} 
-\right)=e^{a}(e^{t}-e^{t-d})$; una idea natural en este caso consiste en 
-transformar\index{Transformaci\'{o}n de datos!Logar\'{\i}tmica} la serie 
-$X_{t} $ (supuesta positiva) por la funci\'{o}n $\ln$  antes de aplicar un 
-operador $\Delta^{d}$.
+El operador $\Delta^{d}= (1-B)^{d}$ aplicado a $X_{t} $ tiene por objeto volver a la serie estacionaria. Sin embargo, para ciertos tipos de series no se podr\'{a} obtener la estacionariedad de esta manera. Por ejemplo: si la serie $X_{t} $ tiene una esperanza matem\'{a}tica que es funci\'{o}n exponencial de $t$ (tendencia exponencial), ning\'{u}n operador $\Delta^{d}$ podr\'{a} anularla, ya que $\Delta^{d}\left( e^{at} \right)=e^{a}(e^{t}-e^{t-d})$; una idea natural en este caso consiste en transformar\index{Transformaci\'{o}n de datos!Logar\'{i}tmica} la serie $X_{t} $ (supuesta positiva) por la funci\'{o}n $\ln$  antes de aplicar un operador $\Delta^{d}$.\newline
 
 De igual manera, si la serie es del tipo $X_{t}=(at +b)Z_{t}$, donde $(Z_{t})$ es un proceso estacionario con $\E Z_{t} = 1$, $\V Z_{t}= \sigma^{2}$ y $a> 0$, se tiene:
+
 \begin{itemize}
 \item $\E X_{t}  = at+b$.
 \item $\V(X_{t}) =\sigma^{2}(at +b)^{2}$.
 \item $\E\Delta X_{t} = a$.
-\item $\V(\Delta X_{t}) = \sigma^{2}\left\{ {\left[ {at+b} \right]^{2}+\left[ {a(t-1)+b} \right]^{2}-2\left[ {at+b} \right]\left[ {a(t-1)+b} \right]\rho (1)} \right\}$\\ $\phantom{\V(\Delta X_{t}) }=\sigma^{2}\left\{ {a^{2}+2(1-\rho (1))\left[ {at+b} \right]\left[ 
-{a(t-1)+b} \right]} \right\}$
+\item $\V(\Delta X_{t}) = \sigma^{2}\left\{ {\left[ {at+b} \right]^{2}+\left[ {a(t-1)+b} \right]^{2}-2\left[ {at+b} \right]\left[ {a(t-1)+b} \right]\rho (1)} \right\}$\\ $\phantom{\V(\Delta X_{t}) }=\sigma^{2}\left\{ {a^{2}+2(1-\rho (1))\left[ {at+b} \right]\left[ {a(t-1)+b} \right]} \right\}$
 \end{itemize}
 
-As\'{\i}, $\Delta X_{t}$ tiene una esperanza constante y una 
-varianza creciente con $t; $si se toma previamente logaritmos, se obtiene: 
+As\'{i}, $\Delta X_{t}$ tiene una esperanza constante y una varianza creciente con $t; $si se toma previamente logaritmos, se obtiene: 
+
 \[
 \Delta \ln X_{t} =\ln \frac{at+b}{a(t-1)+b}+\Delta \ln Z_{t} 
 \approx \Delta \ln Z_{t} 
 \]
-Si $(Z_{t})$ es estacionario (en sentido estricto), $\Delta \ln X_{t}$ lo ser\'{a} asint\'{o}ticamente.
 
-Se constata que la transformaci\'{o}n $\ln$ puede ser \'{u}til y las indicaciones generalmente admitidas de su utilidad son: un crecimiento exponencial de la tendencia o una crecimiento de la variabilidad de $\Delta X_{t}$ 
-junto con una estabilidad en media.
+Si $(Z_{t})$ es estacionario (en sentido estricto), $\Delta \ln X_{t}$ lo ser\'{a} asint\'{o}ticamente.\newline
 
-Si se supone que la serie $Y_{t} =\ln X_{t} $ es un proceso ARIMA, se le 
-puede aplicar las t\'{e}cnicas vistas y obtener as\'{\i} $\widehat{Y} 
-_{t} (h)=\E\left[ Y_{t+h} | Y_{t}  ,Y_{t-1} ,\ldots  \right]$. El problema es entonces deducir de $\widehat{Y}_{t} (h)$ una predicci\'{o}n $X_{t}^{\ast } (h)$ de $X_{t+h} $. 
-La primera idea consiste en tomar:
+Se constata que la transformaci\'{o}n $\ln$ puede ser \'{u}til y las indicaciones generalmente admitidas de su utilidad son: un crecimiento exponencial de la tendencia o una crecimiento de la variabilidad de $\Delta X_{t}$ junto con una estabilidad en media.\newline
+
+Si se supone que la serie $Y_{t} =\ln X_{t} $ es un proceso ARIMA, se le puede aplicar las t\'{e}cnicas vistas y obtener as\'{i} $\widehat{Y}_{t} (h)=\E\left[ Y_{t+h} | Y_{t}  ,Y_{t-1} ,\ldots  \right]$. El problema es entonces deducir de $\widehat{Y}_{t} (h)$ una predicci\'{o}n $X_{t}^{\ast } (h)$ de $X_{t+h} $. La primera idea consiste en tomar:
 \[
 X_{t}^{\ast } (h)=\exp \left[ {\widehat{Y} _{t} (h)} \right]
 \]
@@ -1535,113 +1195,89 @@ Es claro, sin embargo, que $X_T^{\ast}(h)$ es diferente de la predicci\'{o}n \'{
 
 Sup\'{o}ngase ahora que $Y_{t}$ es normal (o $X_{t}$ $\log$-normal). Se tiene entonces:
 \[
-\widehat{X} _{t} (h)=\E\left[ \exp Y_{t+h} | Y_{t} ,Y_{t+1} ,\ldots \right]
-=\exp \left[\widehat{Y}_{t} (h) \right]\exp \left[ \frac{1}{2}\V(Y_{t+h} )| Y_{t},Y_{t-1} ,\ldots \right]
+\widehat{X} _{t} (h)=\E\left[ \exp Y_{t+h} | Y_{t} ,Y_{t+1} ,\ldots \right]=\exp \left[\widehat{Y}_{t} (h) \right]\exp \left[ \frac{1}{2}\V(Y_{t+h} )| Y_{t},Y_{t-1} ,\ldots \right]
 \]
 ya que la esperanza de la ley $\log$-normal asociada a la ley normal $N(m, 
 \sigma^{2})$ es:
 \[
 \exp \left[ {m+\frac{\sigma^{2}}{2}} \right]
 \]
-As\'{\i}, se tiene:
+As\'{i}, se tiene:
 \[
-\widehat{X} _{t} (h)=X_{t}^{\ast } (h)\exp \left[ 
-{\frac{1}{2}V(Y_{t+h} )| Y_{t} ,Y_{t-1} ,\ldots} \right]
+\widehat{X} _{t} (h)=X_{t}^{\ast } (h)\exp \left[ {\frac{1}{2}V(Y_{t+h} )| Y_{t} ,Y_{t-1} ,\ldots} \right]
 \]
-Para calcular el factor de correcci\'{o}n, recordando que los 
-$u_{t}$ son el ruido blanco asociado a $Y_{t}$, 
-obs\'{e}rvese que:
+
+Para calcular el factor de correcci\'{o}n, recordando que los $u_{t}$ son el ruido blanco asociado a $Y_{t}$, obs\'{e}rvese que:
+
 \begin{align*}
 \V(Y_{t+h} | Y_{t} ,Y_{t-1} ,\ldots)
 	&=\V(Y_{t+h}| u_{t},u_{t-1} ,\ldots) \\ 
 	&=\V\left(\sum_{i=0}^{h-1} \psi_{i} u_{t-1} \right) \\ 
 	&=\sigma^{2}\sum_{i=0}^{h-1} {\psi_{i}^{2} }
 \end{align*}
+
 Finalmente, se toma como predictor de $X_{{t+h}}$:
+
 \[
 \widehat{X} _{t} (h)=\exp \left[ {\widehat{Y}_{t} (h)+\frac{\sigma^{2}}{2}\sum_{i=0}^{h-1} {\psi _{i}^{2} } } \right]
 \]
-En la pr\'{a}ctica se reemplazan los par\'{a}metros por sus estimadores.
 
-La transformaci\'{o}n logar\'{\i}tmica es sin duda la m\'{a}s utilizada para 
-las series econ\'{o}micas. Sin embargo, esta transformaci\'{o}n es un 
-elemento de una clase m\'{a}s general (llamada clase de transformaciones de 
-Box-Cox\index{Transformaci\'{o}n de datos!Box-Cox}) definida por:
+En la pr\'{a}ctica se reemplazan los par\'{a}metros por sus estimadores.\newline
+
+La transformaci\'{o}n logar\'{i}tmica es sin duda la m\'{a}s utilizada para las series econ\'{o}micas. Sin embargo, esta transformaci\'{o}n es un elemento de una clase m\'{a}s general (llamada clase de transformaciones de Box-Cox\index{Transformaci\'{o}n de datos!Box-Cox}) definida por:
+
 \[
 T_{\lambda } (X_{t} )=\begin{cases}
                        \displaystyle\frac{X_{t}^{\lambda } -1}{\lambda }&\lambda \ne 0\\[1mm]
                        \ln X_{t} & \lambda =0
                       \end{cases}
 \]
-$X_{t}$ se supone positiva. Obs\'{e}rvese que $\ln X_{t}=\lim_{\lambda \to 0} T_{\lambda } (X_{t} )$.
 
+$X_{t}$ se supone positiva. Obs\'{e}rvese que $\ln X_{t}=\lim_{\lambda \to 0} T_{\lambda } (X_{t} )$.
 
 
 \section{Ra\'{i}ces Unitarias}
 
-En el desarrollo de la metodolog\'{\i}a de Box-Jenkins para el tratamiento 
-de las series temporales (ver cap\'{\i}tulo 2), se exige que antes de la 
-fase de identificaci\'{o}n, si las series no son estacionarias se hagan las 
-transformaciones oportunas para lograr la estacionariedad. Una de las 
-transformaciones m\'{a}s comunes es la 
-``diferenciaci\'{o}n\index{Diferenciaci\'{o}n}'', que consiste en considerar 
-la transformaci\'{o}n:
+En el desarrollo de la metodolog\'{i}a de Box-Jenkins para el tratamiento de las series temporales (ver cap\'{i}tulo 2), se exige que antes de la fase de identificaci\'{o}n, si las series no son estacionarias se hagan las transformaciones oportunas para lograr la estacionariedad. Una de las transformaciones m\'{a}s comunes es la ``diferenciaci\'{o}n\index{Diferenciaci\'{o}n}'', que consiste en considerar la transformaci\'{o}n:
+
 \[
 Y_{t}=\left( 1-B \right)X_{t}=X_{t}-X_{t-1}
 \]
-Puesto que el polinomio autoregresivo asociado ${\Phi }\left( z 
-\right)=1-z$ tiene como ra\'{\i}z al valor 1, se dice que el proceso 
-($Y_{t})$ tiene una ra\'{\i}z unitaria\index{Ra\'{\i}z unitaria}; 
-tambi\'{e}n se dice que la serie ($Y_{t})$ es integrada de orden 1 y se 
-denota por $I(1)$. Obviamente, de manera similar, se pueden definir 
-ra\'{\i}ces unitarias de orden superior.
 
-El gr\'{a}fico de la serie temporal o el de sus correlogramas se utilizan 
-frecuentemente para determinar la necesidad de ``diferenciar'' la serie; son 
-instrumentos emp\'{\i}ricos para detectar la presencia de ra\'{\i}ces 
-unitarias, pero pueden resultar algo imprecisos.
+Puesto que el polinomio autoregresivo asociado ${\Phi }\left( z \right)=1-z$ tiene como ra\'{i}z al valor 1, se dice que el proceso ($Y_{t})$ tiene una ra\'{i}z unitaria\index{Ra\'{i}z unitaria}; tambi\'{e}n se dice que la serie ($Y_{t})$ es integrada de orden 1 y se denota por $I(1)$. Obviamente, de manera similar, se pueden definir ra\'{i}ces unitarias de orden superior.\newline
 
-A partir de 1979 se han desarrollado pruebas de hip\'{o}tesis apropiadas 
-para saber si la serie tiene o no ra\'{\i}ces unitarias; \'{e}stas se 
-realizan utilizando la metodolog\'{\i}a propuesta por Dickey y Fuller (de 
-ah\'{\i} se desprende el nombre de la prueba). En este documento se 
-utilizar\'{a} el paquete EViews, que proporciona las pruebas Dickey-Fuller 
-Aumentada (ADF) y la de Phillips-Perron.
+El gr\'{a}fico de la serie temporal o el de sus correlogramas se utilizan frecuentemente para determinar la necesidad de ``diferenciar'' la serie; son instrumentos emp\'{i}ricos para detectar la presencia de ra\'{i}ces unitarias, pero pueden resultar algo imprecisos.\newline
+
+A partir de 1979 se han desarrollado pruebas de hip\'{o}tesis apropiadas para saber si la serie tiene o no ra\'{i}ces unitarias; \'{e}stas se realizan utilizando la metodolog\'{i}a propuesta por Dickey y Fuller (de ah\'{i} se desprende el nombre de la prueba). En este documento se utilizar\'{a} el paquete EViews, que proporciona las pruebas Dickey-Fuller Aumentada (ADF) y la de Phillips-Perron.
 
 \subsection{La prueba de Dickey-Fuller}
 
-La forma m\'{a}s f\'{a}cil de presentar esta prueba\index{Ra\'{\i}z 
-unitaria!Prueba de Dickey-Fuller} es considerar un modelo $AR(1)$:
+La forma m\'{a}s f\'{a}cil de presentar esta prueba\index{Ra\'{i}z unitaria!Prueba de Dickey-Fuller} es considerar un modelo $AR(1)$:
+
 \[
 X_{t}=\rho X_{t-1}+u_{t},\qquad        
 t  \epsilon   Z
 \]
-con $\left| \rho \right|<1$ y $(u_{t})$ un ruido blanco. La condici\'{o}n 
-$\left| \rho \right|<1$ es necesaria y suficiente para que el proceso sea 
-estacionario y lineal. En este caso $X_{t}$ es la innovaci\'{o}n en el 
-instante t; es decir, $u_{t}$ influye sobre los valores de $X_{t}$ 
-correspondientes al mismo per\'{\i}odo, o a per\'{\i}odos posteriores, pero 
-nunca ejerce influencia sobre los valores de $X_{t}$ correspondientes a 
-per\'{\i}odos anteriores.
 
-Consid\'{e}rese ahora el modelo $AR(1)$ precedente. Si el coeficiente de 
-$X_{t-1}$ es en realidad igual a 1, surge el problema de ra\'{\i}z unitaria; 
-es decir, una situaci\'{o}n de no estacionariedad. Por consiguiente si se 
-realiza la regresi\'{o}n:
+con $\left| \rho \right|<1$ y $(u_{t})$ un ruido blanco. La condici\'{o}n $\left| \rho \right|<1$ es necesaria y suficiente para que el proceso sea estacionario y lineal. En este caso $X_{t}$ es la innovaci\'{o}n en el instante t; es decir, $u_{t}$ influye sobre los valores de $X_{t}$ correspondientes al mismo per\'{i}odo, o a per\'{i}odos posteriores, pero nunca ejerce influencia sobre los valores de $X_{t}$ correspondientes a per\'{i}odos anteriores.\newline
+
+Consid\'{e}rese ahora el modelo $AR(1)$ precedente. Si el coeficiente de $X_{t-1}$ es en realidad igual a 1, surge el problema de ra\'{i}z unitaria; es decir, una situaci\'{o}n de no estacionariedad. Por consiguiente si se realiza la regresi\'{o}n:
+
 \[
 X_{t}=\rho X_{t-1}+u_{t}
 \]
-y si se encuentra que $\rho =1$, entonces se dice que la variable $X_{t}$ 
-tiene una ra\'{\i}z unitaria (en este caso se dice que la serie es una 
-\emph{caminata aleatoria}\index{Caminata aleatoria}). En este 
-caso se realiza la prueba de hip\'{o}tesis:
+
+y si se encuentra que $\rho =1$, entonces se dice que la variable $X_{t}$ tiene una ra\'{i}z unitaria (en este caso se dice que la serie es una \emph{caminata aleatoria}\index{Caminata aleatoria}). En este caso se realiza la prueba de hip\'{o}tesis:
+
 \[
 \begin{cases}
 H_{0}:&\rho =1 \\ 
 H_{1}:&\rho <1
 \end{cases}
 \]
+
 Con frecuencia, a la ecuaci\'{o}n anterior se la expresa de forma alternativa, utilizando el operador de primera diferencia $\Delta =1-B$ y sustrayendo de cada lado $X_{t-1}$:
+
 \[
 {\Delta }X_{t}=\left( \rho -1 \right)X_{t-1}+u_{t}
 \]
@@ -1649,131 +1285,74 @@ Con frecuencia, a la ecuaci\'{o}n anterior se la expresa de forma alternativa, u
 {\Delta }X_{t}=\left( \rho -1 \right)X_{t-1}+u_{t}=\delta 
 X_{t-1}+u_{t}
 \]
-donde $\delta =(\rho -1)$ y ${\Delta }X_{t}=X_{t}-X_{t-1}$. Ahora las 
-hip\'{o}tesis nula y alternativa son: 
+
+donde $\delta =(\rho -1)$ y ${\Delta }X_{t}=X_{t}-X_{t-1}$. Ahora las hip\'{o}tesis nula y alternativa son: 
+
 \[
 \begin{cases}
  H_{0}:&\delta =0 \\ 
  H_{1}:&\delta <0 
 \end{cases}
 \]
-Para averiguar si una serie temporal es o no estacionaria se efect\'{u}a una 
-regresi\'{o}n, utilizando cualquiera de los modelos anteriores y se 
-determina si $\rho =1$ estad\'{\i}sticamente (o  $\delta =0$). Esta 
-es la forma en que aparece la prueba en el paquete EViews. 
 
-Bajo la hip\'{o}tesis nula que $\rho =1$, el estad\'{\i}stico $t$ no sigue 
-una distribuci\'{o}n $t$-student convencional. Dickey y Fuller mostraron que sigue una distribuci\'{o}n especial y calcularon sus valores cr\'{\i}ticos con base en simulaciones de Monte Carlo. De esta manera, al estad\'{\i}stico $t$ calculado 
-convencionalmente se le denota como el estad\'{\i}stico $\tau $, y a su 
-prueba como la de Dickey y Fuller.
+Para averiguar si una serie temporal es o no estacionaria se efect\'{u}a una regresi\'{o}n, utilizando cualquiera de los modelos anteriores y se determina si $\rho =1$ estad\'{i}sticamente (o  $\delta =0$). Esta es la forma en que aparece la prueba en el paquete EViews.\newline
 
-Note que $H_{0}$ se acepta si el valor observado de $\tau $ es mayor al 
-valor cr\'{\i}tico correspondiente, de acuerdo al nivel de significaci\'{o}n 
-que se adopte para la prueba. Si la hip\'{o}tesis nula se rechaza; es decir, 
-si la serie de tiempo es estacionaria, se puede utilizar la prueba $t$-student usual.
+Bajo la hip\'{o}tesis nula que $\rho =1$, el estad\'{i}stico $t$ no sigue una distribuci\'{o}n $t$-student convencional. Dickey y Fuller mostraron que sigue una distribuci\'{o}n especial y calcularon sus valores cr\'{i}ticos con base en simulaciones de Monte Carlo. De esta manera, al estad\'{i}stico $t$ calculado convencionalmente se le denota como el estad\'{i}stico $\tau $, y a su prueba como la de Dickey y Fuller.\newline
 
-Las tablas iniciales no eran del todo adecuadas, por lo cual fueron 
-ampliadas por MacKinnon mediante simulaciones; \'{e}stas son las que utiliza 
-el paquete Eviews.
+Note que $H_{0}$ se acepta si el valor observado de $\tau $ es mayor al valor cr\'{i}tico correspondiente, de acuerdo al nivel de significaci\'{o}n que se adopte para la prueba. Si la hip\'{o}tesis nula se rechaza; es decir, si la serie de tiempo es estacionaria, se puede utilizar la prueba $t$-student usual.\newline
+
+Las tablas iniciales no eran del todo adecuadas, por lo cual fueron ampliadas por MacKinnon mediante simulaciones; \'{e}stas son las que utiliza el paquete Eviews.\newline
 
 Existen tres versiones del modelo de regresi\'{o}n:
 \begin{enumerate}
- \item Modelo sin componentes deterministas, que ya ha sido tratado:
+ \item[a)] Modelo sin componentes deterministas, que ya ha sido tratado:
 \[
 X_{t}=\rho X_{t-1}+u_{t}   \qquad   t=2,3,\ldots ,T
 \]
-\item Modelo con un t\'{e}rmino constante:
+\item[b)] Modelo con un t\'{e}rmino constante:
 \[
 X_{t}=\alpha +\rho X_{t-1}+u_{t} \qquad t=2,3,\ldots,T
 \]
-en el cual la hip\'{o}tesis nula conjunta es: $H_{0}:\alpha =0,  
-\rho =1.$ Si se rechaza la hip\'{o}tesis nula $H_{0}:\alpha =0,  
-\rho =1$ y se concluye que $\alpha \ne 0$ y $\rho <1$, se tendr\'{a} que el 
-proceso es estacionario con media no nula. Si $\alpha =0$, se obtiene el 
-caso precedente.
 
-\item Modelo con un t\'{e}rmino constante y una tendencia lineal
+en el cual la hip\'{o}tesis nula conjunta es: $H_{0}:\alpha =0,  \rho =1.$ Si se rechaza la hip\'{o}tesis nula $H_{0}:\alpha =0,  \rho =1$ y se concluye que $\alpha \ne 0$ y $\rho <1$, se tendr\'{a} que el proceso es estacionario con media no nula. Si $\alpha =0$, se obtiene el caso precedente.
+
+\item[c)] Modelo con un t\'{e}rmino constante y una tendencia lineal
 \[
 X_{t}=\alpha +\beta t+\rho X_{t-1}+u_{t} \qquad t=2,3,\ldots,T
 \]
-en el cual, si al rechazar la hip\'{o}tesis nula $H_{0}:\alpha =\beta 
-=0$,  $\rho =1$, se concluye que $\beta \ne 0$ y $\rho <1$, se dice 
-que el proceso es estacionario alrededor de una tendencia lineal. Note que 
-en este caso el proceso no es estacionario en el sentido de la 
-definici\'{o}n; sin embargo, luego de una diferenciaci\'{o}n se torna en 
-estacionario. As\'{\i}, el modelo solamente ahorra un paso en el 
-an\'{a}lisis.
+
+en el cual, si al rechazar la hip\'{o}tesis nula $H_{0}:\alpha =\beta =0$,  $\rho =1$, se concluye que $\beta \ne 0$ y $\rho <1$, se dice que el proceso es estacionario alrededor de una tendencia lineal. Note que en este caso el proceso no es estacionario en el sentido de la definici\'{o}n; sin embargo, luego de una diferenciaci\'{o}n se torna en estacionario. As\'{i}, el modelo solamente ahorra un paso en el an\'{a}lisis.
 \end{enumerate}
 
-Si se ha aceptado $H_{0}$ y se desea saber si se requiere una segunda 
-diferenciaci\'{o}n, se aplica el mismo procedimiento a la serie $\Delta 
-X_{t}$. Los modelos de regresi\'{o}n precedentes tambi\'{e}n se pueden 
-emplear en este caso.
-
+Si se ha aceptado $H_{0}$ y se desea saber si se requiere una segunda diferenciaci\'{o}n, se aplica el mismo procedimiento a la serie $\Delta X_{t}$. Los modelos de regresi\'{o}n precedentes tambi\'{e}n se pueden emplear en este caso.
 
 \subsection{Extensiones de la prueba de Dickey-Fuller}
 
-La prueba de ra\'{\i}z unitaria descrita hasta el momento es v\'{a}lida 
-solamente si la serie obedece a un proceso $AR(1)$. Si la serie tiene una 
-correlaci\'{o}n de un orden mayor, se viola el supuesto de ruido blanco 
-sobre los residuos, por lo cual se requiere aplicar la prueba de Dickey -- 
-Fuller\index{Ra\'{\i}z unitaria!Prueba de Dickey-Fuller Aumentada} aumentada 
-(ADF), en la que se realiza una correcci\'{o}n param\'{e}trica para 
-correlaciones de orden superior asumiendo que la serie $X_{t}$ sigue un 
-proceso $AR(p)$; esto es, a\~{n}ade retardos de la primera diferencia de 
-$X_{t-1}$ al lado derecho de la regresi\'{o}n. El modelo de manera general 
-se expresa por:
+La prueba de ra\'{i}z unitaria descrita hasta el momento es v\'{a}lida solamente si la serie obedece a un proceso $AR(1)$. Si la serie tiene una correlaci\'{o}n de un orden mayor, se viola el supuesto de ruido blanco sobre los residuos, por lo cual se requiere aplicar la prueba de Dickey -- Fuller\index{Ra\'{i}z unitaria!Prueba de Dickey-Fuller Aumentada} aumentada (ADF), en la que se realiza una correcci\'{o}n param\'{e}trica para correlaciones de orden superior asumiendo que la serie $X_{t}$ sigue un proceso $AR(p)$; esto es, a\~{n}ade retardos de la primera diferencia de $X_{t-1}$ al lado derecho de la regresi\'{o}n. El modelo de manera general se expresa por:
+
 \[
 \Delta X_{t}=\alpha +\beta t+\delta X_{t-1}+\sum_{i=0}^{p-1} {\gamma 
 _{i}\Delta X_{t-i}} +u_{t}
 \]
-De esta manera, la hip\'{o}tesis nula y alternativa a contrastarse son: 
-$H_{0}:\delta =0$ y $H_{1}:\delta <0$
 
-Said y Dickey (1985) mostraron que esta prueba es asint\'{o}ticamente 
-v\'{a}lida incluso para series que presenten una componente media m\'{o}vil; 
-solamente, debe escogerse un valor de $k=p-1$ adecuado (en general se 
-utiliza como $k$ a la parte entera de la ra\'{\i}z cuarta del tama\~{n}o 
-muestral); de manera que, para series grandes con componente media m\'{o}vil 
-pueden utilizarse los mismos valores cr\'{\i}ticos.
+De esta manera, la hip\'{o}tesis nula y alternativa a contrastarse son: $H_{0}:\delta =0$ y $H_{1}:\delta <0$.\newline
 
-El contraste de Phillips-Perron (PP), es una generalizaci\'{o}n del 
-contraste de DF, que permite flexibilidad en las hip\'{o}tesis relativas a 
-la distribuci\'{o}n de errores.
+Said y Dickey (1985) mostraron que esta prueba es asint\'{o}ticamente v\'{a}lida incluso para series que presenten una componente media m\'{o}vil; solamente, debe escogerse un valor de $k=p-1$ adecuado (en general se utiliza como $k$ a la parte entera de la ra\'{i}z cuarta del tama\~{n}o muestral); de manera que, para series grandes con componente media m\'{o}vil pueden utilizarse los mismos valores cr\'{i}ticos.\newline
+
+El contraste de Phillips-Perron (PP), es una generalizaci\'{o}n del contraste de DF, que permite flexibilidad en las hip\'{o}tesis relativas a la distribuci\'{o}n de errores.
 
 \begin{observacion}
-Si se a\~{n}ade el t\'{e}rmino independiente 
-y/o la tendencia determinista en los modelos de regresi\'{o}n de DF o de DFA 
-sin que lo exija el proceso, se reducen los grados de libertad, se aumenta 
-el tama\~{n}o de la regi\'{o}n cr\'{\i}tica y se reduce adem\'{a}s la 
-potencia de la prueba, lo que puede conducir a una interpretaci\'{o}n 
-err\'{o}nea del resultado de los contrates. Por tanto, es muy importante 
-determinar si se incluyen o no el t\'{e}rmino independiente y/o tendencia 
-determinista en la regresi\'{o}n seleccionada. 
+Si se a\~{n}ade el t\'{e}rmino independiente y/o la tendencia determinista en los modelos de regresi\'{o}n de DF o de DFA sin que lo exija el proceso, se reducen los grados de libertad, se aumenta el tama\~{n}o de la regi\'{o}n cr\'{i}tica y se reduce adem\'{a}s la potencia de la prueba, lo que puede conducir a una interpretaci\'{o}n err\'{o}nea del resultado de los contrates. Por tanto, es muy importante determinar si se incluyen o no el t\'{e}rmino independiente y/o tendencia determinista en la regresi\'{o}n seleccionada.\newline
 
-En la pr\'{a}ctica, es mejor empezar tratando el modelo (c) y de acuerdo a 
-los resultados de los coeficientes $\alpha$   y  $\beta $ 
-adoptar el modelo adecuado. Tambi\'{e}n, se debe tener cuidado de elegir los 
-coeficientes $\gamma_{i}$ necesarios (estad\'{\i}sticamente 
-significativos); en caso contrario, se puede incurrir en errores en la 
-decisi\'{o}n sobre la prueba. El paquete Eviews, incluye una opci\'{o}n 
-autom\'{a}tica para esta selecci\'{o}n.
+En la pr\'{a}ctica, es mejor empezar tratando el modelo (c) y de acuerdo a los resultados de los coeficientes $\alpha$ y $\beta$ adoptar el modelo adecuado. Tambi\'{e}n, se debe tener cuidado de elegir los coeficientes $\gamma_{i}$ necesarios (estad\'{i}sticamente significativos); en caso contrario, se puede incurrir en errores en la decisi\'{o}n sobre la prueba. El paquete Eviews, incluye una opci\'{o}n autom\'{a}tica para esta selecci\'{o}n.
 \end{observacion}
 
 \begin{ejemplo}
-Se considera nuevamente la SIB (cap\'{\i}tulo 2), que 
-se consider\'{o} que se deb\'{\i}a diferenciar, a partir del gr\'{a}fico de 
-la serie y de su FAC estimada. La informaci\'{o}n estad\'{\i}stica sobre la 
-prueba de ra\'{\i}ces unitarias m\'{a}s adecuada aparece en la Tabla 3.8 
-(modelo (b)), en la que se observa que con los niveles de significaci\'{o}n 
-usuales (10{\%}, 5{\%} y 1{\%}) se debe aceptar la presencia de una 
-ra\'{\i}z unitaria; sin embargo, el procedimiento aplicado a la serie 
-diferenciada muestra que \'{e}sta ya no admite una ra\'{\i}z unitaria (la 
-SIB es, entonces, $I(1)$). Ver la Tabla 3.9.
+Se considera nuevamente la SIB (cap\'{i}tulo 2), que se consider\'{o} que se deb\'{i}a diferenciar, a partir del gr\'{a}fico de la serie y de su FAC estimada. La informaci\'{o}n estad\'{i}stica sobre la prueba de ra\'{i}ces unitarias m\'{a}s adecuada aparece en la Tabla 3.8 (modelo (b)), en la que se observa que con los niveles de significaci\'{o}n usuales (10{\%}, 5{\%} y 1{\%}) se debe aceptar la presencia de una ra\'{i}z unitaria; sin embargo, el procedimiento aplicado a la serie diferenciada muestra que \'{e}sta ya no admite una ra\'{i}z unitaria (la SIB es, entonces, $I(1)$). Ver la Tabla 3.9.
 
 \begin{table}[H]
 \centering\small
-\caption{Informaci\'{o}n estad\'{\i}stica para la prueba ADF de la SIB}
+\caption{Informaci\'{o}n estad\'{i}stica para la prueba ADF de la SIB}
 \begin{tabular}{lccc}
 \toprule
 & & $t$-Statistic& Prob.* \\
@@ -1813,7 +1392,7 @@ C& 0.375276& 0.165658& 2.265358& 0.0252 \\
 
 \begin{table}[H]
 \centering\small
-\caption{Informaci\'{o}n estad\'{\i}stica para la prueba ADF de la SIB diferenciada}
+\caption{Informaci\'{o}n estad\'{i}stica para la prueba ADF de la SIB diferenciada}
 \begin{tabular}{lccc}
 \toprule
 & & $t$-Statistic& Prob.* \\
@@ -1855,34 +1434,18 @@ C& 0.224892& 0.095922& 2.344538& 0.0206 \\
 
 \section{Modelos Estacionales}
 
-Se conoce que, por ejemplo, ciertas series mensuales tienen un perfil 
-estacional marcado; es decir, los datos relativos a un mismo mes de 
-diferentes a\~{n}os tienen tendencia a situarse de manera similar respecto a 
-la media anual. Esto hace pensar en incluir en el modelo ARIMA retardos 
-m\'{u}ltiplos de 12. En teor\'{\i}a, nada impide el incluir par\'{a}metros 
-p, q lo suficientemente grandes para que esos retardos sean tomados en 
-cuenta; sin embargo, su c\'{a}lculo se convertir\'{\i}a en una tarea 
-pr\'{a}cticamente imposible. Para evitar este aumento dr\'{a}stico de 
-par\'{a}metros, Box y Jenkins propusieron un tipo particular de modelos 
-ARIMA estacionales, que son modelos multiplicativos del tipo:
+Se conoce que, por ejemplo, ciertas series mensuales tienen un perfil estacional marcado; es decir, los datos relativos a un mismo mes de diferentes a\~{n}os tienen tendencia a situarse de manera similar respecto a la media anual. Esto hace pensar en incluir en el modelo ARIMA retardos m\'{u}ltiplos de 12. En teor\'{i}a, nada impide el incluir par\'{a}metros p, q lo suficientemente grandes para que esos retardos sean tomados en cuenta; sin embargo, su c\'{a}lculo se convertir\'{i}a en una tarea pr\'{a}cticamente imposible. Para evitar este aumento dr\'{a}stico de par\'{a}metros, Box y Jenkins propusieron un tipo particular de modelos ARIMA estacionales, que son modelos multiplicativos del tipo:
+
 \[
 \Delta^{d}\Phi_{p} (B)\Delta_{S}^{D} \Phi_{P} (B^{S})X_{t} =\Theta_{q} 
 (B)\Theta_{Q} (B^{S})u_{t} 
 \]
-donde $S$ es el periodo de la estacionalidad\index{Per\'{\i}odo de la 
-estacionalidad} ($S=12$ para series mensuales, $S=4$ para series 
-trimestrales,\dots). $\Delta =1-B$, $\Delta_{S} =1-B^{S}$; $\Phi 
-_{P}$, $\Phi_{p}$, $\Theta_{q}$, $\Theta_{Q}$ son polinomios de grado $p$, $P$, 
-$q$ y $Q$, respectivamente, con ra\'{\i}ces de m\'{o}dulo superior al 1; 
-($u_{t}$ ) es un ruido blanco.
 
-Un proceso $X_{t}$ que satisface la ecuaci\'{o}n precedente se 
-llama un proceso\index{Procesos SARIMA!Orden $[(p,d,q) (P,D,Q)]$} 
-$SARIMA_S[(p, d, q) (P, D, Q)]$.
+donde $S$ es el periodo de la estacionalidad\index{Per\'{i}odo de la estacionalidad} ($S=12$ para series mensuales, $S=4$ para series trimestrales,\dots). $\Delta =1-B$, $\Delta_{S} =1-B^{S}$; $\Phi_{P}$, $\Phi_{p}$, $\Theta_{q}$, $\Theta_{Q}$ son polinomios de grado $p$, $P$, $q$ y $Q$, respectivamente, con ra\'{i}ces de m\'{o}dulo superior al 1; ($u_{t}$ ) es un ruido blanco.\newline
 
-La justificaci\'{o}n de este modelo consiste en aplicar a las $S$ series 
-obtenidas a partir de $X_{t}$, para los meses id\'{e}nticos, la 
-misma transformaci\'{o}n:
+Un proceso $X_{t}$ que satisface la ecuaci\'{o}n precedente se llama un proceso\index{Procesos SARIMA!Orden $[(p,d,q) (P,D,Q)]$} $SARIMA_S[(p, d, q) (P, D, Q)]$.\newline
+
+La justificaci\'{o}n de este modelo consiste en aplicar a las $S$ series obtenidas a partir de $X_{t}$, para los meses id\'{e}nticos, la misma transformaci\'{o}n:
 \[
 \frac{\Delta_{S}^{D} \Phi_{P} (B^{S})}{\Theta_{Q} (B^{S})}
 \]
@@ -1895,30 +1458,18 @@ ya no es estacional y se la puede modelar por un $ARIMA (p, d, q)$.
 \[
 \Delta^{d}\Phi_{p} (B)\alpha_{t} =\Theta_{q} (B)u_{t} 
 \]
-Las series estacionales pueden detectarse examinando las funciones de 
-autocorrelaci\'{o}n y autocorrelaci\'{o}n parcial estimadas pues \'{e}stas 
-toman valores altos, en valor absoluto, en los \'{\i}ndices m\'{u}ltiplos de 
-$S$.
 
-La identificaci\'{o}n de los par\'{a}metros $P$, $D$, $Q$ de la parte estacional 
-se hace de manera an\'{a}loga a lo descrito anteriormente, tomando en cuenta 
-para las $\widehat{\rho}(h)$ y $\widehat{r}(h)$, los valores de $h$ m\'{u}ltiplos de $S$.
+Las series estacionales pueden detectarse examinando las funciones de autocorrelaci\'{o}n y autocorrelaci\'{o}n parcial estimadas pues \'{e}stas toman valores altos, en valor absoluto, en los \'{i}ndices m\'{u}ltiplos de $S$.\newline
 
-Las fases de estimaci\'{o}n y verificaci\'{o}n se realizan de la misma 
-manera que para los modelos no estacionales.
+La identificaci\'{o}n de los par\'{a}metros $P$, $D$, $Q$ de la parte estacional se hace de manera an\'{a}loga a lo descrito anteriormente, tomando en cuenta para las $\widehat{\rho}(h)$ y $\widehat{r}(h)$, los valores de $h$ m\'{u}ltiplos de $S$.\newline
 
-\begin{ejemplo}[Un ejemplo con estacionalidad] Los datos que se 
-utilizar\'{a}n (ver Anexo C.3) corresponden a las ventas mensuales (SVM) en 
-d\'{o}lares, de una compa\~{n}\'{\i}a comercial en el per\'{\i}odo 
-comprendido desde enero de 2006 hasta diciembre de 2015 (Figura No. 3.15). 
-Se modelar\'{a} la serie con los datos hasta el a\~{n}o 2014 y se 
-guardar\'{a}n los del a\~{n}o 2015 para poder compararlos con las 
-predicciones. Siguiendo la metodolog\'{\i}a explicada se procede a la 
-identificaci\'{o}n a priori del modelo.
+Las fases de estimaci\'{o}n y verificaci\'{o}n se realizan de la misma manera que para los modelos no estacionales.
+
+\begin{ejemplo}[Un ejemplo con estacionalidad] Los datos que se utilizar\'{a}n (ver Anexo C.3) corresponden a las ventas mensuales (SVM) en d\'{o}lares, de una compa\~{n}\'{i}a comercial en el per\'{i}odo comprendido desde enero de 2006 hasta diciembre de 2015 (Figura No. 3.15). Se modelar\'{a} la serie con los datos hasta el a\~{n}o 2014 y se guardar\'{a}n los del a\~{n}o 2015 para poder compararlos con las predicciones. Siguiendo la metodolog\'{i}a explicada se procede a la identificaci\'{o}n a priori del modelo.
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap318.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap318.eps}
 \caption{Grafico de SVM}
 \end{figure}
 
@@ -1927,72 +1478,56 @@ identificaci\'{o}n a priori del modelo.
 
 \subsubsection*{Identificaci\'{o}n a Priori}
 
-\paragraph{Elecci\'{o}n de $d$.} La modelaci\'{o}n de esta serie se realizar\'{a} utilizando el paquete Eviews.
+\subsubsection*{Elecci\'{o}n de $d$.}
 
-Se observa que los primeros valores de la funci\'{o}n de autocorrelaci\'{o}n 
-(Figura 4.16) no son significativamente grandes, por lo cual no es necesario 
-realizar una diferenciaci\'{o}n no estacional de la serie ($d=0$).
+La modelaci\'{o}n de esta serie se realizar\'{a} utilizando el paquete Eviews.\newline
 
-\paragraph{Elecci\'{o}n de $D$.} Los valores alrededor de 12 y 24 son grandes (Figura 4.16), por lo que se requiere una diferenciaci\'{o}n estacional de orden 12; es decir, $D=1$.
+Se observa que los primeros valores de la funci\'{o}n de autocorrelaci\'{o}n (Figura 4.16) no son significativamente grandes, por lo cual no es necesario realizar una diferenciaci\'{o}n no estacional de la serie ($d=0$).
+
+\subsubsection*{Elecci\'{o}n de $D$.}
+
+Los valores alrededor de 12 y 24 son grandes (Figura 4.16), por lo que se requiere una diferenciaci\'{o}n estacional de orden 12; es decir, $D=1$.
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap319.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap319.eps}
 \caption{FAC y FACP estimadas de SVM}
 \end{figure}
 
-Luego de observar la serie diferenciada no estacionalmente de orden 12, de 
-acuerdo a lo detallado, se observa que no hace falta una segunda 
-diferenciaci\'{o}n estacional.
+Luego de observar la serie diferenciada no estacionalmente de orden 12, de acuerdo a lo detallado, se observa que no hace falta una segunda diferenciaci\'{o}n estacional.
 
 \begin{observacion}
-Si existiera la posibilidad de diferenciar 
-estacionalmente y no estacionalmente, siempre se debe realizar primero la 
-diferencia estacional, pues hay que reconocer que el operador de 
-diferenciaci\'{o}n no estacional ${\Delta }=1-B$ es un factor del 
-operador de diferencia estacional\index{Diferenciaci\'{o}n!Estacional} 
-${\Delta }^{S}=1-B^{S};$ es decir, al diferenciar estacionalmente a 
-la serie, ya se la diferencia no estacionalmente.  
+Si existiera la posibilidad de diferenciar estacionalmente y no estacionalmente, siempre se debe realizar primero la diferencia estacional, pues hay que reconocer que el operador de diferenciaci\'{o}n no estacional ${\Delta }=1-B$ es un factor del operador de diferencia estacional\index{Diferenciaci\'{o}n!Estacional} ${\Delta }^{S}=1-B^{S};$ es decir, al diferenciar estacionalmente a la serie, ya se la diferencia no estacionalmente.
 \end{observacion}
 
 
 \begin{observacion}
-Un error frecuente en que se suele incurrir 
-es pensar que la prueba ADF o similares, que determinan la existencia de 
-ra\'{\i}ces unitarias (no estacionales), sirven para detectar 
-estacionalidad; esto no es correcto, pues la estacionalidad es un 
-fen\'{o}meno m\'{a}s complejo.
+Un error frecuente en que se suele incurrir es pensar que la prueba ADF o similares, que determinan la existencia de ra\'{i}ces unitarias (no estacionales), sirven para detectar estacionalidad; esto no es correcto, pues la estacionalidad es un fen\'{o}meno m\'{a}s complejo.
 \end{observacion}
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap320.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap320.eps}
 \caption{FAC Y FACP estimadas de la SVM con una diferencia estacional}
 \end{figure}
 
 
-\subsubsection{Especificaci\'{o}n del Modelo}
+\subsubsection*{Especificaci\'{o}n del Modelo}
 
-En la Figura 3.17 de la serie diferenciada estacionalmente de orden 12, se 
-observa que la autocorrelaci\'{o}n estimada de orden 13 se sale de la banda 
-de confianza (95{\%}), con lo que se escoge un coeficiente $MA(13)$; de la 
-misma manera, se observa que las autocorrelaciones parciales de orden 12 y 
-13 son significativamente distintas de cero, por lo que se eligen 
-coeficientes $AR(12)$ y $AR(13)$
+En la Figura 3.17 de la serie diferenciada estacionalmente de orden 12, se observa que la autocorrelaci\'{o}n estimada de orden 13 se sale de la banda de confianza (95{\%}), con lo que se escoge un coeficiente $MA(13)$; de la misma manera, se observa que las autocorrelaciones parciales de orden 12 y 13 son significativamente distintas de cero, por lo que se eligen coeficientes $AR(12)$ y $AR(13)$.\newline
 
-Se puede entonces considerar como modelo inicial, que se llamar\'{a} Modelo 
-1, al siguiente:
+Se puede entonces considerar como modelo inicial, que se llamar\'{a} Modelo 1, al siguiente:
+
 \[
 SVMDE\left( t \right)=c_{1}+c_{2}\cdot SVMDE\left( t-12 \right)+c_{3}\cdot 
 SVMDE\left( t-13 \right)+c_{4}\cdot u(t-13)
 \]
-donde SVMDE representa a la serie de ventas mensuales con una diferencia 
-estacional. El modelo ingresa a un proceso iterativo de estimaci\'{o}n, 
-verificaci\'{o}n y modificaci\'{o}n (de ser el caso).
+
+donde SVMDE representa a la serie de ventas mensuales con una diferencia estacional. El modelo ingresa a un proceso iterativo de estimaci\'{o}n, verificaci\'{o}n y modificaci\'{o}n (de ser el caso).
 
 \begin{table}[H]
 \centering\small
-\caption{Informaci\'{o}n estad\'{\i}stica del Modelo 1}
+\caption{Informaci\'{o}n estad\'{i}stica del Modelo 1}
 \begin{tabular}{@{}crrrr@{}}
 \toprule
 Variable& Coefficient& Std. Error& t-Statistic& Prob. \\
@@ -2018,20 +1553,17 @@ Prob(F-statistic)& 0.001811&\\
 \end{table}
 
 
+\subsubsection*{Verificaci\'{o}n}
 
-\subsubsection{Verificaci\'{o}n}
+\subsubsection*{Pruebas para los Par\'{a}metros.}
 
-\paragraph{Pruebas para los Par\'{a}metros.} Con el software Eviews, se realiz\'{o} la estimaci\'{o}n del modelo inicial, como se muestra en la Tabla 3.10; analizando la \'{u}ltima columna de los $p$-valores se concluye que no todos los coeficientes tienen un $p$-valor menor a 0,05 (95{\%} de confianza), por lo cual no son estad\'{\i}sticamente significativos (diferentes de cero). Es el caso de los coeficientes asociados a $AR(13)$ y $MA(13)$.
+Con el software Eviews, se realiz\'{o} la estimaci\'{o}n del modelo inicial, como se muestra en la Tabla 3.10; analizando la \'{u}ltima columna de los $p$-valores se concluye que no todos los coeficientes tienen un $p$-valor menor a 0,05 (95{\%} de confianza), por lo cual no son estad\'{i}sticamente significativos (diferentes de cero). Es el caso de los coeficientes asociados a $AR(13)$ y $MA(13)$.\newline
 
-Por lo tanto, se debe modificar el modelo. As\'{\i}, se deben eliminar los 
-coeficientes que no son significativos; no es recomendable eliminar m\'{a}s 
-de un coeficiente a la vez, sino de uno en uno. En la tabla 3.11, se pueden 
-ver los resultados obtenidos luego de quitar el coeficiente $AR(13)$ (el que 
-tiene el $p$-valor m\'{a}s grande); se denominar\'{a} Modelo 2:
+Por lo tanto, se debe modificar el modelo. As\'{i}, se deben eliminar los coeficientes que no son significativos; no es recomendable eliminar m\'{a}s de un coeficiente a la vez, sino de uno en uno. En la tabla 3.11, se pueden ver los resultados obtenidos luego de quitar el coeficiente $AR(13)$ (el que tiene el $p$-valor m\'{a}s grande); se denominar\'{a} Modelo 2:
 
 \begin{table}[H]
 \centering\small
-\caption{Informaci\'{o}n estad\'{\i}stica del Modelo 2}
+\caption{Informaci\'{o}n estad\'{i}stica del Modelo 2}
 \begin{tabular}{@{}crrrr@{}}
 \toprule
 Variable& Coefficient& Std. Error& t-Statistic& Prob. \\
@@ -2055,39 +1587,26 @@ Prob(F-statistic)& 0.000164&  \\
 \end{tabular}
 \end{table}
 
-
-Como se puede ver en la Tabla 3.11, los coeficientes tienen un $p$-valor menor 
-que 0,05, por lo cual son significativos. A continuaci\'{o}n, se presentan 
-las autocorrelaciones y autocorrelaciones parciales estimadas de los 
-residuos del Modelo 2.
+Como se puede ver en la Tabla 3.11, los coeficientes tienen un $p$-valor menor que 0,05, por lo cual son significativos. A continuaci\'{o}n, se presentan las autocorrelaciones y autocorrelaciones parciales estimadas de los residuos del Modelo 2.
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap321.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap321.eps}
 \caption{FAC y FACP residuales estimadas del Modelo 1 para SVM.}
 \end{figure}
 
-A partir de la Figura 3.18, se deduce que se deber\'{\i}a modificar el 
-Modelo 2, pues aunque pasa la prueba de los coeficientes, los residuos 
-est\'{a}n correlacionados (se constata con la observaci\'{o}n de los 
-gr\'{a}ficos y del estad\'{\i}stico $Q$, con sus correspondientes $p$-valores, 
-todos menores que 0,05).
+A partir de la Figura 3.18, se deduce que se deber\'{i}a modificar el Modelo 2, pues aunque pasa la prueba de los coeficientes, los residuos est\'{a}n correlacionados (se constata con la observaci\'{o}n de los gr\'{a}ficos y del estad\'{i}stico $Q$, con sus correspondientes $p$-valores, todos menores que 0,05).
 
 
 \subsubsection*{Modificaci\'{o}n del Modelo}
 
-La Figura 3.18 muestra que las autocorrelaciones y autocorrelaciones 
-parciales estimadas son significativas al orden 1, lo que sugiere modificar 
-el modelo aumentando un par\'{a}metro no estacional auto-regresivo y/o media 
-m\'{o}vil. Los resultados fueron los siguientes:
+La Figura 3.18 muestra que las autocorrelaciones y autocorrelaciones parciales estimadas son significativas al orden 1, lo que sugiere modificar el modelo aumentando un par\'{a}metro no estacional auto-regresivo y/o media m\'{o}vil. Los resultados fueron los siguientes:\newline
 
-Se aument\'{o} un coeficiente para $AR(1)$ que result\'{o} significativo (se 
-denominar\'{a} Modelo 3); adem\'{a}s los residuos se pueden considerar ruido 
-blanco (todos los $p$-valores son mayores que 0,05).
+Se aument\'{o} un coeficiente para $AR(1)$ que result\'{o} significativo (se denominar\'{a} Modelo 3); adem\'{a}s los residuos se pueden considerar ruido blanco (todos los $p$-valores son mayores que 0,05).
 
 \begin{table}[H]
 \centering\small
-\caption{Informaci\'{o}n estad\'{\i}stica del Modelo 3 para la SVM}
+\caption{Informaci\'{o}n estad\'{i}stica del Modelo 3 para la SVM}
 \begin{tabular}{@{}crrrr@{}}
 \toprule
 Variable& Coefficient& Std. Error& t-Statistic& Prob. \\
@@ -2113,49 +1632,34 @@ Prob(F-statistic)& 0.000008& &  \\
 \label{tab17}
 \end{table}
 
-
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap322.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap322.eps}
 \caption{FAC y FACP estimadas del Modelo 3 para la SVM}
 \end{figure}
 
 
-
 \subsubsection*{Prueba de predicciones de Chow}
 
-A continuaci\'{o}n, se realiza la prueba de estabilidad de las predicciones 
-(12 en este caso). As\'{\i}, se obtienen los siguientes resultados:
+A continuaci\'{o}n, se realiza la prueba de estabilidad de las predicciones (12 en este caso). As\'{i}, se obtienen los siguientes resultados:
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap323.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap323.eps}
 \caption{Prueba de Chow para las predicciones.}
 \end{figure}
 
-Dado que el $p$-valor correspondiente al estad\'{\i}stico F es menor que 
-0,05, se rechaza la hip\'{o}tesis nula de no existencia de cambios 
-estructurales en las predicciones. Sin embargo, este fen\'{o}meno puede 
-deberse a la estacionalidad de la serie y a un efecto de ``volatilidad'' que 
-se estudiar\'{a} en el siguiente cap\'{\i}tulo.
+Dado que el $p$-valor correspondiente al estad\'{i}stico F es menor que 0,05, se rechaza la hip\'{o}tesis nula de no existencia de cambios estructurales en las predicciones. Sin embargo, este fen\'{o}meno puede deberse a la estacionalidad de la serie y a un efecto de ``volatilidad'' que se estudiar\'{a} en el siguiente cap\'{i}tulo.
 
 \subsubsection*{Predicciones}
 
-Como se puede ver, el Modelo 3 es el mejor modelo que describe los datos de 
-ventas mensuales; se lo utilizar\'{a} para comparar los valores de 
-predicci\'{o}n del modelo retenido con los verdaderos valores para el 
-a\~{n}o 2015. Para confirmar que el modelo retenido realiza buenas 
-predicciones a corto plazo, se grafican \'{e}stas con los 12 datos 
-correspondientes al a\~{n}o 2015 (Figura 3.17); tambi\'{e}n aparecen los 
-intervalos de confianza correspondientes (nivel de confianza 95{\%}).
+Como se puede ver, el Modelo 3 es el mejor modelo que describe los datos de ventas mensuales; se lo utilizar\'{a} para comparar los valores de predicci\'{o}n del modelo retenido con los verdaderos valores para el a\~{n}o 2015. Para confirmar que el modelo retenido realiza buenas predicciones a corto plazo, se grafican \'{e}stas con los 12 datos correspondientes al a\~{n}o 2015 (Figura 3.17); tambi\'{e}n aparecen los intervalos de confianza correspondientes (nivel de confianza 95{\%}).
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap324.eps}
+\includegraphics[width=0.7\textwidth]{Graficos/Cap3/STcap324.eps}
 \caption{Comparaci\'{o}n de predicciones con valores reales (2015)}
 \end{figure}
-
-
 
 
 \section{Ejercicios Propuestos}
@@ -2165,14 +1669,9 @@ intervalos de confianza correspondientes (nivel de confianza 95{\%}).
 \[
 9X_{n} -X_{n-2} =W_{n} +3W_{n-1} 
 \]
-donde $(W_{n})$ es un r.b. de varianza $\sigma^{2}$.
+donde $(W_{n})$ es un r.b. de varianza $\sigma^{2}$.\newline
 
-Calcular expl\'{\i}citamente el predictor lineal $\widehat{X}_{n+1} 
-$ de $X_{n+1} $ conociendo el pasado $\{ {X_{p} ,p\le n} \}$, 
-luego $\widehat{X}_{n+2} $ y mostrar como proseguir por recurrencia 
-el c\'{a}lculo de $\widehat{X}_{n+3}$, $\widehat{X}_{n+4} $, 
-etc.
-
+Calcular expl\'{i}citamente el predictor lineal $\widehat{X}_{n+1} $ de $X_{n+1} $ conociendo el pasado $\{ {X_{p} ,p\le n} \}$, luego $\widehat{X}_{n+2} $ y mostrar como proseguir por recurrencia el c\'{a}lculo de $\widehat{X}_{n+3}$, $\widehat{X}_{n+4} $, etc.
 
 \item Sea el siguiente modelo ajustado con una muestra de 64 observaciones
 \[
@@ -2193,16 +1692,13 @@ $\widehat{\rho}_{k} $ & 0,38& 0,03& 0,07& 0,02& 0,03 \\
 \end{tabular}
 \end{center}
 
-?Considerar\'{i}a aceptable el modelo ajustado? En caso contrario, 
-?C\'{o}mo podr\'{i}a reformular el modelo? Justifique cada paso de su 
-procedimiento. 
+?`Considerar\'{i}a aceptable el modelo ajustado? En caso contrario, ?`C\'{o}mo podr\'{i}a reformular el modelo? Justifique cada paso de su procedimiento.
 
 \item Se ha estimado con una muestra de 110 observaciones del proceso $(X_{t} )$ con el siguiente modelo:
 \[
 X_{t} =u_{t} +0,5u_{t-1} +0,4u_{t-2} +18;\qquad\sigma_{u}^{2} =4
 \]
-La informaci\'{o}n acerca de $u_{t}$ y $ X_{t}$ 
-se ha perdido, excepto para los siguientes valores de $X_{t}$:
+La informaci\'{o}n acerca de $u_{t}$ y $ X_{t}$ se ha perdido, excepto para los siguientes valores de $X_{t}$:
 
 \[
 X_{{106}}=20\qquad X_{{107}}=21\qquad X_{108}=19 X_{109}=19\qquad X_{{110}}=17
@@ -2210,9 +1706,9 @@ X_{{106}}=20\qquad X_{{107}}=21\qquad X_{108}=19 X_{109}=19\qquad X_{{110}}=17
 
 Bajo este supuesto:
 \begin{enumerate}
-\item Efectuar la predicci\'{o}n de $X_{t+h} $ para los per\'{\i}odos 111, 112 y 113 con origen en $t = 110$.
+\item Efectuar la predicci\'{o}n de $X_{t+h} $ para los per\'{i}odos 111, 112 y 113 con origen en $t = 110$.
 \item Calcular el EMC para las anteriores predicciones.
-\item Suponiendo que se dispone de una observaci\'{o}n adicional: $X_{111}=17$, actualizar la predicci\'{o}n de los per\'{\i}odos 112 y 113.
+\item Suponiendo que se dispone de una observaci\'{o}n adicional: $X_{111}=17$, actualizar la predicci\'{o}n de los per\'{i}odos 112 y 113.
 \end{enumerate}
 
 \item Sea el modelo estimado:
@@ -2234,23 +1730,23 @@ donde $(u_{t})$ r.b. de varianza 1.
 
 \begin{enumerate}
 \item Encuentre la covarianza entre $X_{t}$ y $u_{t-i}$, $i\in \Z$
-\item ?Cu\'{a}l es la funci\'{o}n de autocorrelaci\'{o}n del proceso?
+\item ?`Cu\'{a}l es la funci\'{o}n de autocorrelaci\'{o}n del proceso?
 \item Expresar $X_{t}$ en funci\'{o}n de los $u_{t-i}$, $i\in \Z$. 
-\item Exprese el proceso en su forma can\'{o}nica (y centrado). ?Cu\'{a}l es la expresi\'{o}n como proceso lineal?
-\item ?Cu\'{a}l es la varianza del error de predicci\'{o}n con horizonte 1?
+\item Exprese el proceso en su forma can\'{o}nica (y centrado). ?`Cu\'{a}l es la expresi\'{o}n como proceso lineal?
+\item ?`Cu\'{a}l es la varianza del error de predicci\'{o}n con horizonte 1?
 \end{enumerate}	
 
 \item Sea $\displaystyle f(\lambda )=\frac{\frac{13}{12}+\cos \lambda }{\frac{41}{40}+\cos \lambda}\cdot\frac{1}{2\pi },\qquad \lambda \in [-\pi ,\pi]$.
 
 \begin{enumerate}
-\item ?Cu\'{a}l es la ecuaci\'{o}n ARMA can\'{o}nica satisfecha por $X$? ?Cu\'{a}l es la varianza de la innovaci\'{o}n?
-\item Dar una representaci\'{o}n expl\'{\i}cita de la innovaci\'{o}n $u_{t} $ en funci\'{o}n de las $X_{j} ,j\le t$. 
+\item ?`Cu\'{a}l es la ecuaci\'{o}n ARMA can\'{o}nica satisfecha por $X$? ?`Cu\'{a}l es la varianza de la innovaci\'{o}n?
+\item Dar una representaci\'{o}n expl\'{i}cita de la innovaci\'{o}n $u_{t} $ en funci\'{o}n de las $X_{j} ,j\le t$. 
 \item Calcular $\widehat{X}_{T+1} $, conociendo $X_{t} \left( {t\le T} \right)$. Determinar el error de predicci\'{o}n.
 \end{enumerate}
 
-?Existe autocorrelaci\'{o}n entre estas observaciones?
+?`Existe autocorrelaci\'{o}n entre estas observaciones?
 
-\item Suponga que se ha estimado un modelo $ARIMA (0, 2, 1)$ con par\'{a}metro 0,30 para representar la serie trimestral de la poblaci\'{o}n activa de un pa\'{\i}s, cuyos valores durante el a\~{n}o 2014 fueron:
+\item Suponga que se ha estimado un modelo $ARIMA (0, 2, 1)$ con par\'{a}metro 0,30 para representar la serie trimestral de la poblaci\'{o}n activa de un pa\'{i}s, cuyos valores durante el a\~{n}o 2014 fueron:
 
 \begin{center}
 \begin{tabular}{@{}ccccc@{}}
@@ -2267,9 +1763,7 @@ Poblaci\'{o}n activa & 14.000& 14.150& 14.200& 14.350 \\
 \end{tabular}
 \end{center}
 
-Elabore predicciones para la poblaci\'{o}n activa durante los cuatro 
-trimestres de 2015, sabiendo que la predicci\'{o}n que se hab\'{\i}a hecho 
-en (2014, III) para (2014, IV) era de 14.500.
+Elabore predicciones para la poblaci\'{o}n activa durante los cuatro trimestres de 2015, sabiendo que la predicci\'{o}n que se hab\'{i}a hecho en (2014, III) para (2014, IV) era de 14.500.
 
 \item Se considera el modelo $(1-B) (1-0,5B) X_{t}=(1-0,8B) u_{t}$, donde $(u_{t})$ es un r.b. normal, con varianza 0,25. Se supone que $X_{T} =12$ y $\widehat{X}_{T} (1)=10$. Dar un intervalo de predicci\'{o}n, de nivel de confianza 95{\%}, para $X_{T+1} $.
 
@@ -2313,7 +1807,4 @@ condicionado al valor de $u_{0}$.
 \item Calcular el valor de $u_{0}$ que minimiza $S$.
 \end{enumerate}
 
-
-
 \end{enumerate}
-
