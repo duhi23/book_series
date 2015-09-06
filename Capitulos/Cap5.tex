@@ -1,5 +1,5 @@
 \chapter{Modelos Multivariantes de Series Temporales}
-\label{sec:mylabel2}
+%\label{sec:mylabel2}
 
 Una serie temporal multivariante es un proceso estoc\'{a}stico ${(X_{t})}_{t\in Z}$, con $X_{t}$ un vector donde cada componente se define como una serie temporal univariante. En este documento se utilizar\'{a} la notaci\'{o}n de vectores como columnas. As\'{i} se denota:
 \[
@@ -8,47 +8,44 @@ X_{t}=(X_{1t}, \ldots, X_{kt})^{'} \text{ el vector de $k$ series univariantes e
 Lo importante de tratar series multivariantes es que, a m\'{a}s de considerar simult\'{a}neamente observaciones de dos o m\'{a}s series univariantes, tambi\'{e}n se puede analizar las correlaciones existentes entre ellas; esto evidentemente enriquece el an\'{a}lisis, aunque los procesos operativos ser\'{a}n m\'{a}s complejos que en el caso univariante.
 
 \section{Procesos Estacionarios}
-\label{subsec:mylabel5}
+%\label{subsec:mylabel5}
 
 Para poder estimar las caracter\'{i}sticas de los procesos se necesita suponer que son estables a lo largo del tiempo; esto implica, que son estacionarios. 
 
 \subsection{Proceso estrictamente estacionario}
-\label{subsubsec:mylabel1}
+%\label{subsubsec:mylabel1}
 
-Un proceso estoc\'{a}stico multivariado ${(X_{t})}_{t\in Z}$, con $X_{t}=(X_{1t},\ldots ,X_{kt})'$, es estrictamente estacionario (o fuertemente estacionario) si las distribuciones conjuntas de cualquier 
-conjunto finito de variables se mantienen por saltos. 
+Un proceso estoc\'{a}stico multivariado ${(X_{t})}_{t\in Z}$, con $X_{t}=(X_{1t},\ldots ,X_{kt})'$, es estrictamente estacionario (o fuertemente estacionario) si las distribuciones conjuntas de cualquier conjunto finito de variables se mantienen por saltos.\newline
 
 Es decir, si:
 \[
-F_{t_{1+l},\ldots, t_{k+l}}\left( x_{t_{1}+l},\ldots, x_{t_{k+l}} \right)=
-F_{t_{1},\ldots ,t_{k}}\left( x_{t_{1}},\ldots, x_{t_{k}} \right)
+F_{t_{1+\ell},\ldots, t_{k+\ell}}\left( x_{t_{1}+\ell},\ldots, x_{t_{k+\ell}} \right)=F_{t_{1},\ldots ,t_{k}}\left( x_{t_{1}},\ldots, x_{t_{k}} \right)
 \]
-Para todo $k\in N$ y para todo $t_{1},\ldots , t_{k}$, $l\in Z$ 
+Para todo $k\in N$ y para todo $t_{1},\ldots , t_{k}$, $\ell\in Z$.\newline
 
-Donde, $F_{t_{1},\ldots ,t_{k}}$ denota la distribuci\'{o}n conjunta de $X_{t_{1}},\ldots , X_{t_{k}}$.
+Donde, $F_{t_{1},\ldots, t_{k}}$ denota la distribuci\'{o}n conjunta de $X_{t_{1}},\ldots , X_{t_{k}}$.
 
 \subsection{Proceso d\'{e}bilmente estacionario}
-\label{subsubsec:mylabel2}
+%\label{subsubsec:mylabel2}
 
 Un proceso estoc\'{a}stico multivariado ${(X_{t})}_{t\in Z}$, con $X_{t}=(X_{1t},\ldots, X_{kt})'$, se dice que es \textit{d\'{e}bilmente estacionario} si sus momentos de primer y segundo orden son invariantes en el tiempo (no dependen de t); es decir:
 
 \begin{enumerate}
-\item $E\left( X_{t} \right)=\mu \quad \forall t$\quad (el vector media es constante).
-\item $Cov\left( X_{t}, X_{t-l} \right)=E\left[ \left( X_{t}-\mu \right)\left( X_{t-l}-\mu \right)' \right]=\Gamma_{l} \quad \forall t;$ es decir, la matriz de \textit{covarianzas cruzadas} entre $X_{t}$ y $X_{t-l}$ es independiente de t (solo depende del salto $l)$.
+\item[i.] $E\left( X_{t} \right)=\mu \quad \forall t$\quad (el vector media es constante).
+\item[ii.] $Cov\left( X_{t}, X_{t-\ell} \right)=E\left[ \left( X_{t}-\mu \right)\left( X_{t-\ell}-\mu \right)' \right]=\Gamma_{\ell} \quad \forall t;$ es decir, la matriz de \textit{covarianzas cruzadas} entre $X_{t}$ y $X_{t-\ell}$ es independiente de t (solo depende del salto $\ell$).
 \end{enumerate}
 
-La media $\mu$ es un vector $k-$dimensional compuesto por las esperanzas de las componentes de $X_{t}$. La matriz de covarianzas cruzadas es de orden $k* k$.
+La media $\mu$ es un vector $k-$dimensional compuesto por las esperanzas de las componentes de $X_{t}$. La matriz de covarianzas cruzadas es de orden $k* k$.\newline
 
-El i-\'{e}simo elemento de la diagonal de $\Gamma_{0}$ es la varianza de $X_{it}$; mientras que, el elemento $(i,j)$ de $\Gamma_{0}$ es la covarianza entre $X_{it}$ y $X_{jt}$. El elemento $(i,j)$ de $\Gamma_{l}$ es la covarianza entre $X_{it}$ y $X_{j,t-l}$. 
+El i-\'{e}simo elemento de la diagonal de $\Gamma_{0}$ es la varianza de $X_{it}$; mientras que, el elemento $(i,j)$ de $\Gamma_{0}$ es la covarianza entre $X_{it}$ y $X_{jt}$. El elemento $(i,j)$ de $\Gamma_{\ell}$ es la covarianza entre $X_{it}$ y $X_{j,t-\ell}$. 
 
 \begin{observacion}
-Se puede demostrar que si un proceso ${(X_{t})}_{t\in Z}$ es d\'{e}bilmente estacionario entonces 
-tambi\'{e}n lo ser\'{a} cada una de sus componentes.
+Se puede demostrar que si un proceso ${(X_{t})}_{t\in Z}$ es d\'{e}bilmente estacionario entonces tambi\'{e}n lo ser\'{a} cada una de sus componentes.
 \end{observacion}
 
 
 \section{Matrices de Correlaci\'{o}n Cruzada (Cross-Correlation)}
-\label{subsec:mylabel6}
+%\label{subsec:mylabel6}
 
 En lo que sigue se considera que ${(X_{t})}_{t\in Z}$ es estacionaria.\newline
 
@@ -75,67 +72,62 @@ $\rho_{ij}(0)$ es el coeficiente de correlaci\'{o}n lineal entre $X_{it}$ y $X_{
 
 As\'{i}, $\rho \left( 0 \right)$ es una matriz sim\'{e}trica con 1 en la diagonal.\newline
 
-Hay que mencionar que las matrices $\Gamma_{l}$ contienen las \textbf{relaciones en retardo}\index{Relaciones en retardo} entre las componentes de las series. Por lo tanto, las matrices de correlaci\'{o}n cruzada se utilizan para medir la fuerza de la dependencia lineal entre las series de tiempo. 
+Hay que mencionar que las matrices $\Gamma_{\ell}$ contienen las \textbf{relaciones en retardo}\index{Relaciones en retardo} entre las componentes de las series. Por lo tanto, las matrices de correlaci\'{o}n cruzada se utilizan para medir la fuerza de la dependencia lineal entre las series de tiempo.\newline
 
-La matriz de correlaci\'{o}n cruzada de $X_{t}$ con $X_{t-l}$ se define como:
+La matriz de correlaci\'{o}n cruzada de $X_{t}$ con $X_{t-\ell}$ se define como:
 \[
-\rho_{l}\equiv \left[ \rho_{ij}(l) \right]=D^{-1}\Gamma_{l}D^{-1}
+\rho_{\ell}\equiv \left[ \rho_{ij}(\ell) \right]=D^{-1}\Gamma_{\ell}D^{-1}
 \]
 donde, $D$ es la matriz diagonal de las desviaciones est\'{a}ndar de las series individuales. De la definici\'{o}n se tiene:
 \[
-\rho_{ij}\left( l \right)=\frac{\Gamma_{ij}(l)}{\sqrt{\Gamma_{ii}\left( 0 \right)\Gamma_{jj}(0)}}=\frac{Cov\left(X_{it}, X_{j,t-l} \right)}{de\left(X_{it} \right) de(X_{jt})}=\frac{Cov\left( X_{it},
-X_{jt-l} \right)}{de\left(X_{it} \right)de(X_{jt-l})}
+\rho_{ij}\left(\ell \right)=\frac{\Gamma_{ij}(\ell)}{\sqrt{\Gamma_{ii}\left( 0 \right)\Gamma_{jj}(0)}}=\frac{Cov\left(X_{it}, X_{j,t-\ell} \right)}{de\left(X_{it} \right) de(X_{jt})}=\frac{Cov\left( X_{it}, X_{jt-\ell} \right)}{de\left(X_{it} \right)de(X_{jt-\ell})}
 \]
-que es el coeficiente de correlaci\'{o}n lineal entre $X_{it}$ y $X_{j,t-l}$. Cuando $l>0$, este coeficiente de 
-correlaci\'{o}n mide la dependencia lineal de $X_{it}$ con respecto $X_{j,t-l}$ ($X_{t-l}$ ocurre con anterioridad al instante t). Consecuentemente, si $\rho_{ij}\left( l \right)\neq 0$ y $l>0$, se dice que la serie $X_{jt}$ \textbf{conduce} a la serie $X_{it}$ con retardo $l$.\newline
+que es el coeficiente de correlaci\'{o}n lineal entre $X_{it}$ y $X_{j,t-\ell}$. Cuando $\ell>0$, este coeficiente de correlaci\'{o}n mide la dependencia lineal de $X_{it}$ con respecto $X_{j,t-\ell}$ ($X_{t-\ell}$ ocurre con anterioridad al instante t). Consecuentemente, si $\rho_{ij}\left(\ell \right)\neq 0$ y $\ell>0$, se dice que la serie $X_{jt}$ \textbf{conduce} a la serie $X_{it}$ con retardo $\ell$.\newline
 
-Similarmente, $\rho_{ji}(l)$ mide la dependencia lineal de $X_{jt}$ con respecto a $X_{i,t-l}$ y se puede decir que la serie $X_{it}$ \textbf{conduce} a la serie $X_{jt}$, con retardo $l$, si $\rho_{ij}(l)\neq 0$ y $l>0$.\newline
+Similarmente, $\rho_{ji}(\ell)$ mide la dependencia lineal de $X_{jt}$ con respecto a $X_{i,t-\ell}$ y se puede decir que la serie $X_{it}$ \textbf{conduce} a la serie $X_{jt}$, con retardo $\ell$, si $\rho_{ij}(\ell)\neq 0$ y $\ell>0$.\newline
 
-Se pueden mencionar las siguientes propiedades cuando $l>0$:
+Se pueden mencionar las siguientes propiedades cuando $\ell>0$:
 
 \begin{enumerate}
-\item En general, $\rho_{ij}\left( l \right)\neq \rho_{ji}\left( l \right)$ para $i\neq j$, porque los dos coeficientes de correlaci\'{o}n miden diferentes relaciones lineales entre las series. Por lo tanto, $\Gamma_{l}$ y $\rho_{l}$ son, generalmente, no sim\'{e}tricas.
+\item En general, $\rho_{ij}\left(\ell \right)\neq \rho_{ji}\left(\ell \right)$ para $i\neq j$, porque los dos coeficientes de correlaci\'{o}n miden diferentes relaciones lineales entre las series. Por lo tanto, $\Gamma_{\ell}$ y $\rho_{\ell}$ son, generalmente, no sim\'{e}tricas.
 \item Utilizando $Cov\left(X, Y\right)=Cov\left(Y, X\right)$ y suponiendo que las series son estacionarias, se tiene:
 \[
-Cov(X_{it}, X_{j,t-l})=Cov\left(X_{j,t-l}, X_{it}\right)=Cov\left(X_{jt}, X_{i,t+l}\right)=Cov\left(X_{jt}, X_{i,t-\left( -l\right)} \right)
+Cov(X_{it}, X_{j,t-\ell})=Cov\left(X_{j,t-\ell}, X_{it}\right)=Cov\left(X_{jt}, X_{i,t+\ell}\right)=Cov\left(X_{jt}, X_{i,t-\left( -\ell\right)} \right)
 \]
 \end{enumerate}
 
-As\'{i} que $\Gamma_{ij}(l)=\Gamma_{ji}(-l)$, donde $\Gamma_{ji}(-l)$ es el elemento $(j, i)$ de $\Gamma_{-l}$; la igualdad se cumple para 1 $\leq$ i, j $\leq$ k. Es decir, $\Gamma_{l}=\Gamma_{-l}^{'}$.
+As\'{i} que $\Gamma_{ij}(\ell)=\Gamma_{ji}(-\ell)$, donde $\Gamma_{ji}(-\ell)$ es el elemento $(j, i)$ de $\Gamma_{-\ell}$; la igualdad se cumple para 1 $\leq$ i, j $\leq$ k. Es decir, $\Gamma_{\ell}=\Gamma_{-\ell}^{'}$.
 
 \subsection{Dependencia Lineal}
-\label{subsubsec:mylabel3}
+%\label{subsubsec:mylabel3}
 
-Consid\'{e}rense\index{Dependencia lineal multivariante} las matrices de correlaci\'{o}n cruzada $\left\{\rho(l)\vert 
-l=0, 1, 2,\ldots \right\}$ de una serie temporal vectorial estacionaria; \'{e}stas contienen la siguiente informaci\'{o}n:
+Consid\'{e}rense\index{Dependencia lineal multivariante} las matrices de correlaci\'{o}n cruzada $\left\{\rho(\ell)\vert \ell=0, 1, 2,\ldots \right\}$ de una serie temporal vectorial estacionaria; \'{e}stas contienen la siguiente informaci\'{o}n:
 
 \begin{enumerate}
-\item Los elementos de la diagonal de la matriz de correlaci\'{o}n cruzada $\rho_{ii}\left( l \right)$ son las funciones de autocorrelaci\'{o}n de $X_{it}$.
+\item Los elementos de la diagonal de la matriz de correlaci\'{o}n cruzada $\rho_{ii}\left(\ell \right)$ son las funciones de autocorrelaci\'{o}n de $X_{it}$.
 \item El elemento fuera de la diagonal $\rho_{ij}(0)$ mide la relaci\'{o}n lineal de concurrencia entre $X_{it}$ y $X_{jt}$.
-\item Para $l>0$, el elemento fuera de la diagonal $\rho_{ij}\left( l \right)$ mide la dependencia lineal de $X_{it}$ con respecto a $X_{j,t-l}$.
+\item Para $\ell>0$, el elemento fuera de la diagonal $\rho_{ij}\left(\ell \right)$ mide la dependencia lineal de $X_{it}$ con respecto a $X_{j,t-\ell}$.
 \end{enumerate}
 
-Por lo tanto, si $\rho_{ij}\left( l \right)=0$ para todo $l>0$, $X_{it}$ no depende linealmente de ning\'{u}n valor del pasado $X_{j,t-l}$.\newline
+Por lo tanto, si $\rho_{ij}\left(\ell \right)=0$ para todo $\ell>0$, $X_{it}$ no depende linealmente de ning\'{u}n valor del pasado $X_{j,t-\ell}$.\newline
 
 \textbf{\textit{Resumen e interpretaci\'{o}n.}}\newline
 
-En general, la relaci\'{o}n lineal entre dos series de tiempo $\left{X_{it}\right}$  y $\left{X_{jt}\right}$ puede 
-resumirse en la siguiente forma:
+En general, la relaci\'{o}n lineal entre dos series de tiempo $\left{X_{it}\right}$  y $\left{X_{jt}\right}$ puede resumirse en la siguiente forma:
 
 \begin{enumerate}
-\item $X_{it}$ y $X_{jt}$ no tienen relaci\'{o}n lineal si $\rho_{ij}\left( l \right)=\rho_{ji}\left( l \right)=0,\quad \forall l\geq 0$.
+\item $X_{it}$ y $X_{jt}$ no tienen relaci\'{o}n lineal si $\rho_{ij}\left( \ell \right)=\rho_{ji}\left( \ell \right)=0,\quad \forall \ell\geq 0$.
 \item $X_{it}$ y $X_{jt}$ est\'{a}n al mismo tiempo correlacionadas si $\rho_{ij}\left( 0 \right)\neq 0$.
-\item $X_{it}$ y $X_{jt}$ no tienen relaci\'{o}n de avance-retardo si $\rho_{ij}\left( l \right)=0$ y $\rho_{ji}\left( l \right)=0,\quad \forall l>0$. En este caso, se dice que las series son desacopladas.
-\item Existe una \textit{relaci\'{o}n unidireccional} desde $X_{it}$ hacia $X_{jt}$ si $\rho_{ij}\left( l \right)=0,\quad \forall l>0$, pero $\rho_{ji}(v)\neq 0$ para alg\'{u}n $v>0$. En este caso, $X_{it}$ no depende de ning\'{u}n valor del pasado de $X_{jt}$, pero $X_{jt}$ depende de alg\'{u}n valor del pasado de $X_{it}$.
-\item Existe una \textit{relaci\'{o}n de retroalimentaci\'{o}n} entre $X_{it}$ y $X_{jt}$ si $\rho_{ij}\left( l \right)\neq 0$ para alg\'{u}n $l>0$ y $\rho_{ji}(v)\neq 0$ para alg\'{u}n $v>0$.
+\item $X_{it}$ y $X_{jt}$ no tienen relaci\'{o}n de avance-retardo si $\rho_{ij}\left( \ell \right)=0$ y $\rho_{ji}\left( \ell \right)=0,\quad \forall \ell>0$. En este caso, se dice que las series son desacopladas.
+\item Existe una \textit{relaci\'{o}n unidireccional} desde $X_{it}$ hacia $X_{jt}$ si $\rho_{ij}\left( \ell \right)=0,\quad \forall \ell>0$, pero $\rho_{ji}(v)\neq 0$ para alg\'{u}n $v>0$. En este caso, $X_{it}$ no depende de ning\'{u}n valor del pasado de $X_{jt}$, pero $X_{jt}$ depende de alg\'{u}n valor del pasado de $X_{it}$.
+\item Existe una \textit{relaci\'{o}n de retroalimentaci\'{o}n} entre $X_{it}$ y $X_{jt}$ si $\rho_{ij}\left( \ell \right)\neq 0$ para alg\'{u}n $\ell>0$ y $\rho_{ji}(v)\neq 0$ para alg\'{u}n $v>0$.
 \end{enumerate}
 
 Las formulaciones anteriores son suficientes para analizar la dependencia lineal entre series temporales. Un enfoque m\'{a}s informativo para estudiar las relaciones entre las series temporales es construir un modelo multivariante para las series, porque un modelo correctamente especificado considera simult\'{a}neamente el n\'{u}mero de series y las correlaciones cruzadas de las mismas.\newline
 
-En la pr\'{a}ctica se utilizan los estimadores de las matrices antes mencionadas; en particular para $\Gamma(l)$: 
+En la pr\'{a}ctica se utilizan los estimadores de las matrices antes mencionadas; en particular para $\Gamma(\ell)$: 
 \[
-\hat{\Gamma}\left( l \right)=\frac{1}{T}\sum_{t=l+1}^T {\left( 
-X_{t}-\bar{X} \right)\left(X_{t-l}-\bar{X} \right)'}, \quad l\geq 0 
+\hat{\Gamma}\left( \ell \right)=\frac{1}{T}\sum_{t=\ell+1}^T {\left( X_{t}-\bar{X} \right)\left(X_{t-\ell}-\bar{X} \right)'}, \quad \ell\geq 0 
 \]
 donde,
 
@@ -143,9 +135,9 @@ T: n\'{u}mero de observaciones
 \[
 \bar{X}=\frac{\left(\displaystyle\sum_{t=1}^T X_{t} \right)}{T}:\text{vector de medias muestrales}
 \]
-y para $\rho \left( l \right):$
+y para $\rho \left( \ell \right):$
 \[
-\hat{\rho }\left( l \right)=\hat{D}^{-1}\hat{\Gamma }_{X}\left(l \right)\hat{D}^{-1}, \quad l\geq 0 
+\hat{\rho }\left( \ell \right)=\hat{D}^{-1}\hat{\Gamma }_{X}\left(\ell \right)\hat{D}^{-1}, \quad \ell\geq 0 
 \]
 donde,
 
@@ -156,7 +148,7 @@ Se consideran tres series de datos econ\'{o}micos de un pa\'{i}s sudamericano: e
 \end{ejemplo}
 
 \textbf{Resoluci\'{o}n.}
-
+\quad
 Las matrices de correlaci\'{o}n cruzada se las construyen de manera manual, considerando cada escenario de posibles combinaciones entre las variables; as\'{i}, en este caso, se obtiene:
 
 \begin{itemize}
@@ -203,12 +195,11 @@ $X_{3t}$ & 0,93 & 0,94 & 0,94 & 0,87 & 0,88 & 0,87 & 0,80 & 0,81 & 0,81 \\ \hlin
 + & + & + \\
 \end{tabular}\right|
 \caption{Resumen de estadísticas y matrices de correlación cruzada para $X_{1t}$, $X_{2t}$ y $X_{3t}$}
-\label{tab13}
+%\label{tab13}
 \end{table}
 \end{itemize}
 
-Para representar a las matrices de correlaci\'{o}n cruzada, se utiliza la forma gr\'{a}fica simplificada %(ver tabla 5.1c)
-, que utiliza el hecho que $2/\sqrt{T}$ (0,28 en este caso) es el valor cr\'{i}tico de la correlaci\'{o}n muestral con nivel de significaci\'{o}n del $5\%$, bajo la suposici\'{o}n que $X_{t}$ es un ruido blanco:
+Para representar a las matrices de correlaci\'{o}n cruzada, se utiliza la forma gr\'{a}fica simplificada (ver tabla 5.1), que utiliza el hecho que $2/\sqrt{T}$ (0,28 en este caso) es el valor cr\'{i}tico de la correlaci\'{o}n muestral con nivel de significaci\'{o}n del $5\%$, bajo la suposici\'{o}n que $X_{t}$ es un ruido blanco:
 
 \begin{itemize}
 \item ``$+$'' representa a los coeficientes de correlaci\'{o}n que son mayores o iguales a $2/\sqrt T $.
@@ -225,7 +216,7 @@ Es f\'{a}cil ver que las correlaciones cruzadas son significativas en los primer
 \centering
 \includegraphics[width=0.7\textwidth]{Graficos/Cap4-5/STcap419.eps}
 \caption{Correlaciones cruzadas entre $X_{1t}$ y $X_{2t}$}
-\label{fig19}
+%\label{fig19}
 \end{figure}
 
 %\[
@@ -235,7 +226,7 @@ Es f\'{a}cil ver que las correlaciones cruzadas son significativas en los primer
 \centering
 \includegraphics[width=0.7\textwidth]{Graficos/Cap4-5/STcap420.eps}
 \caption{Correlaciones cruzadas entre $X_{1t}$ y $X_{3t}$}
-\label{fig20}
+%\label{fig20}
 \end{figure}
 
 %\[
@@ -245,20 +236,18 @@ Es f\'{a}cil ver que las correlaciones cruzadas son significativas en los primer
 \centering
 \includegraphics[width=0.7\textwidth]{Graficos/Cap4-5/STcap421.eps}
 \caption{Correlaciones cruzadas entre $X_{2t}$ y $X_{3t}$}
-\label{fig21}
+%\label{fig21}
 \end{figure}
 
-
-Como se puede observar, los valores calculados por el paquete son aquellos que est\'{a}n en la diagonal segundaria de las matrices calculadas manualmente. Para poder completar la matriz, se puede, ver a partir de la f\'{o}rmula de c\'{a}lculo que las $\hat{\rho }_{ii}\left( l \right)$ corresponden a las autocorrelaciones simples de orden $l$ de cada serie univariante dentro de $X_{t}$.
-
+Como se puede observar, los valores calculados por el paquete son aquellos que est\'{a}n en la diagonal segundaria de las matrices calculadas manualmente. Para poder completar la matriz, se puede, ver a partir de la f\'{o}rmula de c\'{a}lculo que las $\hat{\rho }_{ii}\left( \ell \right)$ corresponden a las autocorrelaciones simples de orden $\ell$ de cada serie univariante dentro de $X_{t}$.
 
 \section{Modelos de Vectores Autoregresivos (VAR)}
-\label{subsec:modelos}
+%\label{subsec:modelos}
 
 Este tipo de modelos no pertenecen a los modelos estoc\'{a}sticos desarrollados por Box y Jenkins; sin embargo, la representaci\'{o}n\index{Modelos VAR} VAR se puede considerar como la generalizaci\'{o}n de los modelos autoregresivos al caso multivariante.
 
 \subsection{El caso bivariante}
-\label{subsubsec:mylabel4}
+%\label{subsubsec:mylabel4}
 
 Una representaci\'{o}n VAR bivariante\index{Modelos VAR!Bivariante} es aquella que consideran dos variables $X_{1t}$ y $X_{2t}$. Cada una de ellas se expresa en funci\'{o}n de sus propios valores del pasado y de los del presente y del pasado de la otra variable. Por ejemplo, se va a representar el modelo VAR bivariante de orden $p=3$ [VAR (3)]; se escribe:
 \[
@@ -343,9 +332,9 @@ El modelo VAR no permite distinguir entre variables end\'{o}genas (variables pro
 \end{proposicion}
 
 \subsection{Representaci\'{o}n general de un VAR}
-\label{subsubsec:mylabel5}
+%\label{subsubsec:mylabel5}
 
-\textbf{Notaci\'{o}n. } Un modelo VAR\index{Modelos VAR!Representaci\'{o}n general} a k variables con p retardos se denota $VAR(p)$.
+\textbf{Notaci\'{o}n. } Un modelo VAR\index{Modelos VAR!Representaci\'{o}n general} a k variables con p retardos se denota $VAR(p)$.\newline
 
 La generalizaci\'{o}n de la representaci\'{o}n VAR a $k$ variables con $p$ retardos se escribe en su forma est\'{a}ndar como:
 \[
@@ -484,7 +473,7 @@ Adem\'{a}s, se puede demostrar que:
 \]
 
 \begin{observacion}
-Se puede demostrar que si un proceso $VAR(1)$ es estable, entonces es estacionario.
+Se puede demostrar que si un proceso $VAR(1)$ es estable, entonces es estacionario.\newline
 
 En general, se puede demostrar que un proceso $VAR(p)$ es estacionario si el polinomio definido a partir de la expresi\'{o}n: $det\left( I-A_{1}z-A_{2}z^{2}-\mathellipsis -A_{p}z^{P} \right)$ tiene sus ra\'{i}ces fuera del c\'{i}rculo unidad del plano complejo; es decir:
 \[
@@ -513,7 +502,7 @@ u_{2t}\\
 \end{array} } \right]
 \]
 
-\textbf{Resoluci\'{o}n.}
+\textbf{Resoluci\'{o}n.}\newline
 
 Se tiene que:
 \[
@@ -535,10 +524,10 @@ Las dos ra\'{i}ces son superiores a 1 en valor absoluto; por lo tanto, el proces
 
 
 \section{Representaci\'{o}n VARMA de una Serie Multivariante}
-\label{subsec:representaci}
+%\label{subsec:representaci}
 
 \subsection{La representaci\'{o}n VMA}
-\label{subsubsec:mylabel6}
+%\label{subsubsec:mylabel6}
 
 Un modelo media m\'{o}vil vectorial de orden\index{Modelos VMA!Orden q} q ($VMA\left( q \right)$ por sus siglas en ingl\'{e}s), tiene la siguiente forma:
 \[
@@ -556,7 +545,7 @@ De manera similar al caso univariante, los procesos $VMA\left( q \right)$ son d\
 \mu =E\left( X_{t} \right)=m_{0}
 \]
 
-As\'{i}, el vector constante $m_{0}$ es el vector media de $X_{t}$ para un modelo VMA.
+As\'{i}, el vector constante $m_{0}$ es el vector media de $X_{t}$ para un modelo VMA.\newline
 
 Se define $\tilde{X}_{t}=X_{t}-m_{0}$ como el proceso corregido en media $VAR(q)$. Cuando se tiene un proceso $VMA(q)$ y considerando el hecho de que los $\left\{ u_{t} \right\}$ no est\'{a}n correlacionados, se obtiene:
 
@@ -567,16 +556,15 @@ Se define $\tilde{X}_{t}=X_{t}-m_{0}$ como el proceso corregido en media $VAR(q)
       \item $\Gamma_{l}=\sum_{j=l}^q {\mathrm{M}_{j}\Sigma_{u}M_{j-l}^{'}}$\quad si $1\le l \leq q$,\quad donde $M_{0}=-I$
 \end{enumerate}
 
-Dado que $\Gamma_{l}=0$ para $l>q$, las matrices de correlaci\'{o}n cruzada de un proceso $VMA(q)$ satisfacen:
+Dado que $\Gamma_{\ell}=0$ para $\ell>q$, las matrices de correlaci\'{o}n cruzada de un proceso $VMA(q)$ satisfacen:
 \[
-\rho_{l}=0,\quad l>q
+\rho_{\ell}=0,\quad \ell>q
 \]
 
 \subsection{Representaci\'{o}n lineal de un VAR(p)}
-\label{subsubsec:mylabel7}
+%\label{subsubsec:mylabel7}
 
-Cuando se analizaron\index{Modelos VAR!Representaci\'{o}n lineal} las series temporales univariantes, se mostr\'{o} que bajo ciertas condiciones un proceso $AR(1)$ se puede representar como un proceso lineal. De la misma manera, para las series multivariantes se puede representar, en particular, un $VAR(1)$ como un proceso lineal (se dice que es la representaci\'{o}n 
-lineal del proceso). Un modelo con esta forma permite medir el impacto en los valores presentes de una variaci\'{o}n de innovaciones (o choques).
+Cuando se analizaron\index{Modelos VAR!Representaci\'{o}n lineal} las series temporales univariantes, se mostr\'{o} que bajo ciertas condiciones un proceso $AR(1)$ se puede representar como un proceso lineal. De la misma manera, para las series multivariantes se puede representar, en particular, un $VAR(1)$ como un proceso lineal (se dice que es la representaci\'{o}n lineal del proceso). Un modelo con esta forma permite medir el impacto en los valores presentes de una variaci\'{o}n de innovaciones (o choques).\newline
 
 Sea $X_{t}$ un $VAR(1)$ estable:
 \[
@@ -628,7 +616,7 @@ M_{i}=\sum_{j=1}^{\mathrm{min}(p,i)} A_{j} M_{i-j}\quad i=1,2,\mathellipsis\quad
 Las matrices $M_{i}$ aparecen como un ``\textbf{\textit{factor de impacto}}\index{Factor de impacto}'', a trav\'{e}s de las cuales se analiza el efecto de un choque a lo largo de todo el proceso.
 
 \begin{observacion}
-\quad\newline
+\quad
 \begin{enumerate}
       \item As\'{\i}, se obtiene que si un proceso $VAR(p)$ es estable, tiene una representaci\'{o}n lineal estacionaria.
       \item No se profundiza sobre la modelaci\'{o}n $VMA(q)$ porque no est\'{a} implementada en los programas comerciales usuales.
@@ -675,7 +663,7 @@ Finalmente, la correlaci\'{o}n actual entre los $m_{ij}$ (coeficientes estimados
 
 
 \subsection{La representaci\'{o}n VARMA}
-\label{subsubsec:mylabel8}
+%\label{subsubsec:mylabel8}
 
 La representaci\'{o}n VAR puede generalizarse (es una aplicaci\'{o}n multivariante del teorema de descomposici\'{o}n de Wold (1954)), por analog\'{i}a con los procesos $ARMA(pq)$.
 \[
@@ -747,12 +735,12 @@ Luego, los modelos para $X_{1t}$ son id\'{e}nticos. Este tipo de problema de ide
 
 
 \section{Formulaci\'{o}n de un modelo VAR}
-\label{subsec:mylabel7}
+%\label{subsec:mylabel7}
 
 Los par\'{a}metros de un proceso VAR pueden estimarse solamente en las series temporales estacionarias. Se conoce que muchas series pueden volverse estacionarias a trav\'{e}s de un proceso de diferenciaci\'{o}n (en el caso de una tendencia determinista o una estacionalidad) o a trav\'{e}s de una transformaci\'{o}n de las variables (por ejemplo, una transformaci\'{o}n logar\'{i}tmica) en ciertos casos con heteroscedasticidad.
 
 \subsection{Estimaci\'{o}n}
-\label{subsubsec:mylabel9}
+%\label{subsubsec:mylabel9}
 
 En el caso de un proceso VAR, las ecuaciones pueden\index{Modelos VAR!Estimaci\'{o}n de los coeficientes} estimarse por MCO independientemente una de la otra (o por un m\'{e}todo de m\'{a}xima verosimilitud).\newline
 
@@ -770,7 +758,7 @@ Se denotar\'{a} por $\displaystyle\hat{\Sigma }_{u,p}$ la matriz de varianzas co
 \]
 
 \subsection{Determinaci\'{o}n del n\'{u}mero de retardos}
-\label{subsubsec:mylabel10}
+%\label{subsubsec:mylabel10}
 
 El mayor problema que debe enfrentarse a la hora de estimar los modelos VAR es el de la determinaci\'{o}n del n\'{u}mero de retardos a incluir en la estimaci\'{o}n; suele realizarse en forma cuantitativa, analizando los resultados de la estimaci\'{o}n y comparando los resultados obtenidos entre distintos modelos alternativos, ya que no es frecuente encontrar evidencias te\'{o}ricas al respecto.\newline
 
@@ -819,7 +807,7 @@ $M\left( p \right)$ sigue asint\'{o}ticamente una distribuci\'{o}n Ji-cuadrado c
 \end{observacion}
 
 \subsection{Diagn\'{o}stico y validaci\'{o}n del modelo}
-\label{subsubsec:mylabel11}
+%\label{subsubsec:mylabel11}
 
 Un buen punto de partida\index{Modelos VAR!Diagn\'{o}stico y validaci\'{o}n} para la verificaci\'{o}n de que el modelo estimado es el adecuado, es la significaci\'{o}n de los par\'{a}metros estimados, para no tener par\'{a}metros no deseados o par\'{a}metros que no aportan al modelo. Por otro lado, esto puede ser enga\~{n}oso, porque los par\'{a}metros estimados de un modelo pobre pueden ser tambi\'{e}n significativos. Por lo tanto, no se debe depender exclusivamente de la significaci\'{o}n de los 
 par\'{a}metros para evaluar el modelo.\newline
@@ -832,11 +820,11 @@ Una forma de observar esto es considerar los elementos individuales de la matriz
 
 Sea $\left\{ u_{t} \right\}$ un ruido blanco $k$-dimensional con matriz\index{Matriz!De covarianza residual} de covarianza $\Sigma_{u}$ y su correspondiente matriz de correlaci\'{o}n\index{Matriz!De correlaci\'{o}n residual} $R_{u}$ . La matriz de autocovarianza y la matriz de autocorrelaci\'{o}n muestral de $\left\{ u_{t} \right\}$ con respecto al retardo $i$ est\'{a}n dadas por:
 \[
-\hat{C}_{i}=\frac{1}{T}\sum_{t=i+1}^T {\hat{u}_{i}{\hat{u}'}_{t-i}} \quad i= 0, 1, \ldots ; i<T
+\hat{C}_{i}=\frac{1}{T}\sum_{t=i+1}^T {\hat{u}_{i}{\hat{u}'}_{t-i}} \qquad i= 0, 1, \ldots ; i<T
 \]
 
 \[
-\hat{R}_{i}=V_{u}^{-\frac{1}{2}}\hat{C}_{i}V_{u}^{-\frac{1}{2}}\quad i= 0, 1, \ldots ; i<T
+\hat{R}_{i}=V_{u}^{-\frac{1}{2}}\hat{C}_{i}V_{u}^{-\frac{1}{2}}\qquad i= 0, 1, \ldots ; i<T
 \]
 
 donde, T es el n\'{u}mero de observaciones de las series de tiempo y $V_{u}^{-\frac{1}{2}}$ es una matriz diagonal $(k\ast k)$ con el inverso de la ra\'{\i}z cuadrada de los elementos de la diagonal de $C_{0}$ en su diagonal.\newline
@@ -849,18 +837,18 @@ La prueba de bondad de ajuste para los residuos de Box-Pierce (1970), la prueba 
 
 La hip\'{o}tesis que se prueba es:
 \[
-H_{0}:R_{l}^{\ast }=\left( R_{1},\mathellipsis ,R_{l} \right)'=0\qquad 
-\text{contra}\qquad H_{a}:R_{l}^{\ast }=\left( R_{1},\mathellipsis ,R_{l} \right)'\neq 0
+H_{0}:R_{\ell}^{\ast }=\left( R_{1},\mathellipsis ,R_{\ell} \right)'=0\qquad 
+\text{contra}\qquad H_{a}:R_{\ell}^{\ast }=\left( R_{1},\mathellipsis ,R_{\ell} \right)'\neq 0
 \]
 
 Si no se rechaza la hip\'{o}tesis nula, se puede asumir que los residuos se comportan como un ruido blanco y, por lo tanto, es adecuado el modelo ajustado.\newline
 
 La prueba multivariante \textit{Portmanteau} propuesta por Hosking (1980) considera el estad\'{i}stico:
 \[
-Q(l)=T\sum_{i=1}^l {tr\left( \hat{C}_{i}^{'}\hat{C}_{0}^{-1}\hat{C}_{i}\hat{C}_{0}^{-1} \right)} 
+Q(\ell)=T\sum_{i=1}^{\ell} {tr\left( \hat{C}_{i}^{'}\hat{C}_{0}^{-1}\hat{C}_{i}\hat{C}_{0}^{-1} \right)} 
 \]
 
-Este estad\'{i}stico tiene aproximadamente una distribuci\'{o}n Ji-Cuadrada con $k^{2}(l-p)$ grados de libertad bajo la hip\'{o}tesis nula, donde $p $es el orden estimado del modelo VAR (p) y $l$ es el n\'{u}mero de retardos incluidos en la prueba para la significaci\'{o}n total. Ljung-Box (1978) propusieron una modificaci\'{o}n que conduce a propiedades mejores en el caso univariante; Hosking considera una modificaci\'{o}n similar para el caso multivariante. El estad\'{i}stico modificado de la prueba \textit{Portmanteau} est\'{a} dado por:
+Este estad\'{i}stico tiene aproximadamente una distribuci\'{o}n Ji-Cuadrada con $k^{2}(\ell-p)$ grados de libertad bajo la hip\'{o}tesis nula, donde $p $es el orden estimado del modelo VAR (p) y $\ell$ es el n\'{u}mero de retardos incluidos en la prueba para la significaci\'{o}n total. Ljung-Box (1978) propusieron una modificaci\'{o}n que conduce a propiedades mejores en el caso univariante; Hosking considera una modificaci\'{o}n similar para el caso multivariante. El estad\'{i}stico modificado de la prueba \textit{Portmanteau} est\'{a} dado por:
 \[
 Q^{'}(l)=T^{2}\sum_{i=1}^l {\left( T-i \right)^{-1}tr\left( \hat{C}_{i}^{'}\hat{C}_{0}^{-1}\hat{C}_{i}\hat{C}_{0}^{-1} \right)}
 \]
@@ -872,9 +860,9 @@ Se utiliza para detectar autocorrelaci\'{o}n\index{Prueba!Multiplicador de Lagra
 
 Se realiza la siguiente prueba de hip\'{o}tesis:
 \[
-H_{0}:\rho_{l}=0,\qquad \text{contra}\qquad H_{a}:\rho_{l}\neq 0,
+H_{0}:\rho_{\ell}=0,\qquad \text{contra}\qquad H_{a}:\rho_{\ell}\neq 0,
 \]
-donde, $l$ es el orden del modelo VAR ajustado.
+donde, $\ell$ es el orden del modelo VAR ajustado.\newline
 
 El estad\'{i}stico utilizado para la prueba es: 
 \[
@@ -883,11 +871,11 @@ LM=TR^{2}
 
 donde, $T$ el n\'{u}mero de observaciones y $R^{2}$ corresponde a la bondad de ajuste de la regresi\'{o}n auxiliar entre las variables y los residuos.\newline
 
-Este estad\'{\i}stico, bajo $H_{0}$, sigue asint\'{o}ticamente una distribuci\'{o}n Ji-cuadrado con $l$ grados de libertad, $\chi_{l}^{2}$.
+Este estad\'{i}stico, bajo $H_{0}$, sigue asint\'{o}ticamente una distribuci\'{o}n Ji-cuadrado con $\ell$ grados de libertad, $\chi_{\ell}^{2}$.
 
 \subsubsection{Prueba de Jarque-Bera }
 
-Es una prueba asint\'{o}tica de normalidad para grandes muestras. La prueba de Jarque-Bera (JB) considera\index{Prueba!Jarque-Bera multivariante} la relaci\'{o}n entre los coeficientes de asimetr\'{\i}a y apuntamiento de los residuos de la ecuaci\'{o}n estimada y los correspondientes de una distribuci\'{o}n normal, de forma tal que si estas relaciones son suficientemente diferentes se rechazar\'{a} la hip\'{o}tesis nula de normalidad.
+Es una prueba asint\'{o}tica de normalidad para grandes muestras. La prueba de Jarque-Bera (JB) considera\index{Prueba!Jarque-Bera multivariante} la relaci\'{o}n entre los coeficientes de asimetr\'{i}a y apuntamiento de los residuos de la ecuaci\'{o}n estimada y los correspondientes de una distribuci\'{o}n normal, de forma tal que si estas relaciones son suficientemente diferentes se rechazar\'{a} la hip\'{o}tesis nula de normalidad.
 
 Se realiza la siguiente prueba de hip\'{o}tesis:
 \[
@@ -897,7 +885,7 @@ Se realiza la siguiente prueba de hip\'{o}tesis:
 \end{tabular}
 \]
 
-Este estad\'{\i}stico se basa en las medidas de apuntamiento \textit{(curtosis)} y la asimetr\'{i}a a trav\'{e}s de la transformaci\'{o}n de Mahalanobis.\newline
+Este estad\'{i}stico se basa en las medidas de apuntamiento \textit{(curtosis)} y la asimetr\'{i}a a trav\'{e}s de la transformaci\'{o}n de Mahalanobis.\newline
 
 La i-\'{e}sima componente del vector de asimetr\'{i}a estimado, se calcula de la siguiente manera:
 \[
@@ -920,7 +908,7 @@ donde, $\hat{U}$ es la matriz de los residuos obtenidos a trav\'{e}s de la estim
 \right)}^{-1}=S_{\hat{U}}^{-1}\left( S_{\hat{U}}^{-1} \right)^{'}
 \]
 
-En este caso, $\hat{V}$ es la matriz ortogonalizada de los residuos estimados; es decir, ${as}_{i}$ y $k_{i}$ corresponden a la asimetr\'{i}a y el apuntamiento individual estimados, respectivamente.
+En este caso, $\hat{V}$ es la matriz ortogonalizada de los residuos estimados; es decir, ${as}_{i}$ y $k_{i}$ corresponden a la asimetr\'{i}a y el apuntamiento individual estimados, respectivamente.\newline
 
 Entonces, se define a la asimetr\'{i}a y al apuntamiento estimados de la distribuci\'{o}n de la serie multivariante como:
 \[
@@ -938,7 +926,7 @@ JB=T\left[ \frac{AS}{6}+\frac{K}{24} \right]
 Este estad\'{i}stico se compara con una distribuci\'{o}n Ji-Cuadrada con 2T grados de libertad. 
 
 \section{Predicci\'{o}n}
-\label{subsec:mylabel8}
+%\label{subsec:mylabel8}
 
 Con los coeficientes\index{Predicci\'{o}n!Modelos VAR} estimados del modelo\index{Modelos VAR!Predicci\'{o}n}, se puede calcular la predicci\'{o}n para un horizonte $h$, dada la informaci\'{o}n hasta el per\'{i}odo T; por ejemplo, para un VAR (1) se tiene:
 \[
@@ -958,8 +946,7 @@ Al horizonte de 3 per\'{i}odos, la predicci\'{o}n se escribe:
 +\hat{A}_{1}^{h-1} \right)\hat{v}_{0}+\hat{A}_{1}^{h}X_{T},\quad h\geq 0
 \]
 
-Cuando $h\to \infty $, la previsi\'{o}n tiende a un valor constante (estado estacionario) puesto que $\hat{A}_{1}^{i}\to 0
-$ si $i\to \infty $ y existe el l\'{i}mite de $\sum_{j=0}^\infty \hat{A}_{1}^{j} $, que es igual a $\left( I-\hat{A}_{1} \right)^{-1}$. Por tanto:
+Cuando $h\to \infty $, la previsi\'{o}n tiende a un valor constante (estado estacionario) puesto que $\hat{A}_{1}^{i}\to 0$ si $i\to \infty $ y existe el l\'{i}mite de $\displaystyle\sum_{j=0}^\infty \hat{A}_{1}^{j} $, que es igual a $\left( I-\hat{A}_{1} \right)^{-1}$. Por tanto:
 \[
 \hat{X}_{T}\left( h \right)\to \left( I-\hat{A}_{1} \right)^{-1}\hat{v}_{0}\quad \text{cuando}\quad h\to \infty 
 \]
@@ -1006,9 +993,7 @@ M_{3}=\hat{A}_{1}M_{2}+\hat{A}_{2} M_{1}+\hat{A}_{3} M_{0}=\hat{A}_{1}^{3}+\hat{
 La varianza del error de predicci\'{o}n para cada una de las predicciones de las $k$ variables $\left( \hat{\sigma }_{i}^{2}(h) \right)$ se lee sobre la primera diagonal de la matriz $\hat{\Sigma }_{u}(h)$. El intervalo de predicci\'{o}n al nivel $(1-\alpha )$ est\'{a} dado por: $\hat{X}_{iT}\left( h \right)\pm z_{1-\frac{\alpha }{2}}\hat{\sigma}_{i}(h)$ donde $z_{1-\frac{\alpha }{2}}$ es el cuantil de orden (1-$\alpha $/2) de la ley normal.
 
 \begin{ejemplo}
-Considerando las series del ejemplo 5.1, se busca modelar en su forma VAR. Sin embargo, las series en el ejemplo 5.1 est\'{a}n 
-en niveles y como se pudo observar no son estacionarias; por esta raz\'{o}n, se trabajar\'{a} con las variaciones trimestrales de las series. As\'{i}, se tendr\'{a}: la variaci\'{o}n trimestral del PIB $\left( Y_{1t} \right)$, del CI $\left( Y_{2t} \right)$ y de la DFI$\left( Y_{3t} \right)$ de un pa\'{i}s sudamericano. N\'{o}tese que se ha denotado a las variaciones de 
-las series con $Y$; para las variables originales se dejar\'{a} la notaci\'{o}n con $X$. Se trabajar\'{a} con 49 datos, dado que al calcular las variaciones, se pierde el primer dato. La serie Y iniciar\'{a} en la observaci\'{o}n 2 hasta la observaci\'{o}n 50. (Ver Anexo D.1).\newline
+Considerando las series del ejemplo 5.1, se busca modelar en su forma VAR. Sin embargo, las series en el ejemplo 5.1 est\'{a}n en niveles y como se pudo observar no son estacionarias; por esta raz\'{o}n, se trabajar\'{a} con las variaciones trimestrales de las series. As\'{i}, se tendr\'{a}: la variaci\'{o}n trimestral del PIB $\left( Y_{1t} \right)$, del CI $\left( Y_{2t} \right)$ y de la DFI$\left( Y_{3t} \right)$ de un pa\'{i}s sudamericano. N\'{o}tese que se ha denotado a las variaciones de las series con $Y$; para las variables originales se dejar\'{a} la notaci\'{o}n con $X$. Se trabajar\'{a} con 49 datos, dado que al calcular las variaciones, se pierde el primer dato. La serie Y iniciar\'{a} en la observaci\'{o}n 2 hasta la observaci\'{o}n 50. (Ver Anexo D.1).\newline
 
 Determinar:
 
@@ -1027,7 +1012,7 @@ Se inicia presentando el gr\'{a}fico de las series:
 \centering
 \includegraphics[width=4.74in,height=3.38in]{Graficos/Cap4-5/STcap422.eps}
 \caption{Gr\'{a}fico de las variaciones trimestrales de las series PIB, CI y DFI}
-\label{fig22}
+%\label{fig22}
 \end{figure}
 
 Antes de realizar los procedimientos para estimar los modelos, se debe verificar si las series a ser analizadas son estacionarias; para ello se realiza la prueba de ra\'{i}ces unitarias para cada serie utilizando el programa EViews:
@@ -1042,7 +1027,7 @@ Test critical values: & 1$\%$ level & -4,161144 & \\
 & 10$\%$ level & -3,183002 & \\ \hline \hline
 \end{tabular}
 \caption{Prueba DFA para $Y_{1t}$}
-\label{tab14}
+%\label{tab14}
 \end{table}
 
 \begin{table}[H]
@@ -1055,7 +1040,7 @@ Test critical values: & 1$\%$ level & -4,161144 & \\
 & 10$\%$ level & -3,183002 & \\ \hline \hline
 \end{tabular}
 \caption{Prueba DFA para $Y_{2t}$}
-\label{tab15}
+%\label{tab15}
 \end{table}
 
 \begin{table}[H]
@@ -1068,7 +1053,7 @@ Test critical values: & 1$\%$ level & -4,161144 & \\
 & 10$\%$ level & -3,183002 & \\ \hline \hline
 \end{tabular}
 \caption{Prueba DFA para $Y_{3t}$}
-\label{tab16}
+%\label{tab16}
 \end{table}
 
 Como se puede ver en las tablas \ref{tab14}, \ref{tab15} y \ref{tab16}, las tres series son estacionarias.
@@ -1126,7 +1111,7 @@ Akaike & -18,92 & -18,72 & -18,60 & -18,67 \\ \hline
 Schwarz & -18,46 & -17,91 & -17,43 & -17,13 \\ \hline
 \end{tabular}
 \caption{Criterios para escoger el retardo del VAR}
-\label{tab17}
+%\label{tab17}
 \end{table}
 
 Como se puede observar en la tabla 5.5, es en el retardo 1 ($p=1)$ donde los criterios de Akaike y Schwarz se minimizan y el valor del \textit{log de verosimilitud} es el m\'{a}ximo. Por lo tanto se realiza la estimaci\'{o}n del $VAR(1)$.\newline
@@ -1137,7 +1122,7 @@ En el caso del programa EViews, para calcular el VAR se debe ingresar el n\'{u}m
 \centering
 \includegraphics[width=4.26in,height=4.04in]{Graficos/Cap4-5/STcap423.eps}
 \caption{Especificaci\'{o}n de un modelo VAR en EViews}
-\label{fig23}
+%\label{fig23}
 \end{figure}
 
 \begin{enumerate}
@@ -1175,14 +1160,14 @@ Antes de realizar las predicciones, se debe verificar si el modelo cumple con el
 -0,246672 $+$ 0,062904i & ~0,254566 \\
 ~0,097725 & ~0,097725 \\ \hline\hline
 \end{tabular}
-\label{tab18}
+%\label{tab18}
 \end{table}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=2.60in,height=2.70in]{Graficos/Cap4-5/STcap424.eps}
 \caption{Criterio de estabilidad para el VAR(1) estimado}
-\label{fig24}
+%\label{fig24}
 \end{figure}
 
 Anal\'{i}tica y gr\'{a}ficamente, se concluye que las inversas de las ra\'{i}ces del polinomio caracter\'{i}stico se encuentran dentro del c\'{i}rculo unidad; por lo tanto, se concluye que el modelo es estable y, por tanto, es estacionario.
@@ -1219,7 +1204,7 @@ Lags & Q-Stat & Prob. & Adj Q-Stat &  Prob. & df \\ \hline\hline
 20& ~136,6630 & ~0,9751 & ~176,5237 & ~0,3701 & 171 \\ \hline \hline
 \end{tabular}
 \caption{Prueba de autocorrelaci\'{o}n Pormanteau}
-\label{tab19}
+%\label{tab19}
 \end{table}
 
 En la tabla 5.6 se observa que los p-valores (Prob.) para los retardos 2 al 10 son no significativos; de esto se concluye que los residuos no est\'{a}n autocorrelacionados.\newline
@@ -1252,7 +1237,7 @@ Lags & LM-Stat & Prob \\ \hline\hline
 20& ~7,838041 & ~0,5505 \\ \hline\hline
 \end{tabular}
 \caption{Prueba LM}
-\label{tab20}
+%\label{tab20}
 \end{table}
 
 Por los valores en la columna Prob. (ver tabla 5.7), se puede concluir que no existe correlaci\'{o}n serial. Esto confirma que no hay que reformular el modelo planteado.\newline
@@ -1269,7 +1254,7 @@ Component & Jarque-Bera & df & Prob. \\ \hline\hline
 Joint & ~3,873599 & 6 & ~0,6938 \\ \hline\hline
 \end{tabular}
 \caption{Prueba de Normalidad de los residuos}
-\label{tab21}
+%\label{tab21}
 \end{table}
 
 De la prueba de Jarque-Bera se concluye que la distribuci\'{o}n de los residuos es una distribuci\'{o}n normal multivariante.
@@ -1419,21 +1404,21 @@ La teor\'{i}a VAR sugiere que las predicciones logradas son de mejor calidad que
 \centering
 \includegraphics[width=4.43in,height=3.40in]{Graficos/Cap4-5/STcap425.eps}
 \caption{Comparaci\'{o}n de las predicciones VAR y UNIVARIANTE para $Y_{1t}$ (PIB)}
-\label{fig25}
+%\label{fig25}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=4.43in,height=3.40in]{Graficos/Cap4-5/STcap426.eps}
 \caption{Comparaci\'{o}n de las predicciones VAR y UNIVARIANTE para $Y_{2t}$ (CI) }
-\label{fig26}
+%\label{fig26}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=4.43in,height=3.40in]{Graficos/Cap4-5/STcap427.eps}
 \caption{Comparaci\'{o}n de las predicciones VAR y UNIVARIANTE para $Y_{3t}$ (DFI)}
-\label{fig27}
+%\label{fig27}
 \end{figure}
 
 Se puede observar que el ajuste que tienen las predicciones del modelo VAR; pero, para comparar anal\'{i}ticamente se calcula del error cuadr\'{a}tico medio estimado, para determinar el mejor ajuste. As\'{i} se tiene:
@@ -1446,21 +1431,20 @@ VAR & 0,0005 & 0,0005 & 0,0006 \\ \hline
 UNIVARIANTE & 0,0004 & 0,0004 & 0,0004 \\\hline
 \end{tabular}
 \caption{Error Medio Cuadr\'{a}tico estimado para los modelos VAR y univariante}
-\label{tab22}
+%\label{tab22}
 \end{table}
 
 Como se puede observar, los errores son muy peque\~{n}os para ambos casos; la diferencia existente es estad\'{i}sticamente no significativa entre los dos tipos de predicciones. Esto se explica porque las correlaciones cruzadas entre las series son muy poco significativas; sin embargo, el objetivo de esta presentaci\'{o}n, es m\'{a}s bien, did\'{a}ctico; posteriormente se mostrar\'{a} un ejemplo m\'{a}s completo.
 
 \section{La Causalidad}
-\label{subsec:mylabel9}
+%\label{subsec:mylabel9}
 
-En la teor\'{i}a, la demostraci\'{o}n de relaciones causales entre las variables de an\'{a}lisis proporciona los elementos de reflexi\'{o}n propicios para una mejor compresi\'{o}n de los fen\'{o}menos, sobre todo los econ\'{o}micos. De manera pr\'{a}ctica, ``\textbf{\textit{the causal knowlegedge}}'' (``el conocimiento de la causalidad\index{Causalidad}'') es 
-necesario en la formulaci\'{o}n correcta de la pol\'{i}tica econ\'{o}mica. En efecto, saber la direcci\'{o}n de la causalidad es tambi\'{e}n importante en cuanto a poner un enlace entre las variables econ\'{o}micas.
+En la teor\'{i}a, la demostraci\'{o}n de relaciones causales entre las variables de an\'{a}lisis proporciona los elementos de reflexi\'{o}n propicios para una mejor compresi\'{o}n de los fen\'{o}menos, sobre todo los econ\'{o}micos. De manera pr\'{a}ctica, ``\textbf{\textit{the causal knowlegedge}}'' (``el conocimiento de la causalidad\index{Causalidad}'') es necesario en la formulaci\'{o}n correcta de la pol\'{i}tica econ\'{o}mica. En efecto, saber la direcci\'{o}n de la causalidad es tambi\'{e}n importante en cuanto a poner un enlace entre las variables econ\'{o}micas.
 
 \subsection{La causalidad seg\'{u}n Granger}
-\label{subsubsec:mylabel12}
+%\label{subsubsec:mylabel12}
 
-Granger (1969) propuso los conceptos de causalidad\index{Causalidad!Granger} y de exogeneidad: en el sentido de series de tiempo, se dir\'{i}a que la variable $X_{2t}$ es la causa de $X_{1t}$ , si la predicci\'{o}n de $X_{1t}$ mejora si la informaci\'{o}n relativa a $X_{2t}$ se incorpora al an\'{a}lisis (\textit{el t\'{e}rmino predicci\'{o}n parece preferible en el marco de la causalidad; en efecto, decir que }$Y_{t}$\textit{ causa }$X_{t}$\textit{ , solo significa que es preferible para predecir }$X_{t}$\textit{ conocer }$Y_{t}$\textit{ , que no conocerla)}. 
+Granger (1969) propuso los conceptos de causalidad\index{Causalidad!Granger} y de exogeneidad: en el sentido de series de tiempo, se dir\'{i}a que la variable $X_{2t}$ es la causa de $X_{1t}$ , si la predicci\'{o}n de $X_{1t}$ mejora si la informaci\'{o}n relativa a $X_{2t}$ se incorpora al an\'{a}lisis (\textit{el t\'{e}rmino predicci\'{o}n parece preferible en el marco de la causalidad; en efecto, decir que }$Y_{t}$\textit{ causa }$X_{t}$\textit{ , solo significa que es preferible para predecir }$X_{t}$\textit{ conocer }$Y_{t}$\textit{ , que no conocerla)}.\newline
 
 Sea el modelo $VAR(p)$ para el cual las variables $X_{1t}$ y $X_{2t}$ son estacionarias:
 
@@ -1497,8 +1481,7 @@ u_{2t}\\
 \end{align*}
 
 
-El bloque de variables $(X_{2t-1},X_{2t-2},\mathellipsis ,X_{2t-p})$ se considera como ex\'{o}geno en comparaci\'{o}n del bloque de variables $(X_{1t-1}, X_{1t-2},\mathellipsis ,X_{1t-p})$ si el hecho de a\~{n}adir el bloque $X_{2t}$ no mejora significativamente la determinaci\'{o}n de las variables $X_{1t}$. Se trata de efectuar una prueba de restricciones sobre los coeficientes de las variables $X_{2t}$ de la representaci\'{o}n VAR (Se denotar\'{a} por RVAR al modelo VAR restringido). 
-La determinaci\'{o}n del retardo $p $se efect\'{u}a por los criterios de Akaike, Shwarz o Hanan-Quinn. 
+El bloque de variables $(X_{2t-1},X_{2t-2},\mathellipsis ,X_{2t-p})$ se considera como ex\'{o}geno en comparaci\'{o}n del bloque de variables $(X_{1t-1}, X_{1t-2},\mathellipsis ,X_{1t-p})$ si el hecho de a\~{n}adir el bloque $X_{2t}$ no mejora significativamente la determinaci\'{o}n de las variables $X_{1t}$. Se trata de efectuar una prueba de restricciones sobre los coeficientes de las variables $X_{2t}$ de la representaci\'{o}n VAR (Se denotar\'{a} por RVAR al modelo VAR restringido). La determinaci\'{o}n del retardo $p $se efect\'{u}a por los criterios de Akaike, Shwarz o Hanan-Quinn. 
 
 \begin{itemize}
 \item $X_{2t}$ no causa $X_{1t}$ , si se acepta la siguiente hip\'{o}tesis:
@@ -1538,8 +1521,8 @@ C$=$ n\'{u}mero de restricciones (n\'{u}mero de coeficientes que pone a prueba l
 Si $F^{\ast }>F_{c;n-k-1}^{\alpha }$ se rechaza la hip\'{o}tesis nula.
 
 \subsection{La causalidad seg\'{u}n Sims}
-\label{subsubsec:mylabel13}
-Sims (1980) presenta una especificaci\'{o}n\index{Causalidad!Sims} de prueba ligeramente diferente. Se considera que si los valores futuros de $X_{1t}$ permiten explicar los valores presentes de $X_{2t}$, entonces $X_{2t}$ es la causa de $X_{1t}$ . 
+%\label{subsubsec:mylabel13}
+Sims (1980) presenta una especificaci\'{o}n\index{Causalidad!Sims} de prueba ligeramente diferente. Se considera que si los valores futuros de $X_{1t}$ permiten explicar los valores presentes de $X_{2t}$, entonces $X_{2t}$ es la causa de $X_{1t}$.\newline
 
 Esto se representa de la siguiente manera:
 \[
@@ -1746,8 +1729,7 @@ En el per\'{i}odo \textit{t}$+$\textit{2}:
 %\[
 %\vdots 
 %\]
-Por otro lado, utilizando la representaci\'{o}n lineal del VAR, se logra realizar el an\'{a}lisis de las funciones de impulso-respuesta, ya que un choque en $Y_{1t}$ se reflejar\'{a} como la primera columna de $M_{i}=A_{1}^{i}$ (recuerde que $M_{0}=I)$; de forma similar, un impacto sobre $Y_{2t}$ se reflejar\'{i}a en la segunda columna de la matriz 
-$M_{i}$. La generalizaci\'{o}n a un $VAR$ con $k$ variables, es inmediata.\newline
+Por otro lado, utilizando la representaci\'{o}n lineal del VAR, se logra realizar el an\'{a}lisis de las funciones de impulso-respuesta, ya que un choque en $Y_{1t}$ se reflejar\'{a} como la primera columna de $M_{i}=A_{1}^{i}$ (recuerde que $M_{0}=I)$; de forma similar, un impacto sobre $Y_{2t}$ se reflejar\'{i}a en la segunda columna de la matriz $M_{i}$. La generalizaci\'{o}n a un $VAR$ con $k$ variables, es inmediata.\newline
 
 Considere el modelo estimado en el ejemplo 5.5:
 \[
@@ -1787,14 +1769,14 @@ En las tablas siguientes se muestran los resultados de las funciones de impulso-
 ~10& ~2,42E-05 & -6,06E-06 & ~4,88E-05 \\ \hline\hline
 \end{tabular}
 \caption{Respuesta de las variables $Y_{1t}$, $Y_{2t}$ y $Y_{3t}$ ante un choque unitario de $Y_{1t}$}
-\label{tab24}
+%\label{tab24}
 \end{table}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=3.11in,height=6.36in]{Graficos/Cap4-5/STcap428.eps}
 \caption{Respuesta de las variables $Y_{1t}$, $Y_{2t}$ y $Y_{3t}$ ante un choque unitario de $Y_{1t}$}
-\label{fig28}
+%\label{fig28}
 \end{figure}
 
 \begin{table}[H]
@@ -1813,7 +1795,7 @@ En las tablas siguientes se muestran los resultados de las funciones de impulso-
 ~10& -5.43E-06 & ~1.36E-06 & -1.10E-05 \\ \hline\hline
 \end{tabular}
 \caption{Respuesta de las variables $Y_{1t}$, $Y_{2t}$ y $Y_{3t}$ ante un choque unitario de $Y_{2t}$}
-\label{tab25}
+%\label{tab25}
 \end{table}
 
 %\[
@@ -1826,7 +1808,7 @@ En las tablas siguientes se muestran los resultados de las funciones de impulso-
 \centering
 \includegraphics[width=3.36in,height=6.54in]{Graficos/Cap4-5/STcap429.eps}
 \caption{Respuesta de las variables $Y_{1t}$, $Y_{2t}$ y $Y_{3t}$ ante un choque unitario de $Y_{2t}$.}
-\label{fig29}
+%\label{fig29}
 \end{figure}
 
 \begin{table}[H]
@@ -1845,7 +1827,7 @@ En las tablas siguientes se muestran los resultados de las funciones de impulso-
 ~10& -3.42E-05 & ~8.55E-06 & -6.88E-05 \\ \hline\hline
 \end{tabular}
 \caption{Respuesta de las variables $Y_{1t}$, $Y_{2t}$ y $Y_{3t}$ ante un choque unitario de $Y_{3t}$}
-\label{tab26}
+%\label{tab26}
 \end{table}
 
 %\[
@@ -1857,7 +1839,7 @@ En las tablas siguientes se muestran los resultados de las funciones de impulso-
 \begin{figure}[H]
 \centering
 \includegraphics[width=3.36in,height=6.65in]{Graficos/Cap4-5/STcap430.eps}
-\label{fig30}
+%\label{fig30}
 \end{figure}
 
 La elecci\'{o}n de la direcci\'{o}n del impacto es muy importante y determina los valores obtenidos. Se puede observar que el efecto de la innovaci\'{o}n se desvanece con el tiempo; esto caracteriza a un proceso VAR estacionario.
@@ -1959,7 +1941,7 @@ Per\'{i}odo & $X_{1}$ & $X_{2}$ & $X_{3}$ & $X_{4}$\\ \hline
 2 & -0,329818 & -4,104756 & -0,527459 & -3,186928 \\\hline
 \end{tabular}
 \caption{Descomposici\'{o}n hipot\'{e}tica de choques}
-\label{tab27}
+%\label{tab27}
 \end{table}
 
 La interpretaci\'{o}n de la tabla 5.14 se har\'{i}a de la siguiente manera:
@@ -1994,7 +1976,7 @@ Per\'{i}odo & $X_{1}$ & $X_{2}$ & $X_{3}$ & $X_{4}$ \\ \hline
 2 & -0,441257 & -0,754324 & -0,524784 & -3,968741 \\ \hline
 \end{tabular}
 \caption{Otra descomposici\'{o}n hipot\'{e}tica de choques}
-\label{tab28}
+%\label{tab28}
 \end{table}
 
 La interpretaci\'{o}n de la tabla 5.15, se realiza de manera similar a la tabla 5.10.\newline
@@ -2074,7 +2056,7 @@ Per\'{i}odo & S.E. & $Y_{1}$ & $Y_{2}$ & $Y_{3}$ \\ \hline\hline
 \multicolumn{5}{c}{Cholesky Ordering: $Y_{2} \quad Y_{2} \quad Y_{1}$} \\ \hline\hline
 \end{tabular}
 \caption{Descomposici\'{o}n de la Varianza (Orden de Cholesky $Y_{3}$ $Y_{2}$ $Y_{1}$)}
-\label{tab29}
+%\label{tab29}
 \end{table}
 
 La descomposici\'{o}n de la varianza indica que la varianza del error de predicci\'{o}n de $Y_{1t}$ representa un 40,64{\%} con sus propias innovaciones, un 25,71{\%} con las de $Y_{2t}$ y un 33,66{\%} con las de $Y_{3t}$. La varianza del error de predicci\'{o}n de $Y_{2t}$ es de un 1,15{\%} con $Y_{1t}$, un 98,54{\%} con $Y_{2t}$ y un 0,31{\%} con $Y_{3t}$.  Finalmente, la varianza del error de predicci\'{o}n de $Y_{3t}$ es de 0,81{\%} con $Y_{1t}$, un 33,01{\%} con $Y_{2t}$ y un 66,18{\%} con sus propias innovaciones. Este efecto de asimetr\'{i}a se estudi\'{o} en la parte de la causalidad (ejemplo 5.5); lo que tambi\'{e}n se corrobora ahora.\newline
@@ -2104,7 +2086,7 @@ Se consideran dos series de datos del Ecuador: las variaciones del \'{i}ndice de
 $X_{1t}$ & 0,64 & ~1,16 & 15,17 & -14,86 & 5,02 & -0,40 & 3,74 \\
 $X_{2t}$ & 0,07 & -0,30 & 15,18 & -11,45 & 4,42 & 0,51 & 3,70 \\ \hline
 \end{tabular}
-\label{tab30}
+%\label{tab30}
 \end{table}
 
       \item[b)] Matrices de correlaci\'{o}n cruzada
@@ -2117,7 +2099,7 @@ $X_{2t}$ & 0,07 & -0,30 & 15,18 & -11,45 & 4,42 & 0,51 & 3,70 \\ \hline
 $X_{1t}$ & 0,17 & 0,12 & 0,08 & -0,02 & 0,01 & 0,08 & -0,12 & -0,03 & -0,03 & -0,09 \\
 $X_{2t}$ & 0,21 & -0,20 & 0,05 & 0,08 & 0,14 & 0,02 & 0,13 & -0,09 & 0,01 & 0,08 \\ \hline
 \end{tabular}
-\label{tab31}
+%\label{tab31}
 \end{table}
 
       \item[c)] Representación simplificada
@@ -2155,7 +2137,7 @@ Es f\'{a}cil ver que las correlaciones cruzadas son significativas al 5{\%} en e
 \centering
 \includegraphics[width=4.54in,height=4.47in]{Graficos/Cap4-5/STcap431.eps}
 \caption{Correlaciones cruzadas entre $X_{1t}$ y $X_{2t}$}
-\label{fig31}
+%\label{fig31}
 \end{figure}
 
 \begin{enumerate}
@@ -2167,7 +2149,7 @@ Se inicia presentando el gr\'{a}fico de las series:
 \centering
 \includegraphics[width=5.23in,height=3.76in]{Graficos/Cap4-5/STcap432.eps}
 \caption{Gr\'{a}fico de secuencia de las series}
-\label{fig32}
+%\label{fig32}
 \end{figure}
 
 Antes de realizar los procedimientos para estimar los modelos, se debe verificar si las series a ser analizadas son estacionarias; para ello se realiza la prueba de ra\'{i}ces unitarias para cada serie utilizando el programa EViews:
@@ -2183,7 +2165,7 @@ Test critical values: & 1{\%} level & -4.037668 & \\
 \multicolumn{4}{l}{*MacKinnon (1996) one-sided p-values.} \\
 \end{tabular}
 \caption{Prueba DFA para $X_{1t}$}
-\label{tab33}
+%\label{tab33}
 \end{table}
 
 \begin{table}[H]
@@ -2197,7 +2179,7 @@ Test critical values: & 1{\%} level & -4.037668 & \\
 \multicolumn{4}{l}{*MacKinnon (1996) one-sided p-values.} \\
 \end{tabular}
 \caption{Prueba DFA para $X_{2t}$}
-\label{tab34}
+%\label{tab34}
 \end{table}
 
 Como se puede ver en las figuras 5.18 y 5.19, las dos series son estacionarias.
@@ -2223,7 +2205,7 @@ Akaike & ~11,81 & ~11,87 & ~11,88 & ~11,87 \\ \hline
 Schwarz & ~11,93 & ~12,10 & ~12,20 & ~12,28 \\ \hline
 \end{tabular}
 \caption{Criterios para escoger el retardo del VAR}
-\label{tab35}
+%\label{tab35}
 \end{table}
 
 Como se puede observar en la tabla 5.18, es en el retardo 1 ($p=1)$ donde los criterios de Akaike y Schwarz se minimizan aunque el valor del log de versoimilitud es m\'{i}nimo (en la pr\'{a}ctica, muy pocas veces se utiliza este criterio como decisivo para escoger el retardo del VAR). Por lo tanto se realiza la estimaci\'{o}n del $VAR(1)$.
@@ -2254,14 +2236,14 @@ Ra\'{i}ces & M\'{o}dulo \\ \hline\hline
 -0,285373 & ~0,285373 \\
 ~0,214590 & ~0,214590 \\ \hline\hline
 \end{tabular}
-\label{tab36}
+%\label{tab36}
 \end{table}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=2.53in,height=2.67in]{Graficos/Cap4-5/STcap433.eps}
 \caption{Criterio de estabilidad para el VAR(1) estimado}
-\label{fig33}
+%\label{fig33}
 \end{figure}
 
 Anal\'{i}tica y gr\'{a}ficamente, se concluye que las inversas de las ra\'{i}ces del polinomio caracter\'{i}stico se encuentran dentro del c\'{i}rculo unidad; por lo tanto, se concluye que el modelo es estable y, por tanto, es estacionario.
@@ -2297,7 +2279,7 @@ Lags & Q-Stat & Prob & Adj Q-Stat & Prob & df \\ \hline \hline
 20& ~93,29485 & ~0,1141 & ~101,5271 & ~0,0380 & 78 \\ \hline\hline
 \end{tabular}
 \caption{Prueba de autocorrelaci\'{o}n Pormanteau}
-\label{tab37}
+%\label{tab37}
 \end{table}
 
 En la tabla 5.21 se observa que los p-valores (Prob.) para los retardos de 1 al 9 son no significativos; sin embargo, a partir del retardo 10 se vuelven significativos, esto sugiere que los residuos est\'{a}n autocorrelacionados.\newline
@@ -2330,7 +2312,7 @@ Lags & LM-Stat & Prob \\ \hline\hline
 20& ~3,335910 & ~0,5033 \\\hline\hline
 \end{tabular}
 \caption{Prueba LM}
-\label{tab38}
+%\label{tab38}
 \end{table}
 
 Por los valores en la columna Prob. (ver tabla 5.20), se puede concluir que existe autocorrelaci\'{o}n entre los residuos (retardos 10 y 12). Esto confirma que se hay que reformular el modelo planteado.\newline
@@ -2488,14 +2470,14 @@ La teor\'{i}a VAR sugiere que las predicciones logradas son de mejor calidad que
 \centering
 \includegraphics[width=4.36in,height=3.66in]{Graficos/Cap4-5/STcap434.eps}
 \caption{Comparaci\'{o}n de las predicciones VAR y UNIVARIANTE para $X_{1t}$ (IPP)}
-\label{fig34}
+%\label{fig34}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=4.34in,height=3.68in]{Graficos/Cap4-5/STcap435.eps}
 \caption{Comparaci\'{o}n de las predicciones VAR y UNIVARIANTE para $X_{2t}$ (IAE)}
-\label{fig35}
+%\label{fig35}
 \end{figure}
 
 Se puede observar que el ajuste que tienen las predicciones del modelo VAR para el IPP es un tanto mejor que las del modelo univariante. Por otro lado, en el caso del IAE, las predicciones parecen bastante similares entre los 
@@ -2513,7 +2495,7 @@ VAR & 0,95 & 6,29 \\ \hline
 UNIVARIANTE & 0,95 & 7,41 \\ \hline
 \end{tabular}
 \caption{Error Medio Cuadr\'{a}tico estimado para los modelos VAR y UNIVARIANTE}
-\label{tab39}
+%\label{tab39}
 \end{table}
 
 Como se puede observar el modelo VAR es mejor en el caso del IAE; sin embargo, no lo es para el IPP. Se realiz\'{o} una prueba t de medias para determinar si existe diferencia estad\'{i}stica entre las medias de los errores cuadr\'{a}ticos generados por los modelos y se comprob\'{o} que en el caso del IAE el error medio cuadr\'{a}tico es diferente estad\'{i}sticamente entre los modelos (el modelo VAR ajusta mejor los datos); en el caso del IPP se determin\'{o} que no existe diferencia significativa entre los errores cuadr\'{a}ticos. Como conclusi\'{o}n, el modelo VAR predice de mejor manera que el modelo univariante.
@@ -2538,7 +2520,7 @@ IPP & 11.44772 & 4 & 0.0220 \\ \hline\hline
 All & 11.44772 & 4 & 0.0220 \\ \hline\hline
 \end{tabular}
 \caption{Prueba de causalidad de Granger}
-\label{tab40}
+%\label{tab40}
 \end{table}
 
 Como se puede ver, el p-valor (Prob.) es menor que 0,05 en el segundo caso y mayor que 0,05 en el primero; por lo que se concluye que $X_{1t}$ (IPP) explica significativamente la variable $X_{2t}$(IAE), pero $X_{2t}$ no explica significativamente la variable $X_{1t}$.
@@ -2565,14 +2547,14 @@ En las tablas siguientes se muestran los resultados de las funciones de impulso-
 ~10& -0,007966 & ~0,001527 \\ \hline \hline
 \end{tabular}
 \caption{Respuesta de las variables $X_{1t}$ y $X_{2t}$ ante un choque unitario de $X_{1t}$}
-\label{tab41}
+%\label{tab41}
 \end{table}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=3.04in,height=4.52in]{Graficos/Cap4-5/STcap436.eps}
 \caption{Respuesta de las variables $X_{1t}$ y $X_{2t}$ ante un choque unitario de $X_{1t}$}
-\label{fig36}
+%\label{fig36}
 \end{figure}
 
 \begin{table}[H]
@@ -2591,14 +2573,14 @@ En las tablas siguientes se muestran los resultados de las funciones de impulso-
 ~10& -0.006113& -3.68E-05 \\ \hline\hline
 \end{tabular}
 \caption{Respuesta de las variables $X_{1t}$ y $X_{2t}$ ante un choque unitario de $X_{2t}$}
-\label{tab42}
+%\label{tab42}
 \end{table}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=2.64in,height=3.99in]{Graficos/Cap4-5/STcap437.eps}
 \caption{Respuesta de las variables $X_{1t}$ y $X_{2t}$ ante un choque unitario de $X_{2t}$}
-\label{fig37}
+%\label{fig37}
 \end{figure}
 
 La elecci\'{o}n de la direcci\'{o}n del impacto es muy importante y determina los valores obtenidos. Se puede observar que el efecto de la innovaci\'{o}n se desvanece con el tiempo; esto caracteriza a un proceso VAR estacionario.
@@ -2641,7 +2623,7 @@ Con el programa EViews, las salidas de las funciones de impulso-respuesta y la d
 \multicolumn{9}{c}{Orden de Cholesky: X2 X1} \\ \hline\hline
 \end{tabular}
 \caption{Descomposici\'{o}n de la Varianza (Orden de Cholesky X1 X2)}
-\label{tab43}
+%\label{tab43}
 \end{table}
 %
 La descomposici\'{o}n de la varianza indica que la varianza del error de predicci\'{o}n de $X_{1t}$ representa un 96,63{\%} con sus propias innovaciones y un 3,56{\%} con las de $X_{2t}$. La varianza del error de predicci\'{o}n de $X_{2t}$ es de un 4,65{\%} con $X_{1t}$ y un 95,34{\%} con $X_{2t}$. Este efecto de asimetr\'{i}a se estudi\'{o} en la pate de la causalidad; lo que tambi\'{e}n se corrobora ahora.\newline
