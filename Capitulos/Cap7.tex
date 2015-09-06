@@ -38,7 +38,7 @@ A_{j}^{\ast }=-\sum\limits_{i=j+1}^p A_{i} ,\qquad j=1,\ldots ,p-1
 \]
 $\alpha$ y $\beta$ son matrices de dimensi\'{o}n $k*r$ (r es el n\'{u}mero de factores de cointegraci\'{o}n y $r<k)$, de rango completo.\newline
 
-Al t\'{e}rmino $\mathrm{\Omega }X_{t-1}$ se lo conoce como el\index{Modelos MCE!Termino de correcci\'{o}n del error} \textbf{t\'{e}rmino de correcci\'{o}n del error}, que desempe\~{n}a un papel clave en el estudio de cointegraci\'{o}n. La existencia del t\'{e}rmino $\beta^{'}X_{t-1}$ es natural en la representaci\'{o}n de correcci\'{o}n del error; adem\'{a}s, es estacionario. Las columnas de $\beta$ son los vectores de cointegraci\'{o}n de $X_{t}$.\newline
+Al t\'{e}rmino $\Omega X_{t-1}$ se lo conoce como el\index{Modelos MCE!Termino de correcci\'{o}n del error} \textbf{t\'{e}rmino de correcci\'{o}n del error}, que desempe\~{n}a un papel clave en el estudio de cointegraci\'{o}n. La existencia del t\'{e}rmino $\beta^{'}X_{t-1}$ es natural en la representaci\'{o}n de correcci\'{o}n del error; adem\'{a}s, es estacionario. Las columnas de $\beta$ son los vectores de cointegraci\'{o}n de $X_{t}$.\newline
 
 La estacionariedad de $\beta^{'} X_{t-1}$ puede ser justificada de la siguiente manera: La teor\'{i}a de series con ra\'{i}ces unitarias muestra que el coeficiente de correlaci\'{o}n simple entre una serie no estacionaria con ra\'{i}z unitaria y una estacionaria tiende a 0 cuando el tama\~{n}o de la muestra tiende a infinito $(T\to \infty )$. En un MCE $X_{t-1}$ es no estacionario, pero $\Delta X_{t}$ es estacionario; por lo tanto, solo existe una forma en que $\Delta X_{t}$ puede relacionarse significativamente con $X_{t-1}$: a trav\'{e}s de la serie estacionaria $\beta^{'} X_{t-1}$.\newline
 
@@ -75,7 +75,7 @@ En la pr\'{a}ctica, el procedimiento de aplicaci\'{o}n de la prueba de Johansen\
 \begin{enumerate}
       \item[1.] Determinaci\'{o}n del orden \'{o}ptimo del modelo VAR con las series que son integradas del mismo orden. Esta etapa es muy importante, ya que los resultados del contraste son muy sensibles frente a una mala especificaci\'{o}n de retardos. Posteriormente, se realizar\'{a} un ajuste con respecto a la tendencia com\'{u}n.
       
-      En algunos paquetes estad\'{\i}sticos como el EViews, se escoge el retardo del VAR pero con las variables diferenciadas una vez. Es decir, el paquete realiza una diferenciaci\'{o}n en el VAR de manera autom\'{a}tica.
+      En algunos paquetes estad\'{i}sticos como el EViews, se escoge el retardo del VAR pero con las variables diferenciadas una vez. Es decir, el paquete realiza una diferenciaci\'{o}n en el VAR de manera autom\'{a}tica.
 
       \item[2.] Estimaci\'{o}n del modelo. Para realizar la descomposici\'{o}n de la matriz $\Omega$ en las submatrices $\alpha$ y $\beta$, se utiliza el m\'{e}todo de m\'{a}xima verosimilitud propuesto por Johansen (1988).
       \item[3.] Determinaci\'{o}n del rango de cointegraci\'{o}n, que vendr\'{a} dado por el propio rango de la matriz $\Omega$ . Teniendo en cuenta que se trata de una matriz de coeficientes estimados, y por lo tanto aleatorios, el rango de dicha matriz no puede determinarse de forma absoluta, sino que habr\'{a} que definirlo dentro de un entorno probabil\'{i}stico.
@@ -505,7 +505,7 @@ Se puede observar, en las tres series, que el ajuste de las predicciones realiza
 
 \section{Prueba de Exogeneidad D\'{e}bil}
 %\label{subsec:mylabel5}
-Esta prueba\index{Prueba!Exogeneidad d\'{e}bil} busca ver si las variables son end\'{o}genas o no. Esta prueba se refiere al coeficiente $\alpha $ de la fuerza de empuje (si existe una sola relaci\'{o}n de cointegraci\'{o}n) o los coeficientes $\alpha $ cuando existe m\'{a}s de una relaci\'{o}n de cointegraci\'{o}n. Realizar una prueba sobre $\alpha $ comprueba si la relaci\'{o}n de cointegraci\'{o}n est\'{a} presente en todas las ecuaciones del modelo. Esta prueba se realiza sobre la matriz $\pi =\alpha^{'}\beta $, donde $\beta $ son las relaciones de cointegraci\'{o}n y $\alpha $ los pesos del estas relaciones en cada una de las ecuaciones del sistema.
+Esta prueba\index{Prueba!Exogeneidad d\'{e}bil} busca ver si las variables son end\'{o}genas o no. Esta prueba se refiere al coeficiente $\alpha $ de la fuerza de empuje (si existe una sola relaci\'{o}n de cointegraci\'{o}n) o los coeficientes $\alpha $ cuando existe m\'{a}s de una relaci\'{o}n de cointegraci\'{o}n. Realizar una prueba sobre $\alpha $ comprueba si la relaci\'{o}n de cointegraci\'{o}n est\'{a} presente en todas las ecuaciones del modelo. Esta prueba se realiza sobre la matriz $\pi =\alpha^{'}\beta $, donde $\beta $ son las relaciones de cointegraci\'{o}n y $\alpha $ los pesos del estas relaciones en cada una de las ecuaciones del sistema.\newline
 
 Por ejemplo, considere un MCE con dos relaciones de cointegraci\'{o}n:
 \[
@@ -531,8 +531,7 @@ X_{3,t-1}\\
 \end{array} } \right)
 \]
 
-Para probar la exogeneidad de la variable $X_{2t}$, se debe realizar la 
-prueba de hip\'{o}tesis:
+Para probar la exogeneidad de la variable $X_{2t}$, se debe realizar la prueba de hip\'{o}tesis:
 \[
 \left\{ {\begin{array}{l}
  H_{0}:\quad \alpha_{21}=\alpha_{22}=0 \\ 
