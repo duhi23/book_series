@@ -1,0 +1,4216 @@
+\chapter*{ANEXO A}
+%\label{sec:anexo}
+\section*{A.1: NOCIONES SOBRE PROCESOS ESTOC\'{A}STICOS}
+%\label{subsec:anexo}
+
+Sea el proceso estoc\'{a}stico $\left( {X_{t} } \right)_{t\in T}$, definido sobre el espacio de probabilidad $(\Omega ,A ,P)$ y a valores en $(E,\beta )$. $(\Omega ,A ,P)$ se dice espacio de base y $(E,\beta )$ espacio de estados. Se definen adem\'{a}s:
+
+\begin{itemize}
+\item $t\to X_{t} \left( w \right):$ trayectoria de $w$ $\left( {w\in \Omega } \right)$
+\item $w\to X_{t} \left( w \right):$ estado del proceso en el tiempo (o instante) t ($t\in T)$
+\item $T$: Conjunto de tiempos
+\end{itemize}
+
+Un proceso estoc\'{a}stico es una aplicaci\'{o}n $X$:
+\[
+X: (\Omega ,A ,P) \quad \to\limits (E^{T}, S ,P_{X} )
+\]
+\[
+w\to \left( {X_{t} \left( w \right),t\in T} \right)
+\]
+
+$P_{X}$ es la ley del proceso, $\pi_{t_{0}}$ es la proyecci\'{o}n tal que $\pi_{t_{0} } \left( {X_{t} , t\in T} \right)=X_{t_{0} }$ y $S=\sigma \left( {\pi_{t}, t\in T} \right)$ la $\sigma$- \'{a}lgebra generada por las $\left( {\pi_{t} } \right)_{t\in T} $.
+
+\begin{itemize}
+      \item X es medible pues: 
+\[
+X_{t} =\pi_{t} \circ X\Rightarrow \forall \quad B\in \beta,\quad X_{t}^{-1} \left( B \right)=X^{-1}\left( {\pi_{t}^{-1} \left( B \right)} \right)
+\]
+Pero los conjuntos $\pi_{t}^{-1} (B)$ generan S y $X_{t}^{-1} (B)\in A$, por lo cual $X^{-1} (\pi_{t}^{-1} (B))\in A$.
+      
+      \item $\left( {\pi_{t}, t\in T} \right)$ se dice el proceso can\'{o}nico asociado a $\left( {X_{t}, t\in T} \right)$.
+      \item Leyes de dimensi\'{o}n finita son aquellas de $\left( {X_{t_{1} } ,\ldots, X_{t_{k} } } \right), k=1,2,\ldots;t_{1},\ldots,t_{k} \in T$
+\end{itemize}
+
+A continuaci\'{o}n se presentan dos resultados importantes, cuyas demostraciones se admiten.\newline
+
+\textbf{Teorema de Kolmogorov:} Sean $E=R^{d}$, $\beta =\beta_{R^{d}} $. Entonces, la ley del proceso est\'{a} determinada por las leyes de dimensi\'{o}n finita (bajo ciertas condiciones llamadas de proyectividad).\newline
+
+\textbf{Observaci\'{o}n A1:} Cuando estas leyes de dimensi\'{o}n finita son gaussianas, la ley del proceso X est\'{a} determinada por:
+\begin{itemize}
+      \item media: $t\to EX(t)$.
+      \item covarianza: $\left( {s,t} \right)\to cov\left( {X_{s}, X_{t} } \right)$.
+\end{itemize}
+
+\section*{A.2: DEMOSTRACIONES DE ALGUNOS TEOREMAS DEL CAP\'{I}TULO 1}
+%\label{subsec:mylabel2}
+\textbf{Teorema 1.1:} Existe una medida \'{u}nica $\mu$ acotada y sim\'{e}trica sobre $\left[ {-\pi ,\pi } \right]$ tal que:
+\[
+\gamma_{t} =\int\limits_{\left[ {-\pi ,\pi } \right]} {\cos \lambda t d\mu \left( \lambda \right)}, \quad t\in Z
+\]
+$\mu$ se dice la medida espectral de $\left( {X_{t} } \right)$.\newline
+
+\textbf{Demostraci\'{o}n:}\newline
+
+\begin{itemize}
+      \item \textbf{Caso particular:} $\sum\limits_t {\left| {\gamma_{t} } \right|<\infty }$\newline
+
+Se puede definir $f\left( \lambda \right)=\frac{1}{2\pi }\sum\limits_{t\in Z} {\gamma_{t} \cos \lambda t}$, $\lambda \in \left[ {-\pi ,\pi } \right]$ (f est\'{a} bien definida).\newline
+
+Entonces: 
+\[
+\gamma_{t} =\int_{-\Pi }^\Pi {\cos \lambda t} 
+f\left( \lambda \right)d\lambda 
+\]
+Si se llega a demostrar que $f\ge 0$, entonces $f\left( \lambda \right){\kern 1pt}{\kern 1pt}d\lambda $ puede considerarse como $d\mu \left( \lambda \right)$.
+
+      \item En caso contrario, consid\'{e}rese: 
+\[
+I_{T} (\lambda)=\frac{1}{2\pi T}\sum\limits_{1\le s,t\le T} {X_{s} } X_{t} e^{i\lambda (t-s)},\quad \lambda \in \left[-\pi, \pi \right], \quad T=1,2,\ldots
+\]
+$I_{T}(\lambda)$ se llama el periodograma
+
+Se puede observar que:
+\begin{align*}
+I_{T} \left( \lambda \right) & = \frac{1}{2\pi T}\left| {\sum\limits_{t=1}^T {X_{t} e^{i\lambda t}} } \right|^{2}\ge 0\\
+                             & = \frac{1}{2\pi T}\sum\limits_{1\le s,t\le T} {X_{s} X_{t} \cos ( t-s)} \quad \text{pues}\quad \limits \sum\limits_{1\le s,t\le T}^ {X_{s} X_{t} } sen\lambda (t-s)=0
+\end{align*}
+
+Se considera ahora: 
+
+\begin{align*}
+f_{T} (\lambda) &= EI_{T} (\lambda)=\frac{1}{2\pi T}\sum\limits_{1\leq s,t\leq T} {E\left[ {\left(X_{t} X_{s} \right)\cos \lambda (t-s)} \right]\ge 0}\\
+                &= \frac{1}{2\pi T}\sum\limits_{s,t} {\gamma_{t-s} } \cos \lambda \left( {t-s} \right)\\
+                &= \frac{1}{2\pi T}\sum\limits_{h=-(T-1)}^{T-1} {\left(T-|h| \right)}\gamma_{h} \cos \lambda h\quad \text{(poniendo $h=t-s$)}\\
+                &= \frac{1}{2\pi }\sum\limits_{t=-(T-1)}^{T-1} {\left( {1-\frac{\left| t \right|}{T}} \right)} \gamma_{t} \cos \lambda t
+\end{align*}
+
+Sea $F_{T}(\lambda)=\int_{-\pi }^\lambda {f_{T} (v)dv=\frac{\gamma_{o}}{2\pi}(\lambda +\pi)+\frac{1}{\pi}\displaystyle\sum\limits_{t=1}^{T-1} {\left( {1-\frac{t}{T}} \right)}\gamma_{t} \frac{sen\lambda t}{t}}$ entonces: $F_{T}$ es creciente (pues $f_{T} \ge 0$),  $F_{T}(-\pi)=0$ y $F_{T}(\pi)=\gamma_{0}$.
+
+\end{itemize}
+
+Se recuerda el lema de Helly -- Bray:\newline
+% 
+% Dada una sucesi\'{o}n $\left( {F_{T} ,T\in N^{\ast }} \right)$ con la misma 
+% masa total, se puede extraer una subsucesi\'{o}n $\left( F_{T^{1}} \right)$, 
+% que converge estrictamente (en ley); es decir, existe una funci\'{o}n de 
+% distribuci\'{o}n F, de una medida $\mu $, de masa total $\gamma_{o} $, t.q. 
+% $F_{T^{'}} \to F$ en todo punto de continuidad de F
+% 
+% As\'{\i}, si $\mu_{T} $ es la medida asociada a $F_{T} ,$ entonces $\forall 
+% \phi $ continua (acotada ) sobre $\left[ {-\pi ,\pi } \right]$, 
+% 
+% $\int \phi $ d $\mu_{T^{'}} \to \int \phi $ d$\mu $
+% 
+% As\'{\i}, tomando $\varphi \left( \lambda \right)=\cos \lambda t$, se 
+% tiene que:
+% \[
+% \int\limits_{\left[ {-\pi ,\pi } \right]} {\cos \lambda t\limits d\mu 
+% _{T^{'}} \left( \lambda \right)=} \int\limits_{\left[ {-\pi ,\pi } \right]} 
+% {\cos \lambda t} \text{\thinspace f}_{\text{T}^{\text{'}}} (\lambda 
+% )d\lambda 
+% \]
+% pero $\int\limits_{\left[ {-\pi ,\pi } \right]} {\left( {\cos \lambda t} 
+% \right)d\mu_{T^{'}} \left( \lambda \right)\to } \int\limits_{\left[ {-\pi 
+% ,\pi } \right]} {\cos \lambda t} d\mu \left( \lambda \right)$ cuando 
+% $T^{'}\to \infty $
+% 
+% y $\int\limits_{\left[ {-\pi ,\pi } \right]} {\cos {\kern 1pt}\;\lambda 
+% {\kern 1pt}t} f_{T^{'}} \left( \lambda \right)=\left( {1-\frac{\left| t 
+% \right|}{T'}} \right)\gamma_{\text{t}} \text{\thinspace \thinspace }\to 
+% \gamma_{t} $ cuando $T^{'}\to \infty $
+% \[
+% \int_{\left[ {-\pi ,\pi } \right]} {\cos \lambda td\mu \left( \lambda 
+% \right)=\gamma_{t} } 
+% \]
+% Sean: $G_{T} \left( \lambda \right)=F_{T} (\lambda )-\frac{\gamma_{O} 
+% }{2\pi }\left( {\lambda +\pi } \right)=\frac{1}{\pi }\sum\limits_{t=1}^{T-1} 
+% {\left( {1-\frac{t}{T}} \right)} \gamma_{t} \quad \frac{sen\lambda t}{t}$ y 
+% $G\left( \lambda \right)=F\left( \lambda \right)-\frac{\gamma_{O} }{2\pi 
+% }\left( {\lambda +\pi } \right)$
+% 
+% Ahora
+% \[
+% \int_{-\pi }^{\rm T} {sen\lambda tG_{T^{1}} } \left( \lambda \right)d\lambda 
+% \to \int_{-\pi }^\pi {sen\;\lambda tG\left( \lambda \right)d\lambda } 
+% \]
+% (por el teorema de convergencia dominada (TCD), pues $G_{T^{'}} $ est\'{a} 
+% mayorada por una constante y $G_{T^{'}} \to G$, en todo punto de continuidad 
+% de G). 
+% 
+% $\left( {1-\frac{t}{T^{'}}} \right)\frac{\gamma_{t} }{t}\to \frac{\gamma 
+% _{t} }{t}$ cuando $T^{'}\to \infty $
+% \[
+% \limits F\left( \lambda \right)=\frac{\gamma_{O} }{2\pi }\left( {\lambda 
+% +\pi } \right)+\frac{1}{\pi }\sum\limits_{t=1}^\infty {\gamma_{t} } 
+% \frac{sen\lambda t}{t}
+% \]
+% Puesto que F es creciente y de variaci\'{o}n acotada, entonces la serie 
+% converge en todo punto de continuidad de F.
+% 
+% Una medida $\mu $ asociada a F se dice, medida central del proceso.
+% 
+% \begin{itemize}
+% \item \textbf{?`Unicidad de }$\mu $\textbf{?}
+% \end{itemize}
+% 
+% En general $\mu $ no es \'{u}nica. Por ejemplo:
+% 
+% Sea $X_{t} =\left( {-1} \right)^{t}X$ con EX$=$0 y EX$^{\mathrm{2}}=$1. Se 
+% ha visto que $\left( {X_{t} } \right)$ es d.e. y $\gamma_{t} =\left( {-1} 
+% \right)^{t},\limits t\in {\rm Z}$
+% 
+% Sea $\mu_{\alpha } =\alpha \delta_{\left( {-\pi } \right)} 
+% +$(1-$\alpha ) \quad \delta_{\left( \pi \right)} ,$ con $\alpha \in \left[ 
+% {0,1} \right]$, donde $\delta_{\left( a \right)} $ denota a la medida de 
+% Dirac en a.
+% 
+% Dado que $\int_{-\pi }^\pi {sen\lambda td\mu_{\alpha } \left( \lambda 
+% \right)=0} $ se tiene que:
+% \[
+% \int_{-\pi }^\pi {\cos \lambda t} 
+% d\mu_{\alpha } \left( \lambda \right)=\cos \pi t=\left( {-1} \right)^{t}
+% \quad
+% \forall \alpha \in \left[ {0,1} \right],\limits \forall\limits t\in 
+% {\rm Z}
+% \]
+% Por tanto, $\gamma_{t} $ se expresa de la forma requerida, pero hay un 
+% n\'{u}mero infinito de medidas centrales; sin embargo, si se exige que la 
+% medida sea sim\'{e}trica, se tiene la unicidad. En el ejemplo precedente: 
+% \[
+% \mu =\frac{1}{2}\left[ {\delta_{\left( {-\pi } \right)} +\delta_{\left( 
+% \pi \right)} } \right]
+% \]
+% La funci\'{o}n de repartici\'{o}n $F$ que se ha obtenido es la funci\'{o}n de 
+% repartici\'{o}n de una medida sim\'{e}trica sobre $\left] {-\pi ,\pi } 
+% \right].$ Sea $\mu $ la medida central y se define:
+% \[
+% \nu \left( {\text{A}} \right)=\mu \left( A \right)
+% \forall 
+% \quad
+% A\in \beta (\left] {-\pi ,\pi } \right])
+% \]
+% \[
+% \nu \left( {-\pi } \right)=\nu \left( \pi \right)=\frac{1}{2}\left[ {\mu 
+% \left( {-\pi } \right)+\mu \left( \pi \right)} \right]
+% \quad
+% \left( {\int_{-\pi }^\pi {\cos \lambda t} d\nu \left( \lambda 
+% \right)=\int_{-\pi }^\pi {\cos \lambda td\mu \left( \lambda \right)} } 
+% \right)
+% \]
+% Entonces, se puede considerar $\mu $ sim\'{e}trica
+% 
+% \begin{itemize}
+% \item \textbf{Unicidad de la medida espectral sim\'{e}trica sobre }$\left] {-\pi ,\pi } \right]$
+% \end{itemize}
+% $\int {\cos \lambda td\nu \left( t \right)=\gamma_{t} } $ y $\int 
+% {sen\lambda td\nu \left( t \right)=0} $ (conocidos los coeficientes de 
+% Fourier)
+% 
+% entonces $\nu $ es conocida sobre los polinomios trigonom\'{e}tricos y por 
+% el teorema de Stone-Weierstrass, $\nu $ est\'{a} determinada para las 
+% funciones continuas. 
+% 
+% \textbf{Teorema 1.6: }Condici\'{o}n suficiente de convergencia c.s.
+% 
+% Sea $\left( {X_{t} ,t\in {\rm Z}} \right)$ de segundo orden, centrado t.q.
+% 
+% $V\left( {X_{t} +....+X_{t+p-1} } \right)\le kp^{\gamma }
+% \quad
+% k=cte;
+% \quad
+% 0\le \gamma <2;$ p$=$1,2,.....; $\forall t\in {\rm Z}$
+% 
+% Entonces: $\bar{{X}}\to 0$ en media cuadr\'{a}tica y casi 
+% seguramente 
+% 
+% \textbf{Demostraci\'{o}n:}
+% 
+% Sea $Sn=\sum\limits_{i=1}^n {X_{i} } \Rightarrow E\left( {\frac{Sn}{n}} 
+% \right)^{2}\le \frac{kn^{\gamma }}{n^{2}}=\frac{k}{n^{2-\gamma }}\to 0$ 
+% 
+%  existe convergencia en m.c.
+% 
+% \begin{itemize}
+% \item Convergencia casi segura:
+% \end{itemize}
+% 
+% Sea $k>\frac{1}{2-\gamma },\mathop\nolimits k\in {\rm Z}$
+% 
+% entonces: $P\left[ {\left| {\frac{S_{m^{k}} }{m^{k}}} \right|\ge \varepsilon 
+% } \right]\le\limits \frac{1}{\varepsilon^{2}}E\left( {\frac{S_{m^{k}} 
+% }{m^{k}}} \right)^{2}\le \frac{1}{\varepsilon^{2}m^{2k}}\bar{{k}}m^{k\gamma 
+% }=\frac{\bar{{k}}}{\varepsilon^{2}}\frac{1}{m^{k\left( {2-\gamma } 
+% \right)}}$
+% \[
+% \sum\limits_ {P\left( {\left| {\frac{S_{m}^{k}}{m^{k}}} \right|\ge 
+% \varepsilon } \right)} <\infty 
+% \]
+% La primera desigualdad se justifica por la desigualdad de Chebyshev
+% 
+% y por el Teorema de Borel-Cantelli. $\frac{S_{m^{k}} }{m^{k}}\buildrel 
+% {c.s.} \over \longrightarrow 0$ 
+% 
+% Ahora, Sea $Y_{m} ={\max }\limits_{m^{k}<n\le \left( {m+1} \right)^{k}} 
+% \left| {\frac{S_{n} -S_{m^{k}} }{n}} \right|^{2}$
+% \[
+% P\left( {Y_{m} \ge \varepsilon } \right)\le \frac{EY_{m} }{\varepsilon }
+% \quad
+% \left( {Y_{m} \ge 0} \right)
+% \]
+% pero: $E\left( {Y_{m} } \right)\le \frac{E\left( {\left| {X_{m^{k}+1} } 
+% \right|+....+\left| {X_{\left( {m-1} \right)^{k}} } \right|} 
+% \right)^{2}}{m^{2k}}$
+% 
+% $=\frac{1}{m^{2k}}\sum\limits_{j,j^{'}} {E\left| {X_{j} X_{j^{'}} } \right|} 
+% $ \newline
+%  ${\le\limits^{Schw.} \frac{1}{m^{2k}}\sum\limits_{j,j^{'}} {\sqrt 
+% {EX_{j}^{2} } \sqrt {EX_{j^{\textasciiacute '}}^{2} } 
+% =\frac{1}{m^{2k}}\left( {\sum\limits_j {\sqrt {EX_{j}^{2} } } } \right)} 
+% }\limits^{2}$
+% \[
+% \le \frac{K}{m^{2k}}\left( {\left( {m+1} \right)^{k}-m^{k}} 
+% \right)^{2}=K\left[ {\left( {1+\frac{1}{m}} \right)^{k}-1} \right]^{2}
+% \]
+% $\le K\left( {e^{\frac{k}{m}}-1} \right)^{2}$ (pues $\left( {1+\frac{1}{m}} 
+% \right)^{k}\le e^{\frac{k}{m}})$
+% 
+% $\le K\left( {\frac{2k}{m}} \right)^{2}$ (m suficientemente grande)
+% 
+% As\'{\i} $E\left( {Y_{m} } \right)\le \frac{cte}{m^{2}}$ y por tanto 
+% $\sum\limits_m {P(Y_{m} \ge )\varepsilon <\infty \Rightarrow\limits^{B.C} 
+% Y_{m} \mathop \to\limits_{m\to \infty }^{c.s.} 0} $
+% 
+% Sea $m=m(n)$ t.q. $\left( {m\left( n \right)} \right)^{k}<n<\left( {m\left( n 
+% \right)+1} \right)^{k}$; \textit{m(n) es \'{u}nico y }$m\left( n \right)\to \infty $ cuando $n\to \infty 
+% $ entonces: 
+% \[
+% Y_{m\left( n \right)} \buildrel {c.s.} \over \longrightarrow 0
+% \]
+% \[
+% \frac{S_{n} }{n}-\frac{S_{m\left( n \right)^{k}} }{n}\buildrel {c.s.} \over 
+% \longrightarrow 0
+% \]
+% pues: $\frac{S_{m\left( n \right)^{k}} }{n}=\frac{S_{m\left( n \right)^{k}} 
+% }{m\left( n \right)^{k}}\ast \frac{m\left( n \right)^{k}}{n}\Rightarrow 
+% \frac{S_{n} }{n}\buildrel {c.s.} \over \longrightarrow 0$ (dado que 
+% $\frac{S_{(m(n))^{k}} }{(m(n))^{k}}\buildrel {c.s.} \over \longrightarrow 
+% 0)$
+% 
+% \textbf{Teorema 1.8: }Sea$(X_{t} ,t\in {\rm Z})$ d.e, centrado y 
+% regular $\left( {\sigma^{2}=E\left( {X_{t} -\hat{{X}}_{t} } \right)^{2}>0} 
+% \right)$
+% 
+% (Ejercicio: Verificar que $E\left( {X_{t} -\hat{{X}}_{t} } 
+% \right)^{2}$ no depende de t)
+% 
+% Entonces: $X_{t} =\sum\limits_{j=0}^\infty {\lambda_{j} u_{t-j} 
+% +v_{t} } t\in {\rm Z}$
+% 
+% donde $(u_{t} )$ r.b. (d\'{e}bil) de varianza $\sigma 
+% ^{2}$, $\lambda_{o} =1,\;\sum {\lambda_{j}^{2} <\infty } , \quad u_{t} \in \mu 
+% _{t} ,\;u_{t} \bot \mu_{t-1} $
+% 
+% $\left( {v_{t} } \right)$ centrado, los $u_{t} $ son ortogonales a los $v_{s} 
+% $, $v_{t} \in \mathop \cap\limits_{s=0}^{\infty } \mu_{t-s} $
+% 
+% y la descomposici\'{o}n es \'{u}nica.
+% 
+% \textbf{Observaci\'{o}n B.1: }$u_{t} =X_{t} -\hat{{X}}_{t} \Rightarrow X_{t} 
+% =\hat{{X}}_{t} +u_{t} . \quad u_{t} $ se dice la innovaci\'{o}n del proceso y 
+% v$_{\mathrm{t}}$ la parte determinista del proceso.
+% 
+% \textbf{Demostraci\'{o}n: }
+% 
+% Sea $u_{t} =X_{t} -\hat{{X}}_{t} $
+% 
+% \begin{itemize}
+% \item $\{u_{t} \}$ es centrado, pues $\hat{{X}}_{t} $ es centrada, por ser proyecci\'{o}n ortogonal sobre un s.e.v. generado por v.a. centradas.
+% \item $Eu_{t}^{2} =\sigma^{2}$
+% \item $\hat{{X}}_{t} \in \mu_{t-1} \subset \mu_{t} \Rightarrow u_{t} \in \mu_{t} $
+% \item Sea $s<t \quad \left. {\begin{array}{l}
+%  u_{t} =X_{t} -\hat{{X}}_{t} \bot \mu_{t-1} \supset \mu_{s} \\ 
+%  u_{s} =X_{s} -\hat{{X}}_{s} \in \mu_{s} \\ 
+%  \end{array}} \right\} \Rightarrow u_{t} \bot u_{s} $
+% \item Consideramos $\left( {\frac{\mu_{t} }{\sigma },t\in {\rm Z}} \right),$ sistema ortonormal de $L^{2}$
+% \end{itemize}
+% Los coeficientes de Fourier de $X_{t} =\sum\limits_{j=0}^\infty {\lambda 
+% _{j} u_{t-j} +\upsilon_{t} } , \quad t\in {\rm Z},$ satisfacen:
+% \[
+% \left( {\int {X_{t} \frac{\mu_{t-j} }{\sigma }} } \right)\frac{\mu_{t-j} 
+% }{\sigma }dP=\lambda_{j} u_{t-j} 
+% \]
+% \[
+% \lambda_{j} =\frac{1}{\sigma^{2}}\int {X_{t} u_{t-j} } dP
+% \quad
+% j=0,1,......
+% \]
+% \[
+% \lambda_{o} =\frac{1}{\sigma^{2}}\int {X_{t} u_{t} \;dP=\frac{1}{\sigma 
+% ^{2}}\int {X_{t} \left( {X_{t} -\hat{{X}}_{t} } \right)\;dP=\frac{1}{\sigma 
+% ^{2}}\int {\left( {X_{t} -\hat{{X}}_{t} +\hat{{X}}_{t} } \right)\;\left( 
+% {X_{t} -\hat{{X}}_{t} } \right)\;dP} } } 
+% \]
+% \[
+% =\frac{1}{\sigma^{2}}\int {\left( {X_{t} -\hat{{X}}_{t} } 
+% \right)^{2}dP+\int {\hat{{X}}_{t} \left( {X_{t} -\hat{{X}}_{t} } \right)} 
+% \;dP} 
+% \]
+% \[
+% =\frac{1}{\sigma^{2}}\sigma^{2}=1
+% \]
+% \[
+% \lambda_{o} =1
+% \]
+% $\sum {\lambda_{j}^{2} <\infty ,} $ pues $\sum\limits_{j=0}^\infty {\lambda 
+% _{j}^{2} } \le \left| {\left| {X_{t} } \right|} \right|^{2}$
+% 
+% \begin{itemize}
+% \item Pongamos $\upsilon_{t} =X_{t} -\sum\limits_{j=0}^\infty {\lambda_{j} u_{t-j} } $ y verifiquemos que $\upsilon_{t} $satisface las propiedades requeridas.
+% \item $\upsilon_{t} $ centrada
+% \item $\upsilon_{t} \in \mu_{t} $ pues $\left\{ {\begin{array}{l}
+%  X_{t} \in \mu_{t} \\ 
+%  u_{t-j} \in \mu_{t-j} \subset \mu_{t} \Rightarrow \sum\limits_{j=0}^\infty {\lambda_{j} u_{t-j} \in \mu_{t} } \\ 
+%  \end{array}} \right.$
+% \item Sea $\upsilon_{t} =\hat{{V}}_{t} +\varepsilon_{t} ,$ donde $\hat{{V}}_{t} =P_{r}^{\mu_{t-1} } \upsilon_{t} $
+% \end{itemize}
+% 
+% Queremos demostrar que $\varepsilon_{t} =0.$ Vamos a suponer que $\upsilon 
+% _{t} \bot u_{s} ,{ }s\in {\rm Z}$
+% 
+% $\varepsilon_{t} \bot \mu_{t-1} $ y $\varepsilon_{t} \bot u_{t} $ (pues: 
+% $\upsilon_{t} \bot \mu_{t} , \hat{{\upsilon }}_{t} \in \mu_{t-1} \bot 
+% u_{t} \Rightarrow \hat{{\upsilon }}_{t} \bot u_{t} )$
+% \[
+% \hat{{X}}_{t} \in \mu_{t-1} y\varepsilon_{t} \bot \mu_{t-1} 
+% \Rightarrow entonces\varepsilon_{t} \bot \hat{{X}}_{t} \Rightarrow 
+% \varepsilon_{t} \bot X_{t} =u_{t} +\hat{{X}}_{t} y\varepsilon_{t} 
+% \bot \mu_{s} ,s<t.
+% \]
+% Por tanto $\varepsilon_{t} \bot \mu_{t} $; pero $\left( {\varepsilon_{t} 
+% \bot \mu_{t} ,\varepsilon_{t} \in \mu_{t} } \right)\Rightarrow 
+% \varepsilon_{t} =0\Rightarrow \upsilon_{t} \in \mu_{t-1} $
+% 
+% Con el mismo razonamiento se constata que $\upsilon_{t} \in \mu_{t-2} $
+% \[
+% \upsilon_{t} \in \mathop \cap\limits_{j=0}^{\infty } \mu_{t-j} 
+% \]
+% \begin{itemize}
+% \item Para concluir, demostremos que $\upsilon_{t} \bot u_{s} ,s\in {\rm Z}$
+% \end{itemize}
+% $u_{t} ,u_{t-1} ,....$ sistema ortogonal, que puede completarse en una base 
+% $\left( {u_{s}^{'} ,s\in {\rm Z}} \right)$ de $L^{2}\left( {\Omega ,{\rm 
+% A},P} \right)$. Entonces $\upsilon_{t} =\sum {\alpha_{s} u_{s}^{'} } $
+% 
+% Si $s\le t,\upsilon_{t} \bot u_{s} $ pues: $u_{s} \bot \mu_{s-1} $ y 
+% $\upsilon_{t} \in \mu_{s-1} \quad \left( {V_{t} \in \mathop \cap 
+% \limits_{j=0}^{\infty } \mu_{t-j} } \right)$
+% 
+% Si $s>t \quad \left. {\begin{array}{l}
+%  u_{s} \in \mu_{s} yu_{s} \bot \mu_{s-1} \\ 
+%  \mathop\nolimits \mathop\nolimits\limits \upsilon_{t} \in \mu 
+% _{t} \subset \mu_{s-1} \\ 
+%  \end{array}} \right\} \Rightarrow u_{s} \bot \upsilon_{t} $
+% 
+% \textbf{Unicidad:}
+% \[
+% X_{t} ={u_{t} }\limits +\underbrace {\left[ {\sum\limits_{j=1}^\infty 
+% {\lambda_{j} u_{t-j} +v_{t} } } \right]}_{\in \mu_{t-1} }
+% \]
+% Puesto que $u_{t} \,\,\bot \mu_{t-1} $, el t\'{e}rmino entre 
+% corchetes es igual a $\hat{{X}}_{t} $ y $u_{t} 
+% =X_{t} -\hat{{X}}_{t} $
+% 
+% \chapter{ANEXO B ANEXO ASOCIADO AL CAP\'{I}TULO 2}
+% \label{sec:mylabel2}
+% \section{ANEXO B.1: OPERADORES DE RETARDO Y AVANCE}
+% \label{subsec:mylabel3}
+% El operador de retardo B asocia a un proceso $X=\left( {X_{t} ,t\in {\rm Z}} 
+% \right)$ el proceso $\left( {Y_{t} ,t\in Z} \right)$ tal que $Y_{t} =BX_{t} 
+% =X_{t-1} $.
+% 
+% Este operador es lineal; es invertible y su inverso $B^{-1}=F$se define 
+% por$FX_{t} =X_{t+1} $; F se llama operador de avance. Estos operadores 
+% satisfacen:
+% \[
+% \begin{array}{l}
+%  B^{n}X_{t} =X_{t-n} ;\;F^{n}X_{t} =X_{t+n} \quad \quad 
+% n=1,\;2,\mathellipsis \\ 
+%  \left( {\sum\limits_{i=0}^n {a_{i} B^{i}} } \right)X_{t} 
+% =\sum\limits_{i=0}^n {a_{i} X_{t-i} } \\ 
+%  \end{array}
+% \]
+% Esta \'{u}ltima igualdad describe la acci\'{o}n sobre el proceso X de un 
+% polinomio en B. Adem\'{a}s, se define $B^{0}=F^{0}=1$ (operador identidad)
+% 
+% \textbf{SERIES EN B}
+% 
+% De manera m\'{a}s general se pueden definir series con el operador B (o con 
+% F). Para esto, se consideran solamente procesos estacionarios.
+% 
+% Dado un proceso estacionario $X=\left( {X_{t} ,t\in Z} \right)$ y una 
+% sucesi\'{o}n $\left( {a_{i} ,i\in Z} \right)$ absolutamente 
+% convergente$\sum\limits_{i=-\infty }^\infty {\left| {a_{i} } \right|} 
+% <+\infty $, se sabe que el proceso definido por:
+% \[
+% Y_{t} =\sum\limits_{i=-\infty }^\infty {a_{i} X_{t-i} } ,
+% \quad
+% t\in {\rm Z}
+% \]
+% es estacionario. Se denotar\'{a} por: $\sum\limits_{i=-\infty }^\infty 
+% {a_{i} B^{i}} $a la aplicaci\'{o}n que al proceso estacionario X le hace 
+% corresponden al proceso estacionario Y.
+% 
+% Estas series en B tienen propiedades que permiten manejarlas como a las 
+% series enteras habituales. En particular se puede sumarlas y realizar la 
+% composici\'{o}n entre ellas.
+% 
+% \textbf{SUMAS DE SERIES EN B}
+% \[
+% \left( {\sum\limits_{i=-\infty }^\infty {a_{i} B^{i}+\sum\limits_{i=-\infty 
+% }^\infty {\alpha_{i} B^{i}} } } \right)X_{t} =\sum\limits_{i=-\infty 
+% }^\infty {a_{i} B^{i}} X_{t} +\sum\limits_{i=-\infty }^\infty {\alpha_{i} 
+% B^{i}X_{t} } =\sum\limits_{i-\infty }^\infty {a_{i} X_{t-i} 
+% +\sum\limits_{i=-\infty }^\infty {\alpha_{i} } X_{t-i} } 
+% \]
+% \[
+% \begin{array}{l}
+%  =\lim\limits_{m,n\to \infty } \left( {\sum\limits_{-m}^n {a_{i} X_{t-i} 
+% } +\sum\limits_{-m}^n {\alpha_{i} X_{t-i} } } \right) \\ 
+%  =\lim\limits_{m,n\to \infty } \left[ {\sum\limits_{-m}^n {\left( {a_{i} 
+% +\alpha_{i} } \right)X_{t-i} } } \right] \\ 
+%  =\sum\limits_{i=-\infty }^\infty {\left( {a_{i} +\alpha_{i} } 
+% \right)X_{t-i} } \\ 
+%  =\left[ {\sum\limits_{i=-\infty }^\infty {\left( {a_{i} +\alpha_{i} } 
+% \right)B^{i}} } \right]X_{t} \\ 
+%  \end{array}
+% \]
+% pues si cada sucesi\'{o}n es absolutamente convergente la suma de las dos 
+% sucesiones tambi\'{e}n lo ser\'{a}. Fundamentalmente se observa que:
+% \[
+% \sum\limits_{i=-\infty }^\infty {a_{i} B^{i}+\sum\limits_{i=-\infty }^\infty 
+% {\alpha_{i} B_{i} =\sum\limits_{i=-\infty }^\infty {\left( {a_{i} +\alpha 
+% _{i} } \right)B^{i}} } } 
+% \]
+% De la misma manera se puede mostrar que:
+% \[
+% \lambda \sum\limits_{i=-\infty }^\infty {a_{i} B^{i}=} 
+% \sum\limits_{i=-\infty }^\infty {\lambda a_{i} B^{i}} 
+% \]
+% \textbf{COMPOSICI\'{O}N DE SERIES EN B}
+% 
+% \textbf{Propiedad:}
+% \[
+% \left[ {\sum\limits_{j=-\infty }^\infty {\alpha_{j} B^{j}} } \right]\left[ 
+% {\sum\limits_{i=-\infty }^\infty {a_{i} B^{i}} } \right]X_{t} =\lim\limits_{n,m,n\textasciiacute ,m\textasciiacute \to \infty } \left[ 
+% {\sum\limits_{j=-m}^n {\alpha_{j} B^{j}} } \right]\left[ 
+% {\sum\limits_{i=-m\textasciiacute }^{n\textasciiacute } {a_{i} B^{i}} } 
+% \right]X_{t} 
+% \]
+% \textbf{Demostraci\'{o}n:}
+% 
+% Den\'{o}tense por: $S_{n,m} ,S,\tilde{{S}}_{n\textasciiacute 
+% ,m\textasciiacute } ,\tilde{{S}}$ las aplicaciones:
+% \[
+% \sum\limits_{j=-m}^n {\alpha_{j} B^{j},\sum\limits_{j=-\infty }^\infty 
+% {\alpha_{j} B^{j\textasciiacute },\sum\limits_{i=-m\textasciiacute 
+% }^{n\textasciiacute } {a_{i} B^{i},\sum\limits_{i=-\infty }^\infty {a_{i} 
+% B^{i}} } } } 
+% \]
+% Se tiene que:
+% \[
+% \left\| {S\;\tilde{{S}}\;X_{t} -S_{n,m} \tilde{{S}}_{n\textasciiacute 
+% m\textasciiacute } X_{t} } \right\|
+% \le \left\| {S\;\tilde{{S}}\;X_{t} -S_{n,m} \tilde{{S}}X_{t} } 
+% \right\|+\left\| {S_{n,m} \tilde{{S}}X_{t} -S_{n,m} 
+% \tilde{{S}}_{n\textasciiacute ,m\textasciiacute } X_{t} } \right\|
+% \]
+% \[
+% =\left\| {S\left( {\tilde{{S}}\;X_{t} } \right)-S_{n,m} \left( 
+% {\tilde{{S}}X_{t} } \right)} \right\|+\left\| {S_{n,m} \left( 
+% {\tilde{{S}}X_{t} -\tilde{{S}}_{n\textasciiacute m\textasciiacute } X_{t} } 
+% \right)} \right\|
+% \]
+% \[
+% \le \left\| {S\left( {\tilde{{S}}X_{t} } \right)-S_{n,m} \left( 
+% {\tilde{{S}}X_{t} } \right)} \right\|+\left( {\sum\limits_{j=-m}^n {\left| 
+% {\alpha_{j} } \right|} } \right)\left\| {\tilde{{S}}X_{t} 
+% -\tilde{{S}}_{n\textasciiacute m\textasciiacute } X_{t} } \right\|
+% \]
+% \[
+% \le \left\| {S\left( {\tilde{{S}}X_{t} } \right)-S_{n,m} \left( 
+% {\tilde{{S}}X_{t} } \right)} \right\|+\left( {\sum\limits_{j=-\infty 
+% }^\infty {\left| {\alpha_{j} } \right|} } \right)\left\| {\tilde{{S}}X_{t} 
+% -\tilde{{S}}_{n\textasciiacute m\textasciiacute } X_{t} } \right\|
+% \]
+% La propiedad es una consecuencia de:
+% 
+% $S\;Y_{t} =\;\lim\limits_{n,m\to \infty } S_{n,m} \;Y_{t} $ y 
+% $\tilde{{S}}\;X_{t} =\lim\limits_{n\textasciiacute m\textasciiacute \to 
+% \infty } \tilde{{S}}_{n\textasciiacute ,m\textasciiacute } X_{t} $
+% 
+% (l\'{\i}mites en el sentido de $L_{2} )$
+% 
+% \textbf{Corolario:}
+% 
+% La composici\'{o}n de dos series en B es una serie en B.
+% 
+% \textbf{Demostraci\'{o}n:}
+% 
+% $\left[ {\sum\limits_{j=-\infty }^\infty {\alpha_{j} B^{j}} } \right]\left[ 
+% {\sum\limits_{i=-\infty }^\infty {a_{i} B^{i}} } \right]X_{t} =\lim\limits_{n,m,n\textasciiacute m,\to \infty } \left[ {\sum\limits_{j=-m}^n 
+% {\alpha_{j} B^{j}} } \right]\left[ {\sum\limits_{i=-m\textasciiacute 
+% }^{n\textasciiacute } {a_{i} B^{i}} } \right]X_{t} $(l\'{\i}m. en el sentido 
+% L$_{\mathrm{2}})$
+% \[
+% \begin{array}{l}
+%  \quad \quad \;=\lim\limits_{n,m,n\textasciiacute ,m\textasciiacute \to 
+% \infty } \sum\limits_{k=-m-m\textasciiacute }^{n+n\textasciiacute } {\quad 
+% \left[ {\sum\limits_{i=\max \left( {-m\textasciiacute ,k-n} \right)^{a_{i} 
+% }}^{\min \left( {n\textasciiacute ,k+m} \right)} {a_{i} } \alpha_{k-i} } 
+% \right]B^{k}X_{t} } \\ 
+%  \quad \quad \;=\sum\limits_{k=-\infty }^\infty {\left[ 
+% {\sum\limits_{i=-\infty }^\infty {a_{i} \alpha_{k-i} } } \right]B^{k}X_{t} 
+% } \\ 
+%  \end{array}
+% \]
+% puesto que $b_{k} =\sum\limits_{i=-\infty }^\infty {a_{i} \alpha_{k-i} } $ 
+% existe y la serie de t\'{e}rmino general b$_{\mathrm{k}}$ es absolutamente 
+% convergente. La sucesi\'{o}n de los $b_{k} $ es la ``convoluci\'{o}n'' de 
+% las series en $\alpha_{i} \;\text{y\thinspace a}_{\text{j}} .\;$
+% 
+% \textbf{Corolario:}
+% 
+% El producto de series en B es conmutativo:
+% 
+% \textbf{Demostraci\'{o}n:}
+% 
+% En efecto: $\sum\limits_{i=-\infty }^\infty {a_{i} \alpha_{k-i} } 
+% =\sum\limits_{i=-\infty }^\infty {a_{k-i} \alpha_{i} } $.
+% 
+% \section{ANEXO B.2: ECUACIONES EN DIFERENCIAS}
+% \label{subsec:mylabel4}
+% Consid\'{e}rese la ecuaci\'{o}n lineal homog\'{e}nea en diferencias
+% 
+% $x_{t} -\varphi_{1} x_{t-1} -\varphi_{2} x_{t-2} -\mathellipsis -\varphi 
+% _{k} x_{t-k} =0$ (B.2.1)
+% 
+% Se va a demostrar que su soluci\'{o}n general es:
+% 
+% $x_{t} =A_{1} G_{1}^{t} +\mathellipsis +A_{k} G_{k}^{t} $ (B.2.2)
+% 
+% donde las $A_{1} ,\mathellipsis ,A_{k} $ son constantes que dependen de las 
+% condiciones iniciales y $G_{1} ,\mathellipsis G_{k} $ son las ra\'{\i}ces de 
+% la ecuaci\'{o}n
+% 
+% $y^{k}-\varphi_{1} y^{k-1}-\mathellipsis -\varphi_{k} =0$ (B.2.3)
+% 
+% que se suponen son distintas. Para demostrar este resultado, sustit\'{u}yase 
+% (B.2.2) en (B.2.1):
+% \[
+% \sum {A_{i} G_{i}^{t} -\varphi_{1} \sum {A_{i} G_{i}^{t-1} -\mathellipsis 
+% -\varphi_{k} \sum {A_{i} G_{i}^{t-k} } =\sum\limits_{i=1}^k {A_{i} 
+% G_{i}^{t-k} \left( {G_{i}^{k} -\varphi_{1} G_{i}^{k-1} -\mathellipsis 
+% -\varphi_{k} } \right)=0} } } 
+% \]
+% Con esto se ha demostrado que si $G_{i} $ satisface (B.2.3), entonces la 
+% soluci\'{o}n (B.2.2) satisface (B.2.1). Obs\'{e}rvese adem\'{a}s que para 
+% que $x_{t} $ tienda a cero cuando $t\to \infty ,G_{i}^{t} $ debe tender a 
+% cero, lo que requiere que el valor absoluto de todas las soluciones de 
+% (B.2.3) sea menor a la unidad. 
+% 
+% Las expresiones anteriores pueden escribirse introduciendo el operador $B$de 
+% retardo, definido por $(B^{0}X_{t} =1;B^{k}X_{t} =X_{t-k} 
+% ,k=1,\;2,\mathellipsis )$. Entonces la ecuaci\'{o}n en diferencias (B.2.1) 
+% se expresa
+% \[
+% \left( {1-\varphi_{1} B-\mathellipsis -\varphi_{k} B^{k}} \right)x_{t} =0
+% \]
+% y se denomina \textit{ecuaci\'{o}n caracter\'{\i}stica} de la ecuaci\'{o}n en diferencias a:
+% 
+% $1-\varphi_{1} B-\mathellipsis -\varphi_{k} B^{k}=0$ (B.2.4)
+% 
+% N\'{o}tese que: $y^{k}-\varphi_{1} y^{k-1}-\mathellipsis -\varphi_{k} 
+% =0\Leftrightarrow y^{k}\left( {1-\varphi_{1} y^{-1}-\mathellipsis -\varphi 
+% _{k} y^{-k}} \right)=0$ 
+% 
+% As\'{\i}, si $G_{i} $ satisface (B.2.3)entonces $G_{i}^{-1} $ es la 
+% soluci\'{o}n de la ecuaci\'{o}n caracter\'{\i}stica (B.2.4). La soluci\'{o}n 
+% (B.2.2) se expresa habitualmente indicando que $G_{1}^{-1} ,\mathellipsis 
+% ,G_{k}^{-1} $ son las ra\'{\i}ces de la ecuaci\'{o}n caracter\'{\i}stica.
+% 
+% Cuando dos ra\'{\i}ces de (B.2.4) \'{o} (B.2.3) son iguales los dos 
+% t\'{e}rminos $A_{i} G_{i}^{t} $ correspondientes pueden escribirse como 
+% $\left( {A_{1} +A_{2} t} \right)G^{t}$. Para demostrarlo, sup\'{o}ngase el 
+% caso m\'{a}s simple, con una ra\'{\i}z doble en la ecuaci\'{o}n:
+% 
+% $x_{t} -\varphi_{1} x_{t-1} -\varphi_{2} x_{t-2} =0$ (B.2.5)
+% 
+% cuya ecuaci\'{o}n caracter\'{\i}stica es:
+% 
+% $\left( {1-\varphi_{1} B-\varphi_{2} B^{2}} \right)=0$ (B.2.6)
+% 
+% Si existe una ra\'{\i}z doble en esta ecuaci\'{o}n, $G_{0}^{-1} ,$ se 
+% verifica:
+% \[
+% \left( {1-G_{0} B} \right)^{2}=\left( {1-\varphi_{1} B-\varphi_{2} B^{2}} 
+% \right)
+% \]
+% que implica $\varphi_{2} =-G_{0}^{2} ;\;\varphi_{1} =2G_{0} $ y por tanto:
+% 
+% $\varphi_{1} G_{0} +2\varphi_{2} =0$ (B.2.7)
+% 
+% Adem\'{a}s si $G_{0}^{t} $ es una soluci\'{o}n doble de (B.2.5) tambi\'{e}n 
+% debe serlo $tG_{0}^{t} $. Pues sustituyendo en (B.2.5):
+% \[
+% tG_{0}^{t} -\varphi_{1} \left( {t-1} \right)G_{0}^{t-1} -\varphi_{2} 
+% \left( {t-2} \right)G_{0}^{t-2} =tG_{0}^{t-2} \left( {G_{0}^{2} -\varphi 
+% _{1} G_{0} -\varphi_{2} } \right)+G_{0}^{t-2} \left( {\varphi_{1} G_{0} 
+% +2\varphi_{2} } \right)=0
+% \]
+% El primer t\'{e}rmino es cero por ser $G_{0} $ soluci\'{o}n y el segundo por 
+% ser ra\'{\i}z de orden 2, con lo que se concluye que la soluci\'{o}n general 
+% es:
+% \[
+% x_{t} =A_{1} G_{o}^{t} +A_{2} tG_{o}^{t} =\left( {A_{1} +A_{2} t} 
+% \right)G_{0}^{t} 
+% \]
+% An\'{a}logamente se puede demostrar que si la ra\'{\i}z $G_{0} $ es 
+% m\'{u}ltiple, de orden $h$, la soluci\'{o}n general es:
+% 
+% $x_{t} =\left( {A_{1} +A_{2} t+\mathellipsis +A_{h} t^{h-1}} \right)G_{0}^{t} 
+% $ (B.2.8)
+% 
+% Para estudiar el comportamiento de las ra\'{\i}ces complejas de la 
+% ecuaci\'{o}n caracter\'{\i}stica, consid\'{e}rese el caso simple determinado 
+% por las ecuaciones (B.2.5) y (B.2.6).
+% 
+% Sup\'{o}ngase que $G_{1}^{-1} $ y $G_{2}^{-1} $ son soluciones distintas de 
+% la ecuaci\'{o}n caracter\'{\i}stica
+% \[
+% \left( {1-\varphi_{1} B-\varphi_{2} B^{2}} \right)=\left( {1-G_{1} B} 
+% \right)\left( {1-G_{2} B} \right)=0
+% \]
+% Por tanto, $\varphi_{1} =G_{1} +G_{2} ;\varphi_{2} =-G_{1} G_{2} .$ Se 
+% calculan $A_{1} $ y $A_{2} ,$ imponiendo las condiciones iniciales $\rho 
+% _{0} =1;\;\rho_{1} =\varphi_{1} \left( {1-\varphi_{2} } \right)=\left( 
+% {G_{1} +G_{2} } \right)/\left( {1+G_{1} G_{2} } \right)$. Se obtiene:
+% \[
+% A_{1} =\frac{G_{1} \left( {1-G_{2}^{2} } \right)}{\left( {1+G_{1} G_{2} } 
+% \right)\left( {G_{1} -G_{2} } \right)};\quad A_{2} =\frac{-G_{2} \left( 
+% {1-G_{1}^{2} } \right)}{\left( {1+G_{1} G_{2} } \right)\left( {G_{1} -G_{2} 
+% } \right)}
+% \]
+% Sup\'{o}ngase adem\'{a}s que $G_{1} $ y $G_{2} $ son complejas; entonces 
+% deben ser conjugadas y pueden escribirse $G_{1} =r\;\exp \left( {i\varpi } 
+% \right);\;G_{2} =r\;\exp \left( {-i\varpi } \right),$ donde el m\'{o}dulo se 
+% calcula por:
+% 
+% $\begin{array}{l}
+%  r^{2}=G_{1} G_{2} =-\varphi_{2} \\ 
+%  r=\sqrt {-\varphi_{2} .} \\ 
+%  \end{array}$ (B.2.9)
+% 
+% y la frecuencia angular con:
+% \[
+% \varphi_{1} =G_{1} +G_{2} =r\left( {\exp \left( {i\varpi } \right)+\exp 
+% \left( {-i\varpi } \right)} \right)=2r\;Cos\;\varpi 
+% \]
+% Utilizando que $\varpi =2\pi /T_{0} ,$ donde $T_{0} $ es el per\'{\i}odo, y 
+% (B.2.9), se obtiene:
+% 
+% $Cos\;\varpi =Cos\frac{2\pi }{T_{0} }=\frac{\varphi_{1} }{2\sqrt {-\varphi 
+% _{2} } }$ (B.2.10)
+% 
+% Sustituyendo $A_{1} ,A_{2} ,G_{1} \;\text{y}\;G_{2} $ en la ecuaci\'{o}n 
+% (B.2.2) y operando, se obtiene:
+% \[
+% x_{t} =\frac{\left[ {sg\left( {\varphi_{1} } \right)} 
+% \right]^{t}r^{t}sen\left( {2\pi t/T_{0} +\alpha } \right)}{sen\alpha }
+% \]
+% Donde $tg\;\alpha =\left( {1+r^{2}} \right)\;tg\left( {2\pi /T_{0} } 
+% \right)/\left( {1-r^{2}} \right)\;\text{y}\;sg\left( {\varphi_{1} } 
+% \right)$ es el signo del coeficiente $\varphi_{1} .$ Por tanto $X^{t}$ 
+% ser\'{a} una senoide amortiguada con factor de amortiguaci\'{o}n $r$ y 
+% per\'{\i}odo $T_{0} $. 
+% 
+% Por tanto, la soluci\'{o}n general de (B.2.1) tendr\'{a}: 
+% 
+% \begin{itemize}
+% \item Por cada ra\'{\i}z real no repetida un t\'{e}rmino del tipo $A_{i} G_{i}^{t} ;$ 
+% \item Por cada ra\'{\i}z real $G_{0} $ repetida $h$ veces un t\'{e}rmino polin\'{o}mico de orden $\left( {h-1} \right)$ en la variable $t$ que multiplica a $G_{0}^{t} $ (ecuaci\'{o}n 2.B.8);
+% \item Por cada par de ra\'{\i}ces complejas conjugadas un t\'{e}rmino sinusoidal.
+% \end{itemize}
+% 
+% \section{ANEXO B.3: DEMOSTRACIONES DE ALGUNOS TEOREMAS}
+% \label{subsec:mylabel5}
+% \textbf{Teorema 2.2: }Una condici\'{o}n necesaria y suficiente para 
+% que exista un AR(p) que satisfaga $\pi^{'}\left( B \right)X_{t} =u_{t} $ es 
+% que las ra\'{\i}ces de la ecuaci\'{o}n $\pi^{'}\left( z \right)=0$ se 
+% encuentren fuera del c\'{\i}rculo unidad. Bajo esta condici\'{o}n.
+% \[
+% X_{t} =\sum\limits_{j=0}^\infty {\psi_{j} u_{t-j} } ,
+% \quad
+% t\in {\rm Z}
+% \]
+% donde los $\psi_{j} $, son los coeficientes de Taylor de $\frac{1}{\pi 
+% ^{'}\left( z \right)}$
+% 
+% \textbf{Demostraci\'{o}n:}
+% 
+% \begin{itemize}
+% \item \textbf{Condici\'{o}n Necesaria} 
+% \end{itemize}
+% 
+% Sean
+% \[
+% y_{t} =\left( {\begin{array}{l}
+%  X_{t} \\ 
+%  X_{t-1} \\ 
+%  \vdots \\ 
+%  X_{t-p+1} \\ 
+%  \end{array}} \right)
+% \quad
+% \delta_{t} =\left( {\begin{array}{l}
+%  u_{t} \\ 
+%  0 \\ 
+%  \vdots \\ 
+%  0 \\ 
+%  \end{array}} \right)
+% \quad
+% P=\left[ {\begin{array}{l}
+%  \pi_{1} ..............\pi_{p} \\ 
+%  \mathop\nolimits I_{p-1} \mathop\nolimits \mathop\nolimits 
+% 0\limits_{{\begin{array}{l}
+%  \vdots \\ 
+%  0 \\ 
+%  \end{array}}} \\ 
+%  \end{array}} \right]
+% \]
+% Entonces$y_{t} =Py_{t-1} +\delta_{t} $
+% 
+% Sean: $\Gamma \quad =$ matriz de covarianza de $y_{t} $ y $\Delta =$matriz de 
+% covarianza de $\delta_{t} $
+% \[
+% \Delta =
+% \left[ {{\begin{array}{*{20}c}
+%  {\sigma^{2}} \hfill & 0 \hfill & 0 \hfill \\
+%  {0\limits_{\vdots } } \hfill & {\limits_{0} } \hfill & \hfill \\
+%  0 \hfill & \hfill & \hfill \\
+% \end{array} }} \right]
+% \]
+% Puesto que $\delta_{t} \bot y_{t-1} , \quad \Gamma \quad =P\Gamma P^{'}+\Delta $ 
+% (pues $\left( {X_{t} } \right)$ d.e)
+% 
+% Sea $\phi \left( \lambda \right)$ el polinomio caracter\'{\i}stico de P:
+% \[
+% \quad
+% \phi \left( \lambda \right)=\left[ {{\begin{array}{*{20}c}
+%  {\pi_{1} -\lambda } \hfill & {\pi_{2} } \hfill & {\pi_{3} } \hfill & 
+% \mathellipsis \hfill & \hfill & {\pi_{p} } \hfill \\
+%  1 \hfill & {-\lambda } \hfill & 0 \hfill & \hfill & \hfill & \hfill \\
+%  \hfill & 1 \hfill & {-\lambda } \hfill & \hfill & 0 \hfill & \hfill \\
+%  {\limits^{0} } \hfill & \hfill & \hfill & \hfill & 1 \hfill & {-\lambda } 
+% \hfill \\
+% \end{array} }} \right]
+% \]
+% $=\limits^{ind.} \left( {-1} \right)^{p-1}
+% [-1+\sum\limits_{j=1}^P {\pi_{j} \left. {\lambda^{-j}} \right]} \lambda 
+% ^{P}$ (desarrollando por la 1\textordfeminine l\'{\i}nea).
+% 
+% Las ra\'{\i}ces $\left( {\ne 0} \right)$ de $\phi \left( \lambda \right)$son 
+% l as ra\'{\i}ces de $\left[ {-1+\sum\limits_{j=1}^P {\pi_{j} \lambda^{-j}} 
+% } \right]\lambda^{P}$; es decir, aquellas de $\pi^{'}\left( 
+% {\frac{1}{\lambda }} \right)=0$. Entonces los valores propios (v.p.) de 
+% \textbf{\textit{P}} son los inversos de las ra\'{\i}ces de $\pi^{'}$; vamos 
+% a demostrar que estos son de $\left\| \right\|<1$. 
+% 
+% Sea $X$ un vector propio de $P^{'}$ y $\lambda $ el v.p. asociado (Recordamos 
+% que: $X^{\ast }=\overline X^{'}yX^{\ast }P=\overline \lambda X^{\ast 
+% })$; entonces
+% \[
+% 0\le X^{\ast }\Delta X=X^{\ast }\Gamma X-X^{\ast }P\Gamma P^{'}X
+% \]
+% \[
+% \begin{array}{l}
+%  \le \left( {1-\left| \lambda \right|^{2}} \right)\underbrace {X\ast \Gamma 
+% X}_{\ge 0} \\ 
+%  \left| \lambda \right|^{2}\le 1 \\ 
+%  \end{array}
+% \]
+% Sup\'{o}ngase que existe $\lambda $ valor propio de $P^{'}$ t.q. $\left| 
+% \lambda \right|=1\Rightarrow X^{\ast }\Delta X=0$
+% 
+% Sea $X=\left( {\begin{array}{l}
+%  x_{1} \\ 
+%  x_{2} \\ 
+%  \vdots \\ 
+%  x_{p} \\ 
+%  \end{array}} \right)\Rightarrow X^{\ast }\Delta X=\sigma^{2}\left| 
+% {x_{1} } \right|^{2}\Rightarrow x_{1} =0$
+% 
+% Por tanto:
+% \[
+% P^{'}X=\left[ {{\begin{array}{*{20}c}
+%  {\pi_{1} } \hfill & 1 \hfill & 0 \hfill & \cdots \hfill & 0 \hfill \\
+%  {\pi_{2} } \hfill & 0 \hfill & 1 \hfill & \cdots \hfill & 0 \hfill \\
+%  \mathellipsis \hfill & \cdots \hfill & \cdots \hfill & \cdots \hfill & 
+% \cdots \hfill \\
+%  \cdots \hfill & \cdots \hfill & \cdots \hfill & \cdots \hfill & \cdots 
+% \hfill \\
+% \end{array} }} \right]\left[ {{\begin{array}{*{20}c}
+%  {\begin{array}{l}
+%  0 \\ 
+%  x_{2} \\ 
+%  x_{3} \\ 
+%  \vdots \\ 
+%  \end{array}} \hfill \\
+% \end{array} }} \right]=\lambda \left[ {\begin{array}{l}
+%  0 \\ 
+%  x_{2} \\ 
+%  \vdots \\ 
+%  \end{array}} \right]\Rightarrow x_{2} =0
+% \]
+% continuando con la 2\textordfeminine l\'{\i}nea se obtiene $x_{3} =0$ etc. 
+% $\Rightarrow X=0$ (una contradicci\'{o}n, pues un vector propio no puede ser 
+% nulo).
+% \[
+% \left| \lambda \right|<1
+% \]
+% \begin{itemize}
+% \item \textbf{Condici\'{o}n Suficiente}
+% \end{itemize}
+% 
+% Sea $\left( {u_{t} } \right)$ el r.b. y sea $\pi^{'}$ dado. Se busca 
+% construir el proceso AR (p).
+% 
+% $\frac{1}{\pi^{'}\left( z \right)}$ es holomorfa en $\left| z 
+% \right|<1+\alpha $ ($\alpha $\textgreater 0, bien elegido)
+% 
+% Consid\'{e}rese el desarrollo de Taylor de $\frac{1}{\pi^{'}\left( z 
+% \right)}$:
+% \[
+% \frac{1}{\pi^{'}\left( z \right)}=\sum\limits_{j=0}^\infty {\psi_{j} 
+% z^{j}} ,
+% \quad
+% \left| z \right|<1+\alpha 
+% \]
+% (la serie converge en todo c\'{\i}rculo cerrado contenido en $B\left( 
+% {0,1+\alpha } \right)\left. \right)$
+% 
+% Para $\left| z \right|=1,\limits \sum\limits_{j=0}^\infty {\left| {\psi 
+% _{j} } \right|<\infty } $. Se pone: $X_{t} =\sum\limits_{j=0}^\infty {\psi 
+% _{j} u_{t-j} } $ y luego se considera $X_{t} -\sum\limits_{j=1}^P {\pi_{j} 
+% X_{t-j} =u_{t} } $.
+% 
+% Se hacen los reemplazos correspondientes y se verifica que este proceso 
+% satisface la definici\'{o}n (c\'{a}lculos un poco largos).
+% 
+% \textbf{Teorema 2.5: }Se tiene que 
+% $X_{t}=m_{t}+Y_{t\thinspace ,\thinspace \thinspace \thinspace 
+% \thinspace }\forall t\ge -s+1_{\thinspace ,\thinspace }$donde: 
+% 
+% \begin{enumerate}
+% \item $m_{t} $es la soluci\'{o}n de $\phi (B)X_{t} =0$ con $X_{-s+1} ,.....,X_{-s+p^{'}} $ como valores iniciales (v.i.)
+% \item $Y_{t} =\left\{ {\begin{array}{l}
+%  \sum\limits_{i=0}^{t+s-p^{'}-1} {\psi_{i} u_{t-i} \mathop\nolimits \mathop\nolimits t\ge -s+p^{'}+1} \\ 
+%  0\mathop\nolimits \mathop\nolimits \mathop\nolimits \mathop\nolimits \mathop\nolimits \mathop\nolimits\limits -s+1<t<-s+p^{'}+1 \\ 
+%  \end{array}} \right.$
+% \end{enumerate}
+% 
+% Los $\psi_{i} $ se obtienen por divisiones creciente de $\Theta $ por $\phi 
+% $ (hasta el orden $t+s-p^{\textasciiacute }$\textit{-1}).
+% 
+% \textbf{Demostraci\'{o}n: }Una soluci\'{o}n particular de:
+% \[
+% \phi \left( B \right)X_{t} =\Theta \left( B \right)\,u_{t} 
+% \quad
+% t\ge -s+p^{'}+1
+% \]
+% es:
+% \[
+% \left\{ {\begin{array}{l}
+%  \sum\limits_{i=0}^{t+s-p^{'}-1} {\psi_{i} u_{t-i} } \mathop\nolimits 
+% t\ge -s+p^{'}+1 \\ 
+%  0\mathop\nolimits \mathop\nolimits \mathop\nolimits \mathop 
+% \nolimits \mathop\nolimits t<-s+p^{'}+1 \\ 
+%  \end{array}} \right.
+% \]
+% pues, escribiendo la identidad de la divisi\'{o}n creciente:
+% \[
+% \Theta (B)=\phi (B)\left[ {1+\psi_{1} B+.....+\psi_{t+s-p^{'}-1} 
+% B^{t+s-p^{'}-1}} \right]+B^{t+s-p^{'}}\lambda \left( B \right)
+% \]
+% y aplicando a los dos miembros u$_{\mathrm{t\thinspace \thinspace }}$se 
+% tiene:
+% \[
+% \Theta (B)u_{t} =\phi (B)\sum\limits_{i=0}^{t+s-p^{'}-1} {\psi_{i} 
+% u_{t-i} +0} 
+% \]
+% Puesto que m$_{\mathrm{t}}$ es soluci\'{o}n de $\phi \left( B \right)X_{t} 
+% =0$, compatible con los v.i., se obtiene el resultado anunciado. En 
+% particular:
+% \[
+% X_{t} =m_{t} +\sum\limits_{i=0}^{t+s-p^{'}-1} {\psi_{i} u_{t-i} } ,
+% \quad
+% \forall t\ge -s+p^{'}+1
+% \]
+% \textbf{Observaci\'{o}n B.2:}
+% 
+% \begin{enumerate}
+% \item Puesto, que m$_{\mathrm{t}}$ satisface una ecuaci\'{o}n en diferencias y si $\varphi $ no tiene ra\'{\i}ces m\'{u}ltiples, m$_{\mathrm{t}}$ puede expresarse:
+% \end{enumerate}
+% \[
+% m_{t+s} =\sum\limits_{i=1}^d {a_{i} (t+s)^{i-1}+\sum\limits_{i=1}^p {b_{i} 
+% z_{i}^{-(t+s)} } } 
+% \]
+% $(t+s\ge 1);$ z$_{\mathrm{i}}$ ra\'{\i}z de $\varphi $
+% 
+% Si algunas ra\'{\i}ces de $\varphi (z)$ son m\'{u}ltiples, hay que 
+% introducir ciertos factores polinomiales en la segunda sumatoria; pero, en 
+% todos los casos, este t\'{e}rmino se vuelve despreciable para $\forall 
+% t\ge 0$ y s suficientemente grande.
+% 
+% Si s es bastante grande, se puede suponer que m$_{\mathrm{t}}$ es, para todo 
+% $t\ge 0$, un polinomio de grado d-1
+% 
+% \begin{enumerate}
+% \item $\forall 
+% \quad
+% r\in $N, $\Theta (z)=\phi (z)\left[ {1+\sum\limits_{i=1}^r {\psi_{i} z^{i}} } \right]+z^{r+1}\lambda (z)$
+% \end{enumerate}
+% 
+% entonces: $\forall n\ge \max (q+1,p^{'}) \quad \psi_{n} -\phi_{1} \psi 
+% _{n-1} -......-\phi_{p} \psi_{n-p^{'}} =0$.
+% 
+% Razonando de la misma manera que en la parte (i), se puede aproximar $\psi 
+% _{n} $, para $n$ suficientemente grande, por un polinomio de grado \textit{d-1} en $n$. Por lo 
+% tanto, la serie diverge si \textit{d\textgreater 1.}
+% 
+% \begin{enumerate}
+% \item El teorema anterior no depende del hecho que $u_{t}_{\mathrm{\thinspace }}$sea centrada.
+% \end{enumerate}
+% 
+% Si $u_{t} =\varepsilon_{t} +\lambda $ con $E\varepsilon_{t} =0$, el 
+% proceso ARIMA se presenta: $\phi (B)X_{t} =\theta_{0} +\Theta 
+% (B)\varepsilon_{t} $ con $\theta_{0} =\lambda (1-\theta_{1} 
+% -......-\theta_{q} )$ y entonces:
+% \[
+% X_{t} =m_{t} +\lambda \sum\limits_{i=0}^{t+s-p^{'}-1} {\psi_{i} +} 
+% \sum\limits_{i=0}^{t+s-p^{'}-1} {\psi_{i} \varepsilon_{t-i} } 
+% \]
+% luego de la parte (2), el segundo t\'{e}rmino es un polinomio de grado $d$ en 
+% $t$. Entonces la introducci\'{o}n de una constante, aumenta el grado de $E (X_{t})$ 
+% en una unidad.
+% 
+% \begin{itemize}
+% \item \textbf{Representaci\'{o}n AR de un ARIMA:}
+% \end{itemize}
+% 
+% \textbf{Teorema 2.6: }Se tiene :
+% \[
+% X_{t} =-\sum\limits_{i=1}^{t+s-p^{'}-1} {\pi_{i} X_{t-i} +} 
+% \sum\limits_{j=s-p^{'}}^{s-1} {\pi_{j,t}^{\ast } X_{-j} +u_{t} } 
+% \quad
+% \forall t>-s+p^{'}
+% \]
+% donde:
+% 
+% \begin{enumerate}
+% \item Los $\pi_{i} $ se obtienen por divisi\'{o}n creciente de $\phi $ por $\Theta (\pi_{0} =1)$
+% \item Los $\pi_{s-p^{\textasciiacute '},t}^{\ast } ,.....,\pi_{s-1,t}^{\ast } \to 0$ cuando $s\to \infty $
+% \end{enumerate}
+% 
+% \textbf{Demostraci\'{o}n:}
+% 
+% Se tiene que:
+% 
+% \begin{center}
+% 1$=\Theta \left( B \right)\left[ {1+\sum\limits_{i=1}^{t+s-p^{'}-1} 
+% {\theta_{i}^{\ast } } B^{C}} \right]+B^{t+s-p^{'}} \quad v$(B)
+% \end{center}
+% 
+% y aplicando $u_{t}_{\mathrm{\thinspace }}$a esta expresi\'{o}n se obtiene:
+% \[
+% \left[ {1+\sum\limits_{i=1}^{t+s-p^{'}-1} {\theta_{i}^{\ast } B^{i}} } 
+% \right]\,\Theta (B)u_{t} =u_{t} \mathop\nolimits \mathop\nolimits 
+% t>-s+p^{'}
+% \]
+% $\left[ {1+\sum\limits_{i=1}^{t+s-p^{'}-1} {\theta_{i}^{\ast } B^{i}} } 
+% \right]\phi (B)X_{t} =u_{t} $ (B.3.1)
+% 
+% que tiene la forma de relaci\'{o}n pedida (de la definici\'{o}n del ARIMA).
+% 
+% De otro lado:
+% 
+% $\phi (B)=\Theta (B)\left[ {1+\sum\limits_{i=1}^{t+s-p^{'}-1} {\pi_{i} 
+% B^{i}} } \right]+B^{t+s-p^{'}}\mu (B)$ (B.3.2)
+% 
+% Utilizando (2.4)
+% 
+% $\phi (B)=\Theta (B)\left[ {1+\sum\limits_{i=1}^{t+s-p^{'}-1} {\theta_{i} 
+% B^{i}} } \right]\phi (B)+B^{t+s-p^{'}}v(B)\phi (B)$ (B.3.3)
+% 
+% y de la unicidad de la divisi\'{o}n de $\phi $ por $\Theta ,$ se igualan los 
+% coeficientes de B$^{\mathrm{i\thinspace \thinspace \thinspace }}$( 
+% i$=$1,....,t$+$s-p$^{\mathrm{\text{\textasciiacute }}}$-1) en (B.3.2) y 
+% (B.3.3), entonces los coeficientes en (B.3.1) son los $\pi_{i} $.
+% 
+% Adem\'{a}s:
+% \[
+% \quad
+% \begin{array}{l}
+%  \;\pi_{s-p^{'},t}^{\ast } \;\;=-\phi_{1} \theta_{t+s-p^{'}-1}^{\ast } 
+% -......-\phi_{p'} \theta_{t+s-2p'}^{\ast } \\ 
+%  \pi_{s-p'+1,t}^{\ast } =-\phi_{2} \theta_{t+s-p'-1}^{\ast } 
+% -.....-\phi_{p'} \theta_{{\begin{array}{l}
+%  t+s-2p'+ \\ 
+%  1 \\ 
+%  \end{array}}}^{\ast } \\ 
+%  \pi_{s-1,t}^{\ast } \,\quad \,=-\phi_{p'} \theta_{t+s-p'-1}^{\ast } 
+% \\ 
+%  \end{array}
+% \]
+% Los $\pi_{s-p',t}^{\ast } ,.....,\pi_{s-1,t}^{\ast } \to 0$ cuando $s\to 
+% \infty $, pues los $\theta_{i} $ son coeficientes de la divisi\'{o}n 
+% creciente de 1 por un polinomio con ra\'{\i}ces de $\left| \right|>1$ y 
+% entonces tienden hacia cero cuando $i\to \infty $
+% 
+% \textbf{Observaci\'{o}n B.3:}
+% 
+% \begin{enumerate}
+% \item Puesto que las ra\'{\i}ces de $\Theta $ son de $\left| \right|>1$, se tiene que:
+% \end{enumerate}
+% $\phi (z)=\Theta (z)\left[ {1+\sum\limits_{i=1}^\infty {\pi_{i} z^{i}} } 
+% \right]$ para $\left| z \right|\le 1$
+% 
+% (en realidad para $\left| z \right|<$ min $\left| {z_{j} } 
+% \right|conz_{j} $ ra\'{\i}z de $\Theta )$.
+% 
+% Si d\textgreater 0, $\phi \left( 1 \right)=0$ y entonces:
+% \[
+% 0=\Theta (1)\left[ {1+\sum\limits_{i=1}^\infty {\pi_{i} } } \right]
+% \]
+% y, dado que $\Theta $(1)$\ne 0$, se tiene:
+% \[
+% 1+\sum\limits_{i=1}^\infty {\pi_{i} =0} 
+% \]
+% \begin{enumerate}
+% \item Si se pone: 
+% \end{enumerate}
+% $\phi (B)X_{t} =\theta_{0} +\Theta (B)\varepsilon_{t} $ con $E\varepsilon 
+% _{t} =0$
+% 
+% $\phi (B)X_{t} =\Theta \left( B \right)u_{t} $ con $u_{t} =\varepsilon_{t} 
+% +\lambda $
+% 
+% y 
+% \[
+% Eu_{t} =\lambda =\frac{\theta_{0} }{1-\theta_{1} -.....-\theta_{q} }
+% \]
+% se tiene:
+% \[
+% X_{t} =\lambda -\sum\limits_{i=1}^{t+s-p'-1} {\pi_{i} X_{t-i} } 
+% +\sum\limits_^ {\pi_{j,t}^{\ast } X_{-j} +\varepsilon_{t} } 
+% \]
+% \begin{enumerate}
+% \item La introducci\'{o}n de un mecanismo de inicializaci\'{o}n, hace que el prop\'{o}sito inicial de que el proceso (X$_{\mathrm{t}})$ diferenciado $d$ veces sea ARMA (p,q), se cumpla solo asint\'{o}ticamente . Es decir, el proceso ARIMA
+% \end{enumerate}
+% \[
+% X_{t} =m_{t} +\sum\limits_{i=0}^{t+s-p'-1} {\psi_{i} u_{t-i} } 
+% \quad
+% \psi_{0} =1,
+% \quad
+% t>-s+p'+1
+% \]
+% es t.q. $E(\Delta^{d}X_{t} -Z_{t} )^{2}\to 0$, donde $Z_{t} $ es un ARMA 
+% (p, q) definido por: $\Phi (B)Z_{i} =\Theta (B)u_{t} $
+% 
+% En efecto: 
+% \[
+% \Delta^{d}X_{t} =\Delta^{d}m_{t} +\nabla^{d}\left( 
+% {\sum\limits_{i=0}^{t+s-p'-1} {\psi_{i} B^{i}} } \right)u_{t} 
+% \]
+% Puesto que:
+% \[
+% \Theta (B)=\varphi (B)\Delta^{d}\left( {1+\sum\limits_{i=1}^{t+s-p'-1} 
+% {\psi_{i} B^{i}} } \right)+B^{t+s-p'}\lambda (B)
+% \]
+% entonces:
+% \[
+% \Delta^{d}\left( {1+\sum\limits_{i=1}^{t+s-p'-1} {\psi_{i} B^{i}} } 
+% \right)=\frac{\Theta (B)}{\varphi (B)}-\frac{B^{t+s-p'}\lambda (B)}{\varphi 
+% (B)}
+% \]
+% 
+% $\quad
+% \Delta^{d}X_{t} =\nabla^{d}m_{t} +\frac{\Theta (B)}{\varphi (B)}u_{t} $ 
+% (u$_{\mathrm{t}}=$0 si t$\le -s+p')$
+% 
+% Pero para t suficientemente grande m$_{\mathrm{t}}$ se puede considerar un 
+% polinomiado de grado d-1, luego $\Delta^{d}m_{t} \to 0$ si $t\to \infty .$ 
+% Por tanto $Z_{t} -\frac{\Theta (B)}{\varphi (B)}u_{t} \,\,(u_{t} 
+% =0sit<-s+p')$
+% 
+% converge a cero en m.c. cuando $t\to \infty .$
+% 
+% \chapter{ANEXO C ANEXO ASOCIADO AL CAP\'{I}TULO 3}
+% \label{sec:mylabel3}
+% \section{ANEXO C.1: ESTIMACI\'{O}N DE M\'{A}XIMA VEROSIMILITUD NO CONDICIONAL EN UN 
+% PROCESO ARMA }
+% \label{subsec:mylabel6}
+% \textbf{C.1.1 Caso de un MA (q)}
+% 
+% Consid\'{e}rese el siguiente modelo.
+% \[
+% z_{t} =\Theta (B)u_{t} =u_{t} -\sum\limits_{j=1}^q {\theta_{j} u_{t-j} } 
+% \quad \quad \quad t=1,\;2,.......,N
+% \]
+% Sup\'{o}ngase que los u$_{\mathrm{t}}$ son normales (en realidad solo se 
+% requiere independencia). Este sistema se puede escribir matricialmente 
+% as\'{\i}:
+% \[
+% z=M(\theta )\,u\;
+% \]
+% $\;con\;\;z=\left( {{\begin{array}{*{20}c}
+%  {z_{1} } \hfill \\
+%  {z_{2} } \hfill \\
+%  \vdots \hfill \\
+%  \hfill \\
+%  {z_{N} } \hfill \\
+% \end{array} }} \right)\quad ,\quad u=\left( {{\begin{array}{*{20}c}
+%  {u_{1-q} } \hfill \\
+%  {u_{2-q} } \hfill \\
+%  \vdots \hfill \\
+%  \hfill \\
+%  {u_{N} } \hfill \\
+% \end{array} }} \right)$ y M($\theta )$ una matriz que depende de los $\theta 
+% _{\mathrm{j}}$
+% 
+% Adem\'{a}s: z \textasciitilde $N(0\;,\;\sigma^{2}M(\theta )M(\theta )')$
+% 
+% Una primera idea puede ser encontrar la densidad de z para maximizar la 
+% verosimilitud; sin embargo, esto no es muy aconsejable pues se debe invertir 
+% la matriz (M($\theta )$M($\theta )$')$_{\mathrm{NxN}}$. Consid\'{e}rese mas 
+% bien el sistema:
+% 
+% u$_{\mathrm{1-q\thinspace }}=$ u$_{\mathrm{1-q}}$ 
+% \[
+% \vdots 
+% \quad
+% \vdots 
+% \]
+% u$_{\mathrm{0\thinspace \thinspace }} \quad =$ u$_{\mathrm{0}}$ 
+% 
+% u$_{\mathrm{1\thinspace \thinspace \thinspace \thinspace }}=$ 
+% z$_{\mathrm{1\thinspace +\thinspace }}\theta 
+% _{\mathrm{1}}$u$_{\mathrm{0\thinspace }} \quad +$ 
+% ...................$+\theta_{\mathrm{q}}$ u$_{\mathrm{1-q}}$ 
+% 
+% u$_{\mathrm{2\thinspace \thinspace \thinspace \thinspace }}=$ 
+% z$_{\mathrm{2\thinspace +\thinspace }}\theta 
+% _{\mathrm{2}}$u$_{\mathrm{1\thinspace }} \quad +$ 
+% ...................$+\theta_{\mathrm{q}}$ u$_{\mathrm{2-q}}$
+% \[
+% \vdots 
+% \quad
+% \vdots 
+% \quad
+% \vdots 
+% \]
+% u$_{\mathrm{N\thinspace }} \quad =$ z$_{\mathrm{N\thinspace +\thinspace 
+% }}\theta_{\mathrm{1}}$u$_{\mathrm{N-1\thinspace }} \quad +$ 
+% ...................$+\theta_{\mathrm{q}}$ u$_{\mathrm{N-q}}$
+% 
+% Se obtiene :
+% \[
+% u=Lz+Xu_{\ast } 
+% \]
+% donde las matrices L, X y el vector $u_{\ast } $ se definen por:
+% 
+% \[
+% \begin{array}{l}
+%  L=\left( {\begin{array}{l}
+%  \;\;0 \\ 
+%  A_{1} (\theta ) \\ 
+%  \end{array}} \right)_{(N+q)xN} \quad \quad \quad \quad \quad \quad A_{1} 
+% (\theta )=\left( {{\begin{array}{*{20}c}
+%  1 \hfill & \hfill & \hfill & \hfill \\
+%  \cdots \hfill & 1 \hfill & 0 \hfill & \hfill \\
+%  \vdots \hfill & \vdots \hfill & \hfill & \hfill \\
+%  \cdots \hfill & \cdots \hfill & \cdots \hfill & 1 \hfill \\
+% \end{array} }} \right)_{NxN} \\ 
+%  X=\left( {\begin{array}{l}
+%  I_{q} \\ 
+%  A_{2} (\theta ) \\ 
+%  \end{array}} \right)_{(N+q)xq} \quad \quad \quad \quad \quad \quad u_{\ast 
+% } =\left( {\begin{array}{l}
+%  u_{1-q} \\ 
+%  \;\vdots \\ 
+%  \;\vdots \\ 
+%  u_{o} \\ 
+%  \end{array}} \right) \\ 
+%  \end{array}
+% \]
+% El sistema se escribe entonces:
+% \[
+% u=\left( {X\quad L} \right)\;\left( {\begin{array}{l}
+%  u_{\ast } \\ 
+%  z \\ 
+%  \end{array}} \right)\;,\quad donde\quad \left( {X\quad L} \right)=\left( 
+% {\begin{array}{l}
+%  I_{q\quad \quad \quad \quad } \quad 0 \\ 
+%  A_{2} (\theta )\quad \quad A_{1} (\theta ) \\ 
+%  \end{array}} \right)
+% \]
+% Se tiene que det ( X L) $=$ 1, pues (X L) es una matriz triangular inferior 
+% cuya diagonal tiene como t\'{e}rminos 1. Se obtiene as\'{\i} la densidad del 
+% vector aleatorio $\left( {\begin{array}{l}
+%  u_{\ast } \\ 
+%  z \\ 
+%  \end{array}} \right)$, remplazando en la densidad de u (normal 
+% multivariante de orden N$+$q), el vector u por Lz$+$Xu$_{\mathrm{\ast }}$:
+% 
+% $(2\pi \sigma^{2})^{(N+q)/2}\exp \left[ {-\frac{1}{2\sigma^{2}}(Lz+Xu_{\ast 
+% } )'\;(Lz+Xu_{\ast } )} \right]$ (C.1.1)
+% 
+% Puesto que lo que interesa es calcular la distribuci\'{o}n marginal de z, se 
+% lo debe hacer a partir de la distribuci\'{o}n conjunta de $\left( 
+% {\begin{array}{l}
+%  u_{\ast } \\ 
+%  z \\ 
+%  \end{array}} \right)$.
+% 
+% La proyecci\'{o}n ortogonal de --Lz sobre el subespacio vectorial de 
+% R$^{\mathrm{N+q}}$, generado por las columnas de X, est\'{a} dada por 
+% X$u\limits^{\wedge } {\kern 1pt}_{\ast } $, donde $u\limits^{\wedge } {\kern 
+% 1pt}_{\ast } =-(X'\;X)^{-1}{\kern 1pt}{\kern 1pt}X'{\kern 1pt}{\kern 
+% 1pt}{\kern 1pt}{\kern 1pt}Lz$; adem\'{a}s, el teorema de Pit\'{a}goras 
+% permite escribir:
+% \[
+% (Lz+Xu_{\ast } )'(Lz+Xu_{\ast } )=(-Xu\limits^{\wedge } {\kern 1pt}_{\ast } 
+% +Xu_{\ast } ){\kern 1pt}'{\kern 1pt}(-Xu\limits^{\wedge } {\kern 1pt}_{\ast 
+% } +Xu_{\ast } )+(Lz+Xu\limits^{\wedge } {\kern 1pt}_{\ast } 
+% )'(Lz+Xu\limits^{\wedge } {\kern 1pt}_{\ast } )
+% \]
+% \[
+% =(u_{\ast } -u\limits^{\wedge } {\kern 1pt}_{\ast } )'X'X(u_{\ast } 
+% -u\limits^{\wedge } {\kern 1pt}_{\ast } )+(Lz+Xu\limits^{\wedge } {\kern 
+% 1pt}_{\ast } )'(Lz+Xu\limits^{\wedge } {\kern 1pt}_{\ast } )
+% \]
+% de donde (C.1.1) se puede expresar por:
+% 
+% $(2\pi \sigma^{2})^{-(N+q)/2}\exp \left\{ {-\frac{1}{2\sigma^{2}}\left[ 
+% {(Lz+Xu\limits^{\wedge } {\kern 1pt}_{\ast } )'(Lz+Xu\limits^{\wedge } 
+% {\kern 1pt}_{\ast } )+(u_{\ast } -u\limits^{\wedge } {\kern 1pt}_{\ast } 
+% )'X'X(u_{\ast } -u\limits^{\wedge } {\kern 1pt}_{\ast } )} \right]} 
+% \right\}$ (C.1.2)
+% 
+% Si se integra con respecto a $u_{\ast } $, se obtiene que la densidad de z 
+% es:
+% \[
+% L=(2\pi \sigma^{2})^{-N/2}\left| {X'X} \right|^{-1/2}\exp \left[ 
+% {-\frac{1}{2\sigma^{2}}(Lz+u\limits^{\wedge } {\kern 1pt}_{\ast } 
+% )'(Lz+Xu\limits^{\wedge } {\kern 1pt}_{\ast } )} \right]
+% \]
+% N\'{o}tese que (C.1.2) permite interpretar a $u\limits^{\wedge } {\kern 
+% 1pt}_{\ast } $ como $E(u\limits {\kern 1pt}_{\ast } \left| {z)} \right.$.
+% 
+% Sea S ($\theta )=$ (Lz$+$X$u\limits^{\wedge } {\kern 1pt}_{\ast } 
+% )'(Lz+Xu\limits^{\wedge } {\kern 1pt}_{\ast } )$. Consid\'{e}rese entonces:
+% 
+% $\ell =Ln\;L=-\frac{N}{2}Ln\;(2\pi )-\frac{N}{2}Ln(\sigma 
+% ^{2})-\frac{1}{2}Ln\left| {X'X} \right|-\frac{S(\theta )}{2\sigma^{2}}$ 
+% (C.1.3)
+% 
+% Para encontrar los estimadores de m\'{a}xima verosimilitud, se debe 
+% maximizar $\ell $ con respecto a $\theta $ y $\sigma^{2} $. Derivando 
+% con respecto a $\sigma^{2} $ e igualando a cero se obtiene:
+% \[
+% \frac{\partial {\kern 1pt}\ell }{\partial \sigma^{2}}=-\frac{N}{2\sigma 
+% ^{2}}+\frac{S(\theta )}{2\sigma^{4}}=0\Leftrightarrow \sigma 
+% ^{2}=\frac{S(\theta )}{N}
+% \]
+% Reemplazando esta expresi\'{o}n de $\sigma^{2}$ en (C.1.3) se obtiene:
+% \[
+% \ell\limits^{\mathunderscore \mathunderscore } =-\frac{N}{2}Ln(2\pi 
+% )-\frac{N}{2}Ln\frac{S(\theta )}{N}-\frac{1}{2}Ln\left| {X'X} 
+% \right|-\frac{N}{2}
+% \]
+% Por lo cual se debe minimizar:
+% \[
+% \ell^{\ast }=N\;Ln\;S(\theta )+Ln\left| {X'X} \right|
+% \]
+% Existen formulaciones que permiten minimizar $\ell^{\ast }$, con la ayuda 
+% de m\'{e}todos num\'{e}ricos (m\'{e}todos llamados exactos). Sin embargo, se 
+% puede demostrar que cuando N es suficientemente grande, el t\'{e}rmino Ln 
+% $\left| {X'X} \right|$ se vuelve despreciable, por lo cual se puede aplicar 
+% la minimizaci\'{o}n \'{u}nicamente a S($\theta )$; estos m\'{e}todos se 
+% dicen de m\'{\i}nimos cuadrados (son aproximados).
+% 
+% Sea $u\limits^{\wedge } =E(u\left| {z)} \right.$. Del hecho que u $=$ 
+% Lz$+$X$u_{\ast } $ , se obtiene
+% \[
+% u\limits^{\wedge } =Lz+Xu\limits^{\wedge } {\kern 1pt}_{\ast } 
+% \]
+% y entonces:
+% \[
+% S(\theta )=u\limits^{\wedge } 'u\limits^{\wedge } =\sum\limits_{i=1-q}^N 
+% {(u\limits^{\wedge } {\kern 1pt}_{i} )^{2}} 
+% \]
+% Esta interpretaci\'{o}n de S($\theta )$ permite proponer un c\'{a}lculo 
+% simple para $\theta $ dado. Se calcula inicialmente por predicci\'{o}n hacia 
+% atr\'{a}s, de la siguiente manera:
+% \[
+% u\limits^{\wedge } {\kern 1pt}_{1-q} =z\limits^{\wedge } {\kern 1pt}_{1-q} 
+% +\theta_{1} u\limits^{\wedge } {\kern 1pt}_{1-q-1} +\cdots +\theta_{q} 
+% u\limits^{\wedge } {\kern 1pt}_{1-2q} =z\limits^{\wedge } {\kern 1pt}_{1-q} 
+% \quad (u\limits^{\wedge } {\kern 1pt}_{1-q-i} =0\;si\;i\ge 1)
+% \]
+% $\begin{array}{l}
+%  u\limits^{\wedge } {\kern 1pt}_{2-q} =z\limits^{\wedge } {\kern 1pt}_{2-q} 
+% +\theta_{1} u\limits^{\wedge } {\kern 1pt}_{{\begin{array}{l}
+%  \\ 
+%  1-q \\ 
+%  \end{array}}} \\ 
+%  \vdots \\ 
+%  u\limits^{\wedge } {\kern 1pt}_{0} =z\limits^{\wedge } {\kern 1pt}_{0} 
+% +\theta_{1} u\limits^{\wedge } {\kern 1pt}_{-1} +\cdots +\theta_{q-1} 
+% u\limits^{\wedge } {\kern 1pt}_{1-q} \\ 
+%  \end{array}$ (C.1.4)
+% 
+% As\'{\i}, se tiene que se puede conocer $u_{\ast } $ si se conocen 
+% tambi\'{e}n los $z\limits^{\wedge } {\kern 1pt}_{i} =E(z_{i} \left| z 
+% \right.)$ para i$=$1 -- q,...,0. El c\'{a}lculo de los $z\limits^{\wedge } 
+% {\kern 1pt}_{i} $ se realiza utilizando la representaci\'{o}n en avance del 
+% proceso (z$_{\mathrm{t}})$:
+% \[
+% z_{t} =\Theta \,(F)\varepsilon_{t} 
+% \]
+% Se requiere \'{u}nicamente utilizar las t\'{e}cnicas de predicci\'{o}n 
+% descritas anteriormente, pero tomando de manera inversa el sentido del 
+% tiempo. En particular se tiene que:
+% \[
+% z\limits^{\wedge } {\kern 1pt}_{0} =\sum\limits_{i=1}^\infty {\pi_{i} 
+% z\limits^{\wedge } {\kern 1pt}_{i} } \approx \sum\limits_{i=1}^N {\pi_{i} 
+% z\limits^{\wedge } {\kern 1pt}_{i} } 
+% \]
+% Los $\pi_{\mathrm{i}}$ son los mismos que se utilizan para la 
+% predicci\'{o}n hacia delante ($\pi_{\mathrm{0}}=$1). Luego se calcula:
+% \[
+% \begin{array}{l}
+%  z\limits^{\wedge } {\kern 1pt}_{-1} =-\sum\limits_{i=1}^\infty {\pi_{i} 
+% z\limits^{\wedge } {\kern 1pt}_{-1+i} \approx -} \sum\limits_{i=1}^{N+1} 
+% {\pi_{i} z\limits^{\wedge } {\kern 1pt}_{-1+i} } \\ 
+%  \vdots \\ 
+%  z\limits^{\wedge } {\kern 1pt}_{1-q} =-\sum\limits_{i=1}^\infty {\pi_{i} 
+% z\limits^{\wedge } {\kern 1pt}_{1-q+i} } \approx \sum\limits_{i=1}^{N+q-1} 
+% {\pi_{i} z\limits^{\wedge } {\kern 1pt}_{1-q+i} } \\ 
+%  \end{array}
+% \]
+% Posteriormente se calculan los $u\limits^{\wedge } {\kern 1pt}_{i} $ de 
+% manera ascendente, con la f\'{o}rmula:
+% \[
+% u\limits^{\wedge } {\kern 1pt}_{i} =z_{i} +\theta_{1} u\limits^{\wedge } 
+% {\kern 1pt}_{i-1} +\cdots +\theta\limits^{\wedge } {\kern 1pt}_{q} 
+% u\limits^{\wedge } {\kern 1pt}_{i-q} \quad \quad \quad i=1,...,N
+% \]
+% Finalmente, estimados los $u\limits^{\wedge } {\kern 1pt}_{i} $ y los 
+% ${z{\kern 1pt}}\limits^{\wedge }_{i} $, la funci\'{o}n a minimizar 
+% solamente tiene por inc\'{o}gnitas a $\theta_{\mathrm{1}}$,..., $\theta 
+% _{\mathrm{q}}$, los cuales a su vez se pueden obtener con algoritmos 
+% num\'{e}ricos; sin embargo, vale la pena mencionar que para obtener el valor 
+% \'{o}ptimo de S($\theta )$ con t\'{e}cnicas num\'{e}ricas, se requiere tener 
+% valores iniciales de buena calidad.
+% 
+% \textbf{C.1.2 Caso de un ARMA (p , q)}
+% 
+% Se utiliza la representaci\'{o}n MA del proceso:
+% \[
+% X_{t} =\sum\limits_{i=0}^\infty {\psi_{i} u_{t-i} } \approx 
+% \sum\limits_{i=0}^Q {\psi_{i} u_{t-i} } 
+% \]
+% donde Q debe ser suficientemente grande.
+% 
+% En el caso precedente $z\limits^{\wedge } {\kern 1pt}_{i} =0,\;para\;i\le 
+% -q,$ por lo cual se puede tomar Q como el \'{\i}ndice a partir del cual los 
+% $z\limits^{\wedge } {\kern 1pt}_{i} $ se vuelvan despreciables ( por 
+% ejemplo, menores en valor absoluto a 10$^{\mathrm{-3}})$. As\'{\i} entonces, 
+% para $\varphi '=$ ($\phi_{\mathrm{1}}$,............,$\phi 
+% _{\mathrm{p}})$ y $\theta '=$ ($\theta 
+% _{\mathrm{1}}$,..........,$\theta_{\mathrm{q}})$ se debe minimizar la 
+% siguiente expresi\'{o}n 
+% \[
+% S(\varphi ,\theta )=\sum\limits_{i=1-Q}^N {(u\limits^{\wedge } {\kern 
+% 1pt}_{t} )^{2} } 
+% \]
+% $puesto\;que\;\Phi (B)z_{t} =\Theta (B)u_{t} \;\;se\;puede\;\exp 
+% licitar\;esta\;relaci\'{o}n$as\'{\i}:
+% \[
+% z_{t} -\varphi_{1} z_{t-1} -\cdots \cdots -\varphi_{p} z_{t-p} =u_{t} 
+% -\theta_{1} \mu_{t-1} -\cdots \cdots -\theta_{q} u_{t-q} 
+% \]
+% lo que implica:
+% \[
+% \hat{{u}}_{t} =z\limits^{\wedge } {\kern 1pt}_{t} -\varphi_{1} 
+% z\limits^{\wedge } {\kern 1pt}_{t-1} -\cdots \cdots -\varphi_{p} 
+% z\limits^{\wedge } {\kern 1pt}_{t-p} +\theta_{1} u\limits^{\wedge } {\kern 
+% 1pt}_{t-1} +\cdots \cdots +\theta_{q} u\limits^{\wedge } {\kern 1pt}_{t-q} 
+% \]
+% S($\varphi $, $\theta )$ se puede minimizar con diversos algoritmos 
+% num\'{e}ricos.
+% 
+% \textbf{C.1.3 Valores iniciales }
+% 
+% Para los valores iniciales de $\varphi_{i} $ se puede utilizar el siguiente 
+% sistema:
+% \[
+% \left( {\begin{array}{l}
+%  \rho_{q+1} \\ 
+%  \;\vdots \\ 
+%  \;\vdots \\ 
+%  \rho_{q+p} \\ 
+%  \end{array}} \right)=\left( {\begin{array}{l}
+%  \rho_{q\quad } \quad \quad \cdots \quad \rho_{q-p+1} \\ 
+%  \;\vdots \quad \quad \quad \;\quad \;\;\vdots \\ 
+%  \;\vdots \quad \quad \quad \;\quad \;\;\vdots \\ 
+%  \rho_{q+p-1} \quad \cdots \quad \;\rho_{q} \\ 
+%  \end{array}} \right)\left( {\begin{array}{l}
+%  \varphi_{1} \\ 
+%  \;\vdots \\ 
+%  \;\vdots \\ 
+%  \varphi_{p} \\ 
+%  \end{array}} \right)
+% \]
+% Los $\rho_{i} $ se estiman por los $\rho\limits^{\wedge }_{i} $ , por lo 
+% cual se obtienen estimadores convergentes de los $\varphi_{i} $.
+% 
+% Para obtener valores iniciales para los $\theta_{\mathrm{j\thinspace 
+% \thinspace }}$se utiliza la noci\'{o}n de autocorrelaciones inversas de 
+% Cleveland (1972)$_{\mathrm{,\thinspace }}$denotadas por $\rho_{i} (h)$. Se 
+% interpretan como las autocorrelaciones del proceso ARMA ( q, p), en donde se 
+% han intercambiado los papeles de $\Phi $ y $\Theta $.
+% 
+% Se establece un sistema lineal para h $=$ p$+$1,. . . . . . ,p$+$q, a partir 
+% de la relaci\'{o}n;
+% \[
+% \rho_{i} (h)=\sum\limits_{j=1}^q {\theta_{j} \rho_{i} (h-j)} \quad \quad 
+% \quad (h>p)
+% \]
+% $\rho_{i} $(j) se reemplaza por las estimaciones (integradas en varios 
+% paquetes estad\'{\i}sticos), lo que permite obtener estimaciones 
+% convergentes de los $\theta_{j} $
+% 
+% Si existe una constante $\theta_{\mathrm{o}}$ en el modelo, se la puede 
+% estimar por:
+% \[
+% \theta\limits^{\wedge } {\kern 1pt}_{o} =\bar{{z}}(1-\varphi 
+% \limits^{\wedge }_{1} -\cdots \cdots -\varphi\limits^{\wedge }_{p} )
+% \]
+% \textbf{Observaci\'{o}n C.1:}
+% 
+% Se puede demostrar que los estimadores obtenidos por el m\'{e}todo de 
+% m\'{a}xima verosimilitud (exacto o aproximado) son asint\'{o}ticamente 
+% normales (incluso si los u$_{\mathrm{i}}$ son solamente independientes). La 
+% matriz de varianza -- covarianza de los estimadores se estima en el proceso 
+% iterativo.
+% 
+% \section{ANEXO C.2: EVOLUCI\'{O}N DE UN \'{I}NDICE BURS\'{A}TIL EN 141 D\'{I}AS DE 
+% OPERACI\'{O}N EN LA BOLSA DE VALORES}
+% \label{subsec:mylabel7}
+% \begin{table}[H]
+% \begin{center}
+% \begin{tabular}{|p{50pt}|l|l|l|l|l|l|l|l|}
+% \hline
+% & 
+% \textbf{1}& 
+% \textbf{2}& 
+% \textbf{3}& 
+% \textbf{4}& 
+% \textbf{5}& 
+% \textbf{6}& 
+% \textbf{7}& 
+% \textbf{8} \\
+% \hline
+% \textbf{1}& 
+% -25,580& 
+% 15,331& 
+% 27,197& 
+% 18,715& 
+% 43,048& 
+% 69,853& 
+% 75,314& 
+% 74,428 \\
+% \hline
+% \textbf{2}& 
+% -21,484& 
+% 15,536& 
+% 26,828& 
+% 21,909& 
+% 46,353& 
+% 71,655& 
+% 80,143& 
+% 77,244 \\
+% \hline
+% \textbf{3}& 
+% -15,824& 
+% 13,154& 
+% 25,475& 
+% 25,328& 
+% 50,250& 
+% 74,599& 
+% 82,453& 
+% 80,708 \\
+% \hline
+% \textbf{4}& 
+% -10,214& 
+% 9,987& 
+% 24,797& 
+% 26,858& 
+% 52,347& 
+% 77,571& 
+% 83,280& 
+% 83,294 \\
+% \hline
+% \textbf{5}& 
+% -5,442& 
+% 7,723& 
+% 25,378& 
+% 26,514& 
+% 53,548& 
+% 78,648& 
+% 83,953& 
+% 81,862 \\
+% \hline
+% \textbf{6}& 
+% -2,952& 
+% 7,140& 
+% 23,219& 
+% 25,950& 
+% 55,201& 
+% 79,183& 
+% 82,854& 
+% 78,619 \\
+% \hline
+% \textbf{7}& 
+% -0,491& 
+% 8,029& 
+% 19,259& 
+% 26,390& 
+% 57,268& 
+% 80,945& 
+% 80,705& 
+% 76,782 \\
+% \hline
+% \textbf{8}& 
+% 1,557& 
+% 10,268& 
+% 14,621& 
+% 26,083& 
+% 59,306& 
+% 82,095& 
+% 78,575& 
+% 75,892 \\
+% \hline
+% \textbf{9}& 
+% 0,465& 
+% 13,353& 
+% 10,096& 
+% 25,505& 
+% 60,986& 
+% 80,984& 
+% 75,920& 
+% 76,443 \\
+% \hline
+% \textbf{10}& 
+% -1,578& 
+% 16,705& 
+% 8,073& 
+% 26,076& 
+% 61,983& 
+% 78,238& 
+% 73,599& 
+% 78,542 \\
+% \hline
+% \textbf{11}& 
+% -3,349& 
+% 20,622& 
+% 8,723& 
+% 26,023& 
+% 63,650& 
+% 75,162& 
+% 71,586& 
+% 80,511 \\
+% \hline
+% \textbf{12}& 
+% -4,531& 
+% 23,238& 
+% 8,590& 
+% 26,481& 
+% 66,618& 
+% 72,432& 
+% 69,134& 
+% 81,544 \\
+% \hline
+% \textbf{13}& 
+% -3,946& 
+% 23,815& 
+% 8,989& 
+% 29,288& 
+% 69,616& 
+% 70,352& 
+% 66,873& 
+% 81,539 \\
+% \hline
+% \textbf{14}& 
+% -2,320& 
+% 24,098& 
+% 12,317& 
+% 33,619& 
+% 71,716& 
+% 68,430& 
+% 66,112& 
+% 81,584 \\
+% \hline
+% \textbf{15}& 
+% -0,284& 
+% 24,619& 
+% 15,792& 
+% 36,878& 
+% 71,538& 
+% 66,120& 
+% 65,597& 
+% 81,510 \\
+% \hline
+% \textbf{16}& 
+% 2,776& 
+% 25,250& 
+% 16,662& 
+% 37,783& 
+% 69,114& 
+% 65,233& 
+% 65,569& 
+% ~ \\
+% \hline
+% \textbf{17}& 
+% 8,138& 
+% 27,108& 
+% 16,551& 
+% 38,366& 
+% 67,166& 
+% 66,273& 
+% 67,576& 
+% ~ \\
+% \hline
+% \textbf{18}& 
+% 12,843& 
+% 28,269& 
+% 16,840& 
+% 40,670& 
+% 67,551& 
+% 69,678& 
+% 70,969& 
+% ~ \\
+% \hline
+% \end{tabular}
+% \label{tab1}
+% \end{center}
+% \end{table}
+% 
+% \section{ANEXO C.3: DATOS DE VENTAS MENSUALES DE UN PRODUCTO}
+% \label{subsec:mylabel8}
+% \begin{center}
+% (En miles de d\'{o}lares)
+% \end{center}
+% 
+% \begin{table}[H]
+% \begin{center}
+% \begin{tabular}{|p{42pt}|l|l|l|l|l|l|l|l|l|l|}
+% \hline
+% \textbf{MES}& 
+% \textbf{2006}& 
+% \textbf{2007}& 
+% \textbf{2008}& 
+% \textbf{2009}& 
+% \textbf{2010}& 
+% \textbf{2011}& 
+% \textbf{2012}& 
+% \textbf{2013}& 
+% \textbf{2014}& 
+% \textbf{2015} \\
+% \hline
+% \textbf{1}& 
+% 1.490& 
+% 1.543& 
+% 2.184& 
+% 2.279& 
+% 2.583& 
+% 2.911& 
+% 2.972& 
+% 2.579& 
+% 3.681& 
+% 3.899 \\
+% \hline
+% \textbf{2}& 
+% 1.597& 
+% 1.529& 
+% 2.221& 
+% 2.256& 
+% 2.303& 
+% 2.786& 
+% 2.841& 
+% 3.213& 
+% 3.365& 
+% 3.217 \\
+% \hline
+% \textbf{3}& 
+% 908& 
+% 1.153& 
+% 1.167& 
+% 1.289& 
+% 1.388& 
+% 1.571& 
+% 1.674& 
+% 1.978& 
+% 2.265& 
+% 2.148 \\
+% \hline
+% \textbf{4}& 
+% 437& 
+% 503& 
+% 522& 
+% 649& 
+% 772& 
+% 770& 
+% 947& 
+% 951& 
+% 1.043& 
+% 1.134 \\
+% \hline
+% \textbf{5}& 
+% 150& 
+% 205& 
+% 184& 
+% 241& 
+% 228& 
+% 275& 
+% 296& 
+% 332& 
+% 336& 
+% 348 \\
+% \hline
+% \textbf{6}& 
+% 112& 
+% 132& 
+% 141& 
+% 170& 
+% 169& 
+% 188& 
+% 187& 
+% 212& 
+% 236& 
+% 256 \\
+% \hline
+% \textbf{7}& 
+% 87& 
+% 89& 
+% 106& 
+% 115& 
+% 131& 
+% 152& 
+% 160& 
+% 162& 
+% 177& 
+% 180 \\
+% \hline
+% \textbf{8}& 
+% 161& 
+% 189& 
+% 201& 
+% 207& 
+% 234& 
+% 257& 
+% 288& 
+% 314& 
+% 322& 
+% 321 \\
+% \hline
+% \textbf{9}& 
+% 498& 
+% 636& 
+% 652& 
+% 815& 
+% 853& 
+% 938& 
+% 1.015& 
+% 993& 
+% 1.044& 
+% 1.152 \\
+% \hline
+% \textbf{10}& 
+% 1.433& 
+% 1.185& 
+% 1.543& 
+% 1.520& 
+% 1.653& 
+% 1.694& 
+% 2.348& 
+% 2.255& 
+% 2.670& 
+% 2.681 \\
+% \hline
+% \textbf{11}& 
+% 1.793& 
+% 2.358& 
+% 2.434& 
+% 2.825& 
+% 2.841& 
+% 3.269& 
+% 3.790& 
+% 3.659& 
+% 4.405& 
+% 4.511 \\
+% \hline
+% \textbf{12}& 
+% 3.195& 
+% 3.258& 
+% 3.652& 
+% 4.323& 
+% 4.422& 
+% 4.597& 
+% 5.816& 
+% 5.909& 
+% 6.437& 
+% 5.327 \\
+% \hline
+% \end{tabular}
+% \label{tab2}
+% \end{center}
+% \end{table}
+% 
+% \section{ANEXO C.4: DATOS DE TEMPERATURA EN RIOBAMBA}
+% \label{subsec:mylabel9}
+% \begin{table}[H]
+% \begin{center}
+% \begin{tabular}{|l|p{22pt}|p{21pt}|p{25pt}|p{23pt}|p{25pt}|p{22pt}|p{21pt}|p{24pt}|p{21pt}|p{23pt}|p{24pt}|p{21pt}|p{22pt}|p{21pt}|p{25pt}|p{23pt}|p{25pt}|p{22pt}|p{21pt}|p{24pt}|p{20pt}|p{23pt}|p{24pt}|p{21pt}|p{22pt}|p{21pt}|p{25pt}|p{23pt}|p{25pt}|p{22pt}|p{21pt}|p{24pt}|p{20pt}|p{23pt}|p{24pt}|p{21pt}|}
+% \hline
+%  & 
+% \multicolumn{12}{|p{279pt}|}{\textbf{1997}} & 
+% \multicolumn{12}{|p{277pt}|}{\textbf{1998}} & 
+% \multicolumn{12}{|p{277pt}|}{\textbf{1999}} \\
+% \hline
+% \textbf{DIA}& 
+% \textbf{ENE}& 
+% \textbf{FEB}& 
+% \textbf{MAR}& 
+% \textbf{ABR}& 
+% \textbf{MAY}& 
+% \textbf{JUN}& 
+% \textbf{JUL}& 
+% \textbf{AGO}& 
+% \textbf{SEP}& 
+% \textbf{OCT}& 
+% \textbf{NOV}& 
+% \textbf{DIC}& 
+% \textbf{ENE}& 
+% \textbf{FEB}& 
+% \textbf{MAR}& 
+% \textbf{ABR}& 
+% \textbf{MAY}& 
+% \textbf{JUN}& 
+% \textbf{JUL}& 
+% \textbf{AGO}& 
+% \textbf{SEP}& 
+% \textbf{OCT}& 
+% \textbf{NOV}& 
+% \textbf{DIC}& 
+% \textbf{ENE}& 
+% \textbf{FEB}& 
+% \textbf{MAR}& 
+% \textbf{ABR}& 
+% \textbf{MAY}& 
+% \textbf{JUN}& 
+% \textbf{JUL}& 
+% \textbf{AGO}& 
+% \textbf{SEP}& 
+% \textbf{OCT}& 
+% \textbf{NOV}& 
+% \textbf{DIC} \\
+% \hline
+% \textbf{1}& 
+% 10,2& 
+% 7& 
+% 7,2& 
+% 10& 
+% 8,2& 
+% 7,6& 
+% 9& 
+% 7,8& 
+% 10,4& 
+% 4& 
+% 7& 
+% 10,2& 
+% 9,6& 
+% 5& 
+% 10& 
+% 11& 
+% 12& 
+% 9,9& 
+% 6,7& 
+% 6,4& 
+% 2,4& 
+% 2,9& 
+% 11& 
+% 8,2& 
+% 8,2& 
+% 8,9& 
+% 6,9& 
+% 8& 
+% 3& 
+% 8,4& 
+% 8,4& 
+% 6,2& 
+% 6,6& 
+% 9,2& 
+% 7,6& 
+% 9,1 \\
+% \hline
+% \textbf{2}& 
+% 7,1& 
+% 7,8& 
+% 9,2& 
+% 10,4& 
+% 8& 
+% 8,7& 
+% 6& 
+% 6,5& 
+% 7,5& 
+% 10,4& 
+% 11& 
+% 11,4& 
+% 8,2& 
+% 8,5& 
+% 12& 
+% 10& 
+% 12& 
+% 11& 
+% 8,2& 
+% 6,5& 
+% 0& 
+% 7,5& 
+% 11& 
+% 1,3& 
+% 7,3& 
+% 10& 
+% 9,1& 
+% 7,5& 
+% 9,8& 
+% 10& 
+% 8& 
+% 4,5& 
+% 8,5& 
+% 6,7& 
+% 6& 
+% 11 \\
+% \hline
+% \textbf{3}& 
+% 9& 
+% 9,6& 
+% 9& 
+% 10,5& 
+% 9,5& 
+% 10,5& 
+% 4,5& 
+% 5,6& 
+% 9,9& 
+% 10,2& 
+% 10,2& 
+% 10& 
+% 9,6& 
+% 8,3& 
+% 11& 
+% 11& 
+% 9,2& 
+% 9,5& 
+% 9,4& 
+% 6,5& 
+% 9,5& 
+% 7,7& 
+% 9,2& 
+% 1,1& 
+% 11& 
+% 9,5& 
+% 9,9& 
+% 11& 
+% 9,3& 
+% 8& 
+% 8,7& 
+% 6,4& 
+% 9,2& 
+% 8,4& 
+% 10& 
+% 10 \\
+% \hline
+% \textbf{4}& 
+% 10,2& 
+% 7,5& 
+% 11& 
+% 4,3& 
+% 10& 
+% 9,5& 
+% 2,9& 
+% 5,9& 
+% 3,4& 
+% 7,4& 
+% 10,8& 
+% 6,4& 
+% 11& 
+% 7,5& 
+% 10& 
+% 11& 
+% 11& 
+% 9,4& 
+% 9,7& 
+% 6,6& 
+% 9,4& 
+% 3,8& 
+% 11& 
+% 4,8& 
+% 7,9& 
+% 10& 
+% 9& 
+% 11& 
+% 5& 
+% 8,6& 
+% 5,5& 
+% 3,8& 
+% 6,6& 
+% 9& 
+% 7,4& 
+% 8,2 \\
+% \hline
+% \textbf{5}& 
+% 10,2& 
+% 8,2& 
+% 10,3& 
+% 6,4& 
+% 8,3& 
+% 4,3& 
+% 8,4& 
+% 5,5& 
+% 5,8& 
+% 8,2& 
+% 11,3& 
+% 9& 
+% 9,4& 
+% 8,2& 
+% 11& 
+% 11& 
+% 11& 
+% 8,5& 
+% 8,7& 
+% 8,2& 
+% 6,3& 
+% 11& 
+% 12& 
+% 5,7& 
+% 11& 
+% 8,5& 
+% 8& 
+% 9,5& 
+% 11& 
+% 8& 
+% 4,9& 
+% 6,5& 
+% 6,3& 
+% 7,5& 
+% 11& 
+% 10 \\
+% \hline
+% \textbf{6}& 
+% 8,1& 
+% 8,8& 
+% 8,9& 
+% 7,5& 
+% 9,5& 
+% 8,6& 
+% 7,8& 
+% 9& 
+% 6,8& 
+% 4,3& 
+% 11& 
+% 10& 
+% 9,4& 
+% 8,8& 
+% 11& 
+% 13& 
+% 9,5& 
+% 10& 
+% 7,5& 
+% 7,3& 
+% 6,8& 
+% 9,5& 
+% 11& 
+% 6,6& 
+% 11& 
+% 10& 
+% 9,7& 
+% 9& 
+% 11& 
+% 7,6& 
+% 6& 
+% 6,3& 
+% 6,8& 
+% 8,5& 
+% 10& 
+% 10 \\
+% \hline
+% \textbf{7}& 
+% 7& 
+% 7,2& 
+% 6,5& 
+% 10,4& 
+% 9,4& 
+% 10& 
+% 8& 
+% 8,5& 
+% 6,6& 
+% 3& 
+% 11,3& 
+% 10,3& 
+% 12& 
+% 7,2& 
+% 10& 
+% 12& 
+% 9,6& 
+% 5,6& 
+% 7,3& 
+% 6,5& 
+% 5,2& 
+% 7,8& 
+% 8,7& 
+% 3,4& 
+% 11& 
+% 8,4& 
+% 8,3& 
+% 9,4& 
+% 9,1& 
+% 9,3& 
+% 5,9& 
+% 6& 
+% 4,2& 
+% 7& 
+% 9,5& 
+% 12 \\
+% \hline
+% \textbf{8}& 
+% 8& 
+% 9,5& 
+% 6,4& 
+% 10& 
+% 8,9& 
+% 9& 
+% 8,9& 
+% 7,1& 
+% 6,6& 
+% 9,8& 
+% 10,8& 
+% 10& 
+% 11& 
+% 8,6& 
+% 11& 
+% 11& 
+% 11& 
+% 9,7& 
+% 6,5& 
+% 6,2& 
+% 4,6& 
+% 9,6& 
+% 9,7& 
+% 4,4& 
+% 11& 
+% 8& 
+% 11& 
+% 9,1& 
+% 7,8& 
+% 8,7& 
+% 5& 
+% 7,4& 
+% 5,2& 
+% 5,9& 
+% 11& 
+% 11 \\
+% \hline
+% \textbf{9}& 
+% 7& 
+% 7,6& 
+% 10& 
+% 9,7& 
+% 9& 
+% 7,4& 
+% 7,3& 
+% 6& 
+% 5,3& 
+% 6& 
+% 10,4& 
+% 10,2& 
+% 9,8& 
+% 8,4& 
+% 11& 
+% 9,1& 
+% 12& 
+% 7,8& 
+% 9,7& 
+% 6,8& 
+% 6& 
+% 8,4& 
+% 11& 
+% 5,5& 
+% 11& 
+% 8,1& 
+% 8,6& 
+% 9,2& 
+% 8& 
+% 8,4& 
+% 4,4& 
+% 6,5& 
+% 5,2& 
+% 8,7& 
+% 7,1& 
+% 11 \\
+% \hline
+% \textbf{10}& 
+% 8,8& 
+% 8,7& 
+% 10& 
+% 9,8& 
+% 10,7& 
+% 8,4& 
+% 3& 
+% 6,2& 
+% 8,4& 
+% 6,9& 
+% 7,5& 
+% 10,6& 
+% 11& 
+% 9,3& 
+% 9,4& 
+% 8& 
+% 11& 
+% 7,4& 
+% 8,8& 
+% 5,8& 
+% 8,5& 
+% 6,6& 
+% 9,9& 
+% 5,5& 
+% 8,5& 
+% 10& 
+% 9,2& 
+% 8,8& 
+% 8,8& 
+% 7,5& 
+% 1,8& 
+% 6& 
+% 6,6& 
+% 6,5& 
+% 10& 
+% 9,7 \\
+% \hline
+% \textbf{11}& 
+% 9& 
+% 9,8& 
+% 10,9& 
+% 10,7& 
+% 10,2& 
+% 10,5& 
+% 8,5& 
+% 3& 
+% 8& 
+% 11,8& 
+% 9,5& 
+% 6,5& 
+% 8,7& 
+% 8,6& 
+% 10& 
+% 12& 
+% 11& 
+% 10& 
+% 9,7& 
+% 7,3& 
+% 6& 
+% 8,6& 
+% 9,6& 
+% 8,8& 
+% 9,4& 
+% 9,2& 
+% 8,4& 
+% 9,5& 
+% 7,4& 
+% 8,3& 
+% 2,6& 
+% 7,4& 
+% 6,7& 
+% 7,5& 
+% 10& 
+% 9,2 \\
+% \hline
+% \textbf{12}& 
+% 10,2& 
+% 9,3& 
+% 10,5& 
+% 11& 
+% 9,6& 
+% 7,9& 
+% 5,7& 
+% 9,5& 
+% 10,2& 
+% 9,6& 
+% 10,5& 
+% 10,5& 
+% 9,4& 
+% 7,8& 
+% 12& 
+% 11& 
+% 11& 
+% 9,6& 
+% 9& 
+% 5,8& 
+% 7,6& 
+% 2,5& 
+% 11& 
+% 7,5& 
+% 6,1& 
+% 9,8& 
+% 9,7& 
+% 10& 
+% 7,6& 
+% 9,8& 
+% 6,7& 
+% 6,1& 
+% 7,6& 
+% 9& 
+% 8,6& 
+% 8 \\
+% \hline
+% \textbf{13}& 
+% 10& 
+% 9,5& 
+% 11& 
+% 7,7& 
+% 9,9& 
+% 10& 
+% 4,8& 
+% 5,4& 
+% 6,8& 
+% 10,5& 
+% 8,9& 
+% 11,7& 
+% 11& 
+% 8,3& 
+% 11& 
+% 11& 
+% 11& 
+% 7,7& 
+% 7,6& 
+% 6,7& 
+% 6,8& 
+% 2,5& 
+% 11& 
+% 8,5& 
+% 4,6& 
+% 8& 
+% 8,6& 
+% 9,5& 
+% 9,5& 
+% 9,5& 
+% 6,4& 
+% 8,3& 
+% 6,8& 
+% 8,4& 
+% 8,4& 
+% 11 \\
+% \hline
+% \textbf{14}& 
+% 10,4& 
+% 7,5& 
+% 10& 
+% 9,4& 
+% 8,9& 
+% 9,5& 
+% 3,6& 
+% 6& 
+% 7& 
+% 5,6& 
+% 8& 
+% 11,8& 
+% 8,6& 
+% 8,7& 
+% 11& 
+% 12& 
+% 9,2& 
+% 7& 
+% 8,6& 
+% 6,3& 
+% 7,8& 
+% 0,5& 
+% 11& 
+% 9,8& 
+% 10& 
+% 9,3& 
+% 9,4& 
+% 6,5& 
+% 9,1& 
+% 7,1& 
+% 7& 
+% 6,1& 
+% 4,4& 
+% 3& 
+% 6,2& 
+% 11 \\
+% \hline
+% \textbf{15}& 
+% 10,1& 
+% 10,2& 
+% 8,5& 
+% 10,4& 
+% 9,9& 
+% 6,2& 
+% 5& 
+% 5,4& 
+% 7,7& 
+% 10,4& 
+% 9,7& 
+% 11,5& 
+% 8,6& 
+% 11& 
+% 12& 
+% 12& 
+% 11& 
+% 9,2& 
+% 6,5& 
+% 6& 
+% 6,5& 
+% 8& 
+% 11& 
+% 8,7& 
+% 3,6& 
+% 9,4& 
+% 9,4& 
+% 10& 
+% 10& 
+% 6,5& 
+% 6,7& 
+% 5,5& 
+% 7,7& 
+% 7,7& 
+% 7& 
+% 11 \\
+% \hline
+% \textbf{16}& 
+% 9,7& 
+% 10,2& 
+% 10,2& 
+% 10& 
+% 8,2& 
+% 7,8& 
+% 3,8& 
+% 6,2& 
+% 8& 
+% 8,5& 
+% 9& 
+% 10,9& 
+% 10& 
+% 11& 
+% 12& 
+% 12& 
+% 7,2& 
+% 8,8& 
+% 8,4& 
+% 7,4& 
+% 4,5& 
+% 4& 
+% 11& 
+% 8,9& 
+% 6,8& 
+% 9,8& 
+% 9,8& 
+% 7& 
+% 8,2& 
+% 5,5& 
+% 8& 
+% 6,2& 
+% 8,3& 
+% 4,7& 
+% 9,4& 
+% 10 \\
+% \hline
+% \textbf{17}& 
+% 8& 
+% 10,4& 
+% 10,6& 
+% 7,5& 
+% 10& 
+% 8,6& 
+% 6& 
+% 5,8& 
+% 8,2& 
+% 10,2& 
+% 10,8& 
+% 11& 
+% 11& 
+% 10& 
+% 11& 
+% 12& 
+% 11& 
+% 5& 
+% 8,4& 
+% 6,5& 
+% 7,4& 
+% 6,4& 
+% 8& 
+% 5,1& 
+% 2,2& 
+% 7,5& 
+% 8,6& 
+% 7,4& 
+% 9,1& 
+% 9,5& 
+% 5,2& 
+% 2& 
+% 7& 
+% 4,2& 
+% 8,3& 
+% 11 \\
+% \hline
+% \textbf{18}& 
+% 8,2& 
+% 10,1& 
+% 10,5& 
+% 10,2& 
+% 8& 
+% 9,6& 
+% 1,2& 
+% 5,9& 
+% 3,7& 
+% 7,4& 
+% 10,5& 
+% 9,7& 
+% 10& 
+% 11& 
+% 11& 
+% 12& 
+% 9,4& 
+% 8,4& 
+% 8,5& 
+% 6& 
+% 9,7& 
+% 5,6& 
+% 10& 
+% 8,9& 
+% 9,6& 
+% 9& 
+% 9& 
+% 8,5& 
+% 8,8& 
+% 8,2& 
+% 8& 
+% 2& 
+% 8,2& 
+% 6,9& 
+% 7& 
+% 10 \\
+% \hline
+% \textbf{19}& 
+% 10& 
+% 10,1& 
+% 10& 
+% 8& 
+% 9& 
+% 9,5& 
+% 6,4& 
+% 4,5& 
+% 5& 
+% 9,2& 
+% 10,2& 
+% 10,9& 
+% 11& 
+% 12& 
+% 8& 
+% 9,5& 
+% 7,9& 
+% 9,9& 
+% 9& 
+% 5,7& 
+% 6,8& 
+% 10& 
+% 8,4& 
+% 7& 
+% 9,2& 
+% 10& 
+% 8,7& 
+% 9,4& 
+% 9,7& 
+% 9,6& 
+% 7,8& 
+% 3,1& 
+% 6,8& 
+% 8& 
+% 6,6& 
+% 10 \\
+% \hline
+% \textbf{20}& 
+% 9,7& 
+% 5,6& 
+% 9,4& 
+% 8,6& 
+% 8& 
+% 8,2& 
+% 5& 
+% 9,1& 
+% 6,8& 
+% 11& 
+% 10,9& 
+% 10,4& 
+% 9& 
+% 12& 
+% 12& 
+% 9,5& 
+% 8,9& 
+% 9,4& 
+% 9& 
+% 5,8& 
+% 6,8& 
+% 7,2& 
+% 9& 
+% 7,6& 
+% 9,4& 
+% 7,2& 
+% 8,9& 
+% 8& 
+% 8,5& 
+% 8,8& 
+% 5,1& 
+% 2,5& 
+% 6,8& 
+% 9,6& 
+% 7,7& 
+% 10 \\
+% \hline
+% \textbf{21}& 
+% 10,5& 
+% 10,2& 
+% 9,3& 
+% 9,7& 
+% 8& 
+% 2,8& 
+% 4,4& 
+% 7,5& 
+% 7,5& 
+% 9,5& 
+% 11,2& 
+% 10,6& 
+% 12& 
+% 12& 
+% 8,7& 
+% 12& 
+% 3,5& 
+% 9,3& 
+% 6& 
+% 6,5& 
+% 7,7& 
+% 9,8& 
+% 11& 
+% 3& 
+% 9,5& 
+% 10& 
+% 8,6& 
+% 7,7& 
+% 7,6& 
+% 9& 
+% 8,5& 
+% 6,9& 
+% 9& 
+% 8& 
+% 7& 
+% 10 \\
+% \hline
+% \textbf{22}& 
+% 8,4& 
+% 10,6& 
+% 5,5& 
+% 9,3& 
+% 8,6& 
+% -0,6& 
+% 6,8& 
+% 1,3& 
+% 6,9& 
+% 10,4& 
+% 10,6& 
+% 8,9& 
+% 11& 
+% 11& 
+% 9,6& 
+% 11& 
+% 5,6& 
+% 8,1& 
+% 6,9& 
+% 7,5& 
+% 9,2& 
+% 11& 
+% 9,5& 
+% 1,7& 
+% 9,5& 
+% 10& 
+% 8,4& 
+% 9,4& 
+% 9,2& 
+% 8& 
+% 4& 
+% 6,2& 
+% 8,5& 
+% 5,5& 
+% 3,2& 
+% 10 \\
+% \hline
+% \textbf{23}& 
+% 6,8& 
+% 9,5& 
+% 4,8& 
+% 10,6& 
+% 10,3& 
+% 6,7& 
+% 9,6& 
+% 6,5& 
+% 11,2& 
+% 10& 
+% 10,5& 
+% 10& 
+% 9,4& 
+% 11& 
+% 9,4& 
+% 10& 
+% 7,8& 
+% 8,4& 
+% 7,9& 
+% 6,5& 
+% 7,2& 
+% 9,6& 
+% 11& 
+% -1& 
+% 9,8& 
+% 10& 
+% 7,7& 
+% 9& 
+% 9,6& 
+% 8,1& 
+% 9& 
+% 6,5& 
+% 6,6& 
+% 9,8& 
+% 9,5& 
+% 8 \\
+% \hline
+% \textbf{24}& 
+% 10,3& 
+% 9,9& 
+% 9,5& 
+% 9,4& 
+% 11,2& 
+% 5,9& 
+% 9,6& 
+% 5,4& 
+% 9,6& 
+% 11& 
+% 10,5& 
+% 7& 
+% 9,7& 
+% 11& 
+% 12& 
+% 12& 
+% 5,6& 
+% 9,5& 
+% 7,3& 
+% 5,7& 
+% 7,3& 
+% 11& 
+% 7,8& 
+% 8,6& 
+% 9,7& 
+% 10& 
+% 9,5& 
+% 8,4& 
+% 10& 
+% 5,7& 
+% 5,6& 
+% 5,6& 
+% 4,4& 
+% 9,8& 
+% 6,1& 
+% 9,4 \\
+% \hline
+% \textbf{25}& 
+% 9,5& 
+% 9& 
+% 9,3& 
+% 9,3& 
+% 5,8& 
+% 7,9& 
+% 8,6& 
+% 5,9& 
+% 8& 
+% 9,5& 
+% 11& 
+% 8,4& 
+% 10& 
+% 12& 
+% 9,3& 
+% 12& 
+% 11& 
+% 5,1& 
+% 8& 
+% 7& 
+% 4& 
+% 11& 
+% 3,9& 
+% 8,8& 
+% 9,7& 
+% 10& 
+% 11& 
+% 9,6& 
+% 8,5& 
+% 6,8& 
+% 6,2& 
+% 8,8& 
+% 8,5& 
+% 9,4& 
+% 5,9& 
+% 4,7 \\
+% \hline
+% \textbf{26}& 
+% 10& 
+% 6& 
+% 7,5& 
+% 6,8& 
+% 9,8& 
+% 9& 
+% 7,4& 
+% 6,8& 
+% 10,2& 
+% 11,8& 
+% 10,6& 
+% 10,6& 
+% 8,3& 
+% 9& 
+% 10& 
+% 9,6& 
+% 11& 
+% 9,7& 
+% 5,7& 
+% 6& 
+% 8,1& 
+% 10& 
+% 2& 
+% 4,2& 
+% 10& 
+% 11& 
+% 10& 
+% 8,9& 
+% 7,4& 
+% 6& 
+% 7,8& 
+% 9,4& 
+% 9,5& 
+% 10& 
+% 5,4& 
+% 5,2 \\
+% \hline
+% \textbf{27}& 
+% 10,6& 
+% 10& 
+% 9,5& 
+% 6,8& 
+% 10,9& 
+% 2,7& 
+% 5,8& 
+% 8,6& 
+% 7,2& 
+% 10& 
+% 10,2& 
+% 10,2& 
+% 11& 
+% 10& 
+% 11& 
+% 9,4& 
+% 11& 
+% 9,6& 
+% 8,3& 
+% 6,3& 
+% 7,2& 
+% 6,4& 
+% 4,9& 
+% 9,7& 
+% 10& 
+% 8,2& 
+% 8,8& 
+% 9,7& 
+% 9,1& 
+% 10& 
+% 6,4& 
+% 8,2& 
+% 6,5& 
+% 11& 
+% 7,5& 
+% 4,7 \\
+% \hline
+% \textbf{28}& 
+% 6,9& 
+% 10,5& 
+% 5& 
+% 4,9& 
+% 9,7& 
+% 8& 
+% 3& 
+% 7,5& 
+% 7,4& 
+% 8,5& 
+% 10,6& 
+% 10,5& 
+% 11& 
+% 9& 
+% 11& 
+% 11& 
+% 11& 
+% 8,4& 
+% 7& 
+% 6& 
+% 7,6& 
+% 7,2& 
+% 2,8& 
+% 6& 
+% 9,2& 
+% 9,8& 
+% 10& 
+% 8,5& 
+% 9,5& 
+% 8,2& 
+% 8& 
+% 6& 
+% 8,2& 
+% 5,9& 
+% 8,2& 
+% 8,8 \\
+% \hline
+% \textbf{29}& 
+% 4,5& 
+% ~& 
+% 6,8& 
+% 10& 
+% 8,7& 
+% 4,3& 
+% 7& 
+% 9& 
+% 8& 
+% 10,5& 
+% 10,3& 
+% 10,8& 
+% 8,8& 
+% ~& 
+% 11& 
+% 11& 
+% 10& 
+% 8,2& 
+% 5,3& 
+% 6,2& 
+% 6,5& 
+% 9,5& 
+% 6,7& 
+% 11& 
+% 8,5& 
+% ~& 
+% 11& 
+% 9,4& 
+% 9,4& 
+% 8& 
+% 7,9& 
+% 6,5& 
+% 9,6& 
+% 6,3& 
+% 9& 
+% 10 \\
+% \hline
+% \textbf{30}& 
+% 6,3& 
+% ~& 
+% 10,7& 
+% 9,1& 
+% 10,4& 
+% 8,7& 
+% 7,5& 
+% 3,6& 
+% 7,2& 
+% 10,4& 
+% 9,8& 
+% 10,5& 
+% 11& 
+% ~& 
+% 10& 
+% 9& 
+% 9,2& 
+% 7& 
+% 5& 
+% 6,9& 
+% 9,6& 
+% 10& 
+% 7,5& 
+% 10& 
+% 6,7& 
+% ~& 
+% 9,5& 
+% 9,7& 
+% 5,7& 
+% 8& 
+% 2,6& 
+% 6& 
+% 7,9& 
+% 9,7& 
+% 10& 
+% 8 \\
+% \hline
+% \textbf{31}& 
+% 8& 
+% ~& 
+% 10,6& 
+% ~& 
+% 10,3& 
+% ~& 
+% 8& 
+% 5,8& 
+% ~& 
+% 9,8& 
+% ~& 
+% 9,4& 
+% 7,3& 
+% ~& 
+% 12& 
+% ~& 
+% 10& 
+% ~& 
+% 6& 
+% 6& 
+% ~& 
+% 11& 
+% ~& 
+% 11& 
+% 9,2& 
+% ~& 
+% 9& 
+% ~& 
+% 8,4& 
+% ~& 
+% 6,7& 
+% 5,3& 
+% ~& 
+% 5,3& 
+% ~& 
+% 10 \\
+% \hline
+% \end{tabular}
+% \label{tab3}
+% \end{center}
+% \end{table}
+% 
+% \chapter{ANEXO D ANEXO ASOCIADO AL CAP\'{I}TULO 5}
+% \label{sec:mylabel4}
+% \section{ANEXO D.1 DATOS MENSUALES DE SERIES ECON\'{O}MICAS DE UN PA\'{I}S 
+% SUDAMERICANO Y SUS RETORNOS}
+% \label{subsec:mylabel10}
+% producto interno bruto (PIB), denotada por $\left( X_{1t} \right)$; el 
+% consumo interno (CI), denotada por $\left( X_{2t} \right)$ y la demanda 
+% final interna (DFI), denotada por $\left( X_{3t} \right)$
+% 
+% \begin{table}[H]
+% \begin{center}
+% \begin{tabular}{|p{60pt}|l|l|l|l|l|l|}
+% \hline
+% PIB($X_{1t})$& 
+% CI($X_{2t})$& 
+% DFI($X_{3t})$& 
+% & 
+% Ret1 ($Y_{1t})$& 
+% Ret2 ($Y_{2t})$& 
+% Ret3 ($Y_{3t})$ \\
+% \hline
+% 49,789& 
+% 43,052& 
+% 50,514& 
+% & 
+% -& 
+% -& 
+% - \\
+% \hline
+% 51,356& 
+% 44,6& 
+% 52,101& 
+% & 
+% 0,0315& 
+% 0,0360& 
+% 0,0314 \\
+% \hline
+% 53,659& 
+% 45,416& 
+% 53,537& 
+% & 
+% 0,0448& 
+% 0,0183& 
+% 0,0276 \\
+% \hline
+% 53,727& 
+% 46,146& 
+% 54,124& 
+% & 
+% 0,0013& 
+% 0,0161& 
+% 0,0110 \\
+% \hline
+% 54,668& 
+% 47,591& 
+% 56,663& 
+% & 
+% 0,0175& 
+% 0,0313& 
+% 0,0469 \\
+% \hline
+% 56,068& 
+% 48,996& 
+% 58,194& 
+% & 
+% 0,0256& 
+% 0,0295& 
+% 0,0270 \\
+% \hline
+% 57,465& 
+% 49,581& 
+% 58,591& 
+% & 
+% 0,0249& 
+% 0,0119& 
+% 0,0068 \\
+% \hline
+% 57,65& 
+% 50,536& 
+% 59,465& 
+% & 
+% 0,0032& 
+% 0,0193& 
+% 0,0149 \\
+% \hline
+% 57,648& 
+% 51,142& 
+% 59,412& 
+% & 
+% -0,3469& 
+% 0,0120& 
+% -0,0009 \\
+% \hline
+% 60,739& 
+% 52,261& 
+% 62,754& 
+% & 
+% 0,0536& 
+% 0,0219& 
+% 0,0563 \\
+% \hline
+% 63,082& 
+% 53,555& 
+% 65,145& 
+% & 
+% 0,0386& 
+% 0,0248& 
+% 0,0381 \\
+% \hline
+% 63,854& 
+% 54,265& 
+% 66,234& 
+% & 
+% 0,0122& 
+% 0,0133& 
+% 0,0167 \\
+% \hline
+% 65,584& 
+% 55,165& 
+% 68,694& 
+% & 
+% 0,0271& 
+% 0,0166& 
+% 0,0371 \\
+% \hline
+% 66,939& 
+% 57,153& 
+% 69,244& 
+% & 
+% 0,0207& 
+% 0,0360& 
+% 0,0080 \\
+% \hline
+% 69,157& 
+% 58,389& 
+% 70,57& 
+% & 
+% 0,0331& 
+% 0,0216& 
+% 0,0191 \\
+% \hline
+% 70,665& 
+% 59,925& 
+% 73,003& 
+% & 
+% 0,0218& 
+% 0,0263& 
+% 0,0345 \\
+% \hline
+% 73,615& 
+% 61,873& 
+% 76,152& 
+% & 
+% 0,0417& 
+% 0,0325& 
+% 0,0431 \\
+% \hline
+% 75,169& 
+% 62,852& 
+% 76,902& 
+% & 
+% 0,0211& 
+% 0,0158& 
+% 0,0098 \\
+% \hline
+% 78,013& 
+% 64,196& 
+% 79,232& 
+% & 
+% 0,0378& 
+% 0,0214& 
+% 0,0303 \\
+% \hline
+% 80,965& 
+% 66,155& 
+% 82,622& 
+% & 
+% 0,0378& 
+% 0,0305& 
+% 0,0428 \\
+% \hline
+% 81,368& 
+% 67,095& 
+% 83,284& 
+% & 
+% 0,0050& 
+% 0,0142& 
+% 0,0080 \\
+% \hline
+% 84,117& 
+% 69,144& 
+% 85,645& 
+% & 
+% 0,0338& 
+% 0,0305& 
+% 0,0283 \\
+% \hline
+% 87,078& 
+% 70,225& 
+% 88,845& 
+% & 
+% 0,0352& 
+% 0,0156& 
+% 0,0374 \\
+% \hline
+% 87,593& 
+% 71,489& 
+% 88,962& 
+% & 
+% 0,0059& 
+% 0,0180& 
+% 0,0013 \\
+% \hline
+% 89,792& 
+% 73,724& 
+% 92,341& 
+% & 
+% 0,0251& 
+% 0,0313& 
+% 0,0380 \\
+% \hline
+% 94,831& 
+% 76,28& 
+% 97,514& 
+% & 
+% 0,0561& 
+% 0,0347& 
+% 0,0560 \\
+% \hline
+% 98,877& 
+% 78,738& 
+% 101,994& 
+% & 
+% 0,0427& 
+% 0,0322& 
+% 0,0459 \\
+% \hline
+% 100,398& 
+% 80,28& 
+% 103,178& 
+% & 
+% 0,0154& 
+% 0,0196& 
+% 0,0116 \\
+% \hline
+% 103,369& 
+% 83,004& 
+% 108,791& 
+% & 
+% 0,0296& 
+% 0,0339& 
+% 0,0544 \\
+% \hline
+% 105,182& 
+% 85,463& 
+% 108,448& 
+% & 
+% 0,0175& 
+% 0,0296& 
+% -0,0032 \\
+% \hline
+% 108,961& 
+% 87,826& 
+% 112,744& 
+% & 
+% 0,0359& 
+% 0,0276& 
+% 0,0396 \\
+% \hline
+% 113,56& 
+% 89,532& 
+% 115,105& 
+% & 
+% 0,0422& 
+% 0,0194& 
+% 0,0209 \\
+% \hline
+% 115,231& 
+% 91,95& 
+% 118,332& 
+% & 
+% 0,0147& 
+% 0,0270& 
+% 0,0280 \\
+% \hline
+% 119,382& 
+% 94,137& 
+% 121,345& 
+% & 
+% 0,0360& 
+% 0,0238& 
+% 0,0255 \\
+% \hline
+% 123,361& 
+% 95,874& 
+% 126,404& 
+% & 
+% 0,0333& 
+% 0,0185& 
+% 0,0417 \\
+% \hline
+% 122,113& 
+% 97,24& 
+% 125,879& 
+% & 
+% -0,0101& 
+% 0,0142& 
+% -0,0042 \\
+% \hline
+% 122,476& 
+% 98,605& 
+% 126,889& 
+% & 
+% 0,0030& 
+% 0,0140& 
+% 0,0080 \\
+% \hline
+% 125,945& 
+% 100,377& 
+% 128,092& 
+% & 
+% 0,0283& 
+% 0,0180& 
+% 0,0095 \\
+% \hline
+% 126,949& 
+% 101,206& 
+% 129,949& 
+% & 
+% 0,0080& 
+% 0,0083& 
+% 0,0145 \\
+% \hline
+% 129,277& 
+% 102,411& 
+% 130,912& 
+% & 
+% 0,0183& 
+% 0,0119& 
+% 0,0074 \\
+% \hline
+% 131,651& 
+% 105,073& 
+% 133,456& 
+% & 
+% 0,0184& 
+% 0,0260& 
+% 0,0194 \\
+% \hline
+% 135,177& 
+% 107,581& 
+% 136,635& 
+% & 
+% 0,0268& 
+% 0,0239& 
+% 0,0238 \\
+% \hline
+% 135,643& 
+% 109,688& 
+% 139,729& 
+% & 
+% 0,0034& 
+% 0,0196& 
+% 0,0226 \\
+% \hline
+% 142,453& 
+% 111,977& 
+% 145,07& 
+% & 
+% 0,0502& 
+% 0,0209& 
+% 0,0382 \\
+% \hline
+% 147,287& 
+% 114,583& 
+% 149,87& 
+% & 
+% 0,0339& 
+% 0,0233& 
+% 0,0331 \\
+% \hline
+% 152,949& 
+% 119,293& 
+% 154,553& 
+% & 
+% 0,0384& 
+% 0,0411& 
+% 0,0312 \\
+% \hline
+% 156,681& 
+% 121,621& 
+% 159,414& 
+% & 
+% 0,0244& 
+% 0,0195& 
+% 0,0315 \\
+% \hline
+% 162,977& 
+% 123,807& 
+% 163,475& 
+% & 
+% 0,0402& 
+% 0,0180& 
+% 0,0255 \\
+% \hline
+% 165,311& 
+% 126,013& 
+% 166,655& 
+% & 
+% 0,0143& 
+% 0,0178& 
+% 0,0195 \\
+% \hline
+% 165,566& 
+% 128,116& 
+% 169,015& 
+% & 
+% 0,0015& 
+% 0,0167& 
+% 0,0142 \\
+% \hline
+% 165,071& 
+% 130,579& 
+% 169,377& 
+% & 
+% -0,0030& 
+% 0,0192& 
+% 0,0021 \\
+% \hline
+% 169,493& 
+% 132,612& 
+% 171,449& 
+% & 
+% 0,0268& 
+% 0,0156& 
+% 0,0122 \\
+% \hline
+% 172& 
+% 133,298& 
+% 175,665& 
+% & 
+% 0,0148& 
+% 0,0052& 
+% 0,0246 \\
+% \hline
+% 175,099& 
+% 136,343& 
+% 177,327& 
+% & 
+% 0,0180& 
+% 0,0228& 
+% 0,0095 \\
+% \hline
+% 178,819& 
+% 138,931& 
+% 184,029& 
+% & 
+% 0,0212& 
+% 0,0190& 
+% 0,0378 \\
+% \hline
+% 180,759& 
+% 140,683& 
+% 183,299& 
+% & 
+% 0,0108& 
+% 0,0126& 
+% -0,0040 \\
+% \hline
+% \end{tabular}
+% \label{tab4}
+% \end{center}
+% \end{table}
+% 
+% \section{ANEXO D.2 DATOS DE VARIACIONES DE SERIES ECON\'{O}MICAS DEL ECUADOR}
+% \label{subsec:mylabel11}
+% \begin{table}[H]
+% \begin{center}
+% \begin{tabular}{|p{41pt}|l|l|l|l|l|l|l|l|l|l|}
+% \hline
+% & 
+% IAE& 
+% IPP& 
+% & 
+% & 
+% IAE& 
+% IPP& 
+% & 
+% & 
+% IAE& 
+% IPP \\
+% \hline
+% ene-04& 
+% 3,04& 
+% 5,82& 
+% & 
+% feb-08& 
+% -6,34& 
+% 1,9& 
+% & 
+% abr-12& 
+% -2,25& 
+% -4,02 \\
+% \hline
+% feb-04& 
+% -1,84& 
+% -0,17& 
+% & 
+% mar-08& 
+% 0,75& 
+% 4,75& 
+% & 
+% may-12& 
+% 2,04& 
+% -2,05 \\
+% \hline
+% mar-04& 
+% -5,79& 
+% -9,73& 
+% & 
+% abr-08& 
+% 1,38& 
+% -0,72& 
+% & 
+% jun-12& 
+% -2,9& 
+% 1,3 \\
+% \hline
+% abr-04& 
+% -4,35& 
+% -1,89& 
+% & 
+% may-08& 
+% -0,63& 
+% 0,98& 
+% & 
+% jul-12& 
+% 0,2& 
+% -3,65 \\
+% \hline
+% may-04& 
+% 5,58& 
+% 1,69& 
+% & 
+% jun-08& 
+% 8,41& 
+% 0,5& 
+% & 
+% ago-12& 
+% -1,65& 
+% 3,45 \\
+% \hline
+% jun-04& 
+% -1,19& 
+% 1,83& 
+% & 
+% jul-08& 
+% 0,42& 
+% -0,19& 
+% & 
+% sep-12& 
+% -3,74& 
+% 1,61 \\
+% \hline
+% jul-04& 
+% -5,95& 
+% -2,18& 
+% & 
+% ago-08& 
+% -2,51& 
+% 0,89& 
+% & 
+% oct-12& 
+% 2,85& 
+% 7,09 \\
+% \hline
+% ago-04& 
+% 0,1& 
+% -2,93& 
+% & 
+% sep-08& 
+% 1,6& 
+% 4,91& 
+% & 
+% nov-12& 
+% -1,83& 
+% -6,59 \\
+% \hline
+% sep-04& 
+% -4,76& 
+% 3,26& 
+% & 
+% oct-08& 
+% 9,07& 
+% 4,98& 
+% & 
+% dic-12& 
+% -2,46& 
+% 0,37 \\
+% \hline
+% oct-04& 
+% 5,03& 
+% 1,17& 
+% & 
+% nov-08& 
+% -2,48& 
+% -1,59& 
+% & 
+% ene-13& 
+% 5,33& 
+% 1,43 \\
+% \hline
+% nov-04& 
+% 4,85& 
+% 1,38& 
+% & 
+% dic-08& 
+% 11,28& 
+% 0,03& 
+% & 
+% feb-13& 
+% -1,07& 
+% 4,44 \\
+% \hline
+% dic-04& 
+% 3,74& 
+% 4,15& 
+% & 
+% ene-09& 
+% -1,93& 
+% 4,18& 
+% & 
+% mar-13& 
+% 1,06& 
+% 0,26 \\
+% \hline
+% ene-05& 
+% 1,66& 
+% 1,64& 
+% & 
+% feb-09& 
+% -2,34& 
+% 6,87& 
+% & 
+% abr-13& 
+% 3,31& 
+% -3,87 \\
+% \hline
+% feb-05& 
+% 4,24& 
+% 0,31& 
+% & 
+% mar-09& 
+% -4,65& 
+% 3,41& 
+% & 
+% may-13& 
+% 0,46& 
+% -8,24 \\
+% \hline
+% mar-05& 
+% -4,09& 
+% -0,02& 
+% & 
+% abr-09& 
+% -11,45& 
+% 7,4& 
+% & 
+% jun-13& 
+% -0,93& 
+% 2,19 \\
+% \hline
+% abr-05& 
+% -1,67& 
+% 6,56& 
+% & 
+% may-09& 
+% 11,76& 
+% 6,11& 
+% & 
+% jul-13& 
+% 1,79& 
+% 2,9 \\
+% \hline
+% may-05& 
+% 3,18& 
+% -3,9& 
+% & 
+% jun-09& 
+% -4,63& 
+% 1,66& 
+% & 
+% ago-13& 
+% -4,38& 
+% 2,44 \\
+% \hline
+% jun-05& 
+% -6,6& 
+% -0,44& 
+% & 
+% jul-09& 
+% -7,12& 
+% -11,29& 
+% & 
+% sep-13& 
+% -0,3& 
+% -1,88 \\
+% \hline
+% jul-05& 
+% 1,11& 
+% 6,48& 
+% & 
+% ago-09& 
+% -9,3& 
+% -7,48& 
+% & 
+% oct-13& 
+% 4,03& 
+% -3,37 \\
+% \hline
+% ago-05& 
+% -3,23& 
+% -4,81& 
+% & 
+% sep-09& 
+% 2,77& 
+% -13,54& 
+% & 
+% nov-13& 
+% -4,43& 
+% 0,6 \\
+% \hline
+% sep-05& 
+% -1,09& 
+% 8,05& 
+% & 
+% oct-09& 
+% -5,66& 
+% -14,86& 
+% & 
+% dic-13& 
+% 0,13& 
+% 4,14 \\
+% \hline
+% oct-05& 
+% 1,1& 
+% -8,24& 
+% & 
+% nov-09& 
+% -1,07& 
+% -11,11& 
+% & 
+% ene-14& 
+% 2,37& 
+% 1,17 \\
+% \hline
+% nov-05& 
+% 4,97& 
+% -3,09& 
+% & 
+% dic-09& 
+% -5,78& 
+% -3,45& 
+% & 
+% feb-14& 
+% -3,12& 
+% -1,34 \\
+% \hline
+% dic-05& 
+% 4,04& 
+% 1,34& 
+% & 
+% ene-10& 
+% 0,99& 
+% 1,84& 
+% & 
+% mar-14& 
+% 5,01& 
+% -1,01 \\
+% \hline
+% ene-06& 
+% -0,24& 
+% 4,21& 
+% & 
+% feb-10& 
+% 3,07& 
+% 15,17& 
+% & 
+% abr-14& 
+% -0,13& 
+% 1,16 \\
+% \hline
+% feb-06& 
+% 0,96& 
+% 11,54& 
+% & 
+% mar-10& 
+% -1,67& 
+% 0,22& 
+% & 
+% may-14& 
+% 0,83& 
+% 0,23 \\
+% \hline
+% mar-06& 
+% -3,35& 
+% -5,22& 
+% & 
+% abr-10& 
+% 15,18& 
+% 5,05& 
+% & 
+% jun-14& 
+% 4,71& 
+% 3,26 \\
+% \hline
+% abr-06& 
+% -1,89& 
+% -1,35& 
+% & 
+% may-10& 
+% 0,8& 
+% 12& 
+% & 
+% jul-14& 
+% -4,02& 
+% -1,15 \\
+% \hline
+% may-06& 
+% 5,39& 
+% 6,79& 
+% & 
+% jun-10& 
+% 2,02& 
+% -7,23& 
+% & 
+% ago-14& 
+% 0,59& 
+% 2,01 \\
+% \hline
+% jun-06& 
+% -4,54& 
+% 4,83& 
+% & 
+% jul-10& 
+% -3,67& 
+% 5,44& 
+% & 
+% sep-14& 
+% 0,3& 
+% -3,42 \\
+% \hline
+% jul-06& 
+% 1,02& 
+% 6,97& 
+% & 
+% ago-10& 
+% 6,35& 
+% 1,14& 
+% & 
+% oct-14& 
+% 0,07& 
+% -4,96 \\
+% \hline
+% ago-06& 
+% -2,03& 
+% -0,21& 
+% & 
+% sep-10& 
+% -0,37& 
+% 3,19& 
+% & 
+% nov-14& 
+% -9,23& 
+% 4,15 \\
+% \hline
+% sep-06& 
+% -4,77& 
+% -1,36& 
+% & 
+% oct-10& 
+% -1,18& 
+% 2,22& 
+% & 
+% dic-14& 
+% 2,49& 
+% -0,41 \\
+% \hline
+% oct-06& 
+% 3,91& 
+% -8,8& 
+% & 
+% nov-10& 
+% 5,45& 
+% -4,53& 
+% & 
+% ene-15& 
+% 1,4& 
+% 1,52 \\
+% \hline
+% nov-06& 
+% -2,28& 
+% 1,16& 
+% & 
+% dic-10& 
+% -1,98& 
+% 5,84& 
+% & 
+% feb-15& 
+% -0,21& 
+% -0,24 \\
+% \hline
+% dic-06& 
+% 9,34& 
+% 4,19& 
+% & 
+% ene-11& 
+% 6,17& 
+% -0,92& 
+% & 
+% mar-15& 
+% 0,97& 
+% 1,01 \\
+% \hline
+% ene-07& 
+% -3,22& 
+% -2,19& 
+% & 
+% feb-11& 
+% -1,18& 
+% 3,08& 
+% & 
+% abr-15& 
+% -0,89& 
+% -0,38 \\
+% \hline
+% feb-07& 
+% 7,94& 
+% 3,81& 
+% & 
+% mar-11& 
+% -3,37& 
+% 0,49& 
+% & 
+% may-15& 
+% 6,52& 
+% 0,14 \\
+% \hline
+% mar-07& 
+% -2,09& 
+% 6,49& 
+% & 
+% abr-11& 
+% 3,41& 
+% -7,66& 
+% & 
+% jun-15& 
+% -3,33& 
+% 0,9 \\
+% \hline
+% abr-07& 
+% -2,01& 
+% 2,98& 
+% & 
+% may-11& 
+% 0,73& 
+% 5,11& 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% may-07& 
+% 0,96& 
+% 0,06& 
+% & 
+% jun-11& 
+% -3,8& 
+% 1,55& 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% jun-07& 
+% -2,56& 
+% 5,99& 
+% & 
+% jul-11& 
+% -2& 
+% -0,46& 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% jul-07& 
+% 2,21& 
+% -4,25& 
+% & 
+% ago-11& 
+% 1,04& 
+% -0,79& 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% ago-07& 
+% -4,63& 
+% -7,03& 
+% & 
+% sep-11& 
+% -1,07& 
+% 4,8& 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% sep-07& 
+% -6,77& 
+% -4,32& 
+% & 
+% oct-11& 
+% -3,52& 
+% 2,95& 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% oct-07& 
+% 1,95& 
+% -1,24& 
+% & 
+% nov-11& 
+% 6,91& 
+% 2,25& 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% nov-07& 
+% 0,1& 
+% 3,78& 
+% & 
+% dic-11& 
+% -2,52& 
+% 1,88& 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% dic-07& 
+% 7,28& 
+% -6,16& 
+% & 
+% ene-12& 
+% 6,61& 
+% -1,91& 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% ene-08& 
+% -1,65& 
+% 7,25& 
+% & 
+% feb-12& 
+% -2,25& 
+% 9,99& 
+% & 
+% & 
+% & 
+%  \\
+% \hline
+% \end{tabular}
+% \label{tab5}
+% \end{center}
+% \end{table}
+% 
+% \chapter{\'{I}NDICE ALFAB\'{E}TICO}
+% \label{sec:mylabel1}
+% \begin{center}
+% 
+% \printindex
+% 
+% \end{center}
+% 
+% \end{document}
