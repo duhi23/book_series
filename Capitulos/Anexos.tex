@@ -68,7 +68,7 @@ Si se llega a demostrar que $f\ge 0$, entonces $f\left( \lambda \right){\kern 1p
 \[
 I_{T} (\lambda)=\frac{1}{2\pi T}\sum\limits_{1\le s,t\le T} {X_{s} } X_{t} e^{i\lambda (t-s)},\quad \lambda \in \left[-\pi, \pi \right], \quad T=1,2,\ldots
 \]
-$I_{T}(\lambda)$ se llama el periodograma
+$I_{T}(\lambda)$ se llama el periodograma.\newline
 
 Se puede observar que:
 \begin{align*}
@@ -90,560 +90,386 @@ Sea $F_{T}(\lambda)=\int_{-\pi }^\lambda {f_{T} (v)dv=\frac{\gamma_{o}}{2\pi}(\l
 \end{itemize}
 
 Se recuerda el lema de Helly -- Bray:\newline
-% 
-% Dada una sucesi\'{o}n $\left( {F_{T} ,T\in N^{\ast }} \right)$ con la misma 
-% masa total, se puede extraer una subsucesi\'{o}n $\left( F_{T^{1}} \right)$, 
-% que converge estrictamente (en ley); es decir, existe una funci\'{o}n de 
-% distribuci\'{o}n F, de una medida $\mu $, de masa total $\gamma_{o} $, t.q. 
-% $F_{T^{'}} \to F$ en todo punto de continuidad de F
-% 
-% As\'{\i}, si $\mu_{T} $ es la medida asociada a $F_{T} ,$ entonces $\forall 
-% \phi $ continua (acotada ) sobre $\left[ {-\pi ,\pi } \right]$, 
-% 
-% $\int \phi $ d $\mu_{T^{'}} \to \int \phi $ d$\mu $
-% 
-% As\'{\i}, tomando $\varphi \left( \lambda \right)=\cos \lambda t$, se 
-% tiene que:
-% \[
-% \int\limits_{\left[ {-\pi ,\pi } \right]} {\cos \lambda t\limits d\mu 
-% _{T^{'}} \left( \lambda \right)=} \int\limits_{\left[ {-\pi ,\pi } \right]} 
-% {\cos \lambda t} \text{\thinspace f}_{\text{T}^{\text{'}}} (\lambda 
-% )d\lambda 
-% \]
-% pero $\int\limits_{\left[ {-\pi ,\pi } \right]} {\left( {\cos \lambda t} 
-% \right)d\mu_{T^{'}} \left( \lambda \right)\to } \int\limits_{\left[ {-\pi 
-% ,\pi } \right]} {\cos \lambda t} d\mu \left( \lambda \right)$ cuando 
-% $T^{'}\to \infty $
-% 
-% y $\int\limits_{\left[ {-\pi ,\pi } \right]} {\cos {\kern 1pt}\;\lambda 
-% {\kern 1pt}t} f_{T^{'}} \left( \lambda \right)=\left( {1-\frac{\left| t 
-% \right|}{T'}} \right)\gamma_{\text{t}} \text{\thinspace \thinspace }\to 
-% \gamma_{t} $ cuando $T^{'}\to \infty $
-% \[
-% \int_{\left[ {-\pi ,\pi } \right]} {\cos \lambda td\mu \left( \lambda 
-% \right)=\gamma_{t} } 
-% \]
-% Sean: $G_{T} \left( \lambda \right)=F_{T} (\lambda )-\frac{\gamma_{O} 
-% }{2\pi }\left( {\lambda +\pi } \right)=\frac{1}{\pi }\sum\limits_{t=1}^{T-1} 
-% {\left( {1-\frac{t}{T}} \right)} \gamma_{t} \quad \frac{sen\lambda t}{t}$ y 
-% $G\left( \lambda \right)=F\left( \lambda \right)-\frac{\gamma_{O} }{2\pi 
-% }\left( {\lambda +\pi } \right)$
-% 
-% Ahora
-% \[
-% \int_{-\pi }^{\rm T} {sen\lambda tG_{T^{1}} } \left( \lambda \right)d\lambda 
-% \to \int_{-\pi }^\pi {sen\;\lambda tG\left( \lambda \right)d\lambda } 
-% \]
-% (por el teorema de convergencia dominada (TCD), pues $G_{T^{'}} $ est\'{a} 
-% mayorada por una constante y $G_{T^{'}} \to G$, en todo punto de continuidad 
-% de G). 
-% 
-% $\left( {1-\frac{t}{T^{'}}} \right)\frac{\gamma_{t} }{t}\to \frac{\gamma 
-% _{t} }{t}$ cuando $T^{'}\to \infty $
-% \[
-% \limits F\left( \lambda \right)=\frac{\gamma_{O} }{2\pi }\left( {\lambda 
-% +\pi } \right)+\frac{1}{\pi }\sum\limits_{t=1}^\infty {\gamma_{t} } 
-% \frac{sen\lambda t}{t}
-% \]
-% Puesto que F es creciente y de variaci\'{o}n acotada, entonces la serie 
-% converge en todo punto de continuidad de F.
-% 
-% Una medida $\mu $ asociada a F se dice, medida central del proceso.
-% 
-% \begin{itemize}
-% \item \textbf{?`Unicidad de }$\mu $\textbf{?}
-% \end{itemize}
-% 
-% En general $\mu $ no es \'{u}nica. Por ejemplo:
-% 
-% Sea $X_{t} =\left( {-1} \right)^{t}X$ con EX$=$0 y EX$^{\mathrm{2}}=$1. Se 
-% ha visto que $\left( {X_{t} } \right)$ es d.e. y $\gamma_{t} =\left( {-1} 
-% \right)^{t},\limits t\in {\rm Z}$
-% 
-% Sea $\mu_{\alpha } =\alpha \delta_{\left( {-\pi } \right)} 
-% +$(1-$\alpha ) \quad \delta_{\left( \pi \right)} ,$ con $\alpha \in \left[ 
-% {0,1} \right]$, donde $\delta_{\left( a \right)} $ denota a la medida de 
-% Dirac en a.
-% 
-% Dado que $\int_{-\pi }^\pi {sen\lambda td\mu_{\alpha } \left( \lambda 
-% \right)=0} $ se tiene que:
-% \[
-% \int_{-\pi }^\pi {\cos \lambda t} 
-% d\mu_{\alpha } \left( \lambda \right)=\cos \pi t=\left( {-1} \right)^{t}
-% \quad
-% \forall \alpha \in \left[ {0,1} \right],\limits \forall\limits t\in 
-% {\rm Z}
-% \]
-% Por tanto, $\gamma_{t} $ se expresa de la forma requerida, pero hay un 
-% n\'{u}mero infinito de medidas centrales; sin embargo, si se exige que la 
-% medida sea sim\'{e}trica, se tiene la unicidad. En el ejemplo precedente: 
-% \[
-% \mu =\frac{1}{2}\left[ {\delta_{\left( {-\pi } \right)} +\delta_{\left( 
-% \pi \right)} } \right]
-% \]
-% La funci\'{o}n de repartici\'{o}n $F$ que se ha obtenido es la funci\'{o}n de 
-% repartici\'{o}n de una medida sim\'{e}trica sobre $\left] {-\pi ,\pi } 
-% \right].$ Sea $\mu $ la medida central y se define:
-% \[
-% \nu \left( {\text{A}} \right)=\mu \left( A \right)
-% \forall 
-% \quad
-% A\in \beta (\left] {-\pi ,\pi } \right])
-% \]
-% \[
-% \nu \left( {-\pi } \right)=\nu \left( \pi \right)=\frac{1}{2}\left[ {\mu 
-% \left( {-\pi } \right)+\mu \left( \pi \right)} \right]
-% \quad
-% \left( {\int_{-\pi }^\pi {\cos \lambda t} d\nu \left( \lambda 
-% \right)=\int_{-\pi }^\pi {\cos \lambda td\mu \left( \lambda \right)} } 
-% \right)
-% \]
-% Entonces, se puede considerar $\mu $ sim\'{e}trica
-% 
-% \begin{itemize}
-% \item \textbf{Unicidad de la medida espectral sim\'{e}trica sobre }$\left] {-\pi ,\pi } \right]$
-% \end{itemize}
-% $\int {\cos \lambda td\nu \left( t \right)=\gamma_{t} } $ y $\int 
-% {sen\lambda td\nu \left( t \right)=0} $ (conocidos los coeficientes de 
-% Fourier)
-% 
-% entonces $\nu $ es conocida sobre los polinomios trigonom\'{e}tricos y por 
-% el teorema de Stone-Weierstrass, $\nu $ est\'{a} determinada para las 
-% funciones continuas. 
-% 
-% \textbf{Teorema 1.6: }Condici\'{o}n suficiente de convergencia c.s.
-% 
-% Sea $\left( {X_{t} ,t\in {\rm Z}} \right)$ de segundo orden, centrado t.q.
-% 
-% $V\left( {X_{t} +....+X_{t+p-1} } \right)\le kp^{\gamma }
-% \quad
-% k=cte;
-% \quad
-% 0\le \gamma <2;$ p$=$1,2,.....; $\forall t\in {\rm Z}$
-% 
-% Entonces: $\bar{{X}}\to 0$ en media cuadr\'{a}tica y casi 
-% seguramente 
-% 
-% \textbf{Demostraci\'{o}n:}
-% 
-% Sea $Sn=\sum\limits_{i=1}^n {X_{i} } \Rightarrow E\left( {\frac{Sn}{n}} 
-% \right)^{2}\le \frac{kn^{\gamma }}{n^{2}}=\frac{k}{n^{2-\gamma }}\to 0$ 
-% 
-%  existe convergencia en m.c.
-% 
-% \begin{itemize}
-% \item Convergencia casi segura:
-% \end{itemize}
-% 
-% Sea $k>\frac{1}{2-\gamma },\mathop\nolimits k\in {\rm Z}$
-% 
-% entonces: $P\left[ {\left| {\frac{S_{m^{k}} }{m^{k}}} \right|\ge \varepsilon 
-% } \right]\le\limits \frac{1}{\varepsilon^{2}}E\left( {\frac{S_{m^{k}} 
-% }{m^{k}}} \right)^{2}\le \frac{1}{\varepsilon^{2}m^{2k}}\bar{{k}}m^{k\gamma 
-% }=\frac{\bar{{k}}}{\varepsilon^{2}}\frac{1}{m^{k\left( {2-\gamma } 
-% \right)}}$
-% \[
-% \sum\limits_ {P\left( {\left| {\frac{S_{m}^{k}}{m^{k}}} \right|\ge 
-% \varepsilon } \right)} <\infty 
-% \]
-% La primera desigualdad se justifica por la desigualdad de Chebyshev
-% 
-% y por el Teorema de Borel-Cantelli. $\frac{S_{m^{k}} }{m^{k}}\buildrel 
-% {c.s.} \over \longrightarrow 0$ 
-% 
-% Ahora, Sea $Y_{m} ={\max }\limits_{m^{k}<n\le \left( {m+1} \right)^{k}} 
-% \left| {\frac{S_{n} -S_{m^{k}} }{n}} \right|^{2}$
-% \[
-% P\left( {Y_{m} \ge \varepsilon } \right)\le \frac{EY_{m} }{\varepsilon }
-% \quad
-% \left( {Y_{m} \ge 0} \right)
-% \]
-% pero: $E\left( {Y_{m} } \right)\le \frac{E\left( {\left| {X_{m^{k}+1} } 
-% \right|+....+\left| {X_{\left( {m-1} \right)^{k}} } \right|} 
-% \right)^{2}}{m^{2k}}$
-% 
-% $=\frac{1}{m^{2k}}\sum\limits_{j,j^{'}} {E\left| {X_{j} X_{j^{'}} } \right|} 
-% $ \newline
-%  ${\le\limits^{Schw.} \frac{1}{m^{2k}}\sum\limits_{j,j^{'}} {\sqrt 
-% {EX_{j}^{2} } \sqrt {EX_{j^{\textasciiacute '}}^{2} } 
-% =\frac{1}{m^{2k}}\left( {\sum\limits_j {\sqrt {EX_{j}^{2} } } } \right)} 
-% }\limits^{2}$
-% \[
-% \le \frac{K}{m^{2k}}\left( {\left( {m+1} \right)^{k}-m^{k}} 
-% \right)^{2}=K\left[ {\left( {1+\frac{1}{m}} \right)^{k}-1} \right]^{2}
-% \]
-% $\le K\left( {e^{\frac{k}{m}}-1} \right)^{2}$ (pues $\left( {1+\frac{1}{m}} 
-% \right)^{k}\le e^{\frac{k}{m}})$
-% 
-% $\le K\left( {\frac{2k}{m}} \right)^{2}$ (m suficientemente grande)
-% 
-% As\'{\i} $E\left( {Y_{m} } \right)\le \frac{cte}{m^{2}}$ y por tanto 
-% $\sum\limits_m {P(Y_{m} \ge )\varepsilon <\infty \Rightarrow\limits^{B.C} 
-% Y_{m} \mathop \to\limits_{m\to \infty }^{c.s.} 0} $
-% 
-% Sea $m=m(n)$ t.q. $\left( {m\left( n \right)} \right)^{k}<n<\left( {m\left( n 
-% \right)+1} \right)^{k}$; \textit{m(n) es \'{u}nico y }$m\left( n \right)\to \infty $ cuando $n\to \infty 
-% $ entonces: 
-% \[
-% Y_{m\left( n \right)} \buildrel {c.s.} \over \longrightarrow 0
-% \]
-% \[
-% \frac{S_{n} }{n}-\frac{S_{m\left( n \right)^{k}} }{n}\buildrel {c.s.} \over 
-% \longrightarrow 0
-% \]
-% pues: $\frac{S_{m\left( n \right)^{k}} }{n}=\frac{S_{m\left( n \right)^{k}} 
-% }{m\left( n \right)^{k}}\ast \frac{m\left( n \right)^{k}}{n}\Rightarrow 
-% \frac{S_{n} }{n}\buildrel {c.s.} \over \longrightarrow 0$ (dado que 
-% $\frac{S_{(m(n))^{k}} }{(m(n))^{k}}\buildrel {c.s.} \over \longrightarrow 
-% 0)$
-% 
-% \textbf{Teorema 1.8: }Sea$(X_{t} ,t\in {\rm Z})$ d.e, centrado y 
-% regular $\left( {\sigma^{2}=E\left( {X_{t} -\hat{{X}}_{t} } \right)^{2}>0} 
-% \right)$
-% 
-% (Ejercicio: Verificar que $E\left( {X_{t} -\hat{{X}}_{t} } 
-% \right)^{2}$ no depende de t)
-% 
-% Entonces: $X_{t} =\sum\limits_{j=0}^\infty {\lambda_{j} u_{t-j} 
-% +v_{t} } t\in {\rm Z}$
-% 
-% donde $(u_{t} )$ r.b. (d\'{e}bil) de varianza $\sigma 
-% ^{2}$, $\lambda_{o} =1,\;\sum {\lambda_{j}^{2} <\infty } , \quad u_{t} \in \mu 
-% _{t} ,\;u_{t} \bot \mu_{t-1} $
-% 
-% $\left( {v_{t} } \right)$ centrado, los $u_{t} $ son ortogonales a los $v_{s} 
-% $, $v_{t} \in \mathop \cap\limits_{s=0}^{\infty } \mu_{t-s} $
-% 
-% y la descomposici\'{o}n es \'{u}nica.
-% 
-% \textbf{Observaci\'{o}n B.1: }$u_{t} =X_{t} -\hat{{X}}_{t} \Rightarrow X_{t} 
-% =\hat{{X}}_{t} +u_{t} . \quad u_{t} $ se dice la innovaci\'{o}n del proceso y 
-% v$_{\mathrm{t}}$ la parte determinista del proceso.
-% 
-% \textbf{Demostraci\'{o}n: }
-% 
-% Sea $u_{t} =X_{t} -\hat{{X}}_{t} $
-% 
-% \begin{itemize}
-% \item $\{u_{t} \}$ es centrado, pues $\hat{{X}}_{t} $ es centrada, por ser proyecci\'{o}n ortogonal sobre un s.e.v. generado por v.a. centradas.
-% \item $Eu_{t}^{2} =\sigma^{2}$
-% \item $\hat{{X}}_{t} \in \mu_{t-1} \subset \mu_{t} \Rightarrow u_{t} \in \mu_{t} $
-% \item Sea $s<t \quad \left. {\begin{array}{l}
-%  u_{t} =X_{t} -\hat{{X}}_{t} \bot \mu_{t-1} \supset \mu_{s} \\ 
-%  u_{s} =X_{s} -\hat{{X}}_{s} \in \mu_{s} \\ 
-%  \end{array}} \right\} \Rightarrow u_{t} \bot u_{s} $
-% \item Consideramos $\left( {\frac{\mu_{t} }{\sigma },t\in {\rm Z}} \right),$ sistema ortonormal de $L^{2}$
-% \end{itemize}
-% Los coeficientes de Fourier de $X_{t} =\sum\limits_{j=0}^\infty {\lambda 
-% _{j} u_{t-j} +\upsilon_{t} } , \quad t\in {\rm Z},$ satisfacen:
-% \[
-% \left( {\int {X_{t} \frac{\mu_{t-j} }{\sigma }} } \right)\frac{\mu_{t-j} 
-% }{\sigma }dP=\lambda_{j} u_{t-j} 
-% \]
-% \[
-% \lambda_{j} =\frac{1}{\sigma^{2}}\int {X_{t} u_{t-j} } dP
-% \quad
-% j=0,1,......
-% \]
-% \[
-% \lambda_{o} =\frac{1}{\sigma^{2}}\int {X_{t} u_{t} \;dP=\frac{1}{\sigma 
-% ^{2}}\int {X_{t} \left( {X_{t} -\hat{{X}}_{t} } \right)\;dP=\frac{1}{\sigma 
-% ^{2}}\int {\left( {X_{t} -\hat{{X}}_{t} +\hat{{X}}_{t} } \right)\;\left( 
-% {X_{t} -\hat{{X}}_{t} } \right)\;dP} } } 
-% \]
-% \[
-% =\frac{1}{\sigma^{2}}\int {\left( {X_{t} -\hat{{X}}_{t} } 
-% \right)^{2}dP+\int {\hat{{X}}_{t} \left( {X_{t} -\hat{{X}}_{t} } \right)} 
-% \;dP} 
-% \]
-% \[
-% =\frac{1}{\sigma^{2}}\sigma^{2}=1
-% \]
-% \[
-% \lambda_{o} =1
-% \]
-% $\sum {\lambda_{j}^{2} <\infty ,} $ pues $\sum\limits_{j=0}^\infty {\lambda 
-% _{j}^{2} } \le \left| {\left| {X_{t} } \right|} \right|^{2}$
-% 
-% \begin{itemize}
-% \item Pongamos $\upsilon_{t} =X_{t} -\sum\limits_{j=0}^\infty {\lambda_{j} u_{t-j} } $ y verifiquemos que $\upsilon_{t} $satisface las propiedades requeridas.
-% \item $\upsilon_{t} $ centrada
-% \item $\upsilon_{t} \in \mu_{t} $ pues $\left\{ {\begin{array}{l}
-%  X_{t} \in \mu_{t} \\ 
-%  u_{t-j} \in \mu_{t-j} \subset \mu_{t} \Rightarrow \sum\limits_{j=0}^\infty {\lambda_{j} u_{t-j} \in \mu_{t} } \\ 
-%  \end{array}} \right.$
-% \item Sea $\upsilon_{t} =\hat{{V}}_{t} +\varepsilon_{t} ,$ donde $\hat{{V}}_{t} =P_{r}^{\mu_{t-1} } \upsilon_{t} $
-% \end{itemize}
-% 
-% Queremos demostrar que $\varepsilon_{t} =0.$ Vamos a suponer que $\upsilon 
-% _{t} \bot u_{s} ,{ }s\in {\rm Z}$
-% 
-% $\varepsilon_{t} \bot \mu_{t-1} $ y $\varepsilon_{t} \bot u_{t} $ (pues: 
-% $\upsilon_{t} \bot \mu_{t} , \hat{{\upsilon }}_{t} \in \mu_{t-1} \bot 
-% u_{t} \Rightarrow \hat{{\upsilon }}_{t} \bot u_{t} )$
-% \[
-% \hat{{X}}_{t} \in \mu_{t-1} y\varepsilon_{t} \bot \mu_{t-1} 
-% \Rightarrow entonces\varepsilon_{t} \bot \hat{{X}}_{t} \Rightarrow 
-% \varepsilon_{t} \bot X_{t} =u_{t} +\hat{{X}}_{t} y\varepsilon_{t} 
-% \bot \mu_{s} ,s<t.
-% \]
-% Por tanto $\varepsilon_{t} \bot \mu_{t} $; pero $\left( {\varepsilon_{t} 
-% \bot \mu_{t} ,\varepsilon_{t} \in \mu_{t} } \right)\Rightarrow 
-% \varepsilon_{t} =0\Rightarrow \upsilon_{t} \in \mu_{t-1} $
-% 
-% Con el mismo razonamiento se constata que $\upsilon_{t} \in \mu_{t-2} $
-% \[
-% \upsilon_{t} \in \mathop \cap\limits_{j=0}^{\infty } \mu_{t-j} 
-% \]
-% \begin{itemize}
-% \item Para concluir, demostremos que $\upsilon_{t} \bot u_{s} ,s\in {\rm Z}$
-% \end{itemize}
-% $u_{t} ,u_{t-1} ,....$ sistema ortogonal, que puede completarse en una base 
-% $\left( {u_{s}^{'} ,s\in {\rm Z}} \right)$ de $L^{2}\left( {\Omega ,{\rm 
-% A},P} \right)$. Entonces $\upsilon_{t} =\sum {\alpha_{s} u_{s}^{'} } $
-% 
-% Si $s\le t,\upsilon_{t} \bot u_{s} $ pues: $u_{s} \bot \mu_{s-1} $ y 
-% $\upsilon_{t} \in \mu_{s-1} \quad \left( {V_{t} \in \mathop \cap 
-% \limits_{j=0}^{\infty } \mu_{t-j} } \right)$
-% 
-% Si $s>t \quad \left. {\begin{array}{l}
-%  u_{s} \in \mu_{s} yu_{s} \bot \mu_{s-1} \\ 
-%  \mathop\nolimits \mathop\nolimits\limits \upsilon_{t} \in \mu 
-% _{t} \subset \mu_{s-1} \\ 
-%  \end{array}} \right\} \Rightarrow u_{s} \bot \upsilon_{t} $
-% 
-% \textbf{Unicidad:}
-% \[
-% X_{t} ={u_{t} }\limits +\underbrace {\left[ {\sum\limits_{j=1}^\infty 
-% {\lambda_{j} u_{t-j} +v_{t} } } \right]}_{\in \mu_{t-1} }
-% \]
-% Puesto que $u_{t} \,\,\bot \mu_{t-1} $, el t\'{e}rmino entre 
-% corchetes es igual a $\hat{{X}}_{t} $ y $u_{t} 
-% =X_{t} -\hat{{X}}_{t} $
-% 
-% \chapter{ANEXO B ANEXO ASOCIADO AL CAP\'{I}TULO 2}
+
+Dada una sucesi\'{o}n $\left( {F_{T} ,T\in N^{\ast }} \right)$ con la misma masa total, se puede extraer una subsucesi\'{o}n $\left( F_{T^{'}} \right)$, que converge estrictamente (en ley).\newline
+
+Es decir, existe una funci\'{o}n de distribuci\'{o}n F, con una medida $\mu $, de masa total $\gamma_{o}$, t.q. $F_{T^{'}} \to F$ en todo punto de continuidad de F.\newline
+
+As\'{i}, si $\mu_{T}$ es la medida asociada a $F_{T}$, entonces $\forall \phi$ continua (acotada ) sobre $\left[ {-\pi ,\pi } \right]$, 
+
+\[\int \phi d\mu_{T^{'}} \to \int \phi d\mu \]
+
+As\'{i}, tomando $\varphi \left( \lambda \right)=\cos \lambda t$, se tiene que:
+\[
+\int\limits_{\left[-\pi,\pi \right]} \cos (\lambda t)\limits d\mu_{T^{'}} (\lambda)= \int\limits_{\left[-\pi, \pi\right]} \cos (\lambda t) f_{T^{'}} (\lambda 
+)d\lambda 
+\]
+pero 
+\[\int\limits_{\left[ {-\pi ,\pi } \right]} \cos (\lambda t) d\mu_{T^{'}} (\lambda)\to \int\limits_{\left[-\pi, \pi \right]} \cos (\lambda t) d\mu (\lambda)\quad \text{cuando}\quad T^{'}\to \infty \]
+y
+\[\int\limits_{\left[-\pi, \pi \right]} \cos (\lambda t) f_{T^{'}} (\lambda)=\left( 1-\frac{|t|}{T'} \right)\gamma_{t} \to \gamma_{t}\quad \text{cuando}\quad T^{'}\to \infty \]
+
+\[
+\int_{\left[-\pi, \pi \right]} \cos (\lambda t) d\mu (\lambda)=\gamma_{t} 
+\]
+
+Sean: 
+\[
+G_{T}(\lambda)=F_{T} (\lambda )-\frac{\gamma_{O}}{2\pi}(\lambda +\pi)=\frac{1}{\pi}\sum\limits_{t=1}^{T-1} 
+\left(1-\frac{t}{T}\right) \gamma_{t}\frac{sen\lambda t}{t}
+\] 
+y
+\[
+G(\lambda)=F(\lambda)-\frac{\gamma_{O}}{2\pi}(\lambda +\pi)
+\]
+Ahora
+\[
+\int_{-\pi}^{T} \sen (\lambda t) G_{T^{'}} (\lambda) d\lambda \to \int_{-\pi}^{\pi} \sen (\lambda t) G(\lambda) d\lambda
+\]
+(por el teorema de convergencia dominada (TCD), pues $G_{T^{'}}$ est\'{a} mayorada por una constante y $G_{T^{'}} \to G$, en todo punto de continuidad de G).\newline
+
+Además:
+\[
+\left(1-\frac{t}{T^{'}} \right)\frac{\gamma_{t}}{t}\to \frac{\gamma_{t}}{t}\quad \text{cuando}\quad T^{'}\to \infty
+\]
+Por tanto:
+\[
+\limits F(\lambda)=\frac{\gamma_{O}}{2\pi}(\lambda +\pi) + \frac{1}{\pi}\sum\limits_{t=1}^{\infty} \gamma_{t} \frac{\sen \lambda t}{t}
+\]
+Puesto que F es creciente y de variaci\'{o}n acotada, entonces la serie converge en todo punto de continuidad de F.\newline
+
+Una medida $\mu$ asociada a F se dice, medida central del proceso.
+
+\begin{itemize}
+      \item \textbf{?`Unicidad de } $\mu$ \textbf{?}
+\end{itemize}
+
+En general $\mu$ no es \'{u}nica. Por ejemplo:\newline
+
+Sea $X_{t}=(-1)^{t}X$ con $EX=0$ y $EX^{2}=1$. Se ha visto que $\left(X_{t}\right)$ es d.e. y $\gamma_{t}=\left(-1 \right)^{t}$,  $t\in Z$.\newline
+
+Sea $\mu_{\alpha} =\alpha \delta_{(-\pi)} + (1-\alpha) \delta_{(\pi)}$, con $\alpha \in \left[0, 1\right]$, donde $\delta_{(a)}$ denota a la medida de Dirac en a.\newline
+
+Dado que $\int_{-\pi}^{\pi} sen\lambda t d\mu_{\alpha} (\lambda)=0$ se tiene que:
+\[
+\int_{-\pi}^{\pi} \cos \lambda t d\mu_{\alpha} (\lambda)=\cos \pi t=\left(-1 \right)^{t}\quad\forall \alpha \in \left[0,1 \right],\quad \forall t\in Z
+\]
+
+Por tanto, $\gamma_{t}$ se expresa de la forma requerida, pero hay un n\'{u}mero infinito de medidas centrales; sin embargo, si se exige que la medida sea sim\'{e}trica, se tiene la unicidad. En el ejemplo precedente: 
+\[
+\mu =\frac{1}{2}\left[ {\delta_{\left( {-\pi } \right)} +\delta_{\left( 
+\pi \right)} } \right]
+\]
+
+La funci\'{o}n de repartici\'{o}n $F$ que se ha obtenido es la funci\'{o}n de repartici\'{o}n de una medida sim\'{e}trica sobre $\left] {-\pi,\pi } \right[$. Sea $\mu$ la medida central y se define:
+
+\[
+\nu \left( {\text{A}} \right)=\mu \left( A \right)\quad \forall A\in \beta (\left] {-\pi ,\pi } \right])
+\]
+
+\[
+\nu \left( {-\pi } \right)=\nu \left( \pi \right)=\frac{1}{2}\left[ {\mu \left( {-\pi } \right)+\mu \left( \pi \right)} \right] \quad \left( {\int_{-\pi }^\pi {\cos \lambda t} d\nu \left( \lambda \right)=\int_{-\pi }^\pi {\cos \lambda td\mu \left( \lambda \right)} } \right)
+\]
+
+Entonces, se puede considerar $\mu $ sim\'{e}trica
+
+\begin{itemize}
+\item \textbf{Unicidad de la medida espectral sim\'{e}trica sobre }$\left]-\pi, \pi \right[$
+\end{itemize}
+
+$\int {\cos \lambda t d\nu (t)=\gamma_{t} }$ y $\int {sen\lambda td\nu \left( t \right)=0} $ (conocidos los coeficientes de Fourier).\newline
+
+entonces $\nu$ es conocida sobre los polinomios trigonom\'{e}tricos y por el teorema de Stone-Weierstrass, $\nu $ est\'{a} determinada para las funciones continuas.\newline
+
+\textbf{Teorema 1.6: }Condici\'{o}n suficiente de convergencia c.s.\newline
+
+Sea $\left(X_{t}, t\in Z \right)$ de segundo orden, centrado t.q.
+
+\[
+V\left(X_{t} +\ldots+X_{t+p-1} \right)\leq kp^{\gamma}\quad \text{k=cte;}\quad 0\leq \gamma <2;\quad p=1,2,\ldots; \quad \forall t\in Z
+\]
+
+Entonces: $\bar{{X}}\to 0$ en media cuadr\'{a}tica y casi seguramente 
+
+\textbf{Demostraci\'{o}n:}\newline
+
+Sea $Sn=\sum\limits_{i=1}^n X_{i} \Rightarrow E\left(\frac{Sn}{n} \right)^{2}\leq \frac{kn^{\gamma}}{n^{2}}=\frac{k}{n^{2-\gamma }}\to 0$, existe convergencia en m.c.
+
+\begin{itemize}
+\item Convergencia casi segura:
+\end{itemize}
+
+Sea $k>\frac{1}{2-\gamma },\mathop\nolimits k\in {\rm Z}$ entonces: 
+\[
+P\left[\left|\frac{S_{m^k}}{m^k} \right|\geq \varepsilon \right] \leq \frac{1}{\varepsilon^2} E\left(\frac{S_{m^k} }{m^k} \right)^{2} \leq \frac{1}{\varepsilon^{2} m^{2k}}\bar{k}m^{k\gamma } = \frac{\bar{k}}{\varepsilon^{2}}\frac{1}{m^{k(2-\gamma)}}
+\]
+
+\[
+\sum P\left(\left|\frac{S_{m}^k}{m^k} \right|\geq \varepsilon \right) <\infty 
+\]
+La primera desigualdad se justifica por la desigualdad de Chebyshev.\newline
+
+Por el Teorema de Borel-Cantelli $\frac{S_{m^k} }{m^k}\buildrel {c.s.} \over \longrightarrow 0$.\newline 
+
+Ahora, sea $Y_{m} =\max_{m^k < n\leq (m+1)^k} \left|\frac{S_{n} -S_{m^k}}{n} \right|^2$
+\[
+P\left(Y_{m} \geq \varepsilon \right)\leq \frac{EY_{m} }{\varepsilon}\quad \left( {Y_{m} \geq 0} \right)
+\]
+pero: 
+
+\begin{align*}
+E(Y_{m}) &\leq \frac{E\left(\left|X_{m^{k}+1}\right|+\ldots+\left|X_{(m-1)^k} \right| \right)^2}{m^{2k}}\\
+         &= \frac{1}{m^{2k}}\sum_{j,j^{'}} E\left|X_{j} X_{j^{'}} \right|\\
+         &\leq \frac{1}{m^{2k}}\sum_{j,j^{'}} \sqrt{EX_{j}^{2}} \sqrt{EX_{j^{'}}^{2}} = \frac{1}{m^{2k}}\left(\sum_j \sqrt{EX_{j}^{2}} \right)^{2}\\
+         &\leq \frac{K}{m^{2k}}\left((m+1)^{k}-m^{k} \right)^{2}=K\left[\left(1+\frac{1}{m} \right)^{k}-1\right]^{2}\\
+         &\leq K\left(e^{\frac{k}{m}}-1 \right)^{2}\quad \text{pues}\quad \left(1+\frac{1}{m}\right)^{k}\leq e^{\frac{k}{m}}\\
+         &\leq K\left(\frac{2k}{m}\right)^{2}\quad \text{(m suficientemente grande)}
+\end{align*}
+
+As\'{i} $E\left(Y_{m}\right)\leq \frac{cte}{m^2}$ y por tanto $\sum_m P(Y_{m}\geq \varepsilon) <\infty$ entonces, por el teorema de Borel-Cantelli: $Y_{m} \mathop \to\limits_{m\to \infty }^{c.s.} 0$.\newline
+
+Sea $m=m(n)$ t.q. $\left(m(n) \right)^{k}<n<\left(m(n)+1 \right)^{k}$; $m(n)$ es \'{u}nico y $m(n)\to \infty$ cuando $n\to \infty$; entonces: 
+\[
+Y_{m\left( n \right)} \buildrel {c.s.} \over \longrightarrow 0
+\]
+\[
+\frac{S_{n} }{n}-\frac{S_{m(n)^{k}}}{n}\buildrel {c.s.} \over \longrightarrow 0
+\]
+
+pues: $\frac{S_{m(n)^{k}}}{n}=\frac{S_{m(n)^{k}}}{m(n)^{k}}\ast \frac{m(n)^{k}}{n}\Rightarrow \frac{S_{n}}{n}\buildrel {c.s.} \over \longrightarrow 0$ (dado que $\frac{S_{(m(n))^{k}}}{(m(n))^{k}}\buildrel {c.s.} \over \longrightarrow 0)$.\newline
+
+\textbf{Teorema 1.8:} Sea $(X_{t}, t\in Z)$ d.e, centrado y regular $\left(\sigma^{2}=E\left(X_{t} -\hat{X}_{t} \right)^{2}>0 \right)$.\newline
+
+(Ejercicio: Verificar que $E\left(X_{t} -\hat{X}_{t} \right)^{2}$ no depende de t).\newline
+
+Entonces: $X_{t} =\sum\limits_{j=0}^\infty \lambda_{j} u_{t-j} +v_{t} t\in Z$ donde $(u_{t})$ r.b. (d\'{e}bil) de varianza $\sigma^{2}$, $\lambda_{o} =1$, $\sum\lambda_{j}^{2} <\infty$, $u_{t} \in \mu_{t}$, $u_{t} \bot \mu_{t-1}$, $\left(v_{t} \right)$ centrado, los $u_{t}$ son ortogonales a los $v_{s}$, $v_{t} \in \mathop \cap\limits_{s=0}^{\infty } \mu_{t-s}$ y la descomposici\'{o}n es \'{u}nica.\newline
+
+\textbf{Observaci\'{o}n B.1:} $u_{t} =X_{t} -\hat{X}_{t} \Rightarrow X_{t} =\hat{X}_{t} +u_{t}$. $u_{t}$ se dice la innovaci\'{o}n del proceso y $v_{t}$ la parte determinista del proceso.\newline
+
+\textbf{Demostraci\'{o}n: }\newline
+
+Sea $u_{t} =X_{t} -\hat{X}_{t}$
+
+\begin{itemize}
+\item $\{u_{t} \}$ es centrado, pues $\hat{X}_{t}$ es centrada, por ser proyecci\'{o}n ortogonal sobre un s.e.v. generado por v.a. centradas.
+\item $Eu_{t}^{2} =\sigma^{2}$
+\item $\hat{X}_{t} \in \mu_{t-1} \subset \mu_{t} \Rightarrow u_{t} \in \mu_{t}$
+\item Sea $s<t \quad \left. {\begin{array}{l}
+ u_{t} =X_{t} -\hat{{X}}_{t} \bot \mu_{t-1} \supset \mu_{s} \\ 
+ u_{s} =X_{s} -\hat{{X}}_{s} \in \mu_{s} \\ 
+ \end{array}} \right\} \Rightarrow u_{t} \bot u_{s} $
+\item Consideramos $\left(\frac{\mu_{t} }{\sigma }, t\in Z \right)$, sistema ortonormal de $L^{2}$
+\end{itemize}
+
+Los coeficientes de Fourier de $X_{t} =\sum_{j=0}^{\infty} \lambda_{j} u_{t-j} +\upsilon_{t}, \quad t\in Z$, satisfacen:
+\[
+\left(\int X_{t} \frac{\mu_{t-j}}{\sigma} \right)\frac{\mu_{t-j}}{\sigma}dP=\lambda_{j} u_{t-j} 
+\]
+\[
+\lambda_{j} =\frac{1}{\sigma^{2}}\int X_{t} u_{t-j} dP\quad j=0,1,\ldots
+\]
+
+\begin{align*}
+\lambda_{o} &= \frac{1}{\sigma^{2}}\int X_{t} u_{t} dP\\
+            &= \frac{1}{\sigma^{2}}\int X_{t} \left(X_{t} -\hat{X}_{t}\right)dP\\
+            &= \frac{1}{\sigma^{2}}\int \left(X_{t} -\hat{X}_{t} +\hat{X}_{t} \right)\left(X_{t} -\hat{X}_{t} \right)dP\\
+            &= \frac{1}{\sigma^{2}}\int \left(X_{t} -\hat{X}_{t} \right)^{2}dP+\int \hat{X}_{t} \left(X_{t} -\hat{X}_{t} \right) dP\\
+            &= \frac{1}{\sigma^{2}}\sigma^{2}\\
+            &=1
+\end{align*}
+
+\[\sum\lambda_{j}^{2} <\infty,\quad\text{pues}\quad \sum_{j=0}^{\infty} \lambda_{j}^{2} \leq \left|\left| X_{t} \right|\right|^{2}\]
+
+\begin{itemize}
+\item Consid\'{e}rese $\upsilon_{t} =X_{t} -\sum_{j=0}^{\infty}\lambda_{j} u_{t-j}$. Se va a verificar que $\upsilon_{t} $satisface las propiedades requeridas.
+\item $\upsilon_{t} $ centrada
+\item $\upsilon_{t} \in \mu_{t} $ pues $\left\{ {\begin{array}{l}
+ X_{t} \in \mu_{t} \\ 
+ u_{t-j} \in \mu_{t-j} \subset \mu_{t} \Rightarrow \sum\limits_{j=0}^\infty {\lambda_{j} u_{t-j} \in \mu_{t} } \\ 
+ \end{array}} \right.$
+\item Sea $\upsilon_{t} =\hat{{V}}_{t} +\varepsilon_{t}$, donde $\hat{V}_{t} =P_{r}^{\mu_{t-1} } \upsilon_{t} $
+\end{itemize}
+
+Se desea demostrar que $\varepsilon_{t} =0$. Se va a suponer que $\upsilon_{t} \bot u_{s}$, $s\in Z$.\newline
+
+$\varepsilon_{t} \bot \mu_{t-1}$ y $\varepsilon_{t} \bot u_{t}$ (pues: $\upsilon_{t} \bot \mu_{t}$, $\hat{\upsilon}_{t} \in \mu_{t-1} \bot u_{t} \Rightarrow \hat{\upsilon}_{t} \bot u_{t} )$\newline
+
+$\hat{X}_{t} \in \mu_{t-1}$ y $\varepsilon_{t} \bot \mu_{t-1} \Rightarrow \varepsilon_{t} \bot \hat{X}_{t} \Rightarrow \varepsilon_{t} \bot X_{t} =u_{t} +\hat{X}_{t}$ y $\varepsilon_{t} \bot \mu_{s}$, $s<t$.\newline
+
+Por tanto $\varepsilon_{t} \bot \mu_{t}$; pero $\left(\varepsilon_{t} \bot \mu_{t}, \varepsilon_{t} \in \mu_{t} \right)\Rightarrow \varepsilon_{t} =0\Rightarrow \upsilon_{t} \in \mu_{t-1} $.\newline
+
+Con el mismo razonamiento se constata que $\upsilon_{t} \in \mu_{t-2}$ y así sucesivamente.
+\[
+\upsilon_{t} \in \mathop \cap\limits_{j=0}^{\infty } \mu_{t-j} 
+\]
+
+\begin{itemize}
+      \item Para concluir, demostremos que $\upsilon_{t} \bot u_{s}, s\in Z$.
+\end{itemize}
+
+$u_{t}, u_{t-1},\ldots$ sistema ortogonal, que puede completarse en una base $\left(u_{s}^{'}, s\in Z \right)$ de $L^{2}\left(\Omega, A, P \right)$. Entonces $\upsilon_{t} =\sum\alpha_{s} u_{s}^{'}$.\newline
+
+Si $s\leq t, \upsilon_{t} \bot u_{s}$ pues: $u_{s} \bot \mu_{s-1}$ y $\upsilon_{t} \in \mu_{s-1} \quad \left(v_{t} \in \mathop \cap \limits_{j=0}^{\infty } \mu_{t-j} \right)$.\newline
+
+Si $s>t \quad \left. {\begin{array}{l}
+u_{s} \in \mu_{s}\quad \text{y}\quad u_{s} \bot \mu_{s-1} \\ 
+\mathop\nolimits \mathop\nolimits\limits \upsilon_{t} \in \mu_{t} \subset \mu_{s-1} \\ 
+\end{array}} \right\} \Rightarrow u_{s} \bot \upsilon_{t}$\newline
+
+\textbf{Unicidad:}
+\[
+X_{t} =u_{t} +\underbrace {\left[\sum_{j=1}^{\infty} \lambda_{j} u_{t-j} +v_{t} \right]}_{\in \mu_{t-1}}
+\]
+Puesto que $u_{t} \bot \mu_{t-1}$, el t\'{e}rmino entre corchetes es igual a $\hat{X}_{t}$ y $u_{t} =X_{t} -\hat{X}_{t}$.
+
+
+
+\chapter*{ANEXO B}
 % \label{sec:mylabel2}
-% \section{ANEXO B.1: OPERADORES DE RETARDO Y AVANCE}
+\section{ANEXO B.1: OPERADORES DE RETARDO Y AVANCE}
 % \label{subsec:mylabel3}
-% El operador de retardo B asocia a un proceso $X=\left( {X_{t} ,t\in {\rm Z}} 
-% \right)$ el proceso $\left( {Y_{t} ,t\in Z} \right)$ tal que $Y_{t} =BX_{t} 
-% =X_{t-1} $.
-% 
-% Este operador es lineal; es invertible y su inverso $B^{-1}=F$se define 
-% por$FX_{t} =X_{t+1} $; F se llama operador de avance. Estos operadores 
-% satisfacen:
-% \[
-% \begin{array}{l}
-%  B^{n}X_{t} =X_{t-n} ;\;F^{n}X_{t} =X_{t+n} \quad \quad 
-% n=1,\;2,\mathellipsis \\ 
-%  \left( {\sum\limits_{i=0}^n {a_{i} B^{i}} } \right)X_{t} 
-% =\sum\limits_{i=0}^n {a_{i} X_{t-i} } \\ 
-%  \end{array}
-% \]
-% Esta \'{u}ltima igualdad describe la acci\'{o}n sobre el proceso X de un 
-% polinomio en B. Adem\'{a}s, se define $B^{0}=F^{0}=1$ (operador identidad)
-% 
-% \textbf{SERIES EN B}
-% 
-% De manera m\'{a}s general se pueden definir series con el operador B (o con 
-% F). Para esto, se consideran solamente procesos estacionarios.
-% 
-% Dado un proceso estacionario $X=\left( {X_{t} ,t\in Z} \right)$ y una 
-% sucesi\'{o}n $\left( {a_{i} ,i\in Z} \right)$ absolutamente 
-% convergente$\sum\limits_{i=-\infty }^\infty {\left| {a_{i} } \right|} 
-% <+\infty $, se sabe que el proceso definido por:
-% \[
-% Y_{t} =\sum\limits_{i=-\infty }^\infty {a_{i} X_{t-i} } ,
-% \quad
-% t\in {\rm Z}
-% \]
-% es estacionario. Se denotar\'{a} por: $\sum\limits_{i=-\infty }^\infty 
-% {a_{i} B^{i}} $a la aplicaci\'{o}n que al proceso estacionario X le hace 
-% corresponden al proceso estacionario Y.
-% 
-% Estas series en B tienen propiedades que permiten manejarlas como a las 
-% series enteras habituales. En particular se puede sumarlas y realizar la 
-% composici\'{o}n entre ellas.
-% 
-% \textbf{SUMAS DE SERIES EN B}
-% \[
-% \left( {\sum\limits_{i=-\infty }^\infty {a_{i} B^{i}+\sum\limits_{i=-\infty 
-% }^\infty {\alpha_{i} B^{i}} } } \right)X_{t} =\sum\limits_{i=-\infty 
-% }^\infty {a_{i} B^{i}} X_{t} +\sum\limits_{i=-\infty }^\infty {\alpha_{i} 
-% B^{i}X_{t} } =\sum\limits_{i-\infty }^\infty {a_{i} X_{t-i} 
-% +\sum\limits_{i=-\infty }^\infty {\alpha_{i} } X_{t-i} } 
-% \]
-% \[
-% \begin{array}{l}
-%  =\lim\limits_{m,n\to \infty } \left( {\sum\limits_{-m}^n {a_{i} X_{t-i} 
-% } +\sum\limits_{-m}^n {\alpha_{i} X_{t-i} } } \right) \\ 
-%  =\lim\limits_{m,n\to \infty } \left[ {\sum\limits_{-m}^n {\left( {a_{i} 
-% +\alpha_{i} } \right)X_{t-i} } } \right] \\ 
-%  =\sum\limits_{i=-\infty }^\infty {\left( {a_{i} +\alpha_{i} } 
-% \right)X_{t-i} } \\ 
-%  =\left[ {\sum\limits_{i=-\infty }^\infty {\left( {a_{i} +\alpha_{i} } 
-% \right)B^{i}} } \right]X_{t} \\ 
-%  \end{array}
-% \]
-% pues si cada sucesi\'{o}n es absolutamente convergente la suma de las dos 
-% sucesiones tambi\'{e}n lo ser\'{a}. Fundamentalmente se observa que:
-% \[
-% \sum\limits_{i=-\infty }^\infty {a_{i} B^{i}+\sum\limits_{i=-\infty }^\infty 
-% {\alpha_{i} B_{i} =\sum\limits_{i=-\infty }^\infty {\left( {a_{i} +\alpha 
-% _{i} } \right)B^{i}} } } 
-% \]
-% De la misma manera se puede mostrar que:
-% \[
-% \lambda \sum\limits_{i=-\infty }^\infty {a_{i} B^{i}=} 
-% \sum\limits_{i=-\infty }^\infty {\lambda a_{i} B^{i}} 
-% \]
-% \textbf{COMPOSICI\'{O}N DE SERIES EN B}
-% 
-% \textbf{Propiedad:}
-% \[
-% \left[ {\sum\limits_{j=-\infty }^\infty {\alpha_{j} B^{j}} } \right]\left[ 
-% {\sum\limits_{i=-\infty }^\infty {a_{i} B^{i}} } \right]X_{t} =\lim\limits_{n,m,n\textasciiacute ,m\textasciiacute \to \infty } \left[ 
-% {\sum\limits_{j=-m}^n {\alpha_{j} B^{j}} } \right]\left[ 
-% {\sum\limits_{i=-m\textasciiacute }^{n\textasciiacute } {a_{i} B^{i}} } 
-% \right]X_{t} 
-% \]
-% \textbf{Demostraci\'{o}n:}
-% 
-% Den\'{o}tense por: $S_{n,m} ,S,\tilde{{S}}_{n\textasciiacute 
-% ,m\textasciiacute } ,\tilde{{S}}$ las aplicaciones:
-% \[
-% \sum\limits_{j=-m}^n {\alpha_{j} B^{j},\sum\limits_{j=-\infty }^\infty 
-% {\alpha_{j} B^{j\textasciiacute },\sum\limits_{i=-m\textasciiacute 
-% }^{n\textasciiacute } {a_{i} B^{i},\sum\limits_{i=-\infty }^\infty {a_{i} 
-% B^{i}} } } } 
-% \]
-% Se tiene que:
-% \[
-% \left\| {S\;\tilde{{S}}\;X_{t} -S_{n,m} \tilde{{S}}_{n\textasciiacute 
-% m\textasciiacute } X_{t} } \right\|
-% \le \left\| {S\;\tilde{{S}}\;X_{t} -S_{n,m} \tilde{{S}}X_{t} } 
-% \right\|+\left\| {S_{n,m} \tilde{{S}}X_{t} -S_{n,m} 
-% \tilde{{S}}_{n\textasciiacute ,m\textasciiacute } X_{t} } \right\|
-% \]
-% \[
-% =\left\| {S\left( {\tilde{{S}}\;X_{t} } \right)-S_{n,m} \left( 
-% {\tilde{{S}}X_{t} } \right)} \right\|+\left\| {S_{n,m} \left( 
-% {\tilde{{S}}X_{t} -\tilde{{S}}_{n\textasciiacute m\textasciiacute } X_{t} } 
-% \right)} \right\|
-% \]
-% \[
-% \le \left\| {S\left( {\tilde{{S}}X_{t} } \right)-S_{n,m} \left( 
-% {\tilde{{S}}X_{t} } \right)} \right\|+\left( {\sum\limits_{j=-m}^n {\left| 
-% {\alpha_{j} } \right|} } \right)\left\| {\tilde{{S}}X_{t} 
-% -\tilde{{S}}_{n\textasciiacute m\textasciiacute } X_{t} } \right\|
-% \]
-% \[
-% \le \left\| {S\left( {\tilde{{S}}X_{t} } \right)-S_{n,m} \left( 
-% {\tilde{{S}}X_{t} } \right)} \right\|+\left( {\sum\limits_{j=-\infty 
-% }^\infty {\left| {\alpha_{j} } \right|} } \right)\left\| {\tilde{{S}}X_{t} 
-% -\tilde{{S}}_{n\textasciiacute m\textasciiacute } X_{t} } \right\|
-% \]
-% La propiedad es una consecuencia de:
-% 
-% $S\;Y_{t} =\;\lim\limits_{n,m\to \infty } S_{n,m} \;Y_{t} $ y 
-% $\tilde{{S}}\;X_{t} =\lim\limits_{n\textasciiacute m\textasciiacute \to 
-% \infty } \tilde{{S}}_{n\textasciiacute ,m\textasciiacute } X_{t} $
-% 
-% (l\'{\i}mites en el sentido de $L_{2} )$
-% 
-% \textbf{Corolario:}
-% 
-% La composici\'{o}n de dos series en B es una serie en B.
-% 
-% \textbf{Demostraci\'{o}n:}
-% 
-% $\left[ {\sum\limits_{j=-\infty }^\infty {\alpha_{j} B^{j}} } \right]\left[ 
-% {\sum\limits_{i=-\infty }^\infty {a_{i} B^{i}} } \right]X_{t} =\lim\limits_{n,m,n\textasciiacute m,\to \infty } \left[ {\sum\limits_{j=-m}^n 
-% {\alpha_{j} B^{j}} } \right]\left[ {\sum\limits_{i=-m\textasciiacute 
-% }^{n\textasciiacute } {a_{i} B^{i}} } \right]X_{t} $(l\'{\i}m. en el sentido 
-% L$_{\mathrm{2}})$
-% \[
-% \begin{array}{l}
-%  \quad \quad \;=\lim\limits_{n,m,n\textasciiacute ,m\textasciiacute \to 
-% \infty } \sum\limits_{k=-m-m\textasciiacute }^{n+n\textasciiacute } {\quad 
-% \left[ {\sum\limits_{i=\max \left( {-m\textasciiacute ,k-n} \right)^{a_{i} 
-% }}^{\min \left( {n\textasciiacute ,k+m} \right)} {a_{i} } \alpha_{k-i} } 
-% \right]B^{k}X_{t} } \\ 
-%  \quad \quad \;=\sum\limits_{k=-\infty }^\infty {\left[ 
-% {\sum\limits_{i=-\infty }^\infty {a_{i} \alpha_{k-i} } } \right]B^{k}X_{t} 
-% } \\ 
-%  \end{array}
-% \]
-% puesto que $b_{k} =\sum\limits_{i=-\infty }^\infty {a_{i} \alpha_{k-i} } $ 
-% existe y la serie de t\'{e}rmino general b$_{\mathrm{k}}$ es absolutamente 
-% convergente. La sucesi\'{o}n de los $b_{k} $ es la ``convoluci\'{o}n'' de 
-% las series en $\alpha_{i} \;\text{y\thinspace a}_{\text{j}} .\;$
-% 
-% \textbf{Corolario:}
-% 
-% El producto de series en B es conmutativo:
-% 
-% \textbf{Demostraci\'{o}n:}
-% 
-% En efecto: $\sum\limits_{i=-\infty }^\infty {a_{i} \alpha_{k-i} } 
-% =\sum\limits_{i=-\infty }^\infty {a_{k-i} \alpha_{i} } $.
-% 
-% \section{ANEXO B.2: ECUACIONES EN DIFERENCIAS}
+El operador de retardo B asocia a un proceso $X=\left(X_{t}, t\in Z \right)$ el proceso $\left(Y_{t}, t\in Z \right)$ tal que $Y_{t} =BX_{t} =X_{t-1}$.\newline
+
+Este operador es lineal; es invertible y su inverso $B^{-1}=F$se define por$FX_{t} =X_{t+1} $; F se llama operador de avance. Estos operadores satisfacen:
+\[
+\begin{array}{l}
+ B^{n}X_{t} =X_{t-n};F^{n}X_{t} =X_{t+n} \quad \quad 
+n=1,2,\mathellipsis \\ 
+ \left( {\sum\limits_{i=0}^n {a_{i} B^{i}} } \right)X_{t} 
+=\sum\limits_{i=0}^n {a_{i} X_{t-i} } \\ 
+ \end{array}
+\]
+Esta \'{u}ltima igualdad describe la acci\'{o}n sobre el proceso X de un polinomio en B. Adem\'{a}s, se define $B^{0}=F^{0}=1$ (operador identidad)\newline
+
+\textbf{SERIES EN B}\newline
+
+De manera m\'{a}s general se pueden definir series con el operador B (o con F). Para esto, se consideran solamente procesos estacionarios.\newline
+
+Dado un proceso estacionario $X=\left(X_{t}, t\in Z \right)$ y una sucesi\'{o}n $\left(a_{i}, i\in Z \right)$ absolutamente convergente $\sum_{i=-\infty }^\infty \left|a_{i}\right| <+\infty$, se sabe que el proceso definido por:
+\[
+Y_{t} =\sum\limits_{i=-\infty }^\infty a_{i} X_{t-i},\quad t\in Z
+\]
+es estacionario. Se denotar\'{a} por: $\sum\limits_{i=-\infty}^{\infty} a_{i} B^{i}$ a la aplicaci\'{o}n que al proceso estacionario X le hace corresponden al proceso estacionario Y.\newline
+
+Estas series en B tienen propiedades que permiten manejarlas como a las series enteras habituales. En particular se puede sumarlas y realizar la composici\'{o}n entre ellas.\newline
+
+\textbf{SUMAS DE SERIES EN B}
+
+\begin{align*}
+\left(\sum\limits_{i=-\infty}^{\infty} a_{i}B^{i}+\sum\limits_{i=-\infty}^{\infty} \alpha_{i} B^{i} \right)X_{t} &=\sum\limits_{i=-\infty }^{\infty} a_{i}B^{i} X_{t} +\sum\limits_{i=-\infty}^{\infty} \alpha_{i}B^{i}X_{t}\\
+      &= \sum\limits_{i-\infty}^{\infty} a_{i} X_{t-i} +\sum\limits_{i=-\infty}^{\infty} \alpha_{i} X_{t-i}\\
+      &= \lim\limits_{m,n\to \infty} \left(\sum\limits_{-m}^{n} a_{i}X_{t-i} +\sum\limits_{-m}^{n} \alpha_{i} X_{t-i} \right) \\ 
+      &= \lim\limits_{m,n\to \infty} \left[\sum\limits_{-m}^{n} \left(a_{i} +\alpha_{i} \right)X_{t-i}\right] \\ 
+      &= \sum\limits_{i=-\infty}^{\infty} \left(a_{i} +\alpha_{i} \right)X_{t-i} \\ 
+      &= \left[\sum\limits_{i=-\infty}^{\infty} \left( a_{i} +\alpha_{i}\right)B^{i} \right]X_{t}
+\end{align*}
+
+pues si cada sucesi\'{o}n es absolutamente convergente la suma de las dos sucesiones tambi\'{e}n lo ser\'{a}. Fundamentalmente se observa que:
+\[
+\sum\limits_{i=-\infty}^{\infty} a_{i}B^{i}+\sum\limits_{i=-\infty}^{\infty} \alpha_{i}B_{i} =\sum\limits_{i=-\infty}^{\infty} \left(a_{i} +\alpha_{i} \right)B^{i}
+\]
+De la misma manera se puede mostrar que:
+\[
+\lambda \sum\limits_{i=-\infty}^{\infty} a_{i}B^{i}= \sum\limits_{i=-\infty}^{\infty} \lambda a_{i}B^{i}
+\]
+
+\textbf{COMPOSICI\'{O}N DE SERIES EN B}\newline
+
+\textbf{Propiedad:}
+\[
+\left[\sum_{j=-\infty}^{\infty} \alpha_{j} B^{j} \right]\left[\sum_{i=-\infty}^{\infty} a_{i} B^{i} \right]X_{t} =\lim_{n,m,n^{'},m^{'}\to \infty } \left[\sum_{j=-m}^n \alpha_{j}B^{j} \right]\left[\sum_{i=-m^{'}}^{n^{'}} a_{i} B^{i}\right]X_{t} 
+\]
+
+\textbf{Demostraci\'{o}n:}\newline
+
+Den\'{o}tense por: $S_{n,m}, S,\tilde{S}_{n^{'}, m^{'}} ,\tilde{S}$ las aplicaciones:
+\[
+\sum_{j=-m}^{n} \alpha_{j} B^{j}, \sum_{j=-\infty}^{\infty} \alpha_{j} B^{j^{'}},\sum_{i=-m^{'}}^{n^{'}} a_{i} B^{i}, \sum_{i=-\infty}^{\infty} a_{i} B^{i}
+\]
+Se tiene que:
+
+\begin{align*}
+\left\| S \tilde{S} X_{t} -S_{n,m} \tilde{S}_{n^{'}m^{'}} X_{t} \right\| &\leq \left\| S \tilde{S} X_{t} -S_{n,m} \tilde{S}X_{t} \right\|+\left\| S_{n,m} \tilde{S}X_{t} -S_{n,m} \tilde{S}_{n^{'}, m^{'}} X_{t}  \right\|\\
+      & =\left\|S\left(\tilde{S} X_{t} \right)-S_{n,m} \left(\tilde{S}X_{t} \right)\right\|+\left\| {S_{n,m} \left(\tilde{S}X_{t} -\tilde{{S}}_{n^{'} m^{'} } X_{t}\right) \right\|\\
+      & \leq \left\|S\left(\tilde{S}X_{t} \right)-S_{n,m} \left(\tilde{S}X_{t} \right) \right\|+\left(\sum\limits_{j=-m}^n \left|\alpha_{j} \right| \right)\left\|\tilde{{S}}X_{t} -\tilde{{S}}_{n^{'} m^{'} } X_{t} \right\|\\
+      & \leq \left\|S\left(\tilde{S}X_{t} \right)-S_{n,m} \left(\tilde{S}X_{t}\right) \right\|+\left(\sum_{j=-\infty }^{\infty} \left| \alpha_{j} \right| \right)\left\|\tilde{S}X_{t} -\tilde{S}_{n^{'} m^{'} } X_{t} \right\|
+\end{align*}
+
+La propiedad es una consecuencia de:
+
+\[
+SY_{t} =\lim_{n,m\to \infty} S_{n,m} Y_{t}\quad \text{y}\quad \tilde{S}X_{t} =\lim_{n^{'} m^{'} \to \infty} \tilde{S}_{n^{'}, m^{'}} X_{t}
+\]
+
+(l\'{i}mites en el sentido de $L_{2}$).\newline
+
+\textbf{Corolario:}\newline
+
+La composici\'{o}n de dos series en B es una serie en B.\newline
+
+\textbf{Demostraci\'{o}n:}
+
+\begin{align*}
+\left[\sum_{j=-\infty}^{\infty} \alpha_{j} B^{j} \right]\left[\sum_{i=-\infty}^{\infty} a_{i} B^{i} \right]X_{t} &= \lim_{n,m,n^{'} m^{'}\to \infty} \left[\sum_{j=-m}^n \alpha_{j}B^{j} \right]\left[\sum_{i=-m^{'}}^{n^{'}} a_{i}B^{i} \right]X_{t}\quad  \text{(l\'{i}m. en el sentido $L_{2}$)}\\
+      &= \lim_{n,m,n^{'},m^{'} \to \infty} \sum_{k=-m-m^{'}}^{n+n^{'}} \left[\sum_{i=\max(-m^{'}, k-n)}^{\min (n^{'},k+m)} a_{i} \alpha_{k-i}\right]B^{k}X_{t}\\
+      &= \sum_{k=-\infty}^{\infty}\left[\sum_{i=-\infty}^{\infty} a_{i} \alpha_{k-i} \right]B^{k}X_{t}
+\end{align*}
+
+puesto que $b_{k} =\displaystyle\sum_{i=-\infty}^{\infty} a_{i}\alpha_{k-i}$ existe y la serie de t\'{e}rmino general $b_{k}$ es absolutamente convergente. La sucesi\'{o}n de los $b_{k}$ es la ``convoluci\'{o}n'' de las series en $\alpha_{i}$ y $a_{j}$.\newline
+
+\textbf{Corolario:}\newline
+
+El producto de series en B es conmutativo:\newline
+
+\textbf{Demostraci\'{o}n:}\newline
+
+En efecto: $\sum\limits_{i=-\infty }^\infty {a_{i} \alpha_{k-i} } =\sum\limits_{i=-\infty }^\infty {a_{k-i} \alpha_{i} } $.\newline
+
+\section*{ANEXO B.2: ECUACIONES EN DIFERENCIAS}
 % \label{subsec:mylabel4}
-% Consid\'{e}rese la ecuaci\'{o}n lineal homog\'{e}nea en diferencias
-% 
-% $x_{t} -\varphi_{1} x_{t-1} -\varphi_{2} x_{t-2} -\mathellipsis -\varphi 
-% _{k} x_{t-k} =0$ (B.2.1)
-% 
-% Se va a demostrar que su soluci\'{o}n general es:
-% 
-% $x_{t} =A_{1} G_{1}^{t} +\mathellipsis +A_{k} G_{k}^{t} $ (B.2.2)
-% 
-% donde las $A_{1} ,\mathellipsis ,A_{k} $ son constantes que dependen de las 
-% condiciones iniciales y $G_{1} ,\mathellipsis G_{k} $ son las ra\'{\i}ces de 
-% la ecuaci\'{o}n
-% 
-% $y^{k}-\varphi_{1} y^{k-1}-\mathellipsis -\varphi_{k} =0$ (B.2.3)
-% 
-% que se suponen son distintas. Para demostrar este resultado, sustit\'{u}yase 
-% (B.2.2) en (B.2.1):
-% \[
-% \sum {A_{i} G_{i}^{t} -\varphi_{1} \sum {A_{i} G_{i}^{t-1} -\mathellipsis 
-% -\varphi_{k} \sum {A_{i} G_{i}^{t-k} } =\sum\limits_{i=1}^k {A_{i} 
-% G_{i}^{t-k} \left( {G_{i}^{k} -\varphi_{1} G_{i}^{k-1} -\mathellipsis 
-% -\varphi_{k} } \right)=0} } } 
-% \]
-% Con esto se ha demostrado que si $G_{i} $ satisface (B.2.3), entonces la 
-% soluci\'{o}n (B.2.2) satisface (B.2.1). Obs\'{e}rvese adem\'{a}s que para 
-% que $x_{t} $ tienda a cero cuando $t\to \infty ,G_{i}^{t} $ debe tender a 
-% cero, lo que requiere que el valor absoluto de todas las soluciones de 
-% (B.2.3) sea menor a la unidad. 
-% 
-% Las expresiones anteriores pueden escribirse introduciendo el operador $B$de 
-% retardo, definido por $(B^{0}X_{t} =1;B^{k}X_{t} =X_{t-k} 
-% ,k=1,\;2,\mathellipsis )$. Entonces la ecuaci\'{o}n en diferencias (B.2.1) 
-% se expresa
-% \[
-% \left( {1-\varphi_{1} B-\mathellipsis -\varphi_{k} B^{k}} \right)x_{t} =0
-% \]
-% y se denomina \textit{ecuaci\'{o}n caracter\'{\i}stica} de la ecuaci\'{o}n en diferencias a:
-% 
-% $1-\varphi_{1} B-\mathellipsis -\varphi_{k} B^{k}=0$ (B.2.4)
-% 
-% N\'{o}tese que: $y^{k}-\varphi_{1} y^{k-1}-\mathellipsis -\varphi_{k} 
-% =0\Leftrightarrow y^{k}\left( {1-\varphi_{1} y^{-1}-\mathellipsis -\varphi 
-% _{k} y^{-k}} \right)=0$ 
-% 
-% As\'{\i}, si $G_{i} $ satisface (B.2.3)entonces $G_{i}^{-1} $ es la 
-% soluci\'{o}n de la ecuaci\'{o}n caracter\'{\i}stica (B.2.4). La soluci\'{o}n 
-% (B.2.2) se expresa habitualmente indicando que $G_{1}^{-1} ,\mathellipsis 
-% ,G_{k}^{-1} $ son las ra\'{\i}ces de la ecuaci\'{o}n caracter\'{\i}stica.
-% 
-% Cuando dos ra\'{\i}ces de (B.2.4) \'{o} (B.2.3) son iguales los dos 
-% t\'{e}rminos $A_{i} G_{i}^{t} $ correspondientes pueden escribirse como 
-% $\left( {A_{1} +A_{2} t} \right)G^{t}$. Para demostrarlo, sup\'{o}ngase el 
-% caso m\'{a}s simple, con una ra\'{\i}z doble en la ecuaci\'{o}n:
-% 
+Consid\'{e}rese la ecuaci\'{o}n lineal homog\'{e}nea en diferencias
+
+\begin{equation}{
+\label{ecu:01}
+x_{t} -\varphi_{1} x_{t-1} -\varphi_{2} x_{t-2} -\mathellipsis -\varphi _{k} x_{t-k} =0}
+\end{equation}
+
+Se va a demostrar que su soluci\'{o}n general es:
+\begin{equation}{
+\label{ecu:02}
+x_{t} =A_{1} G_{1}^{t} +\mathellipsis +A_{k} G_{k}^{t}}
+\end{equation}
+
+donde las $A_{1},\ldots, A_{k}$ son constantes que dependen de las condiciones iniciales y $G_{1},\ldots,G_{k}$ son las soluciones de la ecuaci\'{o}n
+
+\begin{equation}{
+\label{ecu:03}
+y^{k}-\varphi_{1} y^{k-1}-\mathellipsis -\varphi_{k}=0}
+\end{equation}
+
+que se supone son distintas. Para demostrar este resultado, sustit\'{u}yase (\ref{ecu:02}) en (\ref{ecu:01}):
+\[
+\sum {A_{i} G_{i}^{t} -\varphi_{1} \sum {A_{i} G_{i}^{t-1} -\mathellipsis -\varphi_{k} \sum {A_{i} G_{i}^{t-k} } =\sum\limits_{i=1}^k {A_{i} G_{i}^{t-k} \left( {G_{i}^{k} -\varphi_{1} G_{i}^{k-1} -\mathellipsis -\varphi_{k} } \right)=0} } } 
+\]
+
+Con esto se ha demostrado que si $G_{i}$ satisface (\ref{ecu:03}), entonces la soluci\'{o}n (\ref{ecu:02}) satisface (\ref{ecu:01}). Obs\'{e}rvese adem\'{a}s que para que $x_{t}$ tienda a cero cuando $t\to \infty$, $G_{i}^{t}$ debe tender a cero, lo que requiere que el valor absoluto de todas las soluciones de (\ref{ecu:03}) sea menor a la unidad. 
+
+Las expresiones anteriores pueden escribirse introduciendo el operador $B$ de retardo, definido por $(B^{0}X_{t} =1; B^{k}X_{t} =X_{t-k}, k=1,2,\ldots)$. Entonces la ecuaci\'{o}n en diferencias (\ref{ecu:01}) se expresa
+\[
+\left( {1-\varphi_{1} B-\mathellipsis -\varphi_{k} B^{k}} \right)x_{t} =0
+\]
+y se denomina \textit{ecuaci\'{o}n caracter\'{i}stica} de la ecuaci\'{o}n en diferencias a:
+\begin{equation}{
+\label{ecu:04}
+1-\varphi_{1} y-\mathellipsis -\varphi_{k} y^{k}=0}
+\end{equation}
+
+N\'{o}tese que: $y^{k}-\varphi_{1} y^{k-1}-\mathellipsis -\varphi_{k} =0\Leftrightarrow y^{k}\left( {1-\varphi_{1} y^{-1}-\mathellipsis -\varphi_{k} y^{-k}} \right)=0$
+
+As\'{i}, si $G_{i}$ satisface (\ref{ecu:03}) entonces $G_{i}^{-1}$ es la soluci\'{o}n de la ecuaci\'{o}n caracter\'{i}stica (\ref{ecu:04}). La soluci\'{o}n (\ref{ecu:02}) se expresa habitualmente indicando que $G_{1}^{-1},\ldots,G_{k}^{-1}$ son las ra\'{i}ces de la ecuaci\'{o}n caracter\'{i}stica.\newline
+
+Cuando dos ra\'{i}ces de (\ref{ecu:04}) o (\ref{ecu:03}) son iguales los dos t\'{e}rminos $A_{i} G_{i}^{t} $ correspondientes pueden escribirse como $\left( {A_{1} +A_{2} t} \right) G_{i}^{t}$. Para demostrarlo, sup\'{o}ngase el caso m\'{a}s simple, con una ra\'{i}z doble en la ecuaci\'{o}n:
+
 % $x_{t} -\varphi_{1} x_{t-1} -\varphi_{2} x_{t-2} =0$ (B.2.5)
 % 
 % cuya ecuaci\'{o}n caracter\'{\i}stica es:
