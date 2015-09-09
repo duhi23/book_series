@@ -13,7 +13,7 @@ Sea el proceso estoc\'{a}stico $\left( {X_{t} } \right)_{t\in T}$, definido sobr
 
 Un proceso estoc\'{a}stico es una aplicaci\'{o}n $X$:
 \[
-X: (\Omega ,A ,P) \quad \to\limits (E^{T}, S ,P_{X} )
+X: (\Omega ,A ,P) \quad \to\quad (E^{T}, S ,P_{X} )
 \]
 \[
 w\to \left( {X_{t} \left( w \right),t\in T} \right)
@@ -29,7 +29,7 @@ X_{t} =\pi_{t} \circ X\Rightarrow \forall \quad B\in \beta,\quad X_{t}^{-1} \lef
 Pero los conjuntos $\pi_{t}^{-1} (B)$ generan S y $X_{t}^{-1} (B)\in A$, por lo cual $X^{-1} (\pi_{t}^{-1} (B))\in A$.
       
       \item $\left( {\pi_{t}, t\in T} \right)$ se dice el proceso can\'{o}nico asociado a $\left( {X_{t}, t\in T} \right)$.
-      \item Leyes de dimensi\'{o}n finita son aquellas de $\left( {X_{t_{1} } ,\ldots, X_{t_{k} } } \right), k=1,2,\ldots;t_{1},\ldots,t_{k} \in T$
+      \item Leyes de dimensi\'{o}n finita son aquellas de $\left( {X_{t_{1} } ,\ldots, X_{t_{k} } } \right), k=1,2, \ldots;t_{1},\ldots,t_{k} \in T$
 \end{itemize}
 
 A continuaci\'{o}n se presentan dos resultados importantes, cuyas demostraciones se admiten.\newline
@@ -73,7 +73,7 @@ $I_{T}(\lambda)$ se llama el periodograma.\newline
 Se puede observar que:
 \begin{align*}
 I_{T} \left( \lambda \right) & = \frac{1}{2\pi T}\left| {\sum\limits_{t=1}^T {X_{t} e^{i\lambda t}} } \right|^{2}\ge 0\\
-                             & = \frac{1}{2\pi T}\sum\limits_{1\le s,t\le T} {X_{s} X_{t} \cos ( t-s)} \quad \text{pues}\quad \limits \sum\limits_{1\le s,t\le T}^ {X_{s} X_{t} } sen\lambda (t-s)=0
+                             & = \frac{1}{2\pi T}\sum\limits_{1\le s,t\le T} {X_{s} X_{t} \cos ( t-s)} \quad \text{pues}\quad \sum_{1\le s,t\le T}^{X_{s} X_{t} } sen\lambda (t-s)=0
 \end{align*}
 
 Se considera ahora: 
@@ -101,8 +101,7 @@ As\'{i}, si $\mu_{T}$ es la medida asociada a $F_{T}$, entonces $\forall \phi$ c
 
 As\'{i}, tomando $\varphi \left( \lambda \right)=\cos \lambda t$, se tiene que:
 \[
-\int\limits_{\left[-\pi,\pi \right]} \cos (\lambda t)\limits d\mu_{T^{'}} (\lambda)= \int\limits_{\left[-\pi, \pi\right]} \cos (\lambda t) f_{T^{'}} (\lambda 
-)d\lambda 
+\int_{\left[-\pi,\pi \right]} \cos (\lambda t) d\mu_{T^{'}} (\lambda)= \int_{\left[-\pi, \pi\right]} \cos (\lambda t) f_{T^{'}} (\lambda ) d\lambda 
 \]
 pero 
 \[\int\limits_{\left[ {-\pi ,\pi } \right]} \cos (\lambda t) d\mu_{T^{'}} (\lambda)\to \int\limits_{\left[-\pi, \pi \right]} \cos (\lambda t) d\mu (\lambda)\quad \text{cuando}\quad T^{'}\to \infty \]
@@ -134,7 +133,7 @@ Además:
 \]
 Por tanto:
 \[
-\limits F(\lambda)=\frac{\gamma_{O}}{2\pi}(\lambda +\pi) + \frac{1}{\pi}\sum\limits_{t=1}^{\infty} \gamma_{t} \frac{\sen \lambda t}{t}
+F(\lambda)=\frac{\gamma_{O}}{2\pi}(\lambda +\pi) + \frac{1}{\pi}\sum_{t=1}^{\infty} \gamma_{t} \frac{\sen \lambda t}{t}
 \]
 Puesto que F es creciente y de variaci\'{o}n acotada, entonces la serie converge en todo punto de continuidad de F.\newline
 
@@ -199,7 +198,7 @@ Sea $Sn=\sum\limits_{i=1}^n X_{i} \Rightarrow E\left(\frac{Sn}{n} \right)^{2}\le
 \item Convergencia casi segura:
 \end{itemize}
 
-Sea $k>\frac{1}{2-\gamma },\mathop\nolimits k\in {\rm Z}$ entonces: 
+Sea $k>\frac{1}{2-\gamma}$, $k\in Z$ entonces: 
 \[
 P\left[\left|\frac{S_{m^k}}{m^k} \right|\geq \varepsilon \right] \leq \frac{1}{\varepsilon^2} E\left(\frac{S_{m^k} }{m^k} \right)^{2} \leq \frac{1}{\varepsilon^{2} m^{2k}}\bar{k}m^{k\gamma } = \frac{\bar{k}}{\varepsilon^{2}}\frac{1}{m^{k(2-\gamma)}}
 \]
@@ -311,10 +310,10 @@ $u_{t}, u_{t-1},\ldots$ sistema ortogonal, que puede completarse en una base $\l
 
 Si $s\leq t, \upsilon_{t} \bot u_{s}$ pues: $u_{s} \bot \mu_{s-1}$ y $\upsilon_{t} \in \mu_{s-1} \quad \left(v_{t} \in \mathop \cap \limits_{j=0}^{\infty } \mu_{t-j} \right)$.\newline
 
-Si $s>t \quad \left. {\begin{array}{l}
+Si $s>t \quad \left. \begin{array}{l}
 u_{s} \in \mu_{s}\quad \text{y}\quad u_{s} \bot \mu_{s-1} \\ 
-\mathop\nolimits \mathop\nolimits\limits \upsilon_{t} \in \mu_{t} \subset \mu_{s-1} \\ 
-\end{array}} \right\} \Rightarrow u_{s} \bot \upsilon_{t}$\newline
+\mathop \mathop \upsilon_{t} \in \mu_{t} \subset \mu_{s-1} \\ 
+\end{array} \right\} \Rightarrow u_{s} \bot \upsilon_{t}$\newline
 
 \textbf{Unicidad:}
 \[
@@ -470,457 +469,383 @@ As\'{i}, si $G_{i}$ satisface (\ref{ecu:03}) entonces $G_{i}^{-1}$ es la soluci\
 
 Cuando dos ra\'{i}ces de (\ref{ecu:04}) o (\ref{ecu:03}) son iguales los dos t\'{e}rminos $A_{i} G_{i}^{t} $ correspondientes pueden escribirse como $\left( {A_{1} +A_{2} t} \right) G_{i}^{t}$. Para demostrarlo, sup\'{o}ngase el caso m\'{a}s simple, con una ra\'{i}z doble en la ecuaci\'{o}n:
 
-% $x_{t} -\varphi_{1} x_{t-1} -\varphi_{2} x_{t-2} =0$ (B.2.5)
-% 
-% cuya ecuaci\'{o}n caracter\'{\i}stica es:
-% 
-% $\left( {1-\varphi_{1} B-\varphi_{2} B^{2}} \right)=0$ (B.2.6)
-% 
-% Si existe una ra\'{\i}z doble en esta ecuaci\'{o}n, $G_{0}^{-1} ,$ se 
-% verifica:
-% \[
-% \left( {1-G_{0} B} \right)^{2}=\left( {1-\varphi_{1} B-\varphi_{2} B^{2}} 
-% \right)
-% \]
-% que implica $\varphi_{2} =-G_{0}^{2} ;\;\varphi_{1} =2G_{0} $ y por tanto:
-% 
-% $\varphi_{1} G_{0} +2\varphi_{2} =0$ (B.2.7)
-% 
-% Adem\'{a}s si $G_{0}^{t} $ es una soluci\'{o}n doble de (B.2.5) tambi\'{e}n 
-% debe serlo $tG_{0}^{t} $. Pues sustituyendo en (B.2.5):
-% \[
-% tG_{0}^{t} -\varphi_{1} \left( {t-1} \right)G_{0}^{t-1} -\varphi_{2} 
-% \left( {t-2} \right)G_{0}^{t-2} =tG_{0}^{t-2} \left( {G_{0}^{2} -\varphi 
-% _{1} G_{0} -\varphi_{2} } \right)+G_{0}^{t-2} \left( {\varphi_{1} G_{0} 
-% +2\varphi_{2} } \right)=0
-% \]
-% El primer t\'{e}rmino es cero por ser $G_{0} $ soluci\'{o}n y el segundo por 
-% ser ra\'{\i}z de orden 2, con lo que se concluye que la soluci\'{o}n general 
-% es:
-% \[
-% x_{t} =A_{1} G_{o}^{t} +A_{2} tG_{o}^{t} =\left( {A_{1} +A_{2} t} 
-% \right)G_{0}^{t} 
-% \]
-% An\'{a}logamente se puede demostrar que si la ra\'{\i}z $G_{0} $ es 
-% m\'{u}ltiple, de orden $h$, la soluci\'{o}n general es:
-% 
-% $x_{t} =\left( {A_{1} +A_{2} t+\mathellipsis +A_{h} t^{h-1}} \right)G_{0}^{t} 
-% $ (B.2.8)
-% 
-% Para estudiar el comportamiento de las ra\'{\i}ces complejas de la 
-% ecuaci\'{o}n caracter\'{\i}stica, consid\'{e}rese el caso simple determinado 
-% por las ecuaciones (B.2.5) y (B.2.6).
-% 
-% Sup\'{o}ngase que $G_{1}^{-1} $ y $G_{2}^{-1} $ son soluciones distintas de 
-% la ecuaci\'{o}n caracter\'{\i}stica
-% \[
-% \left( {1-\varphi_{1} B-\varphi_{2} B^{2}} \right)=\left( {1-G_{1} B} 
-% \right)\left( {1-G_{2} B} \right)=0
-% \]
-% Por tanto, $\varphi_{1} =G_{1} +G_{2} ;\varphi_{2} =-G_{1} G_{2} .$ Se 
-% calculan $A_{1} $ y $A_{2} ,$ imponiendo las condiciones iniciales $\rho 
-% _{0} =1;\;\rho_{1} =\varphi_{1} \left( {1-\varphi_{2} } \right)=\left( 
-% {G_{1} +G_{2} } \right)/\left( {1+G_{1} G_{2} } \right)$. Se obtiene:
-% \[
-% A_{1} =\frac{G_{1} \left( {1-G_{2}^{2} } \right)}{\left( {1+G_{1} G_{2} } 
-% \right)\left( {G_{1} -G_{2} } \right)};\quad A_{2} =\frac{-G_{2} \left( 
-% {1-G_{1}^{2} } \right)}{\left( {1+G_{1} G_{2} } \right)\left( {G_{1} -G_{2} 
-% } \right)}
-% \]
-% Sup\'{o}ngase adem\'{a}s que $G_{1} $ y $G_{2} $ son complejas; entonces 
-% deben ser conjugadas y pueden escribirse $G_{1} =r\;\exp \left( {i\varpi } 
-% \right);\;G_{2} =r\;\exp \left( {-i\varpi } \right),$ donde el m\'{o}dulo se 
-% calcula por:
-% 
-% $\begin{array}{l}
-%  r^{2}=G_{1} G_{2} =-\varphi_{2} \\ 
-%  r=\sqrt {-\varphi_{2} .} \\ 
-%  \end{array}$ (B.2.9)
-% 
-% y la frecuencia angular con:
-% \[
-% \varphi_{1} =G_{1} +G_{2} =r\left( {\exp \left( {i\varpi } \right)+\exp 
-% \left( {-i\varpi } \right)} \right)=2r\;Cos\;\varpi 
-% \]
-% Utilizando que $\varpi =2\pi /T_{0} ,$ donde $T_{0} $ es el per\'{\i}odo, y 
-% (B.2.9), se obtiene:
-% 
-% $Cos\;\varpi =Cos\frac{2\pi }{T_{0} }=\frac{\varphi_{1} }{2\sqrt {-\varphi 
-% _{2} } }$ (B.2.10)
-% 
-% Sustituyendo $A_{1} ,A_{2} ,G_{1} \;\text{y}\;G_{2} $ en la ecuaci\'{o}n 
-% (B.2.2) y operando, se obtiene:
-% \[
-% x_{t} =\frac{\left[ {sg\left( {\varphi_{1} } \right)} 
-% \right]^{t}r^{t}sen\left( {2\pi t/T_{0} +\alpha } \right)}{sen\alpha }
-% \]
-% Donde $tg\;\alpha =\left( {1+r^{2}} \right)\;tg\left( {2\pi /T_{0} } 
-% \right)/\left( {1-r^{2}} \right)\;\text{y}\;sg\left( {\varphi_{1} } 
-% \right)$ es el signo del coeficiente $\varphi_{1} .$ Por tanto $X^{t}$ 
-% ser\'{a} una senoide amortiguada con factor de amortiguaci\'{o}n $r$ y 
-% per\'{\i}odo $T_{0} $. 
-% 
-% Por tanto, la soluci\'{o}n general de (B.2.1) tendr\'{a}: 
-% 
-% \begin{itemize}
-% \item Por cada ra\'{\i}z real no repetida un t\'{e}rmino del tipo $A_{i} G_{i}^{t} ;$ 
-% \item Por cada ra\'{\i}z real $G_{0} $ repetida $h$ veces un t\'{e}rmino polin\'{o}mico de orden $\left( {h-1} \right)$ en la variable $t$ que multiplica a $G_{0}^{t} $ (ecuaci\'{o}n 2.B.8);
-% \item Por cada par de ra\'{\i}ces complejas conjugadas un t\'{e}rmino sinusoidal.
-% \end{itemize}
-% 
-% \section{ANEXO B.3: DEMOSTRACIONES DE ALGUNOS TEOREMAS}
-% \label{subsec:mylabel5}
-% \textbf{Teorema 2.2: }Una condici\'{o}n necesaria y suficiente para 
-% que exista un AR(p) que satisfaga $\pi^{'}\left( B \right)X_{t} =u_{t} $ es 
-% que las ra\'{\i}ces de la ecuaci\'{o}n $\pi^{'}\left( z \right)=0$ se 
-% encuentren fuera del c\'{\i}rculo unidad. Bajo esta condici\'{o}n.
-% \[
-% X_{t} =\sum\limits_{j=0}^\infty {\psi_{j} u_{t-j} } ,
-% \quad
-% t\in {\rm Z}
-% \]
-% donde los $\psi_{j} $, son los coeficientes de Taylor de $\frac{1}{\pi 
-% ^{'}\left( z \right)}$
-% 
-% \textbf{Demostraci\'{o}n:}
-% 
-% \begin{itemize}
-% \item \textbf{Condici\'{o}n Necesaria} 
-% \end{itemize}
-% 
-% Sean
-% \[
-% y_{t} =\left( {\begin{array}{l}
-%  X_{t} \\ 
-%  X_{t-1} \\ 
-%  \vdots \\ 
-%  X_{t-p+1} \\ 
-%  \end{array}} \right)
-% \quad
-% \delta_{t} =\left( {\begin{array}{l}
-%  u_{t} \\ 
-%  0 \\ 
-%  \vdots \\ 
-%  0 \\ 
-%  \end{array}} \right)
-% \quad
-% P=\left[ {\begin{array}{l}
-%  \pi_{1} ..............\pi_{p} \\ 
-%  \mathop\nolimits I_{p-1} \mathop\nolimits \mathop\nolimits 
-% 0\limits_{{\begin{array}{l}
-%  \vdots \\ 
-%  0 \\ 
-%  \end{array}}} \\ 
-%  \end{array}} \right]
-% \]
-% Entonces$y_{t} =Py_{t-1} +\delta_{t} $
-% 
-% Sean: $\Gamma \quad =$ matriz de covarianza de $y_{t} $ y $\Delta =$matriz de 
-% covarianza de $\delta_{t} $
-% \[
-% \Delta =
-% \left[ {{\begin{array}{*{20}c}
-%  {\sigma^{2}} \hfill & 0 \hfill & 0 \hfill \\
-%  {0\limits_{\vdots } } \hfill & {\limits_{0} } \hfill & \hfill \\
-%  0 \hfill & \hfill & \hfill \\
-% \end{array} }} \right]
-% \]
-% Puesto que $\delta_{t} \bot y_{t-1} , \quad \Gamma \quad =P\Gamma P^{'}+\Delta $ 
-% (pues $\left( {X_{t} } \right)$ d.e)
-% 
-% Sea $\phi \left( \lambda \right)$ el polinomio caracter\'{\i}stico de P:
-% \[
-% \quad
-% \phi \left( \lambda \right)=\left[ {{\begin{array}{*{20}c}
-%  {\pi_{1} -\lambda } \hfill & {\pi_{2} } \hfill & {\pi_{3} } \hfill & 
-% \mathellipsis \hfill & \hfill & {\pi_{p} } \hfill \\
-%  1 \hfill & {-\lambda } \hfill & 0 \hfill & \hfill & \hfill & \hfill \\
-%  \hfill & 1 \hfill & {-\lambda } \hfill & \hfill & 0 \hfill & \hfill \\
-%  {\limits^{0} } \hfill & \hfill & \hfill & \hfill & 1 \hfill & {-\lambda } 
-% \hfill \\
-% \end{array} }} \right]
-% \]
-% $=\limits^{ind.} \left( {-1} \right)^{p-1}
-% [-1+\sum\limits_{j=1}^P {\pi_{j} \left. {\lambda^{-j}} \right]} \lambda 
-% ^{P}$ (desarrollando por la 1\textordfeminine l\'{\i}nea).
-% 
-% Las ra\'{\i}ces $\left( {\ne 0} \right)$ de $\phi \left( \lambda \right)$son 
-% l as ra\'{\i}ces de $\left[ {-1+\sum\limits_{j=1}^P {\pi_{j} \lambda^{-j}} 
-% } \right]\lambda^{P}$; es decir, aquellas de $\pi^{'}\left( 
-% {\frac{1}{\lambda }} \right)=0$. Entonces los valores propios (v.p.) de 
-% \textbf{\textit{P}} son los inversos de las ra\'{\i}ces de $\pi^{'}$; vamos 
-% a demostrar que estos son de $\left\| \right\|<1$. 
-% 
-% Sea $X$ un vector propio de $P^{'}$ y $\lambda $ el v.p. asociado (Recordamos 
-% que: $X^{\ast }=\overline X^{'}yX^{\ast }P=\overline \lambda X^{\ast 
-% })$; entonces
-% \[
-% 0\le X^{\ast }\Delta X=X^{\ast }\Gamma X-X^{\ast }P\Gamma P^{'}X
-% \]
-% \[
-% \begin{array}{l}
-%  \le \left( {1-\left| \lambda \right|^{2}} \right)\underbrace {X\ast \Gamma 
-% X}_{\ge 0} \\ 
-%  \left| \lambda \right|^{2}\le 1 \\ 
-%  \end{array}
-% \]
-% Sup\'{o}ngase que existe $\lambda $ valor propio de $P^{'}$ t.q. $\left| 
-% \lambda \right|=1\Rightarrow X^{\ast }\Delta X=0$
-% 
-% Sea $X=\left( {\begin{array}{l}
-%  x_{1} \\ 
-%  x_{2} \\ 
-%  \vdots \\ 
-%  x_{p} \\ 
-%  \end{array}} \right)\Rightarrow X^{\ast }\Delta X=\sigma^{2}\left| 
-% {x_{1} } \right|^{2}\Rightarrow x_{1} =0$
-% 
-% Por tanto:
-% \[
-% P^{'}X=\left[ {{\begin{array}{*{20}c}
-%  {\pi_{1} } \hfill & 1 \hfill & 0 \hfill & \cdots \hfill & 0 \hfill \\
-%  {\pi_{2} } \hfill & 0 \hfill & 1 \hfill & \cdots \hfill & 0 \hfill \\
-%  \mathellipsis \hfill & \cdots \hfill & \cdots \hfill & \cdots \hfill & 
-% \cdots \hfill \\
-%  \cdots \hfill & \cdots \hfill & \cdots \hfill & \cdots \hfill & \cdots 
-% \hfill \\
-% \end{array} }} \right]\left[ {{\begin{array}{*{20}c}
-%  {\begin{array}{l}
-%  0 \\ 
-%  x_{2} \\ 
-%  x_{3} \\ 
-%  \vdots \\ 
-%  \end{array}} \hfill \\
-% \end{array} }} \right]=\lambda \left[ {\begin{array}{l}
-%  0 \\ 
-%  x_{2} \\ 
-%  \vdots \\ 
-%  \end{array}} \right]\Rightarrow x_{2} =0
-% \]
-% continuando con la 2\textordfeminine l\'{\i}nea se obtiene $x_{3} =0$ etc. 
-% $\Rightarrow X=0$ (una contradicci\'{o}n, pues un vector propio no puede ser 
-% nulo).
-% \[
-% \left| \lambda \right|<1
-% \]
-% \begin{itemize}
-% \item \textbf{Condici\'{o}n Suficiente}
-% \end{itemize}
-% 
-% Sea $\left( {u_{t} } \right)$ el r.b. y sea $\pi^{'}$ dado. Se busca 
-% construir el proceso AR (p).
-% 
-% $\frac{1}{\pi^{'}\left( z \right)}$ es holomorfa en $\left| z 
-% \right|<1+\alpha $ ($\alpha $\textgreater 0, bien elegido)
-% 
-% Consid\'{e}rese el desarrollo de Taylor de $\frac{1}{\pi^{'}\left( z 
-% \right)}$:
-% \[
-% \frac{1}{\pi^{'}\left( z \right)}=\sum\limits_{j=0}^\infty {\psi_{j} 
-% z^{j}} ,
-% \quad
-% \left| z \right|<1+\alpha 
-% \]
-% (la serie converge en todo c\'{\i}rculo cerrado contenido en $B\left( 
-% {0,1+\alpha } \right)\left. \right)$
-% 
-% Para $\left| z \right|=1,\limits \sum\limits_{j=0}^\infty {\left| {\psi 
-% _{j} } \right|<\infty } $. Se pone: $X_{t} =\sum\limits_{j=0}^\infty {\psi 
-% _{j} u_{t-j} } $ y luego se considera $X_{t} -\sum\limits_{j=1}^P {\pi_{j} 
-% X_{t-j} =u_{t} } $.
-% 
-% Se hacen los reemplazos correspondientes y se verifica que este proceso 
-% satisface la definici\'{o}n (c\'{a}lculos un poco largos).
-% 
-% \textbf{Teorema 2.5: }Se tiene que 
-% $X_{t}=m_{t}+Y_{t\thinspace ,\thinspace \thinspace \thinspace 
-% \thinspace }\forall t\ge -s+1_{\thinspace ,\thinspace }$donde: 
-% 
-% \begin{enumerate}
-% \item $m_{t} $es la soluci\'{o}n de $\phi (B)X_{t} =0$ con $X_{-s+1} ,.....,X_{-s+p^{'}} $ como valores iniciales (v.i.)
-% \item $Y_{t} =\left\{ {\begin{array}{l}
-%  \sum\limits_{i=0}^{t+s-p^{'}-1} {\psi_{i} u_{t-i} \mathop\nolimits \mathop\nolimits t\ge -s+p^{'}+1} \\ 
-%  0\mathop\nolimits \mathop\nolimits \mathop\nolimits \mathop\nolimits \mathop\nolimits \mathop\nolimits\limits -s+1<t<-s+p^{'}+1 \\ 
-%  \end{array}} \right.$
-% \end{enumerate}
-% 
-% Los $\psi_{i} $ se obtienen por divisiones creciente de $\Theta $ por $\phi 
-% $ (hasta el orden $t+s-p^{\textasciiacute }$\textit{-1}).
-% 
-% \textbf{Demostraci\'{o}n: }Una soluci\'{o}n particular de:
-% \[
-% \phi \left( B \right)X_{t} =\Theta \left( B \right)\,u_{t} 
-% \quad
-% t\ge -s+p^{'}+1
-% \]
-% es:
-% \[
-% \left\{ {\begin{array}{l}
-%  \sum\limits_{i=0}^{t+s-p^{'}-1} {\psi_{i} u_{t-i} } \mathop\nolimits 
-% t\ge -s+p^{'}+1 \\ 
-%  0\mathop\nolimits \mathop\nolimits \mathop\nolimits \mathop 
-% \nolimits \mathop\nolimits t<-s+p^{'}+1 \\ 
-%  \end{array}} \right.
-% \]
-% pues, escribiendo la identidad de la divisi\'{o}n creciente:
-% \[
-% \Theta (B)=\phi (B)\left[ {1+\psi_{1} B+.....+\psi_{t+s-p^{'}-1} 
-% B^{t+s-p^{'}-1}} \right]+B^{t+s-p^{'}}\lambda \left( B \right)
-% \]
-% y aplicando a los dos miembros u$_{\mathrm{t\thinspace \thinspace }}$se 
-% tiene:
-% \[
-% \Theta (B)u_{t} =\phi (B)\sum\limits_{i=0}^{t+s-p^{'}-1} {\psi_{i} 
-% u_{t-i} +0} 
-% \]
-% Puesto que m$_{\mathrm{t}}$ es soluci\'{o}n de $\phi \left( B \right)X_{t} 
-% =0$, compatible con los v.i., se obtiene el resultado anunciado. En 
-% particular:
-% \[
-% X_{t} =m_{t} +\sum\limits_{i=0}^{t+s-p^{'}-1} {\psi_{i} u_{t-i} } ,
-% \quad
-% \forall t\ge -s+p^{'}+1
-% \]
-% \textbf{Observaci\'{o}n B.2:}
-% 
-% \begin{enumerate}
-% \item Puesto, que m$_{\mathrm{t}}$ satisface una ecuaci\'{o}n en diferencias y si $\varphi $ no tiene ra\'{\i}ces m\'{u}ltiples, m$_{\mathrm{t}}$ puede expresarse:
-% \end{enumerate}
-% \[
-% m_{t+s} =\sum\limits_{i=1}^d {a_{i} (t+s)^{i-1}+\sum\limits_{i=1}^p {b_{i} 
-% z_{i}^{-(t+s)} } } 
-% \]
-% $(t+s\ge 1);$ z$_{\mathrm{i}}$ ra\'{\i}z de $\varphi $
-% 
-% Si algunas ra\'{\i}ces de $\varphi (z)$ son m\'{u}ltiples, hay que 
-% introducir ciertos factores polinomiales en la segunda sumatoria; pero, en 
-% todos los casos, este t\'{e}rmino se vuelve despreciable para $\forall 
-% t\ge 0$ y s suficientemente grande.
-% 
-% Si s es bastante grande, se puede suponer que m$_{\mathrm{t}}$ es, para todo 
-% $t\ge 0$, un polinomio de grado d-1
-% 
-% \begin{enumerate}
-% \item $\forall 
-% \quad
-% r\in $N, $\Theta (z)=\phi (z)\left[ {1+\sum\limits_{i=1}^r {\psi_{i} z^{i}} } \right]+z^{r+1}\lambda (z)$
-% \end{enumerate}
-% 
-% entonces: $\forall n\ge \max (q+1,p^{'}) \quad \psi_{n} -\phi_{1} \psi 
-% _{n-1} -......-\phi_{p} \psi_{n-p^{'}} =0$.
-% 
-% Razonando de la misma manera que en la parte (i), se puede aproximar $\psi 
-% _{n} $, para $n$ suficientemente grande, por un polinomio de grado \textit{d-1} en $n$. Por lo 
-% tanto, la serie diverge si \textit{d\textgreater 1.}
-% 
-% \begin{enumerate}
-% \item El teorema anterior no depende del hecho que $u_{t}_{\mathrm{\thinspace }}$sea centrada.
-% \end{enumerate}
-% 
-% Si $u_{t} =\varepsilon_{t} +\lambda $ con $E\varepsilon_{t} =0$, el 
-% proceso ARIMA se presenta: $\phi (B)X_{t} =\theta_{0} +\Theta 
-% (B)\varepsilon_{t} $ con $\theta_{0} =\lambda (1-\theta_{1} 
-% -......-\theta_{q} )$ y entonces:
-% \[
-% X_{t} =m_{t} +\lambda \sum\limits_{i=0}^{t+s-p^{'}-1} {\psi_{i} +} 
-% \sum\limits_{i=0}^{t+s-p^{'}-1} {\psi_{i} \varepsilon_{t-i} } 
-% \]
-% luego de la parte (2), el segundo t\'{e}rmino es un polinomio de grado $d$ en 
-% $t$. Entonces la introducci\'{o}n de una constante, aumenta el grado de $E (X_{t})$ 
-% en una unidad.
-% 
-% \begin{itemize}
-% \item \textbf{Representaci\'{o}n AR de un ARIMA:}
-% \end{itemize}
-% 
-% \textbf{Teorema 2.6: }Se tiene :
-% \[
-% X_{t} =-\sum\limits_{i=1}^{t+s-p^{'}-1} {\pi_{i} X_{t-i} +} 
-% \sum\limits_{j=s-p^{'}}^{s-1} {\pi_{j,t}^{\ast } X_{-j} +u_{t} } 
-% \quad
-% \forall t>-s+p^{'}
-% \]
-% donde:
-% 
-% \begin{enumerate}
-% \item Los $\pi_{i} $ se obtienen por divisi\'{o}n creciente de $\phi $ por $\Theta (\pi_{0} =1)$
-% \item Los $\pi_{s-p^{\textasciiacute '},t}^{\ast } ,.....,\pi_{s-1,t}^{\ast } \to 0$ cuando $s\to \infty $
-% \end{enumerate}
-% 
-% \textbf{Demostraci\'{o}n:}
-% 
-% Se tiene que:
-% 
-% \begin{center}
-% 1$=\Theta \left( B \right)\left[ {1+\sum\limits_{i=1}^{t+s-p^{'}-1} 
-% {\theta_{i}^{\ast } } B^{C}} \right]+B^{t+s-p^{'}} \quad v$(B)
-% \end{center}
-% 
-% y aplicando $u_{t}_{\mathrm{\thinspace }}$a esta expresi\'{o}n se obtiene:
-% \[
-% \left[ {1+\sum\limits_{i=1}^{t+s-p^{'}-1} {\theta_{i}^{\ast } B^{i}} } 
-% \right]\,\Theta (B)u_{t} =u_{t} \mathop\nolimits \mathop\nolimits 
-% t>-s+p^{'}
-% \]
-% $\left[ {1+\sum\limits_{i=1}^{t+s-p^{'}-1} {\theta_{i}^{\ast } B^{i}} } 
-% \right]\phi (B)X_{t} =u_{t} $ (B.3.1)
-% 
-% que tiene la forma de relaci\'{o}n pedida (de la definici\'{o}n del ARIMA).
-% 
-% De otro lado:
-% 
-% $\phi (B)=\Theta (B)\left[ {1+\sum\limits_{i=1}^{t+s-p^{'}-1} {\pi_{i} 
-% B^{i}} } \right]+B^{t+s-p^{'}}\mu (B)$ (B.3.2)
-% 
-% Utilizando (2.4)
-% 
-% $\phi (B)=\Theta (B)\left[ {1+\sum\limits_{i=1}^{t+s-p^{'}-1} {\theta_{i} 
-% B^{i}} } \right]\phi (B)+B^{t+s-p^{'}}v(B)\phi (B)$ (B.3.3)
-% 
-% y de la unicidad de la divisi\'{o}n de $\phi $ por $\Theta ,$ se igualan los 
-% coeficientes de B$^{\mathrm{i\thinspace \thinspace \thinspace }}$( 
-% i$=$1,....,t$+$s-p$^{\mathrm{\text{\textasciiacute }}}$-1) en (B.3.2) y 
-% (B.3.3), entonces los coeficientes en (B.3.1) son los $\pi_{i} $.
-% 
-% Adem\'{a}s:
-% \[
-% \quad
-% \begin{array}{l}
-%  \;\pi_{s-p^{'},t}^{\ast } \;\;=-\phi_{1} \theta_{t+s-p^{'}-1}^{\ast } 
-% -......-\phi_{p'} \theta_{t+s-2p'}^{\ast } \\ 
-%  \pi_{s-p'+1,t}^{\ast } =-\phi_{2} \theta_{t+s-p'-1}^{\ast } 
-% -.....-\phi_{p'} \theta_{{\begin{array}{l}
-%  t+s-2p'+ \\ 
-%  1 \\ 
-%  \end{array}}}^{\ast } \\ 
-%  \pi_{s-1,t}^{\ast } \,\quad \,=-\phi_{p'} \theta_{t+s-p'-1}^{\ast } 
-% \\ 
-%  \end{array}
-% \]
-% Los $\pi_{s-p',t}^{\ast } ,.....,\pi_{s-1,t}^{\ast } \to 0$ cuando $s\to 
-% \infty $, pues los $\theta_{i} $ son coeficientes de la divisi\'{o}n 
-% creciente de 1 por un polinomio con ra\'{\i}ces de $\left| \right|>1$ y 
-% entonces tienden hacia cero cuando $i\to \infty $
-% 
-% \textbf{Observaci\'{o}n B.3:}
-% 
-% \begin{enumerate}
-% \item Puesto que las ra\'{\i}ces de $\Theta $ son de $\left| \right|>1$, se tiene que:
-% \end{enumerate}
-% $\phi (z)=\Theta (z)\left[ {1+\sum\limits_{i=1}^\infty {\pi_{i} z^{i}} } 
-% \right]$ para $\left| z \right|\le 1$
-% 
-% (en realidad para $\left| z \right|<$ min $\left| {z_{j} } 
-% \right|conz_{j} $ ra\'{\i}z de $\Theta )$.
-% 
-% Si d\textgreater 0, $\phi \left( 1 \right)=0$ y entonces:
-% \[
-% 0=\Theta (1)\left[ {1+\sum\limits_{i=1}^\infty {\pi_{i} } } \right]
-% \]
-% y, dado que $\Theta $(1)$\ne 0$, se tiene:
-% \[
-% 1+\sum\limits_{i=1}^\infty {\pi_{i} =0} 
-% \]
+\begin{equation}{
+\label{ecu:05}
+x_{t} -\varphi_{1} x_{t-1} -\varphi_{2} x_{t-2} =0}
+\end{equation}
+cuya ecuaci\'{o}n caracter\'{i}stica es:
+
+\begin{equation}{
+\label{ecu:06}
+\left( {1-\varphi_{1} y-\varphi_{2} y^{2}} \right)=0}
+\end{equation}
+
+Si existe una ra\'{i}z doble en esta ecuaci\'{o}n, $G_{0}^{-1}$, se verifica:
+\[
+\left( {1-G_{0} y} \right)^{2}=\left( {1-\varphi_{1} y-\varphi_{2} y^{2}} \right)
+\]
+que implica $\varphi_{2} =-G_{0}^{2}$; $\varphi_{1} =2G_{0}$ y por tanto:
+\begin{equation}{
+\label{ecu:07}
+\varphi_{1} G_{0} +2\varphi_{2} =0}
+\end{equation}
+
+Adem\'{a}s si $G_{0}^{t} $ es una soluci\'{o}n doble de (\ref{ecu:05}) tambi\'{e}n debe serlo $tG_{0}^{t}$, pues sustituy\'{e}ndola en (\ref{ecu:05}):
+\[
+tG_{0}^{t} -\varphi_{1} (t-1)G_{0}^{t-1} -\varphi_{2} \left(t-2 \right)G_{0}^{t-2} =tG_{0}^{t-2} \left(G_{0}^{2} -\varphi_{1} G_{0} -\varphi_{2} \right)+G_{0}^{t-2} \left(\varphi_{1} G_{0} +2\varphi_{2} \right)=0
+\]
+
+El primer t\'{e}rmino es cero por ser $G_{0}$ soluci\'{o}n y el segundo por ser ra\'{i}z de orden 2, por esto se concluye que la soluci\'{o}n general es:
+\[
+x_{t} =A_{1} G_{o}^{t} +A_{2} tG_{o}^{t} =\left(A_{1} +A_{2} t \right)G_{0}^{t} 
+\]
+
+An\'{a}logamente se puede demostrar que si la ra\'{\i}z $G_{0} $ es m\'{u}ltiple, de orden $h$, la soluci\'{o}n general es:
+\begin{equation}{
+\label{ecu:08}
+x_{t} =\left(A_{1} +A_{2} t+\mathellipsis +A_{h} t^{h-1} \right)G_{0}^{t} }
+\end{equation}
+
+Para estudiar el comportamiento de las ra\'{i}ces complejas de la ecuaci\'{o}n caracter\'{i}stica, consid\'{e}rese el caso simple determinado por las ecuaciones (\ref{ecu:05}) y (\ref{ecu:06}).\newline
+
+Sup\'{o}ngase que $G_{1}^{-1} $ y $G_{2}^{-1} $ son soluciones distintas de la ecuaci\'{o}n caracter\'{i}stica
+\[
+\left(1-\varphi_{1} y-\varphi_{2} y^{2} \right)=\left(1-G_{1} y \right)\left(1-G_{2} y \right)=0
+\]
+
+Por tanto, $\varphi_{1} =G_{1} +G_{2}$; $\varphi_{2} =-G_{1} G_{2}$. Se calculan $A_{1}$ y $A_{2}$, imponiendo las condiciones iniciales $\rho_{0} =1$; $\rho_{1} =\varphi_{1} \left( {1-\varphi_{2} } \right)=\left( {G_{1} +G_{2} } \right)/\left( {1+G_{1} G_{2} } \right)$. Se obtiene:
+
+\[
+A_{1} =\frac{G_{1} \left( {1-G_{2}^{2} } \right)}{\left( {1+G_{1} G_{2} } \right)\left( {G_{1} -G_{2} } \right)};\quad A_{2} =\frac{-G_{2} \left( {1-G_{1}^{2} } \right)}{\left( {1+G_{1} G_{2} } \right)\left( {G_{1} -G_{2} } \right)}
+\]
+
+Sup\'{o}ngase adem\'{a}s que $G_{1}$ y $G_{2}$ son complejas; entonces deben ser conjugadas y pueden escribirse $G_{1} =r\exp \left(i\varpi \right)$; $G_{2} =r \exp \left(-i\varpi \right)$, donde el m\'{o}dulo se calcula por:
+
+\begin{equation}{
+\label{ecu:09}
+\begin{split}
+r^{2} &= G_{1} G_{2} =-\varphi_{2}\\
+r&=\sqrt{-\varphi_{2}}
+\end{split}
+}
+\end{equation}
+
+y la frecuencia angular con:
+\[
+\varphi_{1} =G_{1} +G_{2} =r\left( {\exp \left( {i\varpi } \right)+\exp \left( {-i\varpi } \right)} \right)=2r\;Cos\;\varpi 
+\]
+
+Utilizando el hecho que $\varpi =2\pi /T_{0}$, donde $T_{0}$ es el per\'{i}odo, y (\ref{ecu:09}), se obtiene:
+\begin{equation}{
+\label{ecu:10}
+Cos \varpi = Cos\frac{2\pi}{T_{0}}=\frac{\varphi_{1}}{2\sqrt{-\varphi_{2}}} }
+\end{equation}
+
+Sustituyendo $A_{1}$, $A_{2}$, $G_{1}$ y $G_{2}$ en la ecuaci\'{o}n (\ref{ecu:02}) y operando, se obtiene:
+\[
+x_{t} =\frac{\left[sg(\varphi_{1}) \right]r \sen\left(2\pi t/T_{0} +\alpha \right)}{tg\alpha }
+\]
+
+Donde $tg \alpha =\left(1+r^{2} \right)\;tg\left(2\pi /T_{0} \right)/\left( {1-r^{2}} \right)$ y $sg\left(\varphi_{1} 
+\right)$ es el signo del coeficiente $\varphi_{1}$. Por tanto $X_{t}$ ser\'{a} una senoide amortiguada con factor de amortiguaci\'{o}n $r$ y per\'{i}odo $T_{0}$.\newline
+
+Por tanto, la soluci\'{o}n general de (\ref{ecu:01}) tendr\'{a}: 
+
+\begin{itemize}
+\item Por cada ra\'{i}z real no repetida un t\'{e}rmino del tipo $A_{i} G_{i}^{t}$; 
+\item Por cada ra\'{i}z real $G_{0}$ repetida $h$ veces un t\'{e}rmino polin\'{o}mico de orden $\left(h-1\right)$ en la variable $t$ que multiplica a $G_{0}^{t} $ (ecuaci\'{o}n \ref{ecu:08});
+\item Por cada par de ra\'{i}ces complejas conjugadas un t\'{e}rmino sinusoidal.
+\end{itemize}
+
+
+\section{ANEXO B.3: DEMOSTRACIONES DE ALGUNOS TEOREMAS}\newline
+%\label{subsec:mylabel5}
+
+\textbf{Teorema 2.2:} Una condici\'{o}n necesaria y suficiente para que exista un proceso AR(p) que satisfaga $\pi^{'}\left( B \right)X_{t} =u_{t}$ es que las soluciones de la ecuaci\'{o}n $\pi^{'}\left( z \right)=0$ se encuentren fuera del c\'{i}rculo unidad. Bajo esta condici\'{o}n.
+\[
+X_{t} =\sum\limits_{j=0}^\infty {\psi_{j} u_{t-j} },\quad t\in Z
+\]
+
+donde los $\psi_{j}$, son los coeficientes de Taylor de $\frac{1}{\pi^{'}\left( z \right)}$.\newline
+
+\textbf{Demostraci\'{o}n:}
+
+\begin{itemize}
+      \item \textbf{Condici\'{o}n Necesaria} 
+\end{itemize}
+
+Sean
+\[
+y_{t} =\left(\begin{array}{c}
+ X_{t} \\ 
+ X_{t-1} \\ 
+ \vdots \\ 
+ X_{t-p+1} \\ 
+ \end{array}\right)
+\quad
+\delta_{t} =\left(\begin{array}{c}
+ u_{t} \\ 
+ 0 \\ 
+ \vdots \\ 
+ 0 \\ 
+ \end{array}\right)
+\quad
+P=\left[\begin{array}{c}
+ \pi_{1} \ldots \pi_{p} \\ 
+ I_{p-1}\quad 0\\
+ \vdots\\
+ 0\\
+\end{array} \right]
+\]
+
+Entonces $y_{t} =Py_{t-1} +\delta_{t}$.\newline
+
+Sean: $\Gamma=$ matriz de covarianza de $y_{t}$ y $\Delta =$ matriz de covarianza de $\delta_{t}$
+\[
+\Delta =
+\left[ {{\begin{array}{*{20}c}
+ {\sigma^{2}} \hfill & 0 \hfill & 0 \hfill \\
+ 0  \hfill & 0  \hfill & \hfill \\
+ \vdots & & \\
+ 0 \hfill & \hfill & \hfill \\
+\end{array} }} \right]
+\]
+
+Puesto que $\delta_{t} \bot y_{t-1}$, $\Gamma=P\Gamma P^{'}+\Delta$ (pues $\left( {X_{t} } \right)$ d.e.)
+
+Sea $\phi \left( \lambda \right)$ el polinomio caracter\'{i}stico de P:
+\[
+\quad
+\phi \left( \lambda \right)=\left[ {{\begin{array}{*{20}c}
+ {\pi_{1} -\lambda } \hfill & {\pi_{2} } \hfill & {\pi_{3} } \hfill & 
+\mathellipsis \hfill & \hfill & {\pi_{p} } \hfill \\
+ 1 \hfill & {-\lambda } \hfill & 0 \hfill & \hfill & \hfill & \hfill \\
+ \hfill & 1 \hfill & {-\lambda } \hfill & \hfill & 0 \hfill & \hfill \\
+ {\limits^{0} } \hfill & \hfill & \hfill & \hfill & 1 \hfill & {-\lambda } 
+\hfill \\
+\end{array} }} \right]
+\]
+
+\[
+=\left( {-1} \right)^{p-1}[-1+\sum\limits_{j=1}^P {\pi_{j} \left. {\lambda^{-j}} \right]} \lambda^{P}\quad \text{(desarrollando por la primera l\'{i}nea)}.
+\]
+
+
+Las ra\'{i}ces $\left( {\ne 0} \right)$ de $\phi \left( \lambda \right)$son las ra\'{i}ces de $\left[ {-1+\sum\limits_{j=1}^P {\pi_{j} \lambda^{-j}} } \right]\lambda^{P}$; es decir, aquellas de $\pi^{'}\left( {\frac{1}{\lambda }} \right)=0$. Entonces los valores propios (v.p.) de \textbf{\textit{P}} son las inversas de las ra\'{i}ces de $\pi^{'}$. Se va a demostrar que estos son de $\left\| \right\|<1$.\newline
+
+Sea $X$ un vector propio de $P^{'}$ y $\lambda $ el v.p. asociado (Recordamos que: $X^{\ast }=\overline X^{'}yX^{\ast }P=\overline \lambda X^{\ast })$; entonces
+
+\begin{align*}
+0\le X^{\ast }\Delta X &= X^{\ast }\Gamma X-X^{\ast }P\Gamma P^{'}X\\
+                       &\leq \left( 1-\left| \lambda \right|^{2} \right)\underbrace {X\ast \Gamma X}_{\ge 0}\\
+                       & \left| \lambda \right|^{2}\le 1
+\end{align*}
+
+Sup\'{o}ngase que existe $\lambda$ valor propio de $P^{'}$ t.q. $|\lambda |=1\Rightarrow X^{\ast}\Delta X=0$.\newline
+
+Sea $X=\left( {\begin{array}{l}
+ x_{1} \\ 
+ x_{2} \\ 
+ \vdots \\ 
+ x_{p} \\ 
+ \end{array}} \right)\Rightarrow X^{\ast }\Delta X=\sigma^{2}\left| x_{1} \right|^{2}\Rightarrow x_{1} =0$.\newline
+
+Por tanto:
+\[
+P^{'}X=\left[ {{\begin{array}{*{20}c}
+ {\pi_{1} } \hfill & 1 \hfill & 0 \hfill & \cdots \hfill & 0 \hfill \\
+ {\pi_{2} } \hfill & 0 \hfill & 1 \hfill & \cdots \hfill & 0 \hfill \\
+ \mathellipsis \hfill & \cdots \hfill & \cdots \hfill & \cdots \hfill & 
+\cdots \hfill \\
+ \cdots \hfill & \cdots \hfill & \cdots \hfill & \cdots \hfill & \cdots 
+\hfill \\
+\end{array} }} \right]\left[ {{\begin{array}{*{20}c}
+ {\begin{array}{l}
+ 0 \\ 
+ x_{2} \\ 
+ x_{3} \\ 
+ \vdots \\ 
+ \end{array}} \hfill \\
+\end{array} }} \right]=\lambda \left[ {\begin{array}{l}
+ 0 \\ 
+ x_{2} \\ 
+ \vdots \\ 
+ \end{array}} \right]\Rightarrow x_{2} =0
+\]
+continuando con la segunda l\'{i}nea se obtiene $x_{3}=0$ etc. $\Rightarrow X=0$ (una contradicci\'{o}n, pues un vector propio no puede ser nulo).
+\[
+\left| \lambda \right|<1
+\]
+
+\begin{itemize}
+      \item \textbf{Condici\'{o}n Suficiente}
+\end{itemize}
+
+Sea $\left( {u_{t} } \right)$ el r.b. y sea $\pi^{'}$ dado. Se busca construir el proceso AR(p).
+\[
+\frac{1}{\pi^{'}(z)} \quad\text{es holomorfa en}\quad |z|<1+\alpha \quad\text{($\alpha>0$, bien elegido)}
+\]
+
+Consid\'{e}rese el desarrollo de Taylor de $\frac{1}{\pi^{'}(z)}$:
+\[
+\frac{1}{\pi^{'}(z)}=\sum_{j=0}^{\infty} \psi_{j}z^{j},\quad \left| z \right|<1+\alpha 
+\]
+
+(la serie converge en todo c\'{i}rculo cerrado contenido en $B(0,1+\alpha)$).\newline
+
+Para $|z|=1$, $\sum_{j=0}^{\infty} \left| \psi_{j} \right|<\infty$. Se pone: $X_{t} =\sum_{j=0}^{\infty} \psi_{j} u_{t-j}$ y luego se considera $X_{t} -\sum_{j=1}^P \pi_{j} X_{t-j} =u_{t}$.\newline
+
+Se hacen los reemplazos correspondientes y se verifica que este proceso satisface la definici\'{o}n (c\'{a}lculos un poco largos).\newline
+
+\textbf{Teorema 2.5:} Se tiene que $X_{t}=m_{t}+Y_{t}, \forall t\geq -s+1$, donde: 
+
+\begin{enumerate}
+      \item[a)] $m_{t}$ es la soluci\'{o}n de $\phi (B)X_{t} =0$ con $X_{-s+1},\ldots, X_{-s+p^{'}}$ como valores iniciales (v.i.)
+      \item[b)] $Y_{t} =\left\{ {\begin{array}{ll}
+ \displaystyle\sum_{i=0}^{t+s-p^{'}-1} \psi_{i} u_{t-i} & t\geq -s+p^{'}+1 \\ 
+ 0 & -s+1<t<-s+p^{'}+1 \\ 
+ \end{array}} \right.$
+\end{enumerate}
+
+Los $\psi_{i}$ se obtienen por divisiones creciente de $\Theta$ por $\phi$ (hasta el orden $t+s-p^{'}-1$).\newline
+
+\textbf{Demostraci\'{o}n: }Una soluci\'{o}n particular de:
+\[
+\varphi \left( B \right)X_{t} =\Theta \left( B \right)\,u_{t} \quad t\geq -s+p^{'}+1
+\]
+es:
+\[
+\left\{ {\begin{array}{ll}
+ \displaystyle\sum_{i=0}^{t+s-p^{'}-1} {\psi_{i} u_{t-i} } & t\geq -s+p^{'}+1 \\ 
+ 0 & t<-s+p^{'}+1 \\ 
+ \end{array}} \right.
+\]
+pues, escribiendo la identidad de la divisi\'{o}n creciente:
+\[
+\Theta (B)=\phi (B)\left[ {1+\psi_{1} B+.....+\psi_{t+s-p^{'}-1} B^{t+s-p^{'}-1}} \right]+B^{t+s-p^{'}}\lambda \left( B \right)
+\]
+y aplicando a los dos miembros $u_{t}$ se tiene:
+\[
+\Theta (B)u_{t} =\phi (B)\sum_{i=0}^{t+s-p^{'}-1} {\psi_{i} u_{t-i} +0} 
+\]
+
+Puesto que $m_{t}$ es soluci\'{o}n de $\phi (B)X_{t}=0$, compatible con los v.i., se obtiene el resultado anunciado. En particular:
+
+\[
+X_{t} =m_{t} +\sum_{i=0}^{t+s-p^{'}-1} {\psi_{i} u_{t-i} },\quad \forall t\geq -s+p^{'}+1
+\]
+
+\textbf{Observaci\'{o}n B.2:}
+
+\begin{enumerate}
+      \item[i.] Puesto, que $m_{t}$ satisface una ecuaci\'{o}n en diferencias y si $\varphi$ no tiene ra\'{i}ces m\'{u}ltiples, $m_{t}$ puede expresarse:
+      \[
+      m_{t+s} =\sum_{i=1}^d a_{i} (t+s)^{i-1}+\sum_{i=1}^p b_{i} z_{i}^{-(t+s)} 
+      \]
+      \[
+      (t+s\geq 1); \quad z_{i} \quad \text{ra\'{i}z de}\quad  \varphi
+      \]
+      Si algunas ra\'{i}ces de $\varphi (z)$ son m\'{u}ltiples, hay que introducir ciertos factores polinomiales en la segunda sumatoria; pero, en todos los casos, este t\'{e}rmino se vuelve despreciable para $\forall t\geq 0$ y s suficientemente grande.\newline
+      Si s es bastante grande, se puede suponer que $m_{t}$ es, para todo $t\geq 0$, un polinomio de grado d-1
+      \item[ii.] $\forall r\in N$, $\Theta (z)=\varphi (z)\left[1+\displaystyle\sum_{i=1}^r \psi_{i} z^{i} \right]+z^{r+1}\lambda (z)$.\newline
+      
+      entonces: $\forall n\geq \max (q+1, p^{'})$, $\psi_{n} -\phi_{1} \psi_{n-1} -\ldots-\phi_{p} \psi_{n-p^{'}} =0$.\newline
+      Razonando de la misma manera que en la parte (i), se puede aproximar $\psi_{n}$, para $n$ suficientemente grande, por un polinomio de grado \textit{d-1} en $n$. Por lo tanto, la serie diverge si $d>1$.
+\end{enumerate}
+
+El teorema anterior no depende del hecho que $u_{t}$ sea centrado.\newline
+
+
+Si $u_{t} =\varepsilon_{t} +\lambda$ con $E\varepsilon_{t} =0$, el proceso ARIMA se presenta así: $\phi (B)X_{t} =\theta_{0} +\Theta (B)\varepsilon_{t}$ con $\theta_{0} =\lambda (1-\theta_{1} -\ldots-\theta_{q} )$ y entonces:
+
+\[
+X_{t} =m_{t} +\lambda \sum_{i=0}^{t+s-p^{'}-1} \psi_{i} + \sum_{i=0}^{t+s-p^{'}-1}\psi_{i} \varepsilon_{t-i}
+\]
+
+luego de la parte (ii), el segundo t\'{e}rmino es un polinomio de grado $d$ en $t$. Entonces la introducci\'{o}n de una constante, aumenta el grado de $E (X_{t})$ en una unidad.
+
+\begin{itemize}
+      \item \textbf{Representaci\'{o}n AR de un ARIMA:}
+\end{itemize}
+
+\textbf{Teorema 2.6: }Se tiene :
+\[
+X_{t} =-\sum_{i=1}^{t+s-p^{'}-1} \pi_{i} X_{t-i} + \sum_{j=s-p^{'}}^{s-1} \pi_{j,t}^{\ast } X_{-j} +u_{t} \quad \forall t>-s+p^{'}
+\]
+donde:
+
+\begin{enumerate}
+\item[a)] Los $\pi_{i}$ se obtienen por divisi\'{o}n creciente de $\phi$ por $\Theta (\pi_{0} =1)$.
+\item[b)] Los $\pi_{s-p^{'},t}^{\ast },\ldots, \pi_{s-1,t}^{\ast } \to 0$ cuando $s\to \infty$.
+\end{enumerate}
+
+\textbf{Demostraci\'{o}n:}\newline
+
+Se tiene que:
+
+\begin{equation}{
+\label{ecua:01}
+1=\Theta (B)\left[1+\sum_{i=1}^{t+s-p^{'}-1} \theta_{i}^{\ast} B^{i} \right]+B^{t+s-p^{'}} v(B) }
+\end{equation}
+
+y aplicando $u_{t}$ a esta expresi\'{o}n se obtiene:
+\begin{equation}{
+\label{ecua:02}
+\left[1+\sum_{i=1}^{t+s-p^{'}-1} \theta_{i}^{\ast} B^{i} \right] \Theta (B)u_{t} =u_{t} }
+\end{equation}
+o
+
+\begin{equation}{
+\label{ecua:03}
+\left[1+\sum_{i=1}^{t+s-p^{'}-1} \theta_{i}^{\ast} B^{i} \right]\phi (B)X_{t} =u_{t} }
+\end{equation}
+
+que tiene la forma de la relaci\'{o}n enunciada (de la definici\'{o}n del ARIMA).\newline
+
+De otro lado:
+\begin{equation}{
+\label{ecua:04}
+\phi(B)=\Theta (B)\left[1+\sum_{i=1}^{t+s-p^{'}-1}\pi_{i}B^{i} \right]+B^{t+s-p^{'}}\mu (B) }
+\end{equation}
+
+Utilizando (\ref{ecua:01}) se obtiene:
+\begin{equation}{
+\label{ecua:05}
+\phi(B)=\Theta (B)\left[1+\sum_{i=1}^{t+s-p^{'}-1}\theta_{i}B^{i} \right]\phi (B)+B^{t+s-p^{'}}v(B)\phi(B) }
+\end{equation}
+
+y utilizando la unicidad de la divisi\'{o}n de $\phi$ por $\Theta$, se igualan los coeficientes de $B^{i}$ ($i=1,\ldots,t+s-p^{'}-1$) en (\ref{ecua:03}) y (\ref{ecua:04}), entonces los coeficientes en (\ref{ecua:01}) son los $\pi_{i}$.\newline
+
+Adem\'{a}s:
+\begin{align*}
+\pi_{s-p^{'},t}^{\ast} &= -\phi_{1}\theta_{t+s-p^{'}-1}^{\ast} -\ldots -\phi_{p'} \theta_{t+s-2p^{'}}^{\ast}\\
+\pi_{s-p^{'}+1,t}^{\ast} &= -\phi_{2}\theta_{t+s-p^{'}-1}^{\ast } -\ldots -\phi_{p'} \theta_{t+s-2p^{'}+1}^{\ast}\\
+\pi_{s-1,t}^{\ast } &= -\phi_{p'}\theta_{t+s-p^{'}-1}^{\ast } 
+\end{align*}
+
+Los $\pi_{s-p^{'},t}^{\ast },\ldots,\pi_{s-1,t}^{\ast} \to 0$ cuando $s\to \infty$, pues los $\theta_{i}$ son coeficientes de la divisi\'{o}n creciente de 1 por un polinomio con ra\'{i}ces de $\left| \right|>1$ y entonces tienden hacia cero cuando $i\to \infty$.\newline
+
+\textbf{Observaci\'{o}n B.3:}\newline
+
+\begin{enumerate}
+\item[i.] Puesto que las ra\'{i}ces de $\Theta$ son de $\left| \right|>1$, se tiene que:
+\end{enumerate}
+\[
+\phi(z)=\Theta(z)\left[1+\sum_{i=1}^\infty \pi_{i} z^{i} \right]\quad \text{para}\quad |z|\leq 1
+\]
+
+(en realidad para $\left| z \right|<$ min $\left|z_{j}\right|$ con $z_{j}$ ra\'{i}z de $\Theta )$.
+
+Si d\textgreater 0, $\phi \left( 1 \right)=0$ y entonces:
+\[
+0=\Theta (1)\left[ {1+\sum_{i=1}^\infty {\pi_{i} } } \right]
+\]
+y, dado que $\Theta $(1)$\ne 0$, se tiene:
+\[
+1+\sum_{i=1}^\infty {\pi_{i} =0} 
+\]
+
+
 % \begin{enumerate}
 % \item Si se pone: 
 % \end{enumerate}
