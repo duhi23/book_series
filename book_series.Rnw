@@ -60,6 +60,10 @@
     {\bfseries}{.}%
     { }%
     {}
+    
+\renewcommand{\appendixname}{ANEXO}
+\renewcommand{\appendixtocname}{ANEXO}
+\renewcommand{\appendixpagename}{ANEXO}
 
 \theoremstyle{estiloejemplo}
     \newtheorem{ejemplo}{Ejemplo}[chapter]
