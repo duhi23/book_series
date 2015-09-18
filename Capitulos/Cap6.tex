@@ -1,0 +1,206 @@
+\chapter{La Cointegraci\'{o}n}
+%\label{sec:mylabel1}
+
+El an\'{a}lisis de cointegraci\'{o}n\index{Cointegraci\'{o}n!Definici\'{o}n} fue tratado por Granger (1983) y por Engle y Granger (1987); este concepto se considera uno de los m\'{a}s importantes dentro del an\'{a}lisis de series temporales.\newline
+
+La cointegraci\'{o}n aparece cuando dos o m\'{a}s series presentan una relaci\'{o}n de movimiento conjunto (tendencia) a largo plazo y las diferencias entre ellas son estables. 
+
+\section{Propiedades del orden de Integraci\'{o}n de una serie}
+%\label{subsec:mylabel1}
+Sean dos series afectadas de una tendencia (ver los gr\'{a}ficos 6.1 y 6.2); intuitivamente se puede decir lo siguiente:
+\begin{itemize}
+      \item En el primer caso, las dos series tienen una tendencia de evoluci\'{o}n similar en un primer lapso y despu\'{e}s una tendencia de evoluci\'{o}n divergente en un segundo per\'{i}odo; entonces las series no est\'{a}n cointegradas.
+      \item En el segundo caso, las dos series tienen una evoluci\'{o}n similar en todo el per\'{i}odo de an\'{a}lisis; las series est\'{a}n cointegradas, si existe una evoluci\'{o}n a largo plazo similar entre las series.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.35in,height=3.09in]{Graficos/Cap6-7/STcap61.eps}
+\caption{Las variables $X_{1t}$ y $X_{2t}$ no est\'{a}n cointegradas}
+%\label{fig1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.29in,height=3.01in]{Graficos/Cap6-7/STcap62.eps}
+\caption{Las variables $X_{1t}$ y $X_{2t}$ est\'{a}n cointegradas}
+%\label{fig2}
+\end{figure}
+
+Recu\'{e}rdese que una serie es integrada de orden \textbf{d}, si hay que diferenciarla \textbf{d} veces para volverla estacionaria.\newline
+
+Sea una serie $X_{1t}$ estacionaria y una serie $X_{2t}$ integrada de orden 1; entonces se obtiene:
+\[
+{\begin{array}{*{20}c}
+X_{1t}\to I(0)\\
+X_{2t}\to I(1)\\
+\end{array} }\Rightarrow X_{1t}+X_{2t}\to I(1)
+\]
+La serie $X_{t}=X_{1t}+X_{2t}$ no es estacionaria ya que es la suma de una serie afectada de una tendencia y una serie estacionaria.\newline
+
+En general:
+\[
+{\begin{array}{*{20}c}
+X_{1t}\to I(d)\\
+X_{2t}\to I(d')\\
+\end{array} }\thinspace ,\thinspace d\ne d'\Rightarrow X_{1t}+X_{2t}\to 
+I(?)
+\]
+Es imposible llegar a una conclusi\'{o}n con respecto a la suma de dos series de orden de integraci\'{o}n diferente.\newline
+
+Incluso si dos series $X_{1t}$ y $X_{2t}$ son integradas de orden $d$, en general se obtiene:
+\[
+{\begin{array}{*{20}c}
+X_{1t}\to I(d)\\
+X_{2t}\to I(d)\\
+\end{array} }\Rightarrow X_{1t}+X_{2t}\to I(?)
+\]
+
+Tambi\'{e}n, para la combinaci\'{o}n lineal $\alpha X_{1t}+\beta X_{2t}\to I(?)$.
+
+En efecto, el resultado depende de los signos de los coeficientes $\alpha$, $\beta$ y de la existencia de una din\'{a}mica no estacionaria com\'{u}n.
+
+\section{Condiciones de cointegraci\'{o}n}
+%\label{subsec:mylabel2}
+Dos series $X_{1t}$ y $X_{2t}$ son cointegradas\index{Cointegraci\'{o}n!Condiciones} si se satisfacen las siguientes condiciones:
+\begin{itemize}
+      \item Ambas est\'{a}n afectadas por una tendencia del mismo orden de integraci\'{o}n \textbf{d}.
+      \item Una combinaci\'{o}n lineal de estas series permite reducir a una serie de orden de integraci\'{o}n inferior.
+\end{itemize}
+
+Es decir, si:
+\[
+{\begin{array}{*{20}c}
+X_{1t}\to I(d)\\
+X_{2t}\to I(d)\\
+\end{array} }
+\]
+
+Tal que, $\alpha X_{1t}+\beta X_{2t}\to I(d-b)$, donde $d\geq b>0$.\newline
+
+Se denota: $X_{1t}$, $X_{2t}\to CI(d,b)$, con $[\alpha \quad \beta ]'$ como el vector de cointegraci\'{o}n.\newline
+
+En el caso general (\textbf{k} variables), se tiene:
+\[
+X_{1t} \to I(d)
+\]
+\[
+X_{2t} \to I(d)
+\]
+\[
+\ldots
+\]
+\[
+X_{kt} \to I(d)
+\]
+
+den\'{o}tese por $X_{t}^{'}=\left[ X_{1t}\quad X_{2t}\ldots X_{kt}\right]$.\newline
+
+Si existe un vector de cointegraci\'{o}n $\beta^{'}=\left[ \beta_{1}\quad \beta_{2}\ldots\beta_{k} \right]$, tal que $\beta^{'}X_{t}\to I(d-b)$, entonces las $k$ variables est\'{a}n cointegradas y el vector de cointegraci\'{o}n es $\beta$. Se denota $X_{t}\to CI(d-b)$ con b>0.
+
+\begin{observacion}
+\quad
+\begin{enumerate}
+      \item[1.] No se diferencian las series individualmente ya que, en general, esto producir\'{i}a que se sobrediferencie el sistema. Es decir, cuando se encuentra un vector de cointegraci\'{o}n ocurre que se elimina la tendencia com\'{u}n que existe entre las series (lo que corresponder\'{i}a a una diferenciaci\'{o}n); si se diferencian individualmente se estar\'{i}a realizando diferenciaciones adicionales a las que se logra con el vector de cointegraci\'{o}n.
+      \item[2.] En la pr\'{a}ctica, el caso m\'{a}s considerado es cuando $d=b=1$, que es lo que se asume en este documento.
+\end{enumerate}
+\end{observacion}
+
+\begin{ejemplo}
+Se consideran tres series econ\'{o}micas de un pa\'{i}s sudamericano: Producto Interno Bruto, Consumo Interno y la Demanda Final Interna denotadas por $X_{1t}$, $X_{2t}$, $X_{3t}$, respectivamente. Los datos son trimestrales en un per\'{i}odo que va desde noviembre 2010 hasta junio de 2015 (56 observaciones), los que se utilizar\'{a}n para analizar una posible cointegraci\'{o}n entre las variables; para efectos de ejemplo, se trabajar\'{a} \'{u}nicamente con 50 datos y se dejar\'{a}n 6 (enero a junio de 2015) para poder realizar las comparaciones con las predicciones (ver anexo D.1). Se pide analizar una eventual cointegraci\'{o}n entre las variables.
+\end{ejemplo}
+
+\textbf{Resoluci\'{o}n.}\newline
+
+Para iniciar, se presentan los gr\'{a}ficos de las series temporales a analizarse:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=3.99in,height=2.81in]{Graficos/Cap6-7/STcap63.eps}
+\caption{Series consideradas en el ejemplo}
+%\label{fig3}
+\end{figure}
+
+Ahora, para determinar si las series son estacionarias es necesario verificar si existe una ra\'{i}z unitaria en las series. Se realiza la prueba DFA a nivel, para las tres series:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{120pt}p{60pt}p{50pt}l} \hline \hline
+& & t-Statistic & Prob.* \\ \hline \hline
+\multicolumn{2}{p{180pt}}{Augmented Dickey-Fuller test statistic} & -1.317447 & 0.8718 \\ \hline
+Test critical values: & 1{\%} level & -4.156734 & \\ 
+ & 5{\%} level & -3.504330 & \\ 
+ & 10{\%} level & -3.181826 & \\ \hline \hline
+\end{tabular}
+\caption{Prueba de ra\'{i}ces unitarias para las $X_{1t}$}
+%\label{tab47}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{120pt}p{60pt}p{50pt}l} \hline \hline
+& & t-Statistic & Prob.* \\ \hline \hline
+\multicolumn{2}{p{180pt}}{Augmented Dickey-Fuller test statistic} & -0.813922 & 0.9572 \\ \hline
+Test critical values: & 1{\%} level & -4.156734 & \\ 
+ & 5{\%} level & -3.504330 & \\ 
+ & 10{\%} level & -3.181826 & \\ \hline \hline
+\end{tabular}
+\caption{Prueba de ra\'{i}ces unitarias para las $X_{2t}$}
+%\label{tab48}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{120pt}p{60pt}p{50pt}l} \hline \hline
+& & t-Statistic & Prob.* \\ \hline \hline
+\multicolumn{2}{p{180pt}}{Augmented Dickey-Fuller test statistic} & -1.054405 & 0.9263 \\ \hline
+Test critical values: & 1{\%} level & -4.156734 & \\ 
+ & 5{\%} level & -3.504330 & \\ 
+ & 10{\%} level & -3.181826 & \\ \hline \hline
+\end{tabular}
+\caption{Prueba de ra\'{i}ces unitarias para las $X_{3t}$}
+%\label{tab49}
+\end{table}
+
+Se concluye que las tres series tienen ra\'{i}z unitaria. A continuaci\'{o}n, se presentan las pruebas de ra\'{i}ces unitarias de las series en primeras diferencias:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{120pt}p{60pt}p{50pt}l} \hline \hline
+& & t-Statistic & Prob.* \\ \hline \hline
+\multicolumn{2}{p{180pt}}{Augmented Dickey-Fuller test statistic} & -6.222194 & 0.0000 \\ \hline
+Test critical values: & 1{\%} level & -4.161144 & \\ 
+ & 5{\%} level & -3.506374 & \\ 
+ & 10{\%} level & -3.183002 & \\ \hline \hline
+\end{tabular}
+\caption{Prueba de ra\'{i}ces unitarias para $X_{1t}$ en primera diferencia}
+%\label{tab50}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{120pt}p{60pt}p{50pt}l} \hline \hline
+& & t-Statistic & Prob.* \\ \hline \hline
+\multicolumn{2}{p{180pt}}{Augmented Dickey-Fuller test statistic} & -5.620775 & 0.0001 \\ \hline
+Test critical values: & 1{\%} level & -4.161144 & \\ 
+ & 5{\%} level & -3.506374 & \\ 
+ & 10{\%} level & -3.183002 & \\ \hline \hline
+\end{tabular}
+\caption{Prueba de ra\'{i}ces unitarias para $X_{2t}$ en primera diferencia}
+%\label{tab51}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{120pt}p{60pt}p{50pt}l} \hline \hline
+& & t-Statistic & Prob.* \\ \hline \hline
+\multicolumn{2}{p{180pt}}{Augmented Dickey-Fuller test statistic} & -7.038579 & 0.0000 \\ \hline
+Test critical values: & 1{\%} level & -4.161144 & \\ 
+ & 5{\%} level & -3.506374 & \\ 
+ & 10{\%} level & -3.183002 & \\ \hline \hline
+\end{tabular}
+\caption{Prueba de ra\'{i}ces unitarias para $X_{3t}$ en primera diferencia}
+%\label{tab52}
+\end{table}
+
+De las pruebas se concluye que se necesita realizar solamente una diferenciaci\'{o}n no estacional para volverlas estacionarias; por lo tanto, las series son integradas de orden 1, $I(1)$.
